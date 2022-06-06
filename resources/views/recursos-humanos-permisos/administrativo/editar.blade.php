@@ -1,0 +1,1 @@
+hola soy editar de permiso administrativo
