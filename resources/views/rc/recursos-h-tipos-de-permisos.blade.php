@@ -3,7 +3,7 @@
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Recursos Humanos</h5>
+            <h5 class="page__heading">Recursos Humanos prueba github</h5>
         </div>
         <div class="section-body">
           <h4><center> (seleccion de tipo de permiso)</center></h4>
