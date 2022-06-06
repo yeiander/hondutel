@@ -12,31 +12,31 @@
                         <div class="card-body">
                               {{-- inicio --}}
 
-                             @can('crear-rol')
+                             
                              <a class="btn btn-primary" href="{{ route('roles.create') }}">Nuevo</a>
-                             @endcan
+                             
                                  {{-- tabla de roles --}}
                                    <table class="table table-striped mt-2">
                                        <thead style="background-color:#6777ef;">
                                            <th style="color: #fff;">Rol</th>
-                                           @can('editar-rol')
+                                          
                                            <th style="color: #fff;">Acciones</th>
-                                           @endcan
+                                          
                                        </thead>
                                        <tbody>
                                            @foreach($roles as $role)
                                            <tr>
                                                <td>{{ $role->name }}</td>
                                                <td>
-                                                   @can('editar-rol')
+                                                   
                                                      <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Editar</a>
-                                                   @endcan  
+                                                    
 
-                                                   @can('borrar-rol')
+                                                   
                                                      {!! Form::open(['method' => 'DELETE', 'route' =>['roles.destroy', $role->id], 'style'=>'display:inline']) !!}
                                                        {!! Form::submit('Borrar',['class' => 'btn btn-danger']) !!} 
                                                      {!! Form::close() !!}
-                                                   @endcan      
+                                                        
                                                </td>
                                            </tr>
                                            @endforeach

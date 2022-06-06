@@ -23,8 +23,7 @@ class RecursoshumanosController extends Controller
 
     public function permisos()
     {
-        $empleados = Empleado::all(); 
-        return view('/rc/recursos-h-tipos-de-permisos', compact('empleados'));
+        return view('/rc/recursos-h-tipos-de-permisos');
     }
 
     public function consultas()

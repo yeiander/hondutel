@@ -17,7 +17,7 @@ class PaseSalidaPendienteController extends Controller
         $this->middleware('permission:crear-permiso',['only'=>['create','store']]);
         $this->middleware('permission:editar-permiso',['only'=>['edit','update']]);
         $this->middleware('permission:borrar-permiso',['only'=>['destroy']]);
-    
+
     }
     /**
      * Display a listing of the resource.

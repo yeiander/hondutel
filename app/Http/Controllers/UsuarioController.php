@@ -17,10 +17,10 @@ class UsuarioController extends Controller
 {
     function __construct()
     {    
-        $this->middleware('permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario',['only'=>['index']]);
-        $this->middleware('permission:crear-usuario',['only'=>['create','store']]);
-        $this->middleware('permission:editar-usuario',['only'=>['edit','update']]);
-        $this->middleware('permission:borrar-usuario',['only'=>['destroy']]);
+        $this->middleware('permission:ver-admin|crear-admin|editar-admin|borrar-admin',['only'=>['index']]);
+        $this->middleware('permission:crear-admin',['only'=>['create','store']]);
+        $this->middleware('permission:editar-admin',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-admin',['only'=>['destroy']]);
 
     }
 

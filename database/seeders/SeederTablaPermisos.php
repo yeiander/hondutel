@@ -18,20 +18,26 @@ class SeederTablaPermisos extends Seeder
         //aqui solo es para rellenar las tablas de Spatie con los permisos que yo puedo editar
         $permisos = [
             //Tabla de los roles
-             'ver-rol',
-             'crear-rol',
-             'editar-rol',
-             'borrar-rol',
+            //  'ver-rol',
+            //  'crear-rol',
+            //  'editar-rol',
+            //  'borrar-rol',
             //tabla del modulo recursos Humanos
             'ver-permiso',
             'crear-permiso',
             'editar-permiso',
             'borrar-permiso',
             //tabla de usuarios
-            'ver-usuario',
-            'crear-usuario',
-            'editar-usuario',
-            'borrar-usuario',
+            'ver-admin',
+            'crear-admin',
+            'editar-admin',
+            'borrar-admin',
+
+            //atencion al cliente
+            'ver-atencion-al-cliente',
+            'crear-atencion-al-cliente',
+            'editar-atencion-al-cliente',
+            'borrar-atencion-al-cliente',
 
         ];
         foreach($permisos as $permiso){
