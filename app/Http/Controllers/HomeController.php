@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\RhPermiso;
 use App\Models\Empleado;
-
+use App\Models\RegistroAveria;
 class HomeController extends Controller
 {
     /**
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {      $paseSalida= RhPermiso::where('aprobacion', 'like', 'pendiente')->count();
-              return view('home', compact('paseSalida'));
+        $contadoraveria= RegistroAveria::where('estadoAveria', 'like', 'pendiente')->count();
+        return view('home', compact('paseSalida', 'contadoraveria'));
     }
 }

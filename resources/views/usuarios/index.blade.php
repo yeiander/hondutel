@@ -13,7 +13,7 @@
                             
                             {{-- aqui ira todo el contenido --}}
                             {{-- <h3 class="text-center">Dashboard Content</h3> --}}
-                            @can('crear-usuario')
+                           
                             <ul class="list-unstyled">
                                 <li class="media">
                                     <img class="align-self-center mr-3" src="{{ asset('img/permiso.png') }}" height="50px">
@@ -24,7 +24,7 @@
                                 </li>
                             </ul>
                            
-                            @endcan
+                            
                              {{-- Tabla de usuarios --}}
                             <table class="table table-striped mt-2">
                                    <thead style="background-color:#6777ef;">
@@ -32,9 +32,9 @@
                                      <th style="color: #fff;">Nombre</th>
                                      <th style="color: #fff">E-mail</th>
                                      <th style="color: #fff;">Rol</th>
-                                     @can('crear-usuario')
+                                     
                                      <th style="color: #fff;">Accion</th>
-                                     @endcan
+                                     
                                   </thead>
                                   <tbody>
                                       @foreach ($usuarios as $usuario)
@@ -51,15 +51,15 @@
                                                 @endif
                                              </td>
                                              <td>
-                                                 @can('editar-usuario')
+                                                 
                                                  <a class="btn btn-info" href="{{route('usuarios.edit', $usuario->id)}}">Editar</a>
-                                                 @endcan
+                                                 
                                                  {{-- laravel Collective  --}}
-                                                 @can('borrar-usuario')
+                                                 
                                                  {!! Form::open(['method'=>'DELETE','route'=>['usuarios.destroy', $usuario->id], 'style'=>'display:inline']) !!}
                                                       {!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}
                                                  {!! Form::close() !!}    
-                                                 @endcan
+                                                 
                                              </td>
                                         </tr>
                                           

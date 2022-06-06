@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\rhumanos;
+namespace App\Http\Controllers\atencionCliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\RhPermiso;
-use App\Models\Empleado;
+use App\Models\Registroventa;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-class PaseSalidaAdminController extends Controller
+class RegistroventaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,8 @@ class PaseSalidaAdminController extends Controller
     public function index()
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'pendiente');
-        return view('/recursos-humanos-permisos/pase-salida-admin.index', compact('permisos'));
-
+        $registros=Registroventa::all();
+        return view('/atencion-al-cliente/ventas.index', compact('registros'));
     }
 
     /**
@@ -30,7 +29,7 @@ class PaseSalidaAdminController extends Controller
     public function create()
     {
         //
-       
+        return view('/atencion-al-cliente/ventas.crear');
     }
 
     /**
@@ -42,6 +41,9 @@ class PaseSalidaAdminController extends Controller
     public function store(Request $request)
     {
         //
+        $registroventa = request()->except('_token');
+        Registroventa::insert($registroventa);
+        return redirect()->route('menu-ventas');
     }
 
     /**
@@ -61,16 +63,11 @@ class PaseSalidaAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        //   
-        $permiso = RhPermiso::findOrFail($id);
-        // $individual= RhPermiso::where('fk_id_empleado')->where('fechaSolicitudPermiso','>=', now()->subDays(30))->count();
-        return view('/recursos-humanos-permisos/pase-salida-admin/editar', compact('permiso',));
-
-    //     $datos = vEstadoPedidos::where('created_at', '>=', now()->subDays(30))
-    //          ->whereCodVendedor($userAct->codvendedor)
-    //          ->get();
+        //
+        $registro=Registroventa::findOrFail($id);
+        return view('/atencion-al-cliente/ventas.editar', compact('registro'));
     }
 
     /**
@@ -82,14 +79,10 @@ class PaseSalidaAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $permiso = request()->except(['_token', '_method']);
-        RhPermiso::where('id','=', $id)->update($permiso);
-
-        $permiso = RhPermiso::findOrFail($id);
-        return redirect()->route('pase-salida-admin.index');
-
-
+        //
+        $registro = request()->except(['_token', '_method']);
+        Registroventa::where('id','=',$id)->update($registro);
+        return redirect()->route('ventas.index');
     }
 
     /**
@@ -101,8 +94,21 @@ class PaseSalidaAdminController extends Controller
     public function destroy($id)
     {
         //
-        RhPermiso::find($id)->delete();
-        return redirect()->route('pase-salida-admin.index');
-
+        Registroventa::find($id)->delete();
+        return redirect()->route('ventas.index');
     }
+
+    public function imprimir($id)
+    {
+        //
+        $ventas = Registroventa::find($id);
+
+        $vista = view('pdf/pdf-atencion-cliente.reporte-venta')
+        ->with('ventas', $ventas);
+
+        $pdf = PDF::loadHTML($vista);
+        
+        return $pdf->stream('nombre.pdf');
+
+}
 }
