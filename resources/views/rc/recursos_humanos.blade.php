@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-          <h5 class="page__heading">Recursos Humamos</h5>
+          <h5 class="page__heading">Recursos Humamos hola</h5>
         </div>
       <div class="text-center">
         <h5>Permisos Pendientes (o nuevos):</h5>

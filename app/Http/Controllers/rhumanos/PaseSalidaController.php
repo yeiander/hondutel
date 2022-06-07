@@ -12,6 +12,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Carbon;
 
 
 
@@ -58,11 +59,12 @@ class PaseSalidaController extends Controller
      */
     public function create()
     {
+        
         // esto me llevara los valores de empleados a los formularios
         $permisos = RhPermiso::all();
         $empleados = Empleado::all();
-        $individual= RhPermiso::whereMonth('fechaSolicitudPermiso','>=', '')->count();
-        return view('/recursos-humanos-permisos/pase-salida.crear', compact('empleados', 'permisos', 'individual'));
+        
+        return view('/recursos-humanos-permisos/pase-salida.crear', compact('empleados', 'permisos'));
     }
 
     /**
@@ -111,6 +113,34 @@ class PaseSalidaController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit2(Request $request)
+    {
+        //
+        $validated = $request->validate([
+            
+            
+            'fk_id_empleado' => 'required|exists:empleados,id',
+           
+        ]);
+        
+        $mes = Carbon::now()->format('m');
+        $annio = Carbon::now();
+        $annio = $annio->format('Y');
+                
+        $id = $request->input('fk_id_empleado');
+        $empleado = Empleado::findOrFail($id);
+        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)->whereYear('fechaSolicitudPermiso', '=', $annio)
+        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+    
+        return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio'));
     }
 
     /**
