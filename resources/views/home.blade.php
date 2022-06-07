@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <section class="section">
-      <div class="section-header"  style="max-height: 3rem;">
-        <h5 class="page__heading">Inicio.</h5>
-      </div>
+  <section class="section">
+    <div class="section-header"  style="max-height: 3rem;">
+      <h5 class="page__heading">Inicio.</h5>
+    </div>
 {{-------------------------- NOTIFICACIONES INICIO--------------------------------------}}
 
      {{-- INICIO recursso humanos notificacion --}}
        <div style="display: none" name="notificaciones" id="notificaciones">
          <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
            <a id="NotificacionRecursosH" style="font-size: 14px;"  href="{{ url('/recursos-humanos-permisos/pase-salida-admin') }}" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
-            Recursos humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
+           Recursos humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
            </a>
        </div>
      {{-- FINAL recursso humanos notificacion --}}
@@ -22,10 +22,10 @@
  {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
 
         <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
 
     {{-------------------------- INICIO --------------------------}}
                         
@@ -33,11 +33,11 @@
          
        
     {{-------------------------- FINAL ---------------------------}}
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     @section('scripts')
