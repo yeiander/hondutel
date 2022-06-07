@@ -6,7 +6,7 @@
         </div>
         <div class="section-body">
        
-            <center><h4>Crear un pase de salida:</h4></center>
+            <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
@@ -97,24 +97,12 @@
                                      {{-- FIN --}}
                                     </div>
                                   </div>
-                               
 
-                                
-                                  
-                                 
-                                 
-                                 
-                                 
-                                 
-
-                                 
-                                  
-                                 
                   
                                     <br>
                                     <ul class="list-unstyled">
                                         <div class="media-body">
-                                          <input  type="submit"  class="btn btn-primary" value="Guardar">
+                                          <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar">
                                </form>
                                  
                                
@@ -129,5 +117,19 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+    <script>
+      
+     $(function(){
+       if( {{ $individual }} > 17){
+        $('#botonGuardar').hide();
+        var textoMensaje = "agotaste los permisos de este mes";
+        var mensaje = document.getElementById("paseSalidaMensaje");
+        mensaje.innerHTML = textoMensaje;
+       }
+     });
+     // FINAL pcultar boton
+    </script>
+    @endsection
 @endsection
 
