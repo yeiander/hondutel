@@ -24,7 +24,7 @@
                        <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
 
                         <a style="font-size: 1rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-            Registro j averia<span a style="font-size: 1rem" class="badge badge-light">{{$contadoraveria}}</span>
+            Registro averia<span a style="font-size: 1rem" class="badge badge-light">{{$contadoraveria}}</span>
           </a>
     {{-------------------------- FINAL ---------------------------}}
                         </div>
