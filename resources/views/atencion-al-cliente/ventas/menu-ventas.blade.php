@@ -28,46 +28,39 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
-                                  <div class="media-body">
-                                      <a  href="{{ route('ventas.create') }}">
-                                         <h5>Nuevo registro wifi</h5></a>
-                                         <p>Crear registros de averias</p>
-                                  </div>
-                                </li>
-
-                              <ul class="list-unstyled ">
-                                <li class="media my-4">
                                     <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('ventas.index') }}">
-                                         <h5>Consultar</h5>
+                                         <h5>Consulta registro linea</h5>
                                       </a>
-                                    
-                                    <p> Consultar registro</p>
+                                    <p> Consulta linea</p>
                                   </div>
                                 </li>
 
-                                <ul class="list-unstyled ">
-                                  <li class="media my-4">
-                                      <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
-                                    <div class="media-body">
-                                        <a href="{{ route('ventas.index') }}">
-                                           <h5>Consultar</h5>
-                                        </a>
-                                      
-                                      <p> Consultar registro</p>
-                                    </div>
-                                  </li>
-  
-
-                               
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    
-                          
+                                    <ul class="list-unstyled ">
+                                      <li class="media my-4">
+                                          <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
+                                        <div class="media-body">
+                                            <a  href="{{ route('ventas.create') }}">
+                                               <h5>Nuevo registro wifi</h5></a>
+                                               <p>Crear registros de averias</p>
+                                        </div>
+                                      </li>
+
+                                      <ul class="list-unstyled ">
+                                        <li class="media my-4">
+                                            <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
+                                          <div class="media-body">
+                                              <a href="{{ route('ventas.index') }}">
+                                                 <h5>Consulta registro wifi</h5>
+                                              </a>
+                                            <p> Consulta wifi</p>
+                                          </div>
+                                        </li>
                              {{-- final --}}
                         </div>
                     </div>
