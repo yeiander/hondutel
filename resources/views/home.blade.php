@@ -1,15 +1,25 @@
 @extends('layouts.app')
 @section('content')
     <section class="section">
-        <div class="section-header"  style="max-height: 3rem;">
-          <h5 class="page__heading">Inicio.</h5>
-        </div>
- 
+      <div class="section-header"  style="max-height: 3rem;">
+        <h5 class="page__heading">Inicio.</h5>
+      </div>
+{{-------------------------- NOTIFICACIONES INICIO--------------------------------------}}
+
+     {{-- INICIO recursso humanos notificacion --}}
        <div style="display: none" name="notificaciones" id="notificaciones">
-        <a id="NotificacionRecursosH" style="font-size: 1rem;"  href="{{ url('/recursos-humanos-permisos/pase-salida-admin') }}" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
-          Recursos humanos:<span style="font-size: 1rem" class="badge badge-light">{{ $paseSalida }}</span>
-        </a>
+         <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
+           <a id="NotificacionRecursosH" style="font-size: 14px;"  href="{{ url('/recursos-humanos-permisos/pase-salida-admin') }}" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+            Recursos humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
+           </a>
        </div>
+     {{-- FINAL recursso humanos notificacion --}}
+
+       <a style="font-size: 14px; margin-top: 0.5rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
+        Registro averia<span a style="font-size: 14px" class="badge badge-light">{{$contadoraveria}}</span>
+       </a>
+
+ {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
 
         <div class="section-body">
             <div class="row">
@@ -17,15 +27,11 @@
                     <div class="card">
                         <div class="card-body">
 
-                          
     {{-------------------------- INICIO --------------------------}}
                         
-                   
-                       <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
-
-                        <a style="font-size: 1rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-            Registro averia<span a style="font-size: 1rem" class="badge badge-light">{{$contadoraveria}}</span>
-          </a>
+              
+         
+       
     {{-------------------------- FINAL ---------------------------}}
                         </div>
                     </div>
@@ -33,32 +39,30 @@
             </div>
         </div>
     </section>
+
     @section('scripts')
     <script>
-      
+      // INICIO mostrar la notificacion de recursos humanos
       var  notificacionRecursosHumanos = document.getElementsByName("NotificacionRecursosH")[0].value;;
       console.log(notificacionRecursosHumanos);
      $(function(){
-      
        if(notificacionRecursosHumanos > 0){
         $('#notificaciones').show();
        }
-       
      });
-     
+     // FINAL mostrar la notificacion de recursos humanos 
 
-
-
+    // INICIO recargar automaticamente el inico
      $(document).ready(function(){
-   
-    setTimeout(refrescar, 10000);
-  });
+       setTimeout(refrescar, 10000);
+      });
   function refrescar(){
-   
-    location.reload();
-  }
+      location.reload();
+     }
+    // FINAL recargar automaticamente el inico
     </script>
     @endsection
+
 @endsection
 
 

@@ -110,7 +110,7 @@
                <br>
                <ul class="list-unstyled">
                    <div class="media-body">
-                     <input  type="submit"  class="btn btn-primary" value="Guardar">
+                     <input  type="submit"  class="btn btn-primary" value="Continuar">
           </form>
                         
                            
