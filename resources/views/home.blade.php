@@ -10,13 +10,13 @@
        <div style="display: none" name="notificaciones" id="notificaciones">
          <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
            <a id="NotificacionRecursosH" style="font-size: 14px;"  href="{{ url('/recursos-humanos-permisos/pase-salida-admin') }}" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
-           Recursos humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
+           Recursos Humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
            </a>
        </div>
      {{-- FINAL recursso humanos notificacion --}}
 
        <a style="font-size: 14px; margin-top: 0.5rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-        Registro averia<span a style="font-size: 14px" class="badge badge-light">{{$contadoraveria}}</span>
+        Registro Averia<span a style="font-size: 14px" class="badge badge-light">{{$contadoraveria}}</span>
        </a>
 
  {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
