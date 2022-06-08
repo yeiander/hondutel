@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
+                                  <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/votacion-en-linea.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('ventas.create') }}">
                                        <h5>Nuevo registro linea</h5></a>
@@ -28,7 +28,7 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
+                                    <img class="mr-3" src="{{ asset('img/consultante.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('ventas.index') }}">
                                          <h5>Consulta registro linea</h5>
@@ -43,17 +43,17 @@
                                     {{-- One of three columns --}}
                                     <ul class="list-unstyled ">
                                       <li class="media my-4">
-                                          <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
+                                          <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
                                         <div class="media-body">
                                             <a  href="{{ route('ventas.create') }}">
                                                <h5>Nuevo registro wifi</h5></a>
-                                               <p>Crear registros de averias</p>
+                                               <p>Crear registros de wifi</p>
                                         </div>
                                       </li>
 
                                       <ul class="list-unstyled ">
                                         <li class="media my-4">
-                                            <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
+                                            <img class="mr-3" src="{{ asset('img/charla.png') }}" height="50px">
                                           <div class="media-body">
                                               <a href="{{ route('ventas.index') }}">
                                                  <h5>Consulta registro wifi</h5>

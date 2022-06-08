@@ -5,21 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Empleado extends Model
+class Registrowifi extends Model
 {
-
-   
-
-    
     use HasFactory;
-
-     
-    
-    public function empleados(){
-        return $this->hasMany(RhPermiso::class, 'id');
+    public function registrolineas(){
+        return $this->belongsTo(Registrolinea::class, 'fk_id_linea');
     }
-
-    
-
-   
 }

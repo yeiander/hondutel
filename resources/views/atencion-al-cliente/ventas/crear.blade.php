@@ -19,15 +19,43 @@
                                      {{-- columna1 inicio --}}
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Identidad">Identidad:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="Identidad" id="Identidad">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteIdentidad">Identidad:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteIdentidad" id="clienteIdentidad">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Nombre">Nombre:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="Nombre" id="Nombre">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteNombre" id="clienteNombre">
+                                       </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas">
+                                       </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="beneficiarioParentesco" id="beneficiarioParentesco">
+                                       </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteEstadoCivil" id="clienteEstadoCivil">
+                                       </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteDireccionTrabajo" id="clienteDireccionTrabajo">
                                        </div>
                                     </div>
 
@@ -38,15 +66,43 @@
                                       {{-- columna2 inicio --}}
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Direccion">Contacto:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="Contacto" id="Contacto">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteTelefono">Telefono:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="clienteTelefono" id="clienteTelefono">
                                          </div>
                                       </div>
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Direccion">Direccion:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="Direccion" id="Direccion">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="cuotas" id="cuotas">
+                                         </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="nombreBeneficiario" id="nombreBeneficiario">
+                                         </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="clienteProfesion" id="clienteProfesion">
+                                         </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="telefonoContacto" id="telefonoContacto">
+                                         </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo:</label>
+                                           <input style="font-size:14px;" class="form-control" type="text" name="clienteCorreo" id="clienteCorreo">
                                          </div>
                                       </div>
 
