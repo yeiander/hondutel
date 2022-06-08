@@ -85,7 +85,7 @@
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
-                                   <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso">duracion del permiso:</label>
+                                   <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso">Lugar:</label>
                                    <select class="form-control" id="lugarSolicitudPermiso" name="lugarSolicitudPermiso">
                                      
                                        <option value="Juticalpa">Juticalpa</option>
