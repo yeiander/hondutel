@@ -18,9 +18,9 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('ventas.create') }}"><img  class="mr-3" src="{{ asset('img/votacion-en-linea.png') }}" height="50px"></a>
+                                  <a href="{{ route('ventas-linea.create') }}"><img  class="mr-3" src="{{ asset('img/votacion-en-linea.png') }}" height="50px"></a>
                                 <div class="media-body">
-                                    <a  href="{{ route('ventas.create') }}">
+                                    <a  href="{{ route('ventas-linea.create') }}">
                                        <h5>Nuevo registro linea</h5></a>
                                        <p>Crear registros de linea</p>
                                 </div>
@@ -30,7 +30,7 @@
                                 <li class="media my-4">
                                     <img class="mr-3" src="{{ asset('img/consultante.png') }}" height="50px">
                                   <div class="media-body">
-                                      <a href="{{ route('ventas.index') }}">
+                                      <a href="{{ route('ventas-linea.index') }}">
                                          <h5>Consulta registro linea</h5>
                                       </a>
                                     <p> Consulta linea</p>

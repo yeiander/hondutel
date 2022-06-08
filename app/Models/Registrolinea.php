@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registrolinea extends Model
 {
-    protected $fillable = ['id'];
+    
    /**
      * Indicates if the model's ID is auto-incrementing.
      *
