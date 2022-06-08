@@ -12,7 +12,6 @@
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
         
-        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
