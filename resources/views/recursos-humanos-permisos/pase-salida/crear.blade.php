@@ -16,17 +16,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">        
-                          @if ($errors->any())
-                          <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                                <strong>Complete los campos</strong>
-                              @foreach($errors->all() as $error)
-                                <span class="badge badge-danger">{{$error}}</span>
-                              @endforeach
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                          </div>
-                          @endif
+                      
                                
                        
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,9 +26,19 @@
                             </div>
 
 
-
+                            @if ($errors->any())
+                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                  <strong>Complete los campos</strong>
+                                @foreach($errors->all() as $error)
+                                  <span class="badge badge-danger">{{$error}}</span>
+                                @endforeach
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            @endif
                                             {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
-                               <form action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
+                               <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
                                  <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="1">
                                  
@@ -56,14 +56,14 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida">Hora de salida:</label>
-                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
+                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida" required>
                                       </div>
                                     </div>
 
                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group"> 
                                       <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso">Fecha de solicitud</label>
-                                      <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                      <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                                     </div>
                                   </div>
                                      {{-- FIN --}}
@@ -74,20 +74,20 @@
                                        <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Motivo del permiso:</label>
-                                          <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad">
+                                          <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                         </div>
                                      </div>
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaEntradaAproximada">Hora de entrada (aproximada):</label> 
-                                         <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada">
+                                         <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada" required>
                                         </div>
                                      </div>
 
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso">Lugar:</label>
+                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso" required>Lugar:</label>
                                           <select class="form-control" id="lugarSolicitudPermiso" name="lugarSolicitudPermiso">
                                             <option value="Juticalpa">Juticalpa</option>
                                           </select>
@@ -101,7 +101,7 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <div class="media-body">
-                                          <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar">
+                                          <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar" >
                                </form>
                                  
                                
@@ -120,14 +120,27 @@
     <script>
       
      $(function(){
-       if( {{ $individual }} > 17){
+        // FINAL pcultar boton
+       if( {{ $individual }} > 50){
         $('#botonGuardar').hide();
         var textoMensaje = "agotaste los permisos de este mes";
         var mensaje = document.getElementById("paseSalidaMensaje");
         mensaje.innerHTML = textoMensaje;
        }
      });
-     // FINAL pcultar boton
+    
+        // es para desabilitar al hacer submit
+    //  $(document).ready(function(){
+    //         $("#botonGuardar").click(function(event){
+    //             event.preventDefault();
+    //         $("#botonGuardar").prop('disabled',true)
+            
+    //         return false;
+    //         })
+    //     })
+    $('#form').one('submit', function() {
+    $(this).find('input[type="submit"]').attr('disabled','disabled');
+});
     </script>
     @endsection
 @endsection

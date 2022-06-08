@@ -77,7 +77,7 @@ class PaseSalidaController extends Controller
     { 
         $validated = $request->validate([
             
-            'fk_id_empleado' => 'required',
+           
             'horaSalida' => 'required',
             'horaEntradaAproximada' => 'required',
             'motivoTrabajoEnfermedad' => 'required',
@@ -128,6 +128,8 @@ class PaseSalidaController extends Controller
             
             
             'fk_id_empleado' => 'required|exists:empleados,id',
+            
+            
            
         ]);
         
