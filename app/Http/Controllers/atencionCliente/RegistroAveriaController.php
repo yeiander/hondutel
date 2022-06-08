@@ -27,7 +27,7 @@ class RegistroAveriaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all()->where('estadoAveria','like','aprobado');
+        $registros=RegistroAveria::all();
         return view('/atencion-al-cliente/registro-averia.index', compact('registros'));
     }
 

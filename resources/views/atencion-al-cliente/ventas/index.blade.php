@@ -27,12 +27,13 @@
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
-                                <th style="color: #fff;">identidad</th>
-                                <th style="color: #fff;">nombre</th>
-                                <th style="color: #fff;">contacto</th>
-                                <th style="color: #fff;">direccion</th>
-                                <th style="color: #fff;">id</th>
-                                <th style="color: #fff;">acciones</th>
+                                <th style="color: #fff;">Identidad</th>
+                                <th style="color: #fff;">Nombre del Cliente</th>
+                                <th style="color: #fff;">Direccion</th>
+                                <th style="color: #fff;">Telefono</th>
+                                <th style="color: #fff;">Cuotas</th>
+                                <th style="color: #fff;">Acciones</th>
+                              
                                                           
                                 
                                   </tr>
@@ -42,10 +43,13 @@
                                 <tr>
                                  
                                  
-                                  <td>{{$registro->identidad}}</td>
-                                  <td>{{$registro->nombre}}</td>
-                                  <td>{{$registro->contacto}}</td>
-                                  <td>{{$registro->direccion}}</td>
+                                  <td>{{$registro->clienteIdentidad}}</td>
+                                  <td>{{$registro->clienteNombre}}</td>
+                                  <td>{{$registro->clienteDireccionTrabajo}}</td>
+                                  <td>{{$registro->telefonoContacto}}</td>
+                                  <td>{{$registro->cuotas}}</td>
+                                  <td> <a href="#"></a></td>
+
                                    <td>{{$registro->id}}</td>
                                    <td>
                                     <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/edit') }}" >editar </a>
