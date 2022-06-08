@@ -121,23 +121,16 @@
       
      $(function(){
         // FINAL pcultar boton
-       if( {{ $individual }} > 50){
+       if( {{ $individual }} >= 10){
         $('#botonGuardar').hide();
+         $('#form').hide();
         var textoMensaje = "agotaste los permisos de este mes";
         var mensaje = document.getElementById("paseSalidaMensaje");
         mensaje.innerHTML = textoMensaje;
        }
      });
     
-        // es para desabilitar al hacer submit
-    //  $(document).ready(function(){
-    //         $("#botonGuardar").click(function(event){
-    //             event.preventDefault();
-    //         $("#botonGuardar").prop('disabled',true)
-            
-    //         return false;
-    //         })
-    //     })
+        // es para desabilitar al hacer submit una sola vez
     $('#form').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });

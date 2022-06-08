@@ -16,7 +16,7 @@
    
     
     <a class="nav-link" href="{{ route('recursos_humanos')}}">
-        <i class=""><img class="ml-2 mr-4" src="{{ asset('img/recursosHumanos.png') }}" height="30px"></i><span>Recursos Humanos</span>
+        <i class=""><img class="ml-2 mr-4" src="{{ asset('img/grupo.png') }}" height="30px"></i><span>Recursos Humanos</span>
     </a>
     @can('ver-atencion-al-cliente')
     <a class="nav-link" href="{{ route('menu')}}">
