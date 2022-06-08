@@ -19,8 +19,8 @@
                                      {{-- columna1 inicio --}}
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteIdentidad">Identidad:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteIdentidad" id="clienteIdentidad">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Identidad:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="id" id="id">
                                        </div>
                                     </div>
 
