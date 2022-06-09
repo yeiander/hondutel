@@ -3,7 +3,7 @@
 @section('content')
   <section class="">
     <div class="section-header" style="max-height: 3rem;">
-      <h5 class="page__heading">Recursos Humanos prueba github</h5>
+      <h5 class="page__heading">Recursos Humanos</h5>
         </div>
           <div class="section-body">
             <h4><center> (seleccion de tipo de permiso)</center></h4>
@@ -44,7 +44,7 @@
                                 <li class="media my-4">
                                   <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
                                     <div class="media-body">
-                                      <a href="{{ route('administrativo.create') }}">
+                                      <a type="button" class="" data-toggle="modal" data-target="#permisoAdministrativo">
                                         <h5>Permiso administrativo</h5>
                                       </a>
                                       <p>Crear un permiso (sección administrativa)</p>
@@ -80,44 +80,75 @@
                                  {{-- aqui termina el menu  --}}
 
                             
-{{-------------------------- Modal pase de salida --------------------------------------------------------------------------}}
-
+{{-------------------------- MODAL PASE DE SALIDA --------------------------------------------------------------------------}}
 <div class="modal fade" id="paseSalida" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="paseSalidaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="paseSalidaLabel">Pase de salida</h4>
+  <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="paseSalidaLabel">Pase de salida</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+      </div>
         <div class="modal-body">
-          {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
+          {{---inicio formulario para crear un pase de salida--------------}}
           <form action=" {{url('/recursos-humanos-permisos/pase-salida/edit2')}} " method="post">
             @csrf
-          
-           <div class="col-xs-12 col-sm-12 col-md-12">
-             <div class="form-group">
-               <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-               <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+             <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="form-group">
+                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
+                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+               </div>
              </div>
-           </div>
               <br>
-               <ul class="list-unstyled">
+                <ul class="list-unstyled">
                  <div class="media-body">
                    <input  type="submit"  class="btn btn-primary" value="Continuar">
-          </form>
-                        
-                           
+                 </div>
+          </form>    
+            {{---final formulario para crear un pase de salida----------------}}         
         </div>
-      
          <div class="modal-footer">
            </div>
       </div>
     </div>
   </div>
-{{-------------------------- final Modal pase de salida -----------------------------------------------------------------}}
+{{-------------------------- FINAL MODAL PASE DE SALIDA -----------------------------------------------------------------}}
 
+{{-------------------------- INICIO MODAL PERMISO ADMINISTRATIVO --------------------------------------------------------------------------}}
+<div class="modal fade" id="permisoAdministrativo" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="permisoAdministrativoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="paseSalidaLabel">Permiso administrativo</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+        <div class="modal-body">
+          {{---inicio de formulario para crear un permiso adminitrativo--------------}}
+          <form action=" {{url('/recursos-humanos-permisos/administrativo/edit2')}} " method="post">
+            @csrf
+             <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="form-group">
+                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
+                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+               </div>
+             </div>
+              <br>
+                <ul class="list-unstyled">
+                 <div class="media-body">
+                   <input  type="submit"  class="btn btn-primary" value="Continuar">
+                 </div>
+          </form>    
+            {{---final para crear un permiso administrativo----------------}}         
+        </div>
+         <div class="modal-footer">
+           </div>
+      </div>
+    </div>
+  </div>
+{{-------------------------- FINAL MODAL PASE ADMINISTRATIVO -----------------------------------------------------------------}}
                             {{-- final --}}
                         </div>
                     </div>

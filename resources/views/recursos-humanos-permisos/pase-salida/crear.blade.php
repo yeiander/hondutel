@@ -26,17 +26,17 @@
                             </div>
 
 
-                            @if ($errors->any())
-                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                                  <strong>Complete los campos</strong>
-                                @foreach($errors->all() as $error)
-                                  <span class="badge badge-danger">{{$error}}</span>
-                                @endforeach
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            @endif
+  @if ($errors->any())
+    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+      <strong>Complete los campos</strong>
+        @foreach($errors->all() as $error)
+          <span class="badge badge-danger">{{$error}}</span>
+        @endforeach
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+  @endif
                                             {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                                <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
@@ -55,15 +55,15 @@
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida">Hora de salida:</label>
-                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida" required>
+                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida" required>Hora de salida:</label>
+                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
                                       </div>
                                     </div>
 
                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group"> 
-                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso">Fecha de solicitud</label>
-                                      <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
+                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud</label>
+                                      <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
                                     </div>
                                   </div>
                                      {{-- FIN --}}
@@ -97,15 +97,14 @@
                                     </div>
                                   </div>
 
-                  
                                     <br>
                                     <ul class="list-unstyled">
                                         <div class="media-body">
                                           <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar" >
+                                        </div>
+                                      </ul>
                                </form>
-                                 
-                               
-                              
+
                             </div>
                             {{-- final --}}
 

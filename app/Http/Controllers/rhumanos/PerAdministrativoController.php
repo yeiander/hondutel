@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+
 
 class PerAdministrativoController extends Controller
 {
@@ -54,7 +56,12 @@ class PerAdministrativoController extends Controller
         //
         $validated = $request->validate([
             
-            'fk_id_empleado' => 'required'
+           
+            'horaSalida' => 'required',
+            'horaEntradaAproximada' => 'required',
+            'motivoTrabajoEnfermedad' => 'required',
+            'fechaSolicitudPermiso' => 'required',
+            'lugarSolicitudPermiso' => 'required'
         ]);
 
         // $datosPaseSalida = request()->all();$
@@ -73,6 +80,32 @@ class PerAdministrativoController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function edit2(Request $request)
+    {
+        //
+        $validated = $request->validate([
+            
+            
+            'fk_id_empleado' => 'required|exists:empleados,id',
+            
+            
+           
+        ]);
+        
+        $mes = Carbon::now()->format('m');
+        $annio = Carbon::now();
+        $annio = $annio->format('Y');
+                
+        $id = $request->input('fk_id_empleado');
+        $empleado = Empleado::findOrFail($id);
+        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('fk_id_tipo_permiso', 'like', 3)
+        ->whereYear('fechaSolicitudPermiso', '=', $annio)
+        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+    
+        return view('/recursos-humanos-permisos/administrativo/crear', compact('empleado', 'individual', 'mes', 'annio'));
     }
 
     /**

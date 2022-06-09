@@ -57,9 +57,17 @@ class PaseSalidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        
+        $validated = $request->validate([
+            
+           
+            'horaSalida' => 'required',
+            'horaEntradaAproximada' => 'required',
+            'motivoTrabajoEnfermedad' => 'required',
+            'fechaSolicitudPermiso' => 'required',
+            'lugarSolicitudPermiso' => 'required'
+        ]);
         // esto me llevara los valores de empleados a los formularios
         $permisos = RhPermiso::all();
         $empleados = Empleado::all();
@@ -116,10 +124,9 @@ class PaseSalidaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form to create a new blog post.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit2(Request $request)
     {

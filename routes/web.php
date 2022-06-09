@@ -75,6 +75,7 @@ Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPerson
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________
 
 //_________________________________________PERMISO ADMINISTRATIVO (INICIO)________________________________________________
+Route::post('/recursos-humanos-permisos/administrativo/edit2', [PerAdministrativoController::class, 'edit2']);
 Route::resource('/recursos-humanos-permisos/administrativo', PerAdministrativoController::class);
 Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdminisPendienteController::class);
 //_________________________________________PERMISO ADMINISTRATIVO (FINAL)______________________________________________________
