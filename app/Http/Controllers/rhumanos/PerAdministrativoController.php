@@ -26,8 +26,7 @@ class PerAdministrativoController extends Controller
     {
         //
         $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'almacenado');
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado')->andWhere('fk_id_tipo_permiso', 'like', '2');
-        return view('/recursos-humanos-permisos/administrativo.index', compact('permisos'));
+       return view('/recursos-humanos-permisos/administrativo.index', compact('permisos'));
       
     }
 
@@ -86,12 +85,7 @@ class PerAdministrativoController extends Controller
     {
         //
         $validated = $request->validate([
-            
-            
             'fk_id_empleado' => 'required|exists:empleados,id',
-            
-            
-           
         ]);
         
         $mes = Carbon::now()->format('m');
