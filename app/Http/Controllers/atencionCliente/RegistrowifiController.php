@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\atencionCliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Registrowifi;
 use Illuminate\Http\Request;
 
 class RegistrowifiController extends Controller
@@ -15,6 +16,8 @@ class RegistrowifiController extends Controller
     public function index()
     {
         //
+        $registros=Registrowifi::all();
+        return view('/atencion-al-cliente/ventas-wifi.index', compact('registros'));
     }
 
     /**
@@ -25,6 +28,7 @@ class RegistrowifiController extends Controller
     public function create()
     {
         //
+        return view('/atencion-al-cliente/ventas-wifi.crear');
     }
 
     /**
@@ -36,6 +40,9 @@ class RegistrowifiController extends Controller
     public function store(Request $request)
     {
         //
+        $registrowifi = request()->except('_token');
+        Registrowifi::insert($registrowifi);
+        return redirect()->route('ventas-wifi.index');
     }
 
     /**
