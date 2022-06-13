@@ -62,7 +62,7 @@ class PerAdministrativoController extends Controller
             'fechaSolicitudPermiso' => 'required',
             'lugarSolicitudPermiso' => 'required'
         ]);
-
+   
         // $datosPaseSalida = request()->all();$
         $datosAdministrativo = request()->except('_token');
         RhPermiso::insert($datosAdministrativo);
@@ -78,7 +78,7 @@ class PerAdministrativoController extends Controller
      */
     public function show($id)
     {
-        //
+        //prueba
     }
 
     public function edit2(Request $request)
