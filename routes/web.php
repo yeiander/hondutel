@@ -100,5 +100,8 @@ Route::get('/atencion-al-cliente/registro-averia/{id}/imprimir', [RegistroAveria
 Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
-//_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________
+//_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
+//_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________
+Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
+//_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________
