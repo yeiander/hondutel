@@ -25,6 +25,7 @@ use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\RegistrolineaController;
 use App\Http\Controllers\atencionCliente\RegistrowifiController;
 use App\Http\Controllers\GoogleController;
+use App\Models\Registrolinea;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,7 @@ Route::get('/atencion-al-cliente/cancelaciones/{id}/imprimir', [RegistroCancelac
 Route::get('/atencion-al-cliente/ventas/{id}/imprimir', [RegistroventaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/registro-averia/{id}/imprimir', [RegistroAveriaController::class, 'imprimir']);
 Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
+Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________

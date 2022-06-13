@@ -12,24 +12,35 @@
                         <div class="card-body">
                             {{-- inicio --}}
 
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Identidad:{{$registrowifi->id}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente:{{$registrowifi->clienteNombre}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo:{{$registrowifi->clienteCorreo}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion:{{$registrowifi->clienteProfesion}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto:{{$registrowifi->telefonoContacto}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo:{{$registrowifi->clienteDireccionTrabajo}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:{{$registrowifi->clienteEstadoCivil}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:{{$registrowifi->cuotas}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:{{$registrowifi->numeroCuotas}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:{{$registrowifi->nombreBeneficiario}}</label>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco:{{$registrowifi->beneficiarioParentesco}}</label>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm">
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente: {{$registrowifi->clienteNombre}}</label><br>
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo: {{$registrowifi->clienteCorreo}}</label><br>
+                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion: {{$registrowifi->clienteProfesion}}</label>
+                                </div>
+
+                                <div class="col-sm">
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto: {{$registrowifi->telefonoContacto}}</label><br>
+                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo: {{$registrowifi->clienteDireccionTrabajo}}</label><br>
+                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil: {{$registrowifi->clienteEstadoCivil}}</label><br>
+                                </div>
+
+                                <div class="col-sm">
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas: {{$registrowifi->cuotas}}</label><br>
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas: {{$registrowifi->numeroCuotas}}</label><br>
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:{{$registrowifi->nombreBeneficiario}}</label><br>
+                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco: {{$registrowifi->beneficiarioParentesco}}</label>
+                                </div>
+                              </div>
+                            </div>
 
                             <form action=" {{url('/atencion-al-cliente/ventas-wifi')}} " method="post">
                                 @csrf
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
-                                     {{-- columna1 inicio --}}
+                                     {{-- columna1 inicio --}}º
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="rtn">R.T.N.:</label>

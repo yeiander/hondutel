@@ -44,6 +44,7 @@ class RegistrolineaController extends Controller
         Registrolinea::insert($registrolinea);
         return redirect()->route('ventas-linea.index');
     }
+    
 
     /**
      * Display the specified resource.
@@ -54,6 +55,20 @@ class RegistrolineaController extends Controller
     public function show($id)
     {
         //
+    }
+
+    /**
+     * Show the form to create a new blog post.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function wifi123(Request $request)
+    {
+        //
+        $id = $request->input('id');
+        $registrowifi = Registrolinea::findOrfail($id);
+
+        return view('/atencion-al-cliente/ventas-wifi/crear', compact('registrowifi'));
     }
 
     /**
