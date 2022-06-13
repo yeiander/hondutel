@@ -43,7 +43,7 @@
                                     {{-- One of three columns --}}
                                     <ul class="list-unstyled ">
                                       <li class="media my-4">
-                                          <a href="{{ route('ventas-wifi.create') }}"><img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
+                                          <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
                                         <div class="media-body">
                                           <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
                                                <h5>Nuevo registro wifi</h5></a>
