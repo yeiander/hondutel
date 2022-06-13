@@ -11,7 +11,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Ventas</h5>
+            <h5 class="page__heading">Consulta Linea</h5>
           
         </div>
         
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Consulta fffff:</h3><br><br>
+                            <h3 class="page__heading">LINEA</h3><br><br>
 
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
