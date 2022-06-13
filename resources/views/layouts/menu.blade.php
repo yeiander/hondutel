@@ -24,6 +24,10 @@
     </a>
     @endcan
 
+    <a class="nav-link" href="{{ route('recursos_humanos')}}">
+        <i class=""><img class="ml-2 mr-4" src="{{ asset('img/mapa.png') }}" height="30px"></i><span>Mapa Interactivo</span>
+    </a>
+
     {{-- mi prueba --}}
  
      
