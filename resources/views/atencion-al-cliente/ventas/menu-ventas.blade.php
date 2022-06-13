@@ -76,12 +76,13 @@
                                   
                                   <div class="modal-body">
                                     {{---inicio formulario para crear un pase de salida--------------}}
-                              <form action=" {{url('/recursos-humanos-permisos/pase-salida/edit2')}} " method="post">
+                              <form action=" {{url('/atencion-al-cliente/ventas-linea/wifi123')}} " method="post">
                                 @csrf
+                               
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
-                                    <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-                                    <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                                    <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Ingrese el numero personal:</label>
+                                    <input  style="font-size:16px;"  class="form-control" type="text" name="id" id="id">
                                   </div>
                                 </div>
                                   <br>
