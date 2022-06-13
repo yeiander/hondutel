@@ -24,6 +24,7 @@ use App\Http\Controllers\atencionCliente\RegistroCancelacionesController;
 use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\RegistrolineaController;
 use App\Http\Controllers\atencionCliente\RegistrowifiController;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,3 +101,4 @@ Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteControll
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________
+
