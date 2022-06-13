@@ -146,7 +146,9 @@ class PaseSalidaController extends Controller
                 
         $id = $request->input('fk_id_empleado');
         $empleado = Empleado::findOrFail($id);
-        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)->whereYear('fechaSolicitudPermiso', '=', $annio)
+        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'almacenado')
+        ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
     
         return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio'));

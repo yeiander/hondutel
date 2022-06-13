@@ -23,6 +23,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombreEmpleado')->nullable();
             $table->string('telefonoEmpleado')->nullable();
             $table->string('numIdentidadEmpleado')->nullable();
+            $table->string('areaTrabajo')->nullable();
          
             $table->timestamps();
             
