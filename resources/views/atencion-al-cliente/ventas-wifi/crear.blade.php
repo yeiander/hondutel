@@ -15,32 +15,135 @@
                             <div class="container">
                               <div class="row">
                                 <div class="col-sm">
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente: {{$registrowifi->clienteNombre}}</label><br>
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo: {{$registrowifi->clienteCorreo}}</label><br>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion: {{$registrowifi->clienteProfesion}}</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="id"><h6>Identidad:</h6></label>
+                                      <label id="id"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->id}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>   
+                                  
+                                  
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-inline">
+                               <div class="form-group">
+                                <label id="clienteNombre"><h6>Nombre del cliente:</h6></label>
+                                <label id="clienteNombre"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteNombre}} </h6></label>
+                               </div>
                                 </div>
+                            </div>
+
+                            <div class="col-xs-12 col--12 col-md-12">
+                              <div class="form-inline">
+                               <div class="form-group">
+                                <label id="clienteCorreo"><h6>Correo:</h6></label>
+                                <label id="clienteCorreo"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteCorreo}} </h6></label>
+                               </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-inline">
+                               <div class="form-group">
+                                <label id="clienteProfesion"><h6>Profesion:</h6></label>
+                                <label id="clienteProfesion"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteProfesion}} </h6></label>
+                               </div>
+                                </div>
+                            </div>
+                      
+                                </div>
+                           
 
                                 <div class="col-sm">
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto: {{$registrowifi->telefonoContacto}}</label><br>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo: {{$registrowifi->clienteDireccionTrabajo}}</label><br>
-                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil: {{$registrowifi->clienteEstadoCivil}}</label><br>
+                                  <div class="col-xs-12 col--12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="telefonoContacto"><h6>Contacto:</h6></label>
+                                      <label id="telefonoContacto"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->telefonoContacto}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xs-12 col--12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="clienteDireccionTrabajo"><h6>Direccion del Trabajo:</h6></label>
+                                      <label id="clienteDireccionTrabajo"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteDireccionTrabajo}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xs-12 col--12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="clienteEstadoCivil"><h6>Estado Civil:</h6></label>
+                                      <label id="clienteEstadoCivil"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteEstadoCivil}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xs-12 col--12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="beneficiarioParentesco"><h6>Parentesco:</h6></label>
+                                      <label id="beneficiarioParentesco"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->beneficiarioParentesco}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
                                 </div>
 
+                                
+
+
                                 <div class="col-sm">
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas: {{$registrowifi->cuotas}}</label><br>
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas: {{$registrowifi->numeroCuotas}}</label><br>
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:{{$registrowifi->nombreBeneficiario}}</label><br>
-                                  <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco: {{$registrowifi->beneficiarioParentesco}}</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="cuotas"><h6>Cuotas:</h6></label>
+                                      <label id="cuotas"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->cuotas}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>  
+                                  
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="numeroCuotas"><h6>numeroCuotas:</h6></label>
+                                      <label id="numeroCuotas"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->numeroCuotas}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-inline">
+                                     <div class="form-group">
+                                      <label id="nombreBeneficiario"><h6>Beneficiario:</h6></label>
+                                      <label id="nombreBeneficiario"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->nombreBeneficiario}} </h6></label>
+                                     </div>
+                                      </div>
+                                  </div>
+
+                              
                                 </div>
                               </div>
                             </div>
 
-                            <form action=" {{url('/atencion-al-cliente/ventas-wifi')}} " method="post">
+
+                            <form action=" {{url('/atencion-al-cliente/ventas-wifi')}} " method="post"><br><br>
                                 @csrf
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
-                                     {{-- columna1 inicio --}}º
+                                     {{-- columna1 inicio --}}
+                                     <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_linea">Identidad:</label>
+                                         <input readonly value="{{$registrowifi->id}}" style="font-size:14px;" class="form-control" type="text" name="fk_id_linea" id="fk_id_linea">
+                                       </div>
+                                    </div>
+
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="rtn">R.T.N.:</label>
@@ -84,7 +187,7 @@
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="categorias">Categotias:</label>
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="categorias">Categorias:</label>
                                          <input style="font-size:14px;" class="form-control" type="text" name="categorias" id="categorias">
                                        </div>
                                     </div>
@@ -92,7 +195,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitud">Fecha de Solicitud:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="fechaSolicitud" id="fechaSolicitud">
+                                         <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitud" id="fechaSolicitud">
                                        </div>
                                     </div>
 
@@ -105,16 +208,12 @@
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Equipo de instalacion:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteDireccionTrabajo" id="clienteDireccionTrabajo">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="equipoInstalacion">Equipo de instalacion:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="equipoInstalacion" id="equipoInstalacion">
                                        </div>
                                     </div>
 
-
-
-                                      
-
-                    
+    
 
                                    
                                      {{-- coloumna2 final --}}

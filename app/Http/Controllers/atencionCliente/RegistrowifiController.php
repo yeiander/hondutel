@@ -65,6 +65,8 @@ class RegistrowifiController extends Controller
     public function edit($id)
     {
         //
+        $registro=Registrowifi::findOrFail($id);
+        return view('/atencion-al-cliente/ventas-wifi.editar', compact('registro'));
     }
 
     /**
@@ -88,5 +90,7 @@ class RegistrowifiController extends Controller
     public function destroy($id)
     {
         //
+        Registrowifi::find($id)->delete();
+        return redirect()->route('ventas-wifi.index');
     }
 }

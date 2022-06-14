@@ -21,8 +21,8 @@
                                   <a href="{{ route('ventas-linea.create') }}"><img  class="mr-3" src="{{ asset('img/votacion-en-linea.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('ventas-linea.create') }}">
-                                       <h5>Nuevo registro linea</h5></a>
-                                       <p>Crear registros de linea</p>
+                                       <h5>Linea Fija</h5></a>
+                                       <p> Registros de linea</p>
                                 </div>
                               </li>
 
@@ -46,8 +46,8 @@
                                           <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
                                         <div class="media-body">
                                           <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
-                                               <h5>Nuevo registro wifi</h5></a>
-                                               <p>Crear registros de wifi</p>
+                                               <h5>Internet</h5></a>
+                                               <p>Registro de internet</p>
                                         </div>
                                       </li>
 
@@ -56,9 +56,9 @@
                                             <img class="mr-3" src="{{ asset('img/charla.png') }}" height="50px">
                                           <div class="media-body">
                                               <a href="{{ route('ventas-wifi.index') }}">
-                                                 <h5>Consulta registro wifi</h5>
+                                                 <h5>Consulta registro internet</h5>
                                               </a>
-                                            <p> Consulta wifi</p>
+                                            <p> Consulta internet</p>
                                           </div>
                                         </li>
 
