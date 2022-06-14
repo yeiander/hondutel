@@ -35,6 +35,7 @@
                                 <th style="color: #fff;">Fecha de Solicitud</th>
                                 <th style="color: #fff;">Nombre del Propietario</th>
                                 <th style="color: #fff;">Equipo de Instalacion</th>
+                                <th style="color: #fff;">Acciones</th>
               
                                   </tr>
                               </thead>
@@ -51,9 +52,9 @@
                                   <td>{{$registro->nombrePropietario}}</td>
                                   <td>{{$registro->equipoInstalacion}}</td>
                                    <td>
-                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/edit') }}" >editar </a>
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/edit') }}" >editar </a>
                                     <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/imprimir') }}">Imprimir</a>
-                                    <form action=" {{route('ventas.destroy',$registro->id)}} " method="post">
+                                    <form action=" {{route('ventas-wifi.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
                                   <button type="submit" class="btn btn-danger">Borrar</button>
