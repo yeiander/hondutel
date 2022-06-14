@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\atencionCliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Registrolinea;
 use App\Models\Registrowifi;
 use Illuminate\Http\Request;
 
@@ -79,6 +80,10 @@ class RegistrowifiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $registro = request()->except(['_token', '_method']);
+        Registrowifi::where('id','=',$id)->update($registro);
+
+        return redirect()->route('ventas-wifi.index');
     }
 
     /**
