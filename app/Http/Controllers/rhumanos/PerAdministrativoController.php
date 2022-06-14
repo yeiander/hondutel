@@ -96,6 +96,7 @@ class PerAdministrativoController extends Controller
         $empleado = Empleado::findOrFail($id);
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('fk_id_tipo_permiso', 'like', 3)
+        ->where('aprobacion', 'like', 'almacenado')
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
     
