@@ -3,7 +3,7 @@
 @section('content')
   <section class="">
     <div class="section-header"  style="max-height: 3rem;">
-      {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
+     
        </div>
         <div class="section-body">
        

@@ -22,9 +22,9 @@
           Administrativo <span class="badge badge-light">{{ $permisoAdministrativo }}</span>
         </a>
 
-        <button type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
-          Ventas <span class="badge badge-light"></span>
-        </button>
+        <a href="{{ route('ventas-pendientes.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
+          Ventas <span class="badge badge-light">{{ $permisoVenta }}</span>
+        </a>
         {{-- final de estadisticas --}}
 
       </div>
