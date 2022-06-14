@@ -30,6 +30,12 @@
                                                      </button>
                                                 </div>
                                               @endif
+
+                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                  <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                </div>
+                                              </div>
                             
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form action=" {{url('/recursos-humanos-permisos/administrativo')}} " method="post">

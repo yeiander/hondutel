@@ -58,12 +58,14 @@
                                       </div>
                                     </div>
 
-                                   <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group"> 
-                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud</label>
-                                      <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                   
+
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaEntradaAproximada">Hora de entrada (aproximada):</label> 
+                                     <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada" required>
                                     </div>
-                                  </div>
+                                 </div>
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
@@ -76,12 +78,12 @@
                                         </div>
                                      </div>
 
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaEntradaAproximada">Hora de entrada (aproximada):</label> 
-                                         <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada" required>
-                                        </div>
-                                     </div>
+                                     <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group"> 
+                                        <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud</label>
+                                        <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                      </div>
+                                    </div>
 
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
