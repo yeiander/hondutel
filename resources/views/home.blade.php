@@ -2,7 +2,7 @@
 @section('content')
   <section class="section">
     <div class="section-header"  style="max-height: 3rem;">
-      <h5 class="page__heading">Inicio.</h5>
+      <h5 class="page__heading">Inicio</h5>
     </div>
 {{-------------------------- NOTIFICACIONES INICIO--------------------------------------}}
 
@@ -30,7 +30,7 @@
     {{-------------------------- INICIO --------------------------}}
                         
               
-         
+         <h1>TRABAJEN</h1>
        
     {{-------------------------- FINAL ---------------------------}}
               </div>
