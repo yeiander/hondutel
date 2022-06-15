@@ -104,6 +104,7 @@ Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteControll
 Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
+Route::get('/atencion-al-cliente/ventas-linea/{id}/imprimir', [RegistrolineaController::class, 'imprimir']);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________
