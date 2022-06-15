@@ -1,69 +1,65 @@
 @extends('layouts.app')
+
 @section('content')
-  <section class="section">
-    <div class="section-header"  style="max-height: 3rem;">
-      <h5 class="page__heading">Menu Mapa</h5>
-    </div>
-
+    <section class="section">
+        <div class="section-header"  style="max-height: 3rem;">
+            <h5 class="page__heading">Menu de mapa interactivo</h5>
+        </div>   
         <div class="section-body">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {{-- inicio --}}
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col-sm">
+                                    {{-- One of three columns --}}
+                                    
+                            <ul class="list-unstyled ">
+                              <li class="media my-4">
+                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/coordenadas.png') }}" height="50px"></a>
+                                <div class="media-body">
+                                    <a  href="{{ route('menu-registro-averia') }}">
+                                       <h5>Crear nueva coordenada</h5></a>
+                                       <p>Creacion de marcadores en el mapa</p>
+                                </div>
+                              </li>
 
-    {{-------------------------- INICIO --------------------------}}
-                        
-              
-    
-    <div style="height: 500px; width: 1000px;" id="map" style="width: 600px; height: 400px;"></div>
-    <script>
-       var map = L.map('map').setView([14.6639388, -86.2177902], 18);
-       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-    </script>
+                              <ul class="list-unstyled ">
+                                <li class="media my-4">
+                              
+                                  <a href="{{ route('menu-ventas') }}"><img class="mr-3" src="{{ asset('img/ecuador.png') }}" height="50px"></a>
+                                  <div class="media-body">
+                                      <a href="{{ route('menu-ventas') }}">
+                                         <h5>Ver mapa</h5>
+                                      </a>
+                                    
+                                    <p> Ver todos los marcadores en el mapa</p>
+                                  </div>
+                                </li>
 
-
-    <script>
-var latitude=14.6639388;
-var longitude=-86.2177902;
-var nombre="Hondutel";
-var num="123";
-
-
-
-       var hola = L.marker([latitude, longitude], {
-title: nombre,
-draggable:false,
-opacity: 1
-}).bindPopup(nombre)
-.addTo(map);
-
-       var map = L.map('map').setView([14.6639388, -86.2177902], 18);
-       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-    </script>
-    <script>
-       var Corduba = L.marker([14.663538, -86.215528], {
-title: "Terminal",
-draggable:false,
-opacity: 1
-}).bindPopup("<b>Terminal</b>")
-.addTo(map);
-        
-    </script>
-       
-    {{-------------------------- FINAL ---------------------------}}
-              </div>
+                                <ul class="list-unstyled ">
+                                  <li class="media my-4">
+                                      <a href="{{ route('menu-cancelaciones') }}"><img  class="mr-3" src="{{ asset('img/marcador-de-posicion.png') }}" height="50px"></a>
+                                    <div class="media-body">
+                                        <a  href="{{ route('menu-cancelaciones') }}">
+                                           <h5>Consultar coordenadas</h5></a>
+                                           <p>Consultar todas las coordenadas en la base de datos</p>
+                                    </div>
+                                  </li>
+                                    {{-- fin --}}
+                                  </div>
+                                  <div class="col-sm">
+                                    {{-- One of three columns --}}
+                                    
+                          
+                          
+                             {{-- final --}}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
-
-    
-
 @endsection
