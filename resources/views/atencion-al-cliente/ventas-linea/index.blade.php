@@ -54,7 +54,7 @@
                                     <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
-                                  <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                  <button type="submit" ºclass="btn btn-danger"><i class="fas fa-trash"></i></button>
                                   </form>
                                   </td>
                                 </tr>
