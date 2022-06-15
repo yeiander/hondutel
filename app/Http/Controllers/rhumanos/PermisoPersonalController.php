@@ -95,9 +95,9 @@ class PermisoPersonalController extends Controller
         $empleado = Empleado::findOrFail($id);
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
-        ->where('fk_id_tipo_permiso', 'like', 1)
+        ->where('fk_id_tipo_permiso', 'like', 2)
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
-        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->sum('horasPermisoPersonal');
     
         return view('/recursos-humanos-permisos/permiso-personal/crear', compact('empleado', 'individual', 'mes', 'annio'));
     }
