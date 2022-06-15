@@ -17,7 +17,7 @@ class CreateRegistrowifisTable extends Migration
             $table->engine="InnoDB";
             $table->id();
             $table->string('fk_id_linea');
-            $table->foreign('fk_id_linea')->references('id')->on('registrolineas')->onDelete('cascade');
+            $table->foreign('fk_id_linea')->references('id')->on('registrolineas')->onDelete('cascade')->onUpdate('cascade');
             $table->string('rtn')->nullable();
             $table->string('wifiTelefonoAsociado')->nullable();
             $table->string('clienteTelefonoOficina')->nullable();

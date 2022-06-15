@@ -63,10 +63,16 @@
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteEstadoCivil" id="clienteEstadoCivil">
-                                       </div>
+                                       <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:</label>
+                                       <select class="form-control" id="clienteEstadoCivil" name="clienteEstadoCivil">
+                                         <option disabled selected>Seleccione estado civil</option>
+                                           <option value="Soltero">Soltero</option>
+                                           <option value="Casado">Casado</option>
+                                           <option value="Divorciado">Divorciado</option>
+                                         </select>
+                                      </div>
                                     </div>
+
 
                                     
 
@@ -77,16 +83,19 @@
 
                                     <div class="col-sm">
                                       {{-- columna2 inicio --}}
-
-
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="cuotas" id="cuotas">
-                                         </div>
+                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
+                                         <select class="form-control" id="cuotas" name="cuotas">
+                                          <option value="no">no</option>
+                                             <option value="si">si</option>
+                                             
+                                           </select>
+                                        </div>
                                       </div>
 
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
+
+                                      <div id="numerocuotas" style="display: none" class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
                                            <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas">
@@ -137,4 +146,19 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+    <script>
+
+     //ocultar mediante el select
+     $('#cuotas').on('change',function(){
+        var selectValor = $(this).val();
+        if (selectValor == "si" || selectValor == null ) {
+            $('#numerocuotas').show();
+        }else {
+          $('#numerocuotas').hide();
+           
+        }
+    });
+    </script>
+    @endsection
 @endsection

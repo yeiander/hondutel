@@ -75,7 +75,7 @@
                                          <option disabled selected>Seleccione la duracion</option>
                                            <option value="4">Medio dia</option>
                                            <option value="8">Un dia</option>
-                                           <option value="16">Dos dias</option>
+                                           <option id="hola" value="16">Dos dias</option>
                                          </select>
                                       </div>
                                     </div>
@@ -193,6 +193,15 @@
     $('#form').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });
+
+$(function(){
+        // FINAL pcultar boton
+       if( {{ $individual }} > 4){
+        $('#hola').hide();
+       
+       }
+     });
+
     </script>
     @endsection
 @endsection

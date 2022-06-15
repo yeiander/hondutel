@@ -33,6 +33,7 @@
                                 <th style="color: #fff;">Telefono</th>
                                 <th style="color: #fff;">Cuotas</th>
                                 <th style="color: #fff;">Acciones</th>
+                                <th style="color: #fff;">Borrado</th>
                               
                                                           
                                 
@@ -49,12 +50,16 @@
                                   <td>{{$registro->telefonoContacto}}</td>
                                   <td>{{$registro->cuotas}}</td>
                                    <td>
-                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" >editar </a>
-                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                    <button title="VER" type="submit" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" ><i  class="fas fa-pen-square"></i> </a>
+                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}"><i class="fas fa-file-pdf"></i></a>
+                                  
+                                  </td>
+                                    <td>
                                     <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
-                                  <button type="submit" class="btn btn-danger">Borrar</button>
+                                  <button type="submit" ºclass="btn btn-danger"><i class="fas fa-trash"></i></button>
                                   </form>
                                   </td>
                                 </tr>

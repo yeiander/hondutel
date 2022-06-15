@@ -46,7 +46,7 @@
                                           <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
                                         <div class="media-body">
                                           <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
-                                               <h5>Internet</h5></a>
+                                               <h5>Servicio ADSL</h5></a>
                                                <p>Registro de internet</p>
                                         </div>
                                       </li>
