@@ -27,9 +27,9 @@
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
-                                <th style="color: #fff;">R.T.N.</th>
+                                <th style="color: #fff;">Nombre del cliente</th>
                                 <th style="color: #fff;">Telefono Asociado</th>
-                                <th style="color: #fff;">Telefono de Oficina</th>
+                                {{-- <th style="color: #fff;">Telefono de Oficina</th> --}}
                                 <th style="color: #fff;">Linea Propietario</th>
                                 {{-- <th style="color: #fff;">Categorias</th> --}}
                                 {{-- <th style="color: #fff;">Fecha de Solicitud</th>
@@ -43,9 +43,9 @@
                                 @foreach($registros as $registro)
                                 <tr>
                                    
-                                  <td>{{$registro->rtn}}</td>
+                                  <td>{{$registro->registrolineas->clienteNombre}}</td>
                                   <td>{{$registro->wifiTelefonoAsociado}}</td>
-                                  <td>{{$registro->clienteTelefonoOficina}}</td>
+                                  {{-- <td>{{$registro->clienteTelefonoOficina}}</td> --}}
                                   <td>{{$registro->propietarioLinea}}</td>
                                   {{-- <td>{{$registro->categorias}}</td> --}}
                                   {{-- <td>{{$registro->fechaSolicitud}}</td>

@@ -8,6 +8,7 @@ use App\Models\Registrowifi;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 class RegistrowifiController extends Controller
 {
     /**
