@@ -8,14 +8,20 @@
         <div class="section-body">
        
           <center><h4>Crear un permiso personal</h4></center>
-         
+          <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+            Numero de horas solicitadas en este mes:<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
+          </a>
             <div class="row">
                <div class="col-lg-12">
                   <div class="card">
                      <div class="card-body">
                                                 {{-- inicio --}}
                            
-                           
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                  <div class="form-group">
+                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                  </div>
+                                                </div>
          
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -54,6 +60,14 @@
                                   <div class="row">
                                     <div class="col-sm">
                                      {{-- INICIO --}}
+
+                                     <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Numero personal:</label>
+                                        <input  style="font-size:16px;" readonly value="{{ $empleado->id }}" class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                                      </div>
+                                    </div>
+
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horasPermisoPersonal">duracion del permiso:</label>
@@ -101,7 +115,7 @@
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso">duracion del permiso:</label>
+                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lugarSolicitudPermiso">Lugar:</label>
                                          <select class="form-control" id="lugarSolicitudPermiso" name="lugarSolicitudPermiso">
                                            
                                              <option value="Juticalpa">Juticalpa</option>
