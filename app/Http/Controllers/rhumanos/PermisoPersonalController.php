@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Carbon;
 
 class PermisoPersonalController extends Controller
 {
@@ -69,6 +69,39 @@ class PermisoPersonalController extends Controller
     {
         //
     }
+
+     /**
+     * Show the form to create a new blog post.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit2(Request $request)
+    {
+        //
+        $validated = $request->validate([
+            
+            
+            'fk_id_empleado' => 'required|exists:empleados,id',
+            
+            
+           
+        ]);
+        
+        $mes = Carbon::now()->format('m');
+        $annio = Carbon::now();
+        $annio = $annio->format('Y');
+                
+        $id = $request->input('fk_id_empleado');
+        $empleado = Empleado::findOrFail($id);
+        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'almacenado')
+        ->where('fk_id_tipo_permiso', 'like', 2)
+        ->whereYear('fechaSolicitudPermiso', '=', $annio)
+        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->sum('horasPermisoPersonal');
+    
+        return view('/recursos-humanos-permisos/permiso-personal/crear', compact('empleado', 'individual', 'mes', 'annio'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.
