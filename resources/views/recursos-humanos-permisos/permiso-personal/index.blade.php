@@ -54,10 +54,12 @@
                                      <td>{{$permiso->fechaSolicitudPermiso}}</td>
                                     <td>{{$permiso->lugarSolicitudPermiso}}</td> 
                                     <td>{{$permiso->id}}</td>
-                                    <td> <button title="EDITAR" type="submit" class="btn btn-primary"><i class="fas fa-pen-square"></i></button>
+                                    <td> <button title="VER" type="submit" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                        <button title="EDITAR" type="submit" class="btn btn-primary"><i class="fas fa-pen-square"></i></button>
                                         
                                          <button title="IMPRIMIR" type="submit" class="btn btn-success"><i class="fas fa-file-pdf"></i></button>
                                          <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                         
                                     </td>
                   
                                   </tr>

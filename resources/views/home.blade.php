@@ -13,6 +13,7 @@
            Recursos Humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
            </a>
        </div>
+
      {{-- FINAL recursso humanos notificacion --}}
 
        <a style="font-size: 14px; margin-top: 0.5rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
@@ -21,15 +22,18 @@
 
  {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
 
+ 
         <div class="section-body">
           <div class="row">
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
 
+
     {{-------------------------- INICIO --------------------------}}
                         
-              
+    
+           <h1>prueba 12345678910</h1>
          
        
     {{-------------------------- FINAL ---------------------------}}
