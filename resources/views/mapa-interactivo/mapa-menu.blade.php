@@ -23,12 +23,21 @@
     attribution: '© OpenStreetMap'
 }).addTo(map);
     </script>
+
+
     <script>
-       var Corduba = L.marker([14.6639388, -86.2177902], {
-title: "Hondutel",
+var latitude=14.6639388;
+var longitude=-86.2177902;
+var nombre="Hondutel";
+var num="123";
+
+
+
+       var hola = L.marker([latitude, longitude], {
+title: nombre,
 draggable:false,
 opacity: 1
-}).bindPopup("<b>Hondutel</b>")
+}).bindPopup(nombre)
 .addTo(map);
 
        var map = L.map('map').setView([14.6639388, -86.2177902], 18);
