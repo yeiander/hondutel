@@ -49,12 +49,12 @@
                                   <td>{{$registro->telefonoContacto}}</td>
                                   <td>{{$registro->cuotas}}</td>
                                    <td>
-                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" >editar </a>
-                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" ><i class="fas fa-pen-square"></i> </a>
+                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}"><i class="fas fa-file-pdf"></i></a>
                                     <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
-                                  <button type="submit" class="btn btn-danger">Borrar</button>
+                                  <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                   </form>
                                   </td>
                                 </tr>
