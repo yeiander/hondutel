@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Carbon;
+
 
 class PermisoVentasController extends Controller
 {
@@ -48,15 +50,11 @@ class PermisoVentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $validated = $request->validate([
-            
-            'fk_id_empleado' => 'required'
-        ]);
-
+       
+       
         // $datosPaseSalida = request()->all();$
-        $datosPaseSalida = request()->except('_token');
-        RhPermiso::insert($datosPaseSalida);
+        $datosPermisoVentas = request()->except('_token');
+        RhPermiso::insert($datosPermisoVentas);
         $permisos = RhPermiso::all();
         return redirect()->route('recursos_humanos');
     }
@@ -70,6 +68,38 @@ class PermisoVentasController extends Controller
     public function show($id)
     {
         //
+    }
+
+      /**
+     * Show the form to create a new blog post.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit2(Request $request)
+    {
+        //
+        $validated = $request->validate([
+            
+            
+            'fk_id_empleado' => 'required|exists:empleados,id',
+            
+            
+           
+        ]);
+        
+        $mes = Carbon::now()->format('m');
+        $annio = Carbon::now();
+        $annio = $annio->format('Y');
+                
+        $id = $request->input('fk_id_empleado');
+        $empleado = Empleado::findOrFail($id);
+        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'almacenado')
+        ->where('fk_id_tipo_permiso', 'like', 4)
+        ->whereYear('fechaSolicitudPermiso', '=', $annio)
+        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+    
+        return view('/recursos-humanos-permisos/ventas-rc/crear', compact('empleado', 'individual', 'mes', 'annio'));
     }
 
     /**

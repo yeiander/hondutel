@@ -23,8 +23,8 @@ class PerVentasPendienteController extends Controller
     public function index()
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado',)->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/ventas', compact('permisos'));
+        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado',)->where('fk_id_tipo_permiso','like','4');
+        return view('/recursos-humanos-permisos/ventas-pendientes/index', compact('permisos'));
         
     }
 
@@ -69,6 +69,9 @@ class PerVentasPendienteController extends Controller
     public function edit($id)
     {
         //
+          //
+          $permiso = RhPermiso::findOrFail($id);
+          return view('/recursos-humanos-permisos/ventas-pendientes/editar', compact('permiso'));
     }
 
     /**
@@ -81,6 +84,11 @@ class PerVentasPendienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        // $permiso = RhPermiso::findOrFail($id);
+        return redirect()->route('ventas-pendientes.index');
     }
 
     /**

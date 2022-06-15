@@ -18,7 +18,8 @@ class RecursoshumanosController extends Controller
         $paseSalida= RhPermiso::where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','1')->count();
         $permisoPersonal= RhPermiso::where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','2')->count();
         $permisoAdministrativo= RhPermiso::where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','3')->count();
-        return view('/rc/recursos_humanos', compact('paseSalida', 'permisoPersonal', 'permisoAdministrativo'));
+        $permisoVenta= RhPermiso::where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','4')->count();
+        return view('/rc/recursos_humanos', compact('paseSalida', 'permisoPersonal', 'permisoAdministrativo','permisoVenta'));
     }
 
     public function permisos()

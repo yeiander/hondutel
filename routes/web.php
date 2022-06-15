@@ -72,6 +72,7 @@ Route::resource('/recursos-humanos-permisos/pase-salida-pendiente', PaseSalidaPe
 //_________________________________________PASE DE SALIDA (FINAL)________________________________________________________
 
 //_________________________________________PERMISO PERSONAL (INICIO)_______________________________________________________
+Route::post('/recursos-humanos-permisos/permiso-personal/edit2', [PermisoPersonalController::class, 'edit2']);
 Route::resource('/recursos-humanos-permisos/permiso-personal', PermisoPersonalController::class);
 Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPersonalPendienteController::class);
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________
@@ -83,8 +84,9 @@ Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdmini
 //_________________________________________PERMISO ADMINISTRATIVO (FINAL)______________________________________________________
 
 //_________________________________________PERMISO VENTAS (INICIO)_________________________________________________________
+Route::post('/recursos-humanos-permisos/ventas-rc/edit2', [PermisoVentasController::class, 'edit2']);
 Route::resource('/recursos-humanos-permisos/ventas-rc', PermisoVentasController::class);
-Route::resource('/recursos-humanos-permisos/ventas-rc-pendiente', PerVentasPendienteController::class);
+Route::resource('/recursos-humanos-permisos/ventas-pendientes', PerVentasPendienteController::class);
 //_________________________________________PERMISO VENTAS (FINAL)_________________________________________________________
 
 //_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________
@@ -102,6 +104,7 @@ Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteControll
 Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
+Route::get('/atencion-al-cliente/ventas-linea/{id}/imprimir', [RegistrolineaController::class, 'imprimir']);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

@@ -49,9 +49,9 @@
                                   <td>{{$registro->telefonoContacto}}</td>
                                   <td>{{$registro->cuotas}}</td>
                                    <td>
-                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/edit') }}" >editar </a>
-                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/imprimir') }}">Imprimir</a>
-                                    <form action=" {{route('ventas.destroy',$registro->id)}} " method="post">
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" >editar </a>
+                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                    <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
                                   <button type="submit" class="btn btn-danger">Borrar</button>
@@ -82,13 +82,9 @@ $(document).ready(function(){
         $('#permiso1').DataTable({
           responsive: true,
           select: true,
-    
 
             autoWidth: false,
-        
-            
-
-    
+      
             "language": {
             "lengthMenu": "Mostrar _MENU_ registros por pagina",
             "zeroRecords": "Nada encontrado - prueba de nuevo",
