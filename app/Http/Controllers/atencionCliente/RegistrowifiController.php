@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Registrolinea;
 use App\Models\Registrowifi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegistrowifiController extends Controller
 {
@@ -98,4 +99,21 @@ class RegistrowifiController extends Controller
         Registrowifi::find($id)->delete();
         return redirect()->route('ventas-wifi.index');
     }
+
+    public function imprimir($id)
+    {
+        //
+        $ventaswifi = Registrowifi::find($id);
+
+        $vista = view('pdf/pdf-atencion-cliente.reporte-ventaswifi')
+        ->with('ventas-wifi', $ventaswifi);
+
+        $pdf = PDF::loadHTML($vista);
+        
+        return $pdf->stream('nombre.pdf');
+        
+    }
+
+
+
 }

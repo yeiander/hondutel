@@ -105,6 +105,7 @@ Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
 Route::get('/atencion-al-cliente/ventas-linea/{id}/imprimir', [RegistrolineaController::class, 'imprimir']);
+Route::get('/atencion-al-cliente/ventas-wifi/{id}/imprimir', [RegistrowifiController::class, 'imprimir']);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

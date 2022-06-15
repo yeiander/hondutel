@@ -184,13 +184,19 @@
 
                                     <div class="col-sm">
                                       {{-- columna2 inicio --}}
-
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="categorias">Categorias:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="categorias" id="categorias">
-                                       </div>
+                                       <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="categorias">Categorias:</label>
+                                       <select class="form-control" id="categorias" name="categorias">
+                                         <option disabled selected>Seleccionar categorias</option>
+                                           <option value="Soltero">Residencial</option>
+                                           <option value="Casado">Comercial</option>
+                                           <option value="Divorciado">Gobierno</option>
+                                           <option value="Divorciado">Otros</option>
+                                         </select>
+                                      </div>
                                     </div>
+
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">

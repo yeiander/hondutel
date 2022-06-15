@@ -31,9 +31,9 @@
                                 <th style="color: #fff;">Telefono Asociado</th>
                                 <th style="color: #fff;">Telefono de Oficina</th>
                                 <th style="color: #fff;">Linea Propietario</th>
-                                <th style="color: #fff;">Categorias</th>
-                                <th style="color: #fff;">Fecha de Solicitud</th>
-                                <th style="color: #fff;">Nombre del Propietario</th>
+                                {{-- <th style="color: #fff;">Categorias</th> --}}
+                                {{-- <th style="color: #fff;">Fecha de Solicitud</th>
+                                <th style="color: #fff;">Nombre del Propietario</th> --}}
                                 <th style="color: #fff;">Equipo de Instalacion</th>
                                 <th style="color: #fff;">Acciones</th>
               
@@ -47,13 +47,13 @@
                                   <td>{{$registro->wifiTelefonoAsociado}}</td>
                                   <td>{{$registro->clienteTelefonoOficina}}</td>
                                   <td>{{$registro->propietarioLinea}}</td>
-                                  <td>{{$registro->categorias}}</td>
-                                  <td>{{$registro->fechaSolicitud}}</td>
-                                  <td>{{$registro->nombrePropietario}}</td>
+                                  {{-- <td>{{$registro->categorias}}</td> --}}
+                                  {{-- <td>{{$registro->fechaSolicitud}}</td>
+                                  <td>{{$registro->nombrePropietario}}</td> --}}
                                   <td>{{$registro->equipoInstalacion}}</td>
                                    <td>
                                     <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/edit') }}" >editar </a>
-                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/imprimir') }}">Imprimir</a>
                                     <form action=" {{route('ventas-wifi.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
