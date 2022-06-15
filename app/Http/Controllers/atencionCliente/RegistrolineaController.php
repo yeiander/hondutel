@@ -56,6 +56,8 @@ class RegistrolineaController extends Controller
     public function show($id)
     {
         //
+        $registro=Registrolinea::findOrFail($id);
+        return view('/atencion-al-cliente/ventas-linea.ver', compact('registro'));
     }
 
     /**

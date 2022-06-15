@@ -36,6 +36,7 @@
                                 <th style="color: #fff;">Nombre del Propietario</th> --}}
                                 <th style="color: #fff;">Equipo de Instalacion</th>
                                 <th style="color: #fff;">Acciones</th>
+                                <th style="color: #fff;">Borrado</th>
               
                                   </tr>
                               </thead>
@@ -52,14 +53,16 @@
                                   <td>{{$registro->nombrePropietario}}</td> --}}
                                   <td>{{$registro->equipoInstalacion}}</td>
                                    <td>
-                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/edit') }}" >editar </a>
-                                    <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/imprimir') }}">Imprimir</a>
-                                    <form action=" {{route('ventas-wifi.destroy',$registro->id)}} " method="post">
-                                      @csrf
-                                      {{method_field('DELETE')}}
-                                  <button type="submit" class="btn btn-danger">Borrar</button>
-                                  </form>
+                                    <a title="VER" type="submit" class="btn btn-info" href="{{ route('ventas-wifi.show',$registro->id) }}"><i class="fas fa-eye"></i></a>
+                                    <a title="EDITAR" type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/edit') }}" ><i  class="fas fa-pen-square"></i> </a>
+                                    <a title="IMPRIMIR" type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-wifi/'.$registro->id.'/imprimir') }}"><i class="fas fa-file-pdf"></i></a> 
                                   </td>
+                                  <td><form action=" {{route('ventas-wifi.destroy',$registro->id)}} " method="post">
+                                    @csrf
+                                    {{method_field('DELETE')}}
+                                    <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </form>
+                              </td>
                                 </tr>
                                 @endforeach
                               </tbody>
