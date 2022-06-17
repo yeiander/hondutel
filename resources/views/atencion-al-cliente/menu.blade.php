@@ -7,13 +7,28 @@
         </div>   
         <div class="section-body">
             <div class="row">
+              
                 <div class="col-lg-12">
-                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 1</button>
-                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 2</button>
-                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 3</button>
-                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 4</button>
+                  <center>
+                    <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                      Personal <span class="badge badge-light">1</span>
+                   </a>
+
+                    <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                      Personal <span class="badge badge-light">2</span>
+                  </a>
+
+                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                        Personal <span class="badge badge-light">3</span>
+                    </a>
+
+                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                        Personal <span class="badge badge-light">4</span>
+                    </a>
+                    
+                    
+                  </center>
                     <div class="card">
-                      
                         <div class="card-body">
                             {{-- inicio --}}
                             <div class="container">
