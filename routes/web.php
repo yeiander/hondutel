@@ -110,4 +110,6 @@ Route::get('/atencion-al-cliente/ventas-wifi/{id}/imprimir', [RegistrowifiContro
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________
 Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
+Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
+Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________

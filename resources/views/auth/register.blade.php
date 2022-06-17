@@ -75,8 +75,8 @@
             </form>
         </div>
     </div>
-    <div class="mt-5 text-muted text-center">
-        Already have an account ? <a
-                href="{{ route('login') }}">SignIn</a>
+    <div class="mt-2 text-muted text-center">
+        <h5>¿Ya tienes una cuenta? <a
+                href="{{ route('login') }}">Inicia sesion</a></h5>
     </div>
 @endsection
