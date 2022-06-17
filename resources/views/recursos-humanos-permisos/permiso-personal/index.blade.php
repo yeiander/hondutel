@@ -73,7 +73,7 @@
             <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
             <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script>
+            {{-- <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script> --}}
           
      
   
