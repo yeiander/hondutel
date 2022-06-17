@@ -8,10 +8,10 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                  <button type="button" class="btn btn-primary">Etapas 1</button>
-                  <button type="button" class="btn btn-primary">Etapas 2</button>
-                  <button type="button" class="btn btn-primary">Etapas 3</button>
-                  <button type="button" class="btn btn-primary">Etapas 4</button>
+                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 1</button>
+                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 2</button>
+                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 3</button>
+                  <button type="button" class="btn btn-primary" style="margin-top: 0.5rem">Etapas 4</button>
                     <div class="card">
                       
                         <div class="card-body">

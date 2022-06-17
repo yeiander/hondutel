@@ -28,11 +28,14 @@
               <div class="card">
                 <div class="card-body">
 
-
     {{-------------------------- INICIO --------------------------}}
                         
     
+<<<<<<< HEAD
            <h1>Vamos a la aldea brik y llevemos a Jeison</h1>
+=======
+           <h1>Vamos a la aldea brik y llevemos a Jeison</h1>
+>>>>>>> 074e132f65bb918dac88459ca1a9f403be51f3c2
          
        
     {{-------------------------- FINAL ---------------------------}}
