@@ -22,7 +22,6 @@
 
  {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
 
- 
         <div class="section-body">
           <div class="row">
             <div class="col-lg-12">
@@ -33,7 +32,7 @@
     {{-------------------------- INICIO --------------------------}}
                         
     
-           <h1>FRANKLIN PONETE A ESTUDIAR QUE SI NO LE DIRE AL INGENIERO</h1>
+           <h1>Te puyo Ramon</h1>
          
        
     {{-------------------------- FINAL ---------------------------}}
