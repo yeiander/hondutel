@@ -40,6 +40,16 @@
                                   </div>
                                </li>
 
+                               <ul class="list-unstyled ">
+                                <li class="media my-4">
+                                    <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
+                                  <div class="media-body">
+                                    <a type="button" class="" data-toggle="modal" data-target="#permisoPersonal">
+                                      <h5>Permiso Personal</h5></a>
+                                      <p>Crear un permiso personal</p>
+                                  </div>
+                                </li>
+
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                                   <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
@@ -64,15 +74,7 @@
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
                                     
-                            <ul class="list-unstyled ">
-                              <li class="media my-4">
-                                  <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
-                                <div class="media-body">
-                                  <a type="button" class="" data-toggle="modal" data-target="#permisoPersonal">
-                                    <h5>Permiso Personal</h5></a>
-                                    <p>Crear un permiso personal</p>
-                                </div>
-                              </li>
+                       
                                     {{-- fin --}}
                                   </div>
                                 </div>

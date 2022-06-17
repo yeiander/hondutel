@@ -131,3 +131,22 @@
         
     </body>
 </html>
+
+
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hondutelt</title>
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hola jovenes</h1>
+      </div>
+    
+</body>
+</html> --}}

@@ -148,7 +148,7 @@ class PaseSalidaController extends Controller
         $empleado = Empleado::findOrFail($id);
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
-        ->where('fk_id_tipo_permiso', 'like', 2)
+        ->where('fk_id_tipo_permiso', 'like', 1)
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
     
