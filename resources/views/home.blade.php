@@ -32,7 +32,7 @@
     {{-------------------------- INICIO --------------------------}}
                         
     
-           <h1>FRANKLIN PONETE A ESTUDIAR QUE SI NO LE DIRE AL INGENIERO</h1>
+           <h1>Te puyo Ramon</h1>
          
        
     {{-------------------------- FINAL ---------------------------}}
