@@ -57,6 +57,8 @@ class RegistrowifiController extends Controller
     public function show($id)
     {
         //
+        $registro=Registrowifi::findOrFail($id);
+        return view('/atencion-al-cliente/ventas-wifi.ver', compact('registro'));
     }
 
     /**
