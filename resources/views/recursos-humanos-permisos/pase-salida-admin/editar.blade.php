@@ -21,140 +21,165 @@
                               <div class="container" style="color:rgb(73, 73, 73)">
                                 <div class="row">
                                   <div class="col-sm">
-                                    <h6>Informacion del registro del usuario del mes actual</h6>
+                                    {{-- <h6>Informacion del registro del usuario del mes actual</h6> --}}
                                     
                                   </div>
                                   <div class="col-sm">
-                                    <h6>Informacion del registro del usuario del año actual</h6>
+                                    {{-- <h6>Informacion del registro del usuario del año actual</h6> --}}
                                   </div>
                                   
                                 </div>
-                              </div>    <br><br>                                                 
+                              </div>                                                  
                           
-                              <input id="hola" name="hola" type="hidden" value="{{$permiso->rhTipoPermisos->id}} ">      
+                              <input id="numerotipoPermiso" name="numerotipoPermiso"  type="hidden" value="{{$permiso->rhTipoPermisos->id}} ">      
  <form action=" {{url('/recursos-humanos-permisos/pase-salida-admin/'.$permiso->id)}} " method="post">
    @csrf   
-   {{ method_field('PATCH')}}                              
+   {{ method_field('PATCH')}}   
+   
+   
+  
  <div class="container">
 
-     
 
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="horaSalida"><h6>Hora de salida:</h6></label>
-          <label id="horaSalida1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->horaSalida}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+  <div id="dia1Div" style="display: none" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha #1 del permiso:</span>
+    </div>
+    <input id="fechaPermisoPersonalDia1" value=" {{$permiso->fechaPermisoPersonalDia1}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+  </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="id"><h6>Hora de entrada aproximada:</h6></label>
-          <label id="id1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->horaEntradaAproximada}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+  <div id="dia2Div" style="display: none" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha #2 del permiso:</span>
+    </div>
+    <input id="fechaPermisoPersonalDia2" value=" {{$permiso->fechaPermisoPersonalDia2}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+  </div>
+  
+  <div id="horasPPersonalDiv" style="display: none" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Horas del permiso personal:</span>
+    </div>
+    <input id="horasPermisoPersonal" value=" {{$permiso->horasPermisoPersonal}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+  </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="motivoTrabajoEnfermedad"><h6>Motivo del permiso:</h6></label>
-          <label id="motivoTrabajoEnfermedad1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->motivoTrabajoEnfermedad}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+  <div id="horaSalidaDiv" style="display: none" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Hora de salida</span>
+    </div>
+    <input id="horaSalida" value=" {{$permiso->horaSalida}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+  </div>
+      
+  <div id="horaEntradaAproxDiv" style="display: none" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Hora de entrada aproximada:</span>
+    </div>
+    <input id="horaSalida" value=" {{$permiso->horaEntradaAproximada}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+  </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="fechaPermisoPersonalDia1"><h6>Fecha #1 del permiso:</h6></label>
-          <label id="fechaPermisoPersonalDia11"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->fechaPermisoPersonalDia1}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+      <div id="motivoDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Motivo del permiso:</span>
+        </div>
+        <input id="horaSalida" value=" {{$permiso->motivoTrabajoEnfermedad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="fechaPermisoPersonalDia2"><h6>Fecha #2 del permiso:</h6></label>
-          <label id="fechaPermisoPersonalDia21"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->fechaPermisoPersonalDia2}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="horasPermisoPersonal"><h6>Horas totales del permiso:</h6></label>
-          <label id="horasPermisoPersonal1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->horasPermisoPersonal}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="vehiculoDescripcion"><h6>Vehiculo:</h6></label>
-          <label id="vehiculoDescripcion1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->vehiculoDescripcion}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="internetVendido"><h6>Internet vendido:</h6></label>
-          <label id="internetVendido1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->internetVendido}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="telefonoVendido"><h6>Internet vendido:</h6></label>
-          <label id="telefonoVendido1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->telefonoVendido}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="lineatVendida"><h6>Linea vendida:</h6></label>
-          <label id="lineatVendida1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->lineatVendida}} </h6></label>
-         </div>
-          </div>
-      </div><br>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="lineatVendida"><h6>Linea vendida:</h6></label>
-          <label id="lineatVendida1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->lineatVendida}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+      <div id="fechaSolicitudDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha del permiso:</span>
+        </div>
+        <input id="fechaSolicitudPermiso" value=" {{$permiso->fechaSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
 
 
-          {{-- ??????/ --}}
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-inline">
-         <div class="form-group">
-          <label id="fechaSolicitudPermiso"><h6>Fecha de solicitud:</h6></label>
-          <label id="fechaSolicitudPermiso1"><h6 style="color: blue; margin-left:1rem;">  {{$permiso->fechaSolicitudPermiso}} </h6></label>
-         </div>
-          </div>
-      </div><br>
+      <div id="lugarDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Lugar del permiso:</span>
+        </div>
+        <input id="lugarSolicitudPermiso" value=" {{$permiso->lugarSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
+        </div>
+        <input id="telefonoEmergencia" value=" {{$permiso->telefonoEmergencia}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="vehiculoDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Vehiculo:</span>
+        </div>
+        <input id="vehiculoDescripcion" value=" {{$permiso->vehiculoDescripcion}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="internetDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Internet vendido:</span>
+        </div>
+        <input id="internetVendido" value=" {{$permiso->internetVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="telefonoDiv" style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono vendido:</span>
+        </div>
+        <input id="telefonoVendido" value=" {{$permiso->telefonoVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Linea vendida:</span>
+        </div>
+        <input id="lineatVendida" value=" {{$permiso->telefonoVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Certificado de incapacidad:</span>
+        </div>
+        <input id="numCertificadoIncapacidad" value=" {{$permiso->numCertificadoIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliacion:</span>
+        </div>
+        <input id="numAfiliacionIncapacidad" value=" {{$permiso->numAfiliacionIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio de incapacidad:</span>
+        </div>
+        <input id="fechaInicioIncapacidad" value=" {{$permiso->fechaInicioIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
         
-         
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha final de incapacidad:</span>
+        </div>
+        <input id="fechafinalIncapacidad" value=" {{$permiso->fechafinalIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total dias de incapacidad:</span>
+        </div>
+        <input id="totalDiasIncapacidad" value=" {{$permiso->totalDiasIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div style="display: none" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">hss FALTA PREGUNTAR:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->hss}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
          <input class="form-control" type="hidden" name="aprobacion"  id="aprobacion" value="aprobado">
         </div>
      </div>
 
-        <br>
+      
         <div class="col-xs-12 col-sm-12 col-md-12">
         <ul class="list-unstyled">
   
@@ -180,14 +205,49 @@
     </section>
     @section('scripts')
     <script>
-      // $('#hola').hide();
-      var  tipoDePermiso = document.getElementsByName("hola")[0].value;
-      console.log(tipoDePermiso);
+     //Ocultar o mostrar dependiendo el tipo de permiso
+      var  tipoDePermiso = document.getElementsByName("numerotipoPermiso")[0].value
      $(function(){
-      
-       if(tipoDePermiso == 4){
-        // $('#internetVendido').hide();
+      // pase de salida
+       if(tipoDePermiso == 1){
+        $('#horaSalidaDiv').show();
+        $('#horaEntradaAproxDiv').show();
+        $('#motivoDiv').show();
+        $('#fechaSolicitudDiv').show();
+        $('#lugarDiv').show();
        }
+       // permiso personal
+       else if(tipoDePermiso == 2){
+        
+        $('#dia1Div').show();
+        $('#dia2Div').show();
+        $('#horasPPersonalDiv').show();
+        $('#motivoDiv').show();
+        $('#fechaSolicitudDiv').show();
+        $('#lugarDiv').show();
+       }
+        // permiso administrativo
+       else if(tipoDePermiso == 3){
+        $('#horaSalidaDiv').show();
+        $('#horaEntradaAproxDiv').show();
+        $('#motivoDiv').show();
+        $('#fechaSolicitudDiv').show();
+        $('#lugarDiv').show();
+       }
+         // permiso de ventas
+       else if(tipoDePermiso == 4){
+        $('#horaSalidaDiv').show();
+        $('#horaEntradaAproxDiv').show();
+        $('#motivoDiv').show();
+        $('#fechaSolicitudDiv').show();
+        $('#lugarDiv').show();
+        $('#vehiculoDiv').show();
+        $('#internetDiv').show();
+        $('#telefonoDiv').show();
+       }
+
+
+
        
      });
     </script>
