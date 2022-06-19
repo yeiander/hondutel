@@ -129,7 +129,7 @@
       </div>
         <div class="modal-body">
           {{---inicio de formulario para crear un permiso adminitrativo--------------}}
-          <form action=" {{url('/recursos-humanos-permisos/administrativo/edit2')}} " method="post">
+          <form action=" {{url('/recursos-humanos-permisos/administrativo/create2')}} " method="get">
             @csrf
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">

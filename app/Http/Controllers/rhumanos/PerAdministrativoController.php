@@ -53,6 +53,7 @@ class PerAdministrativoController extends Controller
     public function store(Request $request)
     {
         //
+        
         $validated = $request->validate([
             
            
@@ -63,11 +64,15 @@ class PerAdministrativoController extends Controller
             'lugarSolicitudPermiso' => 'required'
         ]);
    
+       
+
+
         // $datosPaseSalida = request()->all();$
         $datosAdministrativo = request()->except('_token');
         RhPermiso::insert($datosAdministrativo);
         $permisos = RhPermiso::all();
         return redirect()->route('recursos_humanos');
+
     }
 
     /**
@@ -81,7 +86,16 @@ class PerAdministrativoController extends Controller
         //prueba
     }
 
-    public function edit2(Request $request)
+    public function prueba($id)
+    {
+        //prueba
+      return view('/recursos-humanos-permisos/administrativo/crear');
+
+    }
+
+
+
+    public function create2(Request $request)
     {
         //
         $validated = $request->validate([
@@ -93,6 +107,7 @@ class PerAdministrativoController extends Controller
         $annio = $annio->format('Y');
                 
         $id = $request->input('fk_id_empleado');
+        
         $empleado = Empleado::findOrFail($id);
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('fk_id_tipo_permiso', 'like', 3)
