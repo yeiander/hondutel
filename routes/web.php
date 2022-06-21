@@ -27,6 +27,7 @@ use App\Http\Controllers\atencionCliente\RegistrowifiController;
 use App\Http\Controllers\GoogleController;
 use App\Models\Registrolinea;
 
+use App\Http\Controllers\CrudmapaPrueba;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,4 +113,5 @@ Route::get('/atencion-al-cliente/ventas-wifi/{id}/imprimir', [RegistrowifiContro
 Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
 Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
 Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
+Route::resource('mapa-interactivo', CrudmapaPrueba::class);
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________
