@@ -18,31 +18,55 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('registro-averia.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
+                                  <a href="{{ route('registro-averia.create') }}"><img  class="mr-3" src="{{ asset('img/wifi (2).png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('registro-averia.create') }}">
-                                       <h5>Nuevo registro</h5></a>
-                                       <p>Crear registros de averias</p>
+                                       <h5>Internet</h5></a>
+                                       <p>Crear registro de internet</p>
                                 </div>
                               </li>
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
+                                    <img class="mr-3" src="{{ asset('img/consultante (1).png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('registro-averia.index') }}">
-                                         <h5>Consultar</h5>
+                                         <h5>Consulta Internet</h5>
                                       </a>
                                     
-                                    <p> Consultar registro</p>
+                                    <p> Consultar averia de internet</p>
                                   </div>
                                 </li>
+
+                                
 
                                 
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
+
+                                    <ul class="list-unstyled ">
+                                      <li class="media my-4">
+                                          <a href="{{ route('registro-averia.create') }}"><img  class="mr-3" src="{{ asset('img/telefono-fijo.png') }}" height="50px"></a>
+                                        <div class="media-body">
+                                            <a  href="{{ route('registro-averia.create') }}">
+                                               <h5>Linea Fija</h5></a>
+                                               <p>Crear linea fija</p>
+                                        </div>
+                                      </li>
+        
+                                      <ul class="list-unstyled ">
+                                        <li class="media my-4">
+                                            <img class="mr-3" src="{{ asset('img/consultante (1).png') }}" height="50px">
+                                          <div class="media-body">
+                                              <a href="{{ route('registro-averia.index') }}">
+                                                 <h5>Consulta linea fija</h5>
+                                              </a>
+                                            
+                                            <p> Consultar averia linea fija</p>
+                                          </div>
+                                        </li>
                                     
                           
                              {{-- final --}}

@@ -22,8 +22,10 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Consultar pases de salida almacenados:</h3><br><br>
 
+                            <h3 class="page__heading">Consultar pases de salida almacenados:</h3><br><br>
+                                 
+                                                 
                            
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                                 <thead style="background-color:#6777ef;">

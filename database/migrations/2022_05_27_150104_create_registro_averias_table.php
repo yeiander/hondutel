@@ -21,6 +21,10 @@ class CreateRegistroAveriasTable extends Migration
             $table->string('direccion')->nullable();
             $table->date('fechaDeSolicitud')->nullable();
             $table->string('estadoAveria')->nullable();
+            $table->string('Megas')->nullable();
+            $table->string('numerodearmario')->nullable();
+            $table->string('cajaterminal')->nullable();
+            $table->string('bornes')->nullable();
             $table->timestamps();
             //$table->timestamps('delete_at');
         });

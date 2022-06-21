@@ -130,16 +130,15 @@
     </section>
               {{-- ocultar input --}}
     <script>
-  function myFunction() {
-       var horasPermisoPersonal = parseFloat(document.getElementById('horasPermisoPersonal').value);
+  // function myFunction() {
+  //      var horasPermisoPersonal = parseFloat(document.getElementById('horasPermisoPersonal').value);
        
-
-      if (horasPermisoPersonal = 16) {
-        document.getElementById("fechaPermisoPersonalDia2").type = "date";
-      } else {
-        document.getElementById("fechaPermisoPersonalDia2").style.display = "none";
-      }
-    }
+  //     if (horasPermisoPersonal = 16) {
+  //       document.getElementById("fechaPermisoPersonalDia2").type = "date";
+  //     } else {
+  //       document.getElementById("fechaPermisoPersonalDia2").style.display = "none";
+  //     }
+  //   }
     </script>
 {{-- ocultar input fin --}}
 @endsection
