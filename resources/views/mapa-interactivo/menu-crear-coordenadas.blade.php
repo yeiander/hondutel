@@ -48,6 +48,16 @@
                                            <p>Crear nuevos armarios</p>
                                     </div>
                                   </li>
+
+                                  <ul class="list-unstyled ">
+                                    <li class="media my-4">
+                                        <a href="{{ url('mapa-interactivo/create') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
+                                      <div class="media-body">
+                                          <a  href="{{ url('mapa-interactivo/create') }}">
+                                             <h5>Crear Ejemplo</h5></a>
+                                             <p>Crear nuevas coordenadas</p>
+                                      </div>
+                                    </li>
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">

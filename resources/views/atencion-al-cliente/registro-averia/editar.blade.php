@@ -57,6 +57,13 @@
                                            <input value="{{$registro->direccion}}" style="font-size:14px;" class="form-control" type="text" name="Direccion" id="Direccion">
                                          </div>
                                       </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megas">Megas:</label>
+                                           <input value="{{$registro->Megas}}" style="font-size:14px;" class="form-control" type="text" name="Megas" id="Megas">
+                                         </div>
+                                      </div>
                                      {{-- coloumna2 final --}}
                                     </div>
                                 </div>       
