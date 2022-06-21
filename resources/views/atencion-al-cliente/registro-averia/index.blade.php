@@ -31,7 +31,8 @@
                                 <th style="color: #fff;">Contacto</th>
                                 <th style="color: #fff;">Direccion</th>
                                 <th style="color: #fff;">fecha de Solicitud</th>
-                                <th style="color: #fff;">Id</th>
+                                <th style="color: #fff;">Megas</th>
+                                <th style="color: #fff;">Id</th>                 
                                 <th style="color: #fff">acciones</th>
                           
                                 
@@ -48,6 +49,7 @@
                                   <td>{{$registro->contacto}}</td>
                                   <td>{{$registro->direccion}}</td>
                                    <td>{{$registro->fechaDeSolicitud}}</td>
+                                   <td>{{$registro->Megas}}</td>
                                   <td>{{$registro->id}}</td>
                                   <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/registro-averia/'.$registro->id.'/edit') }}" >editar </a>
                                       <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/registro-averia/'.$registro->id.'/imprimir') }}">Imprimir</a>
