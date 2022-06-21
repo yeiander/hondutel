@@ -64,15 +64,38 @@ class PerAdministrativoController extends Controller
             'lugarSolicitudPermiso' => 'required'
         ]);
    
-       
 
+        // $datosPaseSalida = request()->all();
 
-        // $datosPaseSalida = request()->all();$
         $datosAdministrativo = request()->except('_token');
         RhPermiso::insert($datosAdministrativo);
         $permisos = RhPermiso::all();
         return redirect()->route('recursos_humanos');
 
+        // $datosAdministrativo = new Rhpermiso;
+        // $datosAdministrativo->fk_id_empleado = $request->input('fk_id_empleado');
+        // $datosAdministrativo->fk_id_tipo_permiso = $request->input('fk_id_tipo_permiso');
+        // $datosAdministrativo->horaSalida = $request->input('horaSalida');
+        // $datosAdministrativo->horaEntradaAproximada = $request->input('horaEntradaAproximada');
+        // $datosAdministrativo->motivoTrabajoEnfermedad = $request->input('motivoTrabajoEnfermedad');
+        // $datosAdministrativo->fechaSolicitudPermiso = $request->input('fechaSolicitudPermiso');
+        // $datosAdministrativo->lugarSolicitudPermiso = $request->input('lugarSolicitudPermiso');
+        
+        // if( $datosAdministrativo->save()){
+        //            return redirect()->route('recursos_humanos');
+                        
+            
+        //     }
+
+        //     else{
+
+        //         return redirect()->route('usuarios.index');
+        //     }
+       
+
+
+        // return redirect()->route('recursos_humanos')->with('status','Student Added Successfully');
+        
     }
 
     /**

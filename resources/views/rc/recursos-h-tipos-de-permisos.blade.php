@@ -130,7 +130,7 @@
         <div class="modal-body">
           {{---inicio de formulario para crear un permiso adminitrativo--------------}}
           <form action=" {{url('/recursos-humanos-permisos/administrativo/create2')}} " method="get">
-            @csrf
+          
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
