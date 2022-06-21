@@ -78,6 +78,7 @@ Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPerson
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________
 
 //_________________________________________PERMISO ADMINISTRATIVO (INICIO)________________________________________________
+// Route::match(['get', 'post'], '/recursos-humanos-permisos/administrativo/create2', [PerAdministrativoController::class, 'create2']);
 Route::get('/recursos-humanos-permisos/administrativo/create2', [PerAdministrativoController::class, 'create2']);
 Route::resource('/recursos-humanos-permisos/administrativo', PerAdministrativoController::class);
 Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdminisPendienteController::class);
