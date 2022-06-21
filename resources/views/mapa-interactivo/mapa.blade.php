@@ -40,19 +40,6 @@ opacity: 1
 }).bindPopup(nombre)
 .addTo(map);
 
-       var map = L.map('map').setView([14.6639388, -86.2177902], 18);
-       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-    </script>
-    <script>
-       var Corduba = L.marker([14.663538, -86.215528], {
-title: "Terminal",
-draggable:false,
-opacity: 1
-}).bindPopup("<b>Terminal</b>")
-.addTo(map);
         
     </script>
        
