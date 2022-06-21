@@ -128,7 +128,7 @@ class PaseSalidaController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit2(Request $request)
+    public function creacion(Request $request)
     {
         //
         $validated = $request->validate([
@@ -139,20 +139,21 @@ class PaseSalidaController extends Controller
             
            
         ]);
-        
+        $fecha = Carbon::now()->format('Y-m-d');
         $mes = Carbon::now()->format('m');
         $annio = Carbon::now();
         $annio = $annio->format('Y');
-                
+        $dia = carbon::now()->format('d');        
         $id = $request->input('fk_id_empleado');
         $empleado = Empleado::findOrFail($id);
+        $semanaNum=date('W',strtotime($fecha));
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
         ->where('fk_id_tipo_permiso', 'like', 1)
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
     
-        return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio'));
+        return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio', 'dia','semanaNum'));
     }
 
     /**

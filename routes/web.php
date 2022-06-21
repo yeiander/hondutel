@@ -64,7 +64,7 @@ Route::get('/rc/recursos-h-tipos-de-permisos', [App\Http\Controllers\rhumanos\Re
 Route::get('/rc/recursos-humanos-consultas', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'consultas'])->name('recursos-humanos-consultas');
 
 //_________________________________________PASE DE SALIDA (INICO)__________________________________________________________
-Route::post('/recursos-humanos-permisos/pase-salida/edit2', [PaseSalidaController::class, 'edit2']);
+Route::get('/recursos-humanos-permisos/pase-salida/creacion', [PaseSalidaController::class, 'creacion']);
 Route::get('/recursos-humanos-permisos/pase-salida/{id}/imprimir', [PaseSalidaController::class, 'imprimir']);
 Route::resource('/recursos-humanos-permisos/pase-salida', PaseSalidaController::class);
 Route::resource('/recursos-humanos-permisos/pase-salida-admin', PaseSalidaAdminController::class);

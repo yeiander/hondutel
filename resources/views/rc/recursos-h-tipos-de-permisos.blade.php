@@ -6,7 +6,7 @@
       <h5 class="page__heading">Recursos Humanos</h5>
         </div>
           <div class="section-body">
-            <h4><center> (seleccion de tipo de permiso)</center></h4>
+            <h4><center> (Selección del tipo de permiso)</center></h4>
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -28,52 +28,78 @@
                        <div class="container">
                          <div class="row">
                            <div class="col-sm">
-                                    {{-- One of three columns --}}
+                                    {{-- columna 1 --}}
                                     
                              <ul class="list-unstyled ">
                                <li class="media my-4">
-                                 <a href="{{ route('pase-salida.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                 <a href="" data-toggle="modal" data-target="#paseSalida"> <img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                   <div class="media-body">
-                                    <a type="button" class="" data-toggle="modal" data-target="#paseSalida">
-                                      <h5>Pase de salida</h5></a>
+                                    <a type="button" href="" data-toggle="modal" data-target="#paseSalida">
+                                      <h5>Pase de Salida</h5></a>
                                       <p>Crear un pase de salida nuevo</p>
                                   </div>
                                </li>
+                             </ul>
 
                                <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
+                                    <a data-toggle="modal" data-target="#permisoPersonal" href=""><img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                   <div class="media-body">
-                                    <a type="button" class="" data-toggle="modal" data-target="#permisoPersonal">
+                                    <a type="button" href="" data-toggle="modal" data-target="#permisoPersonal">
                                       <h5>Permiso Personal</h5></a>
                                       <p>Crear un permiso personal</p>
                                   </div>
                                 </li>
+                               </ul>
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                  <img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px">
+                                  <a data-toggle="modal" data-target="#permisoAdministrativo" href=""><img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                      <a type="button" class="" data-toggle="modal" data-target="#permisoAdministrativo">
-                                        <h5>Pase administrativo</h5></a>
+                                      <a type="button" href="" data-toggle="modal" data-target="#permisoAdministrativo">
+                                        <h5>Pase Administrativo</h5></a>
                                       <p>Crear un permiso (sección administrativa)</p>
                                     </div>
                                 </li>
+                              </ul>
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('ventas-rc.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                      <a href="" data-toggle="modal" data-target="#permisoVentas"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                      <a type="button" class="" data-toggle="modal" data-target="#permisoVentas">
-                                        <h5>Permis de ventas</h5></a>
+                                      <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
+                                        <h5>Permiso de Ventas</h5></a>
                                            <p>Crear un permiso (sección de ventas)</p>
                                     </div>
                                   </li>
+                                </ul>
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
-                                    {{-- One of three columns --}}
-                                    
+                                    {{-- segunda Columna --}}
+           
+                                    <ul class="list-unstyled ">
+                                      <li class="media my-4">
+                                          <a href="" data-toggle="modal" data-target="#permisoVentas"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                        <div class="media-body">
+                                          <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
+                                            <h5>Permiso de Incapacidad</h5></a>
+                                               <p>Crear un permiso de incapacidad</p>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                    <ul class="list-unstyled ">
+                                      <li class="media my-4">
+                                          <a href="" data-toggle="modal" data-target="#permisoVentas"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                        <div class="media-body">
+                                          <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
+                                            <h5>Permiso de Incapacidad</h5></a>
+                                               <p>Crear un permiso de incapacidad</p>
+                                        </div>
+                                      </li>
+                                    </ul>
+                       
                        
                                     {{-- fin --}}
                                   </div>
@@ -87,15 +113,15 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="paseSalidaLabel">Pase de salida</h4>
+        <h4 class="modal-title" id="paseSalidaLabel">Pase de Salida</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
       </div>
         <div class="modal-body">
           {{---inicio formulario para crear un pase de salida--------------}}
-          <form action=" {{url('/recursos-humanos-permisos/pase-salida/edit2')}} " method="post">
-            @csrf
+          <form action=" {{url('/recursos-humanos-permisos/pase-salida/creacion')}} " method="get">
+           
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
@@ -105,7 +131,7 @@
               <br>
                 <ul class="list-unstyled">
                  <div class="media-body">
-                   <input  type="submit"  class="btn btn-primary" value="Continuar">
+                   <input class="btn btn-primary btn-lg btn-block"  type="submit"  class="btn btn-primary" value="Continuar">
                  </div>
           </form>    
             {{---final formulario para crear un pase de salida----------------}}         
