@@ -4,6 +4,8 @@ namespace App\Http\Controllers\mapa;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Crudmapa;
+
 
 class MapaMenuController extends Controller
 {
@@ -13,7 +15,9 @@ class MapaMenuController extends Controller
     }
 
     public function vistaMapa(){
-        return View('/mapa-interactivo/mapa');
+
+        $registros=Crudmapa::all();
+        return View('/mapa-interactivo/mapa', compact('registros'));
         }
         public function menuCrearCoordenadas(){
             return View('/mapa-interactivo/menu-crear-coordenadas');

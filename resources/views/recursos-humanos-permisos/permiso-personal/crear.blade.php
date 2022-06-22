@@ -195,7 +195,7 @@
 });
 
 $(function(){
-        // FINAL pcultar boton
+        // FINAL 0cultar boton
        if( {{ $individual }} > 4){
         $('#hola').hide();
        

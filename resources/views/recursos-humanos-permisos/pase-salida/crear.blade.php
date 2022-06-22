@@ -5,12 +5,16 @@
         <div class="section-header" style="max-height: 4rem;">
         </div>
         <div class="section-body">
-       
+
             <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
+
+        {{-- <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+          Numero de la semana<span style="font-size: 15px" class="badge badge-light">{{ $semanaNum }}</span>
+        </a> --}}
         
             <div class="row">
                 <div class="col-lg-12">
@@ -19,11 +23,10 @@
                       
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
-                                <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Empleado: {{ $empleado->nombreEmpleado }}</label>
                               </div>
                             </div>
-
-
+  
   @if ($errors->any())
     <div class="alert alert-dark alert-dismissible fade show" role="alert">
       <strong>Complete los campos</strong>
@@ -36,6 +39,8 @@
     </div>
   @endif
                                             {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
+
+                                            
                                <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
                                  <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="1">
@@ -57,8 +62,6 @@
                                         <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
                                       </div>
                                     </div>
-
-                                   
 
                                   <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
@@ -100,15 +103,17 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <div class="media-body">
-                                          <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar" >
+                                          <input class="btn btn-primary btn-lg" id="botonGuardar"  type="submit"  style="font-size: 15px" class="btn btn-primary" value="Enviar" >
                                         </div>
                                       </ul>
                                </form>
-
+                               
                             </div>
                             {{-- final --}}
 
-                            
+                            <div id="mensajeError" style="display: none">
+                              <center><h4>agotaste los permisos de este mes</h4></center>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,12 +125,13 @@
       
      $(function(){
         // FINAL pcultar boton
-       if( {{ $individual }} >= 10){
+       if( {{ $individual }} >= 6){
         $('#botonGuardar').hide();
          $('#form').hide();
-        var textoMensaje = "agotaste los permisos de este mes";
-        var mensaje = document.getElementById("paseSalidaMensaje");
-        mensaje.innerHTML = textoMensaje;
+         $('#mensajeError').show();
+        // var textoMensaje = "agotaste los permisos de este mes";
+        // var mensaje = document.getElementById("paseSalidaMensaje");
+        // mensaje.innerHTML = textoMensaje;
        }
      });
     
@@ -133,6 +139,10 @@
     $('#form').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });
+
+
+
+
     </script>
     @endsection
 @endsection

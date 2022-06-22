@@ -57,12 +57,12 @@
             @if (Route::has('login'))
             <div>
                 @auth
-                    <a  class="btn btn-primary btn-lg btn-block" type="button" href="{{ url('/home') }}" >Home</a>
+                    <a  class="btn btn-primary btn-lg btn-block" style="font-size: 15px" type="button" href="{{ url('/home') }}" >Home</a>
                 @else
-                    <a  class="btn btn-primary btn-lg btn-block" href="{{ route('login') }}" >Iniciar sesion</a>
+                    <a  class="btn btn-primary btn-lg btn-block" style="font-size: 15px" href="{{ route('login') }}" >Iniciar sesion</a>
 
                     @if (Route::has('register'))
-                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('register') }}">Registrarse</a>
+                        <a class="btn btn-primary btn-lg btn-block" style="font-size: 15px" href="{{ route('register') }}">Registrarse</a>
                     @endif
                 @endauth
             </div>

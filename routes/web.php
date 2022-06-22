@@ -29,6 +29,7 @@ use App\Http\Controllers\atencionCliente\RegistrowifiController;
 use App\Http\Controllers\atencionCliente\InternetaveriaController;
 use App\Http\Controllers\atencionCliente\LineafijaController;
 
+use App\Http\Controllers\CrudmapaPrueba;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,7 +67,7 @@ Route::get('/rc/recursos-h-tipos-de-permisos', [App\Http\Controllers\rhumanos\Re
 Route::get('/rc/recursos-humanos-consultas', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'consultas'])->name('recursos-humanos-consultas');
 
 //_________________________________________PASE DE SALIDA (INICO)__________________________________________________________
-Route::post('/recursos-humanos-permisos/pase-salida/edit2', [PaseSalidaController::class, 'edit2']);
+Route::get('/recursos-humanos-permisos/pase-salida/creacion', [PaseSalidaController::class, 'creacion']);
 Route::get('/recursos-humanos-permisos/pase-salida/{id}/imprimir', [PaseSalidaController::class, 'imprimir']);
 Route::resource('/recursos-humanos-permisos/pase-salida', PaseSalidaController::class);
 Route::resource('/recursos-humanos-permisos/pase-salida-admin', PaseSalidaAdminController::class);
@@ -119,4 +120,5 @@ Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController
 Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
 Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
 Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
+Route::resource('mapa-interactivo', CrudmapaPrueba::class);
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________
