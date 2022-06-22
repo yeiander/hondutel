@@ -71,8 +71,9 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('web/js/stisla.js') }}"></script>
 <script src="{{ asset('web/js/scripts.js') }}"></script>
-<script src="{{ mix('assets/js/profile.js') }}"></script>
-<script src="{{ mix('assets/js/custom/custom.js') }}"></script>
+{{-- <script src="{{ mix('assets/js/profile.js') }}"></script> --}}
+{{-- <script src="{{ mix('assets/js/custom/custom.js') }}"></script> --}}
+
 {{-- este lo puedo borrar, solo es una prueba --}}
 @yield('dataTable_js')
 {{-- esto que esta reodeado lo puedo borrar menos lo que sigue abajo --}}

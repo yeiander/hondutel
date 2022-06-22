@@ -32,7 +32,6 @@
     </ul>
 </div>
 @endif
-                            
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form id="form" action=" {{url('/recursos-humanos-permisos/permiso-personal')}} " method="post">
                       @csrf
