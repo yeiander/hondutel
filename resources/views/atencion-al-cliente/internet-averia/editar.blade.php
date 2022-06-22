@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/atencion-al-cliente/registro-averia/'.$registro->id)}} " method="post">
+                            <form action=" {{url('/atencion-al-cliente/internet-averia/'.$registro->id)}} " method="post">
                                 @csrf
                                 {{ method_field('PATCH')}}
                                 <div class="container">
