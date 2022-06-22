@@ -34,6 +34,8 @@
                                 <th style="color: #fff;">Megas</th>
                                 <th style="color: #fff;">Id</th>                 
                                 <th style="color: #fff">acciones</th>
+                                <th style="color: #fff">Edit</th>
+
                           
                                 
                                 
@@ -51,9 +53,10 @@
                                    <td>{{$registro->fechaDeSolicitud}}</td>
                                    <td>{{$registro->Megas}}</td>
                                   <td>{{$registro->id}}</td>
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/registro-averia/'.$registro->id.'/edit') }}" >editar </a>
-                                      <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/registro-averia/'.$registro->id.'/imprimir') }}">Imprimir</a>
-                                      <form action=" {{route('registro-averia.destroy',$registro->id)}} " method="post">
+                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('internet-averia.show', $registro->id) }}" >ver </a>
+                                  <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/edit') }}" >editar </a>
+                                      <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                      <form action=" {{route('internet-averia.destroy',$registro->id)}} " method="post">
                                         @csrf
                                         {{method_field('DELETE')}}
                                     <button type="submit" class="btn btn-danger">Borrar</button>

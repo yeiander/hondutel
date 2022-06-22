@@ -24,8 +24,10 @@ use App\Http\Controllers\atencionCliente\RegistroCancelacionesController;
 use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\RegistrolineaController;
 use App\Http\Controllers\atencionCliente\RegistrowifiController;
-use App\Http\Controllers\GoogleController;
-use App\Models\Registrolinea;
+// use App\Http\Controllers\GoogleController;
+// use App\Models\Registrolinea;
+use App\Http\Controllers\atencionCliente\InternetaveriaController;
+use App\Http\Controllers\atencionCliente\LineafijaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +109,10 @@ Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::cl
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
 Route::get('/atencion-al-cliente/ventas-linea/{id}/imprimir', [RegistrolineaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/ventas-wifi/{id}/imprimir', [RegistrowifiController::class, 'imprimir']);
+Route::resource('/atencion-al-cliente/internet-averia', InternetaveriaController::class);
+Route::resource('/atencion-al-cliente/linea-fija', LineafijaController::class);
+Route::get('/atencion-al-cliente/internet-averia/{id}/imprimir', [InternetaveriaController::class, 'imprimir']);
+Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController::class, 'imprimir']);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

@@ -12,9 +12,7 @@
                         <div class="card-body">
                             {{-- inicio --}}
 
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm">
+                           
                                   <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-inline">
                                      <div class="form-group">
@@ -118,44 +116,15 @@
                                   </div>
                               </div>
                       
-                                </div>
-                           
-
                                 
-
-                                
-
-
-                                <div class="col-sm">
-                                  
-
-                              
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <form action=" {{url('/atencion-al-cliente/ventas-wifi')}} " method="post"><br><br>
-                                @csrf
-                                <div class="container">
-                                  <div class="row">
-                                    <div class="col-sm">
-                                     {{-- columna1 inicio --}}
-                                     
-    
 
                                    
-                                     {{-- coloumna2 final --}}
-                                    </div>
-                                </div>       
-                                              <br>
-                                              <ul class="list-unstyled">
+                                            
                                         
-                                                  <div class="media-body">
-                                                    {{-- <a class="btn btn-warning" href="{{ route('pase-salida.index') }}">cancelar</a> --}}
-                                            <input  type="submit"  class="btn btn-primary" value="Guardar">
-                                         </form>
-                                           
+                                                  
+                                                  
+                                            
+                                                    <a href="{{url('/atencion-al-cliente/ventas-linea') }}" class="btn btn-primary"> Regresar </a>
                                
                              {{-- final --}}
                         </div>
