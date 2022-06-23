@@ -18,7 +18,7 @@
                       Personal <span class="badge badge-light">2</span>
                   </a>
 
-                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem;" type="button" class="btn btn-primary">
                         Personal <span class="badge badge-light">3</span>
                     </a>
 
