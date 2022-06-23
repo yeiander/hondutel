@@ -22,7 +22,7 @@ class CreateRhPermisosTable extends Migration
             // $table->foreignId('fk_id_empleado')->nullable()->constrained('empleados')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('fk_id_empleado')->references('id')->on('empleados')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('fk_id_tipo_permiso')->nullable()->constrained('rh_tipo_permisos')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('fk_id_user')->nullable()->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            // $table->foreignId('fk_id_user')->nullable()->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->time('horaSalida')->nullable();
             $table->time('horaEntradaAproximada')->nullable();
             $table->time('horaEntradaReal')->nullable();
@@ -50,6 +50,8 @@ class CreateRhPermisosTable extends Migration
             $table->string('sueldoBaseSubsidio')->nullable();
             $table->string('ObservacionesSubsidio')->nullable();
             $table->string('aprobacion')->default('pendiente');
+            $table->string('nombreQuienCreo')->nullable();
+            $table->string('nombreQuienAprobo')->nullable();
              
 
             $table->timestamps();

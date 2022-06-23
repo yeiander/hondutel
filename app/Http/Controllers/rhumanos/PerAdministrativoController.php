@@ -130,6 +130,7 @@ class PerAdministrativoController extends Controller
         $annio = $annio->format('Y');
                 
         $id = $request->input('fk_id_empleado');
+        $area = $request->input('areaTrabajo');
         
         $empleado = Empleado::findOrFail($id);
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)

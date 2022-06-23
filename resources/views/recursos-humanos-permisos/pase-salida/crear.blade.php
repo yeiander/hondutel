@@ -40,10 +40,11 @@
   @endif
                                             {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
 
-                                            
+                                         
                                <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
                                  <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="1">
+                                 <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
                                  
                                  <div class="container">
                                   <div class="row">
