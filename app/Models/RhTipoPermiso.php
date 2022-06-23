@@ -12,8 +12,6 @@ class RhTipoPermiso extends Model
     use HasFactory;
 
      //funcion para la relacion con los permisos de recursos humanos
-       
-
      public function rhPermisos(){
          return $this->hasMany(RhPermiso::class, 'id');
      }

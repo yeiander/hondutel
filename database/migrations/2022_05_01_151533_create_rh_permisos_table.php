@@ -20,8 +20,9 @@ class CreateRhPermisosTable extends Migration
             $table->id();
             $table->string('fk_id_empleado');
             // $table->foreignId('fk_id_empleado')->nullable()->constrained('empleados')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('fk_id_empleado')->references('id')->on('empleados')->onDelete('cascade');
+            $table->foreign('fk_id_empleado')->references('id')->on('empleados')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('fk_id_tipo_permiso')->nullable()->constrained('rh_tipo_permisos')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('fk_id_user')->nullable()->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->time('horaSalida')->nullable();
             $table->time('horaEntradaAproximada')->nullable();
             $table->time('horaEntradaReal')->nullable();
@@ -35,7 +36,7 @@ class CreateRhPermisosTable extends Migration
             $table->string('vehiculoDescripcion')->nullable();
             $table->string('internetVendido')->nullable();
             $table->string('telefonoVendido')->nullable();
-            $table->string('lineatVendida')->nullable();
+            $table->string('lineaVendida')->nullable();
             $table->string('numCertificadoIncapacidad')->nullable();
             $table->string('numAfiliacionIncapacidad')->nullable();
             $table->date('fechaInicioIncapacidad')->nullable();

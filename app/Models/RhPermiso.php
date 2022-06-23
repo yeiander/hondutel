@@ -20,4 +20,9 @@ class RhPermiso extends Model
     public function empleados(){
         return $this->belongsTo(Empleado::class, 'fk_id_empleado');
     }
+
+    public function users(){
+        return $this->belongsTo(User::class, 'fk_id_user');
+    }
+    
 }

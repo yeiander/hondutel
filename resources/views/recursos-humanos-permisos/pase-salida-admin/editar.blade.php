@@ -130,7 +130,7 @@
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Linea vendida:</span>
         </div>
-        <input id="lineatVendida" value=" {{$permiso->telefonoVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+        <input id="lineaVendida" value=" {{$permiso->lineaVendida}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div style="display: none" class="input-group mb-3">

@@ -6,7 +6,6 @@
       {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
        </div>
         <div class="section-body">
-       
           <center><h4 id="permisoPersonalMensaje">Crear un permiso personal</h4></center>
           <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
             Numero de horas solicitadas en este mes:<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
@@ -32,14 +31,13 @@
     </ul>
 </div>
 @endif
+
+
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form id="form" action=" {{url('/recursos-humanos-permisos/permiso-personal')}} " method="post">
                       @csrf
                         <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="2">
-                                 
-                                 
-
-                                 
+    
                            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                              <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)" for="fk_id_empleado">Empleado:</label> 
@@ -129,7 +127,7 @@
                                     <ul class="list-unstyled">
                               
                                         <div class="media-body">
-                                          {{-- <a class="btn btn-warning" href="{{ route('pase-salida.index') }}">cancelar</a> --}}
+                                          
                                   <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar">
                                </form>
           
@@ -161,6 +159,7 @@
     }
 });
 
+// MENSAJE DE EROROR
 $(function mensajeError2(){
        if( {{ $individual }} >= 16){
         
