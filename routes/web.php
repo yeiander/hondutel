@@ -62,9 +62,9 @@ Route::group(['middleware'=>['auth']], function(){
 Route::get('/recursos_humanos', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'index'])->name('recursos_humanos');
 
 //vista de la parte principal de tipos de permisos recursos humanos
-Route::get('/rc/recursos-h-tipos-de-permisos', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'permisos'])->name('recursos-h-tipos-de-permisos');
+Route::get('/recursos-humanos-menu/tipos-de-permisos', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'permisos'])->name('recursos-h-tipos-de-permisos');
 //vista de la parte principal de tipos de permisos recursos humanos
-Route::get('/rc/recursos-humanos-consultas', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'consultas'])->name('recursos-humanos-consultas');
+Route::get('/recursos-humanos-menu/consultas', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'consultas'])->name('recursos-humanos-consultas');
 
 //_________________________________________PASE DE SALIDA (INICO)__________________________________________________________
 Route::get('/recursos-humanos-permisos/pase-salida/creacion', [PaseSalidaController::class, 'creacion']);

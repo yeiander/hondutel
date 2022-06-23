@@ -46,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function rhPermisos(){
+        return $this->hasMany(RhPermiso::class, 'id');
+    }
 }

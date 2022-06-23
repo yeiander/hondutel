@@ -5,7 +5,7 @@
         <div class="section-header" style="max-height: 4rem;">
         </div>
         <div class="section-body">
-
+            
             <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
@@ -112,7 +112,7 @@
                             {{-- final --}}
 
                             <div id="mensajeError" style="display: none">
-                              <center><h4>agotaste los permisos de este mes</h4></center>
+                              <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
                             </div>
                         </div>
                     </div>
@@ -129,9 +129,9 @@
         $('#botonGuardar').hide();
          $('#form').hide();
          $('#mensajeError').show();
-        // var textoMensaje = "agotaste los permisos de este mes";
-        // var mensaje = document.getElementById("paseSalidaMensaje");
-        // mensaje.innerHTML = textoMensaje;
+        var textoMensaje = "";
+        var mensaje = document.getElementById("paseSalidaMensaje");
+        mensaje.innerHTML = textoMensaje;
        }
      });
     

@@ -57,7 +57,7 @@
                                   <a data-toggle="modal" data-target="#permisoAdministrativo" href=""><img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                     <div class="media-body">
                                       <a type="button" href="" data-toggle="modal" data-target="#permisoAdministrativo">
-                                        <h5>Pase Administrativo</h5></a>
+                                        <h5>Permiso Administrativo</h5></a>
                                       <p>Crear un permiso (sección administrativa)</p>
                                     </div>
                                 </li>
