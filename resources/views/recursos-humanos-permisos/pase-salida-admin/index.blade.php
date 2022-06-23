@@ -42,8 +42,8 @@
                                 <td>{{$permiso->fechaSolicitudPermiso}}</td>
                                
                                    <td> {{--<a class="btn btn-info" href="{{ url('/recursos-humanos-permisos/pase-salida-admin/'. $permiso->id. '/edit') }}">Editar</a> |  --}}
-                                       @can('editar-usuario') <a href="{{ url('/recursos-humanos-permisos/pase-salida-admin/'.$permiso->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>@endcan
-                                       @can('borrar-usuario') <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#eliminarModal" data-id="{{$permiso->id}}">Borrar</button>@endcan    
+                                     <a href="{{ url('/recursos-humanos-permisos/pase-salida-admin/'.$permiso->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>
+                                      <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#eliminarModal" data-id="{{$permiso->id}}">Borrar</button>   
                                    </td>
                                   </tr>
                                   @endforeach

@@ -48,7 +48,5 @@ class User extends Authenticatable
     ];
 
 
-    public function rhPermisos(){
-        return $this->hasMany(RhPermiso::class, 'id');
-    }
+  
 }
