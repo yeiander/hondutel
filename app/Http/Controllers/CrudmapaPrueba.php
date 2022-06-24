@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Crudmapa;
+use App\Models\MapaCliente;
 use Illuminate\Http\Request;
 
 
@@ -15,9 +15,12 @@ class CrudmapaPrueba extends Controller
      */
     public function index()
     {
-        //
-        $registros=Crudmapa::all();
-        return view('/mapa-interactivo/mapa', compact('registros'));
+        //$clientes=MapaCliente::all();
+        //return view('/mapa-interactivo/index', compact('clientes'));
+        
+
+          $clientes=MapaCliente::all();
+        return view('/mapa-interactivo/index', compact('clientes'));
     
         
     }
@@ -44,7 +47,7 @@ class CrudmapaPrueba extends Controller
         //
 
         $registro = request()->except('_token');
-        Crudmapa::insert($registro);
+        MapaCliente::insert($registro);
         return redirect()->route('mapa');
     }
 
