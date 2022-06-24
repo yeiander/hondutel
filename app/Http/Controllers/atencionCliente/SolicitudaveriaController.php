@@ -27,7 +27,7 @@ class SolicitudaveriaController extends Controller
     public function create()
     {
         //
-        return view('/atencion-al-cliente/solicitud-averia.crear');
+        
     }
 
     /**
@@ -61,6 +61,8 @@ class SolicitudaveriaController extends Controller
     public function edit($id)
     {
         //
+        $registro=RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/solicitud-averia.editar', compact('registro'));
     }
 
     /**

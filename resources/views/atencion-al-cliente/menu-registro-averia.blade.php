@@ -68,29 +68,30 @@
                                           </div>
                                         </li>
 
-                                        <ul class="list-unstyled ">
-                                          <li class="media my-4">
-                                              <img class="mr-3" src="{{ asset('img/operador.png') }}" height="50px">
-                                            <div class="media-body">
-                                                <a href="{{ route('solicitud-averia.create') }}">
-                                                   <h5>Solicitudes de averia</h5>
-                                                </a>
-                                              
-                                              <p> formulario de averia</p>
-                                            </div>
-                                          </li>
 
                                           <ul class="list-unstyled ">
                                             <li class="media my-4">
                                                 <img class="mr-3" src="{{ asset('img/operador.png') }}" height="50px">
                                               <div class="media-body">
                                                   <a href="{{ route('solicitud-averia.index') }}">
-                                                     <h5>Consulta solicitudes averia</h5>
+                                                     <h5>Solicitudes averia</h5>
                                                   </a>
                                                 
                                                 <p> consulta de averias</p>
                                               </div>
                                             </li>
+
+                                            <ul class="list-unstyled ">
+                                              <li class="media my-4">
+                                                  <img class="mr-3" src="{{ asset('img/operador.png') }}" height="50px">
+                                                <div class="media-body">
+                                                    <a href="{{ route('averia-pendiente.index') }}">
+                                                       <h5>Averias pendientes</h5>
+                                                    </a>
+                                                  
+                                                  <p> consulta de (averias)</p>
+                                                </div>
+                                              </li>
                                     
                           
                              {{-- final --}}
