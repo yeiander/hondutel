@@ -37,12 +37,7 @@
                                     </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megcajaterminalas">Caja Terminal:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="cajaterminal" id="cajaterminal">
-                                         </div>
-                                      </div>
+                  
 
                                      {{-- coloumna1 final --}}
                                     </div>
@@ -65,17 +60,17 @@
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numerodearmario">Numero de Armario:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="numerodearmario" id="numerodearmario">
-                                         </div>
+                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="tipoaveria">Tipo de averia:</label>
+                                         <select class="form-control" id="tipoaveria" name="tipoaveria">
+                                          <option disabled selected > Seleccione tipo de averia</option>
+                                          <option value="internet">internet</option>
+                                             <option value="linea fija">linea fija</option>                       
+                                           </select>
+                                        </div>
                                       </div>
 
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="bornes">Bornes:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="bornes" id="bornes">
-                                         </div>
-                                      </div>
+                                      <input value="solicitado" type="hidden" id="estado" name="estado">
+
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
