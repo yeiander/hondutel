@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\rhumanos;
+use Illuminate\Session\SessionManager;
 
 use App\Http\Controllers\Controller;
 use App\Models\RhPermiso;
@@ -116,9 +117,7 @@ class PerAdministrativoController extends Controller
 
     }
 
-
-
-    public function create2(Request $request)
+    public function create2(Request $request) 
     {
         //
         $validated = $request->validate([
@@ -130,15 +129,24 @@ class PerAdministrativoController extends Controller
         $annio = $annio->format('Y');
                 
         $id = $request->input('fk_id_empleado');
-        
+
         $empleado = Empleado::findOrFail($id);
+        $area = $empleado->areaTrabajo;
+
+        if( $area == 'administrativa' ){
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('fk_id_tipo_permiso', 'like', 3)
         ->where('aprobacion', 'like', 'almacenado')
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
-    
-        return view('/recursos-humanos-permisos/administrativo/crear', compact('empleado', 'individual', 'mes', 'annio'));
+       
+        return view('/recursos-humanos-permisos/administrativo/crear', compact('empleado', 'individual', 'mes', 'annio', 'area'));
+
+        }
+        else{
+            // $sessionManager->flash('mensaje', 'el usuario '.$empleado->nombreEmpleado. ' no es de Administración');
+            return view('/recursos-humanos-menu/tipos-de-permisos')->with('status', 'el usuario no es de administración');;
+        }
     }
 
     /**

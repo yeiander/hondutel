@@ -130,7 +130,7 @@
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Linea vendida:</span>
         </div>
-        <input id="lineatVendida" value=" {{$permiso->telefonoVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+        <input id="lineaVendida" value=" {{$permiso->lineaVendida}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div style="display: none" class="input-group mb-3">
@@ -175,9 +175,20 @@
         <input id="hss" value=" {{$permiso->hss}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Creado por:</span>
+        </div>
+        <input id="fk_id_user" value=" {{$permiso->nombreQuienCreo}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
          <input class="form-control" type="hidden" name="aprobacion"  id="aprobacion" value="aprobado">
         </div>
      </div>
+
+     <input type = "hidden" name="nombreQuienAprobo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
+
+     
 
       
         <div class="col-xs-12 col-sm-12 col-md-12">

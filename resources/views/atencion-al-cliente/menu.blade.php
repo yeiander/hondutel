@@ -9,7 +9,7 @@
             <div class="row">
               
                 <div class="col-lg-12">
-                  <center>
+                  {{-- <center>
                     <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
                       Personal <span class="badge badge-light">1</span>
                    </a>
@@ -18,7 +18,7 @@
                       Personal <span class="badge badge-light">2</span>
                   </a>
 
-                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
+                      <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem;" type="button" class="btn btn-primary">
                         Personal <span class="badge badge-light">3</span>
                     </a>
 
@@ -27,7 +27,7 @@
                     </a>
                     
                     
-                  </center>
+                  </center> --}}
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}

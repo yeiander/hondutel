@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-          <h5 class="page__heading">Recursos Humamos hola</h5>
+          <h5 class="page__heading">Recursos Humamos</h5>
         </div>
       <div class="text-center">
         <h5>Permisos Pendientes (o nuevos):</h5>
@@ -48,7 +48,7 @@
                         <li class="media my-4">
                             <img class="mr-3" src="{{ asset('img/nuevoPermiso.png') }}" height="50px">
                           <div class="media-body">
-                            <a href="{{ url('/rc/recursos-h-tipos-de-permisos') }}"><h5 class="mt-0 mb-1">Nuevo permiso</h5></a>
+                            <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><h5 class="mt-0 mb-1">Nuevo permiso</h5></a>
                             
                             <p>Creacion de nuevos permisos</p>
                           </div>
@@ -62,7 +62,7 @@
                         <li class="media my-4">
                             <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                           <div class="media-body">
-                            <a href="{{ url('/rc/recursos-humanos-consultas') }}"><h5 class="mt-0 mb-1">Consultar</h5></a>
+                            <a href="{{ url('/recursos-humanos-menu/consultas') }}"><h5 class="mt-0 mb-1">Consultar</h5></a>
                            <p>Consultar permisos almacenados</p>
                           </div>
                         </li>

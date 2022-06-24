@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/dataTable/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/dataTable/responsive.bootstrap4.min.css')}}"> 
 <link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
+
 @endsection
 
 
@@ -22,6 +23,9 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
+
+                            <input id="min" type="date">
+                            <input id="max" type="date">
                             <h3 class="page__heading">Consultar permisos personales almacenados:</h3><br><br>
 
                            
@@ -77,39 +81,6 @@
           
      
   
-    <script>
-
-$(document).ready(function(){
-
-        $('#permiso1').DataTable({
-          responsive: true,
-          select: true,
-    
-
-            autoWidth: false,
-        
-            "order": [[ 7, "desc" ]],
-
-    
-            "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-            "zeroRecords": "Nada encontrado - prueba de nuevo",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "no hay registros disponibles",
-            "infoFiltered": "(filtrado de _MAX_ registros totales)",
-            "search" : "Buscar:",
-            "paginate":{
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
-        }
-        });
-
-      });
-
-  
-    </script>
-
   @endsection
     
 
@@ -122,6 +93,48 @@ $(document).ready(function(){
     </section>
     
    
-    
+    @section('scripts')
+    <script>
 
+        $(document).ready(function(){
+        
+                $('#permiso1').DataTable({
+                  responsive: true,
+                  select: true,
+            
+        
+                    autoWidth: false,
+                
+                    "order": [[ 7, "desc" ]],
+        
+            
+                    "language": {
+                    "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                    "zeroRecords": "Nada encontrado - prueba de nuevo",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "no hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                    "search" : "Buscar:",
+                    "paginate":{
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+                });
+        
+              });
+        
+          
+            </script>
+
+            <script>$(document).ready(function() {<font></font>
+                var table = $('#permiso1').DataTable();<font></font>
+          <font></font>
+                // Add event listeners to the two range filtering inputs<font></font>
+                $('#min').keyup( function() { table.draw(); } );<font></font>
+                $('#max').keyup( function() { table.draw(); } );<font></font>
+            } );<font></font>
+            </script>
+        
+@endsection
 @endsection

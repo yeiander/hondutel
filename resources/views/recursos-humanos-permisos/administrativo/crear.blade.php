@@ -11,13 +11,15 @@
            <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
-         
+        
             <div class="row">
                <div class="col-lg-12">
                   <div class="card">
                      <div class="card-body">
                                                 {{-- inicio --}}
-                           
+                      
+                   
+                    
 
                                               
 
@@ -26,7 +28,7 @@
                                                   <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
                                                 </div>
                                               </div>
-                            
+                                              {{ $area }}
                                  {{-- FORMULARIO PARA CREAR UN permiso administrativo                     --}}
                                  @if ($errors->any())
                                  <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -40,16 +42,17 @@
                                  </div>
                                @endif
                                
-                     <form action=" {{route('administrativo.store')}} " method="post">
+                     <form id="form" action=" {{route('administrativo.store')}} " method="post">
                       @csrf
                         <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="3">
+                        <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
                  
                                     <br>
                                     <div class="container">
                                       <div class="row">
                                         <div class="col-sm">
                                          {{-- INICIO --}}
-
+                                         
                                          <div class="col-xs-12 col-sm-12 col-md-12">
                                           <div class="form-group">
                                             <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Numero personal:</label>
@@ -128,18 +131,31 @@
             </div>
         </div>
     </section>
-              {{-- ocultar input --}}
+    @section('scripts')
     <script>
-  // function myFunction() {
-  //      var horasPermisoPersonal = parseFloat(document.getElementById('horasPermisoPersonal').value);
-       
-  //     if (horasPermisoPersonal = 16) {
-  //       document.getElementById("fechaPermisoPersonalDia2").type = "date";
-  //     } else {
-  //       document.getElementById("fechaPermisoPersonalDia2").style.display = "none";
-  //     }
-  //   }
+     
+   console.log(hola);
+     $(function(){
+        // AQUI DEBO OBTENERLO DE UN INPUT O VARIABLE
+       if( {{ $area }} == 'adminis'){
+        // $('#botonGuardar').hide();
+         $('#form').hide();
+        //  $('#mensajeError').show();
+      //   var textoMensaje = "";
+      //   var mensaje = document.getElementById("paseSalidaMensaje");
+      //   mensaje.innerHTML = textoMensaje;
+       }
+     });
+    
+        // es para desabilitar al hacer submit una sola vez
+    $('#form').one('submit', function() {
+    $(this).find('input[type="submit"]').attr('disabled','disabled');
+});
+
+
+
+
     </script>
-{{-- ocultar input fin --}}
+    @endsection
 @endsection
 
