@@ -12,6 +12,10 @@
                   <div class="card">
                     <div class="card-body">
                             {{-- inicio --}}
+                            @if(session('status'))
+                            .errorContainer
+                                p {{ session('status') }}
+                            @endif
 
                       @if ($errors->any())
                         <div class="alert alert-dark alert-dismissible fade show" role="alert">

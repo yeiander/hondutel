@@ -17,7 +17,9 @@
                   <div class="card">
                      <div class="card-body">
                                                 {{-- inicio --}}
-                           
+                      
+                   
+                    
 
                                               
 
@@ -26,7 +28,7 @@
                                                   <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
                                                 </div>
                                               </div>
-                            
+                                              {{ $area }}
                                  {{-- FORMULARIO PARA CREAR UN permiso administrativo                     --}}
                                  @if ($errors->any())
                                  <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -131,16 +133,17 @@
     </section>
     @section('scripts')
     <script>
-      
+     
+   console.log(hola);
      $(function(){
         // AQUI DEBO OBTENERLO DE UN INPUT O VARIABLE
-       if({{ $empleado->areaTrabajo }} != 'administración'){
-        $('#botonGuardar').hide();
+       if( {{ $area }} == 'adminis'){
+        // $('#botonGuardar').hide();
          $('#form').hide();
-         $('#mensajeError').show();
-        var textoMensaje = "";
-        var mensaje = document.getElementById("paseSalidaMensaje");
-        mensaje.innerHTML = textoMensaje;
+        //  $('#mensajeError').show();
+      //   var textoMensaje = "";
+      //   var mensaje = document.getElementById("paseSalidaMensaje");
+      //   mensaje.innerHTML = textoMensaje;
        }
      });
     

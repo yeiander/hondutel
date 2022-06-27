@@ -41,9 +41,9 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('menu-cancelaciones') }}"><img  class="mr-3" src="{{ asset('img/marcador-de-posicion.png') }}" height="50px"></a>
+                                      <a href="{{ route('mapa-interactivo.index') }}"><img  class="mr-3" src="{{ asset('img/marcador-de-posicion.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                        <a  href="{{ route('menu-cancelaciones') }}">
+                                        <a  href="{{ route('mapa-interactivo.index') }}">
                                            <h5>Consultar coordenadas</h5></a>
                                            <p>Consultar todas las coordenadas en la base de datos</p>
                                     </div>

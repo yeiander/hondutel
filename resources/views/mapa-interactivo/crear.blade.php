@@ -19,22 +19,37 @@
                                      {{-- columna1 inicio --}}
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombre">Nombre del punto:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="nombre" id="nombre">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cliente">Nombre del cliente:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="cliente" id="cliente">
+                                       </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion">direccion:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="direccion" id="direccion">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="longitude">longitude:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="longitude" id="longitude">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">contacto</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="contacto" id="contacto">
+                                       </div>
+                                    {{-- </div> --}}
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="'telefono">'telefono:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="telefono" id="'telefono">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nota">latitude:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="latitude" id="latitude">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps">gps:</label>
+                                         <input style="font-size:14px;" class="form-control" type="text" name="gps" id="gps">
                                        </div>
                                     </div>
 
