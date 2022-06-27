@@ -10,8 +10,9 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/atencion-al-cliente/registro-averia ')}} " method="post">
+                            <form action=" {{route('/atencion-al-cliente/solicitud-averia/'.$registro->id)}} " method="post">
                                 @csrf
+                                {{ method_field('PATCH')}}
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
@@ -97,7 +98,7 @@
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Tipo de Averia:</span>
                                         </div>
-                                        <input id="tipoaveria"  readonlyvalue="{{$registro->tipoaveria}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="tipoaveria"  readonly value="{{$registro->tipoaveria}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">

@@ -61,6 +61,8 @@ class AveriaPendienteController extends Controller
     public function edit($id)
     {
         //
+        $registro=RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/solicitud-averia.editar', compact('registro'));
     }
 
     /**

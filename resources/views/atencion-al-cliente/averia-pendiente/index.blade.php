@@ -43,7 +43,7 @@
                                   <td>{{$registro->numeroDeLinea}}</td>
                                    <td>{{$registro->tipoaveria}}</td> 
                                    
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('solicitud-averia.edit', $registro->id) }}" >ver </a>
+                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('averia-pendiente.edit', $registro->id) }}" >ver </a>
                                   {{-- <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/edit') }}" >editar </a>
                                       <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/imprimir') }}">Imprimir</a>
                                       <form action=" {{route('linea-fija.destroy',$registro->id)}} " method="post">
