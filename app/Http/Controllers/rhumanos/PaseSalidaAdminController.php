@@ -66,7 +66,7 @@ class PaseSalidaAdminController extends Controller
         //   
         $permiso = RhPermiso::findOrFail($id);
         // $individual= RhPermiso::where('fk_id_empleado')->where('fechaSolicitudPermiso','>=', now()->subDays(30))->count();
-        return view('/recursos-humanos-permisos/pase-salida-admin/editar', compact('permiso',));
+        return view('/recursos-humanos-permisos/pase-salida-admin/editar', compact('permiso'));
 
     //     $datos = vEstadoPedidos::where('created_at', '>=', now()->subDays(30))
     //          ->whereCodVendedor($userAct->codvendedor)

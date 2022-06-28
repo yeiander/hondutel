@@ -42,7 +42,7 @@
                                 <td>{{$permiso->fechaSolicitudPermiso}}</td>
                                
                                    <td> {{--<a class="btn btn-info" href="{{ url('/recursos-humanos-permisos/pase-salida-admin/'. $permiso->id. '/edit') }}">Editar</a> |  --}}
-                                     <a href="{{ route('/recursos-humanos-permisos/pase-salida-admin/'.$permiso->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>
+                                     <a href="{{ route('pase-salida-admin.edit',$permiso->id) }}" class="btn btn-primary" type="button">ver</a>
                                       <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#eliminarModal" data-id="{{$permiso->id}}">Borrar</button>   
                                    </td>
                                   </tr>
