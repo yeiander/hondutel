@@ -21,7 +21,6 @@ use App\Http\Controllers\atencionCliente\RegistroAveriaController;
 use App\Models\RegistroAveria;
 use App\Http\Controllers\atencionCliente\RegistroventaController;
 use App\Http\Controllers\atencionCliente\RegistroCancelacionesController;
-use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\RegistrolineaController;
 use App\Http\Controllers\atencionCliente\RegistrowifiController;
 // use App\Http\Controllers\GoogleController;
@@ -29,7 +28,9 @@ use App\Http\Controllers\atencionCliente\RegistrowifiController;
 use App\Http\Controllers\atencionCliente\InternetaveriaController;
 use App\Http\Controllers\atencionCliente\LineafijaController;
 use App\Http\Controllers\CrudmapaPrueba;
-use App\Http\Controllers\atencionCliente\SolicitudaveriaController;
+use App\Http\Controllers\atencionCliente\AveriaPendienteController;
+use App\Http\Controllers\atencionCliente\SoliaveriaController;
+use App\Http\Controllers\atencionCliente\MaterialaveriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,7 +106,6 @@ Route::resource('/atencion-al-cliente/cancelaciones', RegistrocancelacionesContr
 Route::get('/atencion-al-cliente/cancelaciones/{id}/imprimir', [RegistroCancelacionesController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/ventas/{id}/imprimir', [RegistroventaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/registro-averia/{id}/imprimir', [RegistroAveriaController::class, 'imprimir']);
-Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
 Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
@@ -115,7 +115,9 @@ Route::resource('/atencion-al-cliente/internet-averia', InternetaveriaController
 Route::resource('/atencion-al-cliente/linea-fija', LineafijaController::class);
 Route::get('/atencion-al-cliente/internet-averia/{id}/imprimir', [InternetaveriaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController::class, 'imprimir']);
-Route::resource('/atencion-al-cliente/solicitud-averia', SolicitudaveriaController::class);
+Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
+Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
+Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

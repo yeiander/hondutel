@@ -41,6 +41,10 @@ class LineafijaController extends Controller
     public function store(Request $request)
     {
         //
+         $registrolinea = request()->except('_token');
+         RegistroAveria::insert($registrolinea);
+        return redirect()->route('solicitud-averia.index');
+    
     }
 
     /**
@@ -52,8 +56,7 @@ class LineafijaController extends Controller
     public function show($id)
     {
         //
-        $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/linea-fija.ver', compact('registro'));
+       
     }
 
     /**

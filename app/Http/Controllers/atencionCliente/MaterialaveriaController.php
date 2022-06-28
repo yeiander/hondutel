@@ -5,7 +5,8 @@ namespace App\Http\Controllers\atencionCliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
-class SolicitudaveriaController extends Controller
+
+class MaterialaveriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class SolicitudaveriaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all();
-        return view('/atencion-al-cliente/solicitud-averia.index', compact('registros'));
+        $registros=RegistroAveria::all()->where('estado','like','etapa2');
+        return view('/atencion-al-cliente/material-averia.index', compact('registros'));
     }
 
     /**
@@ -27,7 +28,6 @@ class SolicitudaveriaController extends Controller
     public function create()
     {
         //
-        return view('/atencion-al-cliente/solicitud-averia.crear');
     }
 
     /**
@@ -61,6 +61,8 @@ class SolicitudaveriaController extends Controller
     public function edit($id)
     {
         //
+        $registro = RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/material-averia/editar', compact('registro'));
     }
 
     /**

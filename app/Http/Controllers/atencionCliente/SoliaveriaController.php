@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
 
-class AveriaPendienteController extends Controller
+class SoliaveriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AveriaPendienteController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all();
-        return view('/atencion-al-cliente/averia-pendiente.index', compact('registros'));
+        $registros=RegistroAveria::all()->where('estado','like','etapa1');
+        return view('/atencion-al-cliente/solicitud-averia.index', compact('registros'));
     }
 
     /**
@@ -50,6 +50,7 @@ class AveriaPendienteController extends Controller
     public function show($id)
     {
         //
+       
     }
 
     /**
@@ -61,8 +62,8 @@ class AveriaPendienteController extends Controller
     public function edit($id)
     {
         //
-        $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/solicitud-averia.editar', compact('registro'));
+        $registro = RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/solicitud-averia/editar', compact('registro'));
     }
 
     /**
@@ -75,7 +76,9 @@ class AveriaPendienteController extends Controller
     public function update(Request $request, $id)
     {
         //
-        
+        $registroAveria = request()->except(['_token', '_method']);
+        RegistroAveria::where('id','=',$id)->update($registroAveria);
+        return redirect()->route('solicitud-averia.index');
     }
 
     /**

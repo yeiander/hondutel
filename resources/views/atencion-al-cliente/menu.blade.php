@@ -38,7 +38,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/registros.png') }}" height="50px"></a>
+                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('menu-registro-averia') }}">
                                        <h5>Registro de averia</h5></a>
@@ -49,7 +49,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('menu-ventas') }}"><img class="mr-3" src="{{ asset('img/ventas.png') }}" height="50px"></a>
+                                  <a href="{{ route('menu-ventas') }}"><img class="mr-3" src="{{ asset('img/ventas 2.png') }}" height="50px"></a>
                                   <div class="media-body">
                                       <a href="{{ route('menu-ventas') }}">
                                          <h5>Ventas</h5>
@@ -61,7 +61,7 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('menu-cancelaciones') }}"><img  class="mr-3" src="{{ asset('img/cancelado.png') }}" height="50px"></a>
+                                      <a href="{{ route('menu-cancelaciones') }}"><img  class="mr-3" src="{{ asset('img/cancelar2.png') }}" height="50px"></a>
                                     <div class="media-body">
                                         <a  href="{{ route('menu-cancelaciones') }}">
                                            <h5>Cancelaciones</h5></a>
