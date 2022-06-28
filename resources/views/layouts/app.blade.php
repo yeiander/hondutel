@@ -19,6 +19,10 @@
       <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
      crossorigin=""></script>
+
+     {{-- datable  --}}
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/r-2.3.0/datatables.min.css"/>
     
 @yield('page_css')
 <!-- Template CSS -->
@@ -66,6 +70,14 @@
 <script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
 <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
+
+{{-- scripts para datatable --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/r-2.3.0/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
 <!-- Template JS File -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('web/js/stisla.js') }}"></script>
@@ -77,7 +89,9 @@
 @yield('dataTable_js')
 {{-- esto que esta reodeado lo puedo borrar menos lo que sigue abajo --}}
 @yield('page_js')
+
 @yield('scripts')
+
 <script>
     let loggedInUser =@json(\Illuminate\Support\Facades\Auth::user());
     let loginUrl = '{{ route('login') }}';
@@ -94,6 +108,8 @@
         };
     }(jQuery));
 </script>
+
+
 
 </body>
 </html>
