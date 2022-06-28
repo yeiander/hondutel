@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('cancelaciones.create') }}"><img  class="mr-3" src="{{ asset('img/proteccion-de-datos.png') }}" height="50px"></a>
+                                  <a href="{{ route('cancelaciones.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('cancelaciones.create') }}">
                                        <h5>Nuevo registro</h5></a>
@@ -28,7 +28,7 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/dato.png') }}" height="50px">
+                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('cancelaciones.index') }}">
                                          <h5>Consultar</h5>

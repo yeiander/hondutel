@@ -81,7 +81,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
              
-                                           <input value ="pendiente" style="font-size:14px;" class="form-control" type="hidden" name="estadoAveria" id="estadoAveria">
+                                           <input value ="estapa2" style="font-size:14px;" class="form-control" type="hidden" name="estado" id="estado">
                                          </div>
                                       </div>
                                      {{-- coloumna2 final --}}

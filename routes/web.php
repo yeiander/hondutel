@@ -28,8 +28,9 @@ use App\Http\Controllers\atencionCliente\RegistrowifiController;
 use App\Http\Controllers\atencionCliente\InternetaveriaController;
 use App\Http\Controllers\atencionCliente\LineafijaController;
 use App\Http\Controllers\CrudmapaPrueba;
-use App\Http\Controllers\atencionCliente\SolicitudaveriaController;
 use App\Http\Controllers\atencionCliente\AveriaPendienteController;
+use App\Http\Controllers\atencionCliente\SoliaveriaController;
+use App\Http\Controllers\atencionCliente\MaterialaveriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,8 +115,9 @@ Route::resource('/atencion-al-cliente/internet-averia', InternetaveriaController
 Route::resource('/atencion-al-cliente/linea-fija', LineafijaController::class);
 Route::get('/atencion-al-cliente/internet-averia/{id}/imprimir', [InternetaveriaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController::class, 'imprimir']);
-Route::resource('/atencion-al-cliente/solicitud-averia', SolicitudaveriaController::class);
 Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
+Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
+Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

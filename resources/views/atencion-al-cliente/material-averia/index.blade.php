@@ -7,12 +7,10 @@
 <link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
 @endsection
 
-
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Averia</h5>
-            
+            <h5 class="page__heading">Averias pendientes</h5>        
         </div>
         
         <div class="section-body">
@@ -21,7 +19,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Averia pendiente:</h3><br><br>
+                            <h3 class="page__heading">Averias:</h3><br><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>
@@ -29,10 +27,7 @@
                                 <th style="color: #fff;">Nombre del cliente</th>
                                 <th style="color: #fff;">Numero de linea</th>                               
                                 <th style="color: #fff;">Tipo de averia</th>
-                                <th style="color: #fff;">Acciones</th>
-                                
-                             
-    
+                                <th style="color: #fff;">Acciones</th>                               
                                 
                                   </tr>
                               </thead>
@@ -43,16 +38,10 @@
                                   <td>{{$registro->numeroDeLinea}}</td>
                                    <td>{{$registro->tipoaveria}}</td> 
                                    
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('material-averia.edit', $registro->id) }}" >ver </a>
-                                  {{-- <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/edit') }}" >editar </a>
-                                      <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/imprimir') }}">Imprimir</a>
-                                      <form action=" {{route('linea-fija.destroy',$registro->id)}} " method="post">
-                                        @csrf
-                                        {{method_field('DELETE')}}
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
-                                    </form>    
-                                      </td> --}}
-                                       
+                                  <td>
+                                    <a href="{{ url('/atencion-al-cliente/material-averia/'.$registro->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>
+                                  </td>
+       
                 
                                 </tr>
                                 @endforeach
@@ -61,28 +50,20 @@
 
 
                           
-            @section('dataTable_js')
-             
+            @section('dataTable_js')           
             <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
             <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script>
-          
-     
-  
     <script>
 
 $(document).ready(function(){
-
         $('#permiso1').DataTable({
           responsive: true,
           select: true,
     
-
             autoWidth: false,
-        
-            
 
     
             "language": {
@@ -100,10 +81,7 @@ $(document).ready(function(){
         });
 
       });
-
-  
     </script>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -124,12 +102,8 @@ $(document).ready(function(){
   </div>
 </div>
 
-
-
-  
 {{-- //    ALERTA de mensaje --}}
  <script>
-
 //   $('.MensajeBorrar').submit(function(e){
 //       e.preventDefault();
 //       swal({
@@ -162,13 +136,8 @@ $(document).ready(function(){
 // }
 // })
 // });
-  
  </script>
-
-
   @endsection
-    
-
                             {{-- final --}}
                         </div>
                     </div>
@@ -176,8 +145,4 @@ $(document).ready(function(){
             </div>
         </div>
     </section>
-    
-   
-    
-
 @endsection

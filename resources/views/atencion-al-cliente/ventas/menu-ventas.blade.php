@@ -18,7 +18,7 @@
 
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('ventas-linea.create') }}"><img  class="mr-3" src="{{ asset('img/votacion-en-linea.png') }}" height="50px"></a>
+                                  <a href="{{ route('ventas-linea.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('ventas-linea.create') }}">
                                        <h5>Linea Fija</h5></a>
@@ -28,7 +28,7 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/consultante.png') }}" height="50px">
+                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('ventas-linea.index') }}">
                                          <h5>Consulta registro linea</h5>
@@ -43,7 +43,7 @@
                                     {{-- One of three columns --}}
                                     <ul class="list-unstyled ">
                                       <li class="media my-4">
-                                          <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/wifi.png') }}" height="50px"></a>
+                                          <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                         <div class="media-body">
                                           <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
                                                <h5>Servicio ADSL</h5></a>
@@ -53,7 +53,7 @@
 
                                       <ul class="list-unstyled ">
                                         <li class="media my-4">
-                                            <img class="mr-3" src="{{ asset('img/charla.png') }}" height="50px">
+                                            <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                           <div class="media-body">
                                               <a href="{{ route('ventas-wifi.index') }}">
                                                  <h5>Consulta registro internet</h5>

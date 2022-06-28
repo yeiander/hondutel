@@ -43,7 +43,9 @@
                                   <td>{{$registro->numeroDeLinea}}</td>
                                    <td>{{$registro->tipoaveria}}</td> 
                                    
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('solicitud-averia.edit', $registro->id) }}" >ver </a></td>
+                                  <td>
+                                    <a href="{{ url('/atencion-al-cliente/solicitud-averia/'.$registro->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>
+                                  </td>
                                   
                                        
                 

@@ -5,9 +5,8 @@ namespace App\Http\Controllers\atencionCliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
-use Barryvdh\DomPDF\Facade\Pdf;
 
-class LineafijaController extends Controller
+class SoliaveriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class LineafijaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all();
-        return view('/atencion-al-cliente/linea-fija.index', compact('registros'));
+        $registros=RegistroAveria::all()->where('estado','like','etapa1');
+        return view('/atencion-al-cliente/solicitud-averia.index', compact('registros'));
     }
 
     /**
@@ -29,7 +28,6 @@ class LineafijaController extends Controller
     public function create()
     {
         //
-        return view('/atencion-al-cliente/linea-fija.crear');
     }
 
     /**
@@ -41,10 +39,6 @@ class LineafijaController extends Controller
     public function store(Request $request)
     {
         //
-         $registrolinea = request()->except('_token');
-         RegistroAveria::insert($registrolinea);
-        return redirect()->route('solicitud-averia.index');
-    
     }
 
     /**
@@ -68,8 +62,8 @@ class LineafijaController extends Controller
     public function edit($id)
     {
         //
-        $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/linea-fija.editar', compact('registro'));
+        $registro = RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/solicitud-averia/editar', compact('registro'));
     }
 
     /**
@@ -82,10 +76,9 @@ class LineafijaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $registro = request()->except(['_token', '_method']);
-        RegistroAveria::where('id','=',$id)->update($registro);
-
-        return redirect()->route('linea-fija.index');
+        $registroAveria = request()->except(['_token', '_method']);
+        RegistroAveria::where('id','=',$id)->update($registroAveria);
+        return redirect()->route('solicitud-averia.index');
     }
 
     /**
@@ -97,21 +90,5 @@ class LineafijaController extends Controller
     public function destroy($id)
     {
         //
-        RegistroAveria::find($id)->delete();
-        return redirect()->route('linea-fija.index');
-    }
-
-    public function imprimir($id)
-    {
-        //
-        $lineafija = RegistroAveria::find($id);
-
-        $vista = view('pdf/pdf-atencion-cliente.reporte-lineafija')
-        ->with('linea-fija', $lineafija);
-
-        $pdf = PDF::loadHTML($vista);
-        
-        return $pdf->stream('nombre.pdf');
-        
     }
 }
