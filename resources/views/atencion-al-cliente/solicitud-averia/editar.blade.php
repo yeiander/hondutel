@@ -10,9 +10,9 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{route('/atencion-al-cliente/solicitud-averia/'.$registro->id)}} " method="post">
+                            <form action=" {{ url('/atencion-al-cliente/solicitud-averia/'.$registro->id)}} " method="post">
                                 @csrf
-                                {{ method_field('PATCH')}}
+                                {{ method_field('PATCH')}}    
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
@@ -42,35 +42,35 @@
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Armario:</span>
                                       </div>
-                                      <input id="numerodearmario"  value="{{$registro->numerodearmario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="numerodearmario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>        
                                     
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Red directa:</span>
                                       </div>
-                                      <input id="reddirecta"  value="{{$registro->reddirecta}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="reddirecta" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>   
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par primario:</span>
                                       </div>
-                                      <input id="parprimario"  value="{{$registro->parprimario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="parprimario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de reporte:</span>
                                       </div>
-                                      <input id="fechareporte"  value="{{$registro->fechareporte}}"  style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      <input id="fechareporte" style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Falla:</span>
                                       </div>
-                                      <input id="falla"  value="{{$registro->falla}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="falla" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
                             
 
@@ -105,35 +105,35 @@
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par secundario:</span>
                                         </div>
-                                        <input id="parsecundario"  value="{{$registro->parsecundario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="parsecundario"  v  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                        <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Caja terminal:</span>
                                         </div>
-                                        <input id="cajaterminal"  value="{{$registro->cajaterminal}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="cajaterminal"   style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Bornes:</span>
                                         </div>
-                                        <input id="bornes"  value="{{$registro->bornes}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="bornes"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Usuario:</span>
                                         </div>
-                                        <input id="usuario"  value="{{$registro->usuaurio}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="usuario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
              
-                                           <input value ="pendiente" style="font-size:14px;" class="form-control" type="hidden" name="estadoAveria" id="estadoAveria">
+                                           <input value="etapa2" style="font-size:14px;" class="form-control" type="hidden" name="estado" id="estado">
                                          </div>
                                       </div>
                                      {{-- coloumna2 final --}}

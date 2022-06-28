@@ -43,7 +43,7 @@ class LineafijaController extends Controller
         //
          $registrolinea = request()->except('_token');
          RegistroAveria::insert($registrolinea);
-        return redirect()->route('ventas-linea.index');
+        return redirect()->route('solicitud-averia.index');
     
     }
 

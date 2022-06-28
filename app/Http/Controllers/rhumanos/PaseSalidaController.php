@@ -13,6 +13,7 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
+use Yajra\DataTables\DataTables;
 
 
 
@@ -33,11 +34,22 @@ class PaseSalidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
+        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
+        // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
+
+        if ($request->ajax()) {
+
+            $data = new Rhpermiso();
+            $data = DB::table('rh_permisos');
+            return DataTables::of($data)->make(true);
+
+         
+        }
+ 
+        return view('/recursos-humanos-permisos/pase-salida.index');
 
     }
 

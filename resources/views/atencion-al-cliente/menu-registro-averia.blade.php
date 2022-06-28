@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('internet-averia.create') }}"><img  class="mr-3" src="{{ asset('img/wifi (2).png') }}" height="50px"></a>
+                                  <a href="{{ route('internet-averia.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('internet-averia.create') }}">
                                        <h5>Internet</h5></a>
@@ -28,7 +28,7 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/consultante (1).png') }}" height="50px">
+                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('internet-averia.index') }}">
                                          <h5>Consulta Internet</h5>
@@ -85,7 +85,7 @@
                                               <li class="media my-4">
                                                   <img class="mr-3" src="{{ asset('img/operador.png') }}" height="50px">
                                                 <div class="media-body">
-                                                    <a href="{{ route('averia-pendiente.index') }}">
+                                                    <a href="{{ route('material-averia.index') }}">
                                                        <h5>Averias pendientes</h5>
                                                     </a>
                                                   

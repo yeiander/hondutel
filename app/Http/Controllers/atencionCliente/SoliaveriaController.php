@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\rhumanos;
+namespace App\Http\Controllers\atencionCliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\RhPermiso;
-use App\Models\Empleado;
+use App\Models\RegistroAveria;
 
-class PaseSalidaAdminController extends Controller
+class SoliaveriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,8 @@ class PaseSalidaAdminController extends Controller
     public function index()
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'pendiente');
-        return view('/recursos-humanos-permisos/pase-salida-admin.index', compact('permisos'));
-
+        $registros=RegistroAveria::all()->where('estado','like','etapa1');
+        return view('/atencion-al-cliente/solicitud-averia.index', compact('registros'));
     }
 
     /**
@@ -30,7 +28,6 @@ class PaseSalidaAdminController extends Controller
     public function create()
     {
         //
-       
     }
 
     /**
@@ -53,6 +50,7 @@ class PaseSalidaAdminController extends Controller
     public function show($id)
     {
         //
+       
     }
 
     /**
@@ -61,16 +59,11 @@ class PaseSalidaAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        //   
-        $permiso = RhPermiso::findOrFail($id);
-        // $individual= RhPermiso::where('fk_id_empleado')->where('fechaSolicitudPermiso','>=', now()->subDays(30))->count();
-        return view('/recursos-humanos-permisos/pase-salida-admin/editar', compact('permiso'));
-
-    //     $datos = vEstadoPedidos::where('created_at', '>=', now()->subDays(30))
-    //          ->whereCodVendedor($userAct->codvendedor)
-    //          ->get();
+        //
+        $registro = RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/solicitud-averia/editar', compact('registro'));
     }
 
     /**
@@ -82,14 +75,10 @@ class PaseSalidaAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $permiso = request()->except(['_token', '_method']);
-        RhPermiso::where('id','=', $id)->update($permiso);
-
-        $permiso = RhPermiso::findOrFail($id);
-        return redirect()->route('pase-salida-admin.index');
-
-
+        //
+        $registroAveria = request()->except(['_token', '_method']);
+        RegistroAveria::where('id','=',$id)->update($registroAveria);
+        return redirect()->route('solicitud-averia.index');
     }
 
     /**
@@ -101,8 +90,5 @@ class PaseSalidaAdminController extends Controller
     public function destroy($id)
     {
         //
-        RhPermiso::find($id)->delete();
-        return redirect()->route('pase-salida-admin.index');
-
     }
 }

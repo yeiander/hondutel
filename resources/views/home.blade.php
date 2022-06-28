@@ -13,6 +13,7 @@
            Recursos Humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
            </a>
        </div>
+       
      {{-- FINAL recursso humanos notificacion --}}
 
      {{-- INICIO atencion al cliente notificacion --}}

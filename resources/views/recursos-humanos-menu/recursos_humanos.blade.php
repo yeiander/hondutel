@@ -38,7 +38,7 @@
                           
                   {{-- INICIO --}}
 
-                            
+                            <hr>
                         <div class="container">
                           <div class="row">
                             <div class="col-sm">
@@ -73,7 +73,7 @@
                            {{-- aqui termina el menu  --}}
 
                         <!-- Button trigger modal -->
-
+<hr>
 
 
              
