@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/atencion-al-cliente/registro-averia ')}} " method="post">
+                            <form action=" {{url('/atencion-al-cliente/linea-fija ')}} " method="post">
                                 @csrf
                                 <div class="container">
                                   <div class="row">

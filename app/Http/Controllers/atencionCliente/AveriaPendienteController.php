@@ -16,7 +16,7 @@ class AveriaPendienteController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all()->where('estadoAveria','like','pendiente');
+        $registros=RegistroAveria::all();
         return view('/atencion-al-cliente/averia-pendiente.index', compact('registros'));
     }
 
@@ -62,7 +62,7 @@ class AveriaPendienteController extends Controller
     {
         //
         $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/averia-pendiente.editar', compact('registro'));
+        return view('/atencion-al-cliente/solicitud-averia.editar', compact('registro'));
     }
 
     /**
@@ -75,10 +75,7 @@ class AveriaPendienteController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $registro = request()->except(['_token', '_method']);
-        RegistroAveria::where('id','=',$id)->update($registro);
-
-        return redirect()->route('home');
+        
     }
 
     /**

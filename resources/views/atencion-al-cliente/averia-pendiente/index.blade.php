@@ -21,42 +21,37 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Consulta averia:</h3><br><br>
+                            <h3 class="page__heading">Averia pendiente:</h3><br><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
                                 <th style="color: #fff;">Nombre del cliente</th>
-                                <th style="color: #fff;">Numero de linea</th>
-                                <th style="color: #fff;">Contacto</th>
-                                <th style="color: #fff;">Direccion</th>
-                                <th style="color: #fff;">fecha de Solicitud</th>
-                                <th style="color: #fff;">Id</th>
-                                <th style="color: #fff">acciones</th>
-                          
+                                <th style="color: #fff;">Numero de linea</th>                               
+                                <th style="color: #fff;">Tipo de averia</th>
+                                <th style="color: #fff;">Acciones</th>
                                 
+                             
+    
                                 
                                   </tr>
                               </thead>
                               <tbody>
                                 @foreach($registros as $registro)
                                 <tr>
-                                 
-                                 
                                   <td>{{$registro->nombreCliente}}</td>
                                   <td>{{$registro->numeroDeLinea}}</td>
-                                  <td>{{$registro->contacto}}</td>
-                                  <td>{{$registro->direccion}}</td>
-                                   <td>{{$registro->fechaDeSolicitud}}</td>
-                                  <td>{{$registro->id}}</td>
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('averia-pendiente.edit', $registro->id) }}" >editar </a>
-                                      {{-- <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/registro-averia/'.$registro->id.'/imprimir') }}">Imprimir</a> --}}
-                                      {{-- <form action=" {{route('registro-averia.destroy',$registro->id)}} " method="post">
+                                   <td>{{$registro->tipoaveria}}</td> 
+                                   
+                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('averia-pendiente.edit', $registro->id) }}" >ver </a>
+                                  {{-- <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/edit') }}" >editar </a>
+                                      <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/linea-fija/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                      <form action=" {{route('linea-fija.destroy',$registro->id)}} " method="post">
                                         @csrf
                                         {{method_field('DELETE')}}
                                     <button type="submit" class="btn btn-danger">Borrar</button>
-                                    </form>     --}}
-                                      </td>
+                                    </form>    
+                                      </td> --}}
                                        
                 
                                 </tr>
