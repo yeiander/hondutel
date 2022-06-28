@@ -27,28 +27,28 @@
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion">direccion:</label>
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion">Direccion:</label>
                                          <input style="font-size:14px;" class="form-control" type="text" name="direccion" id="direccion">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">contacto</label>
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">Contacto:</label>
                                          <input style="font-size:14px;" class="form-control" type="text" name="contacto" id="contacto">
                                        </div>
                                     {{-- </div> --}}
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="'telefono">'telefono:</label>
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefono">Telefono:</label>
                                          <input style="font-size:14px;" class="form-control" type="text" name="telefono" id="'telefono">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps">gps:</label>
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps">GPS:</label>
                                          <input style="font-size:14px;" class="form-control" type="text" name="gps" id="gps">
                                        </div>
                                     </div>
