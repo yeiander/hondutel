@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('menu-crear-coordenadas') }}"><img  class="mr-3" src="{{ asset('img/coordenadas.png') }}" height="50px"></a>
+                                  <a href="{{ route('menu-crear-coordenadas') }}"><img  class="mr-3" src="{{ asset('img/mapacoordenada.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('menu-crear-coordenadas') }}">
                                        <h5>Crear nueva coordenada</h5></a>
@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/ecuador.png') }}" height="50px"></a>
+                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/mapaver.png') }}" height="50px"></a>
                                   <div class="media-body">
                                       <a href="{{ route('mapa') }}">
                                          <h5>Ver mapa</h5>
@@ -41,7 +41,7 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('mapa-interactivo.index') }}"><img  class="mr-3" src="{{ asset('img/marcador-de-posicion.png') }}" height="50px"></a>
+                                      <a href="{{ route('mapa-interactivo.index') }}"><img  class="mr-3" src="{{ asset('img/mapamarcador.png') }}" height="50px"></a>
                                     <div class="media-body">
                                         <a  href="{{ route('mapa-interactivo.index') }}">
                                            <h5>Consultar coordenadas</h5></a>

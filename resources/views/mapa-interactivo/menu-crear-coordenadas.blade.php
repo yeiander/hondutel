@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/atencion al cliente.png') }}" height="50px"></a>
+                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/mapausuario.png') }}" height="50px"></a>
                                 <div class="media-body">
                                     <a  href="{{ route('menu-registro-averia') }}">
                                        <h5>Crear nuevo cliente</h5></a>
@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/caja.png') }}" height="50px"></a>
+                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/cajaterminal.png') }}" height="50px"></a>
                                   <div class="media-body">
                                       <a href="{{ route('mapa') }}">
                                          <h5>Crear caja terminal</h5>
