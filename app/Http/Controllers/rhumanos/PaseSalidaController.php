@@ -40,18 +40,40 @@ class PaseSalidaController extends Controller
         // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
         // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
 
-        if ($request->ajax()) {
+        // if ($request->ajax()) {
 
-            $data = new Rhpermiso();
-            $data = DB::table('rh_permisos');
-            return DataTables::of($data)->make(true);
+        //     $data = new Rhpermiso();
+        //     $data = DB::table('rh_permisos');
+        //     return DataTables::of($data)->make(true);
 
          
-        }
+        // }
  
-        return view('/recursos-humanos-permisos/pase-salida.index');
+        // return view('/recursos-humanos-permisos/pase-salida.index');
 
+
+        if(request()->ajax())
+        {
+         if(!empty($request->from_date))
+         {
+          $data = DB::table('rh_permisos')
+            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date))
+            ->get();
+         }
+         else
+         {
+          $data = DB::table('rh_permisos')
+            ->get();
+         }
+         return datatables()->of($data)->make(true);
+        }
+        return view('/recursos-humanos-permisos/pase-salida.index');
+       
+       
     }
+
+
+    
 
     //AQUI ESTARA EL INDEX DE LOS PASES DE SALIDA PENDIENTE
     public function pendiente()
