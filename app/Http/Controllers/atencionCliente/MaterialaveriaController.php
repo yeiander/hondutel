@@ -39,6 +39,9 @@ class MaterialaveriaController extends Controller
     public function store(Request $request)
     {
         //
+        $registroAveria = request()->except('_token');
+        RegistroAveria::insert($registroAveria);
+       return redirect()->route('material-averia.index');
     }
 
     /**
@@ -75,6 +78,9 @@ class MaterialaveriaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $registroAveria = request()->except(['_token', '_method']);
+        RegistroAveria::where('id','=',$id)->update($registroAveria);
+        return redirect()->route('material-averia.index');
     }
 
     /**

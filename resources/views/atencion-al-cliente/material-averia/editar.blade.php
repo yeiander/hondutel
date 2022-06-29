@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/atencion-al-cliente/solicitud-averia/'.$registro->id)}} " method="post">
+                            <form action=" {{url('/atencion-al-cliente/material-averia/'.$registro->id)}} " method="post">
                                 @csrf
                                 {{ method_field('PATCH')}}
                                 
@@ -22,7 +22,7 @@
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Nombre del cliente:</span>
                                       </div>
-                                      <input id="nombreCliente"  value="{{$registro->numeroDeLinea}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                      <input id="nombreCliente"  value="{{$registro->nombreCliente}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
                                     </div>
 
                                     <div id="dia1Div" class="input-group mb-3">
@@ -127,7 +127,7 @@
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Usuario:</span>
                                         </div>
-                                        <input id="usuario"  value="{{$registro->usuaurio}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="usuario"  value="{{$registro->usuario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
 
@@ -145,7 +145,7 @@
                                     <div class="row">
                                       <div class="col-sm">    
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si" id="abrazadera">
+                                            <input class="form-check-input" type="checkbox" value="si" name="abrazadera" id="abrazadera">
                                             <label class="form-check-label" for="abrazadera">
                                               Abrazadera
                                             </label>
@@ -154,7 +154,7 @@
                                       
                                       <div class="col-sm">   
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si id="anillopostedec">
+                                            <input class="form-check-input" type="checkbox" value="si" name="anillopostedec" id="anillopostedec">
                                             <label class="form-check-label" for="anillopostedec">
                                               Anilla poste de c
                                             </label>
@@ -163,7 +163,7 @@
 
                                       <div class="col-sm">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si" id="anillopostedem">
+                                            <input class="form-check-input" type="checkbox" value="si"  name="anillopostedem" id="anillopostedem">
                                             <label class="form-check-label" for="anillopostedem">
                                                 Anilla poste de m
                                             </label>
@@ -174,7 +174,7 @@
                                         <div class="row">
                                           <div class="col-sm">    
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" id="acomext">
+                                                <input class="form-check-input" type="checkbox" value="si" name="acomext" id="acomext">
                                                 <label class="form-check-label" for="acomext">
                                                   Acom. ext
                                                 </label>
@@ -183,7 +183,7 @@
                                           
                                           <div class="col-sm">   
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" id="acomint">
+                                                <input class="form-check-input" type="checkbox" value="si" name="acomint" id="acomint">
                                                 <label class="form-check-label" for="acomint">
                                                     Acom. int
                                                 </label>
@@ -192,7 +192,7 @@
     
                                           <div class="col-sm">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" id="cmodular">
+                                                <input class="form-check-input" type="checkbox" value="si" name="cmodular" id="cmodular">
                                                 <label class="form-check-label" for="cmodular">
                                                     C. modular
                                                 </label>
@@ -203,7 +203,7 @@
                                             <div class="row">
                                               <div class="col-sm">    
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" id="gdecasa">
+                                                    <input class="form-check-input" type="checkbox" value="si" name="gdecasa" id="gdecasa">
                                                     <label class="form-check-label" for="gdecasa">
                                                       G. de casa
                                                     </label>
@@ -212,7 +212,7 @@
                                               
                                               <div class="col-sm">   
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" id="mordazas">
+                                                    <input class="form-check-input" type="checkbox" value="si" name="mordazas" id="mordazas">
                                                     <label class="form-check-label" for="mordazas">
                                                         Mordazas
                                                     </label>
@@ -221,7 +221,7 @@
         
                                               <div class="col-sm">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" id="grapas">
+                                                    <input class="form-check-input" type="checkbox" value="si" name="grapas" id="grapas">
                                                     <label class="form-check-label" for="grapas">
                                                         Grapas
                                                     </label>
@@ -232,7 +232,7 @@
                                                 <div class="row">
                                                   <div class="col-sm">    
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" id="grapasre">
+                                                        <input class="form-check-input" type="checkbox" value="si" name="grapasre" id="grapasre">
                                                         <label class="form-check-label" for="grapasre">
                                                           Grapas R.E
                                                         </label>
@@ -241,7 +241,7 @@
                                                   
                                                   <div class="col-sm">   
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" id="ganchoj">
+                                                        <input class="form-check-input" type="checkbox" value="si" name="ganchoj" id="ganchoj">
                                                         <label class="form-check-label" for="ganchoj">
                                                             Gancho J
                                                         </label>
@@ -250,7 +250,7 @@
             
                                                   <div class="col-sm">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" id="ganchosposte">
+                                                        <input class="form-check-input" type="checkbox" value="si" name="ganchosposte" id="ganchosposte">
                                                         <label class="form-check-label" for="ganchosposte">
                                                             Ganchos p/poste de c
                                                         </label>
@@ -261,7 +261,7 @@
                                                     <div class="row">
                                                       <div class="col-sm">    
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" id="grapasd">
+                                                            <input class="form-check-input" type="checkbox" value="si" name="grapasd" id="grapasd">
                                                             <label class="form-check-label" for="grapasd">
                                                               Grapas D
                                                             </label>
@@ -270,7 +270,7 @@
                                                       
                                                       <div class="col-sm">   
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" id="cjumper">
+                                                            <input class="form-check-input" type="checkbox" value="si" name="cjumper" id="cjumper">
                                                             <label class="form-check-label" for="cjumper">
                                                                 C jumper
                                                             </label>
@@ -279,7 +279,7 @@
                 
                                                       <div class="col-sm">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" id="protector">
+                                                            <input class="form-check-input" type="checkbox" value="si" name="protector" id="protector">
                                                             <label class="form-check-label" for="protector">
                                                                 Protector
                                                             </label>
@@ -290,7 +290,7 @@
                                                         <div class="row">
                                                           <div class="col-sm">    
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="si" id="anclajeplastico">
+                                                                <input class="form-check-input" type="checkbox" value="si" name="anclajeplastico" id="anclajeplastico">
                                                                 <label class="form-check-label" for="anclajeplastico">
                                                                   Anclaje plastico
                                                                 </label>
@@ -299,7 +299,7 @@
 
                                                           <div class="col-sm">   
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="si" id="conectoruy">
+                                                                <input class="form-check-input" type="checkbox" value="si" name="conectoruy" id="conectoruy">
                                                                 <label class="form-check-label" for="conectoruy">
                                                                     Conector U Y
                                                                 </label>
@@ -311,6 +311,8 @@
                                                                 </label>
                                                               </div>
                                                           </div>    
+
+                                                          <input value="etapa3" style="font-size:14px;" class="form-control" type="hidden" name="estado" id="estado">
                                     </div>
                                   </div>                                
                                               <br>
