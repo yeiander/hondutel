@@ -25,12 +25,11 @@
                                   <button type="button" name="refresh" id="refresh" class="btn btn-secondary">Limpiar</button>
                               </div>
                           </div>
-                                       <br>
+                          <br>
 
                    <table  class="table table-striped table-bordered" style="width:100%; border:2px;" id="order_table">
                      <thead style="background-color:#6777ef;">
                        <tr>          
-                         
                          <th style="color: #fff;">Nombre</th>
                          <th style="color: #fff;">Hora salida</th>
                          <th style="color: #fff;">Hora entrada(aprox)</th>
@@ -70,7 +69,7 @@ $(document).ready(function(){
    processing: true,
    serverSide: true,
    responsive: true,
-   autoWidth: false,
+   autoWidth: true,
    ajax: {
     url:'{{ route("pase-salida.index") }}',
     data:{from_date:from_date, to_date:to_date}
@@ -107,11 +106,7 @@ $(document).ready(function(){
     {
      data:'nombreQuienAprobo',
      name:'nombreQuienAprobo'
-    },
-    {
-     data:'actions',
-     name:'actions'
-    },
+    }
    ]
   });
  }

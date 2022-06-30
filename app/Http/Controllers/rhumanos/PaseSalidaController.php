@@ -50,7 +50,9 @@ class PaseSalidaController extends Controller
             ->where('aprobacion', 'like', 'almacenado');
             
          }
-           return datatables()->of($data)->make(true);
+           return datatables()->of($data)
+          
+           ->make(true);
         }
            return view('/recursos-humanos-permisos/pase-salida.index');
     }
