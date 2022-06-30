@@ -19,58 +19,58 @@
                                      {{-- columna1 inicio --}}
                                      <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Nombre del cliente:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Nombre del cliente:</span>
                                       </div>
-                                      <input id="nombreCliente"  value="{{$registro->numeroDeLinea}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                      <input name="nombreCliente" id="nombreCliente"  value="{{$registro->nombreCliente}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
                                     </div>
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Contacto:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Contacto:</span>
                                       </div>
-                                      <input id="contacto"  value="{{$registro->contacto}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                      <input name="contacto" id="contacto"  value="{{$registro->contacto}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
                                     </div>
 
                                      <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Fecha de solicitud:</span>
                                       </div>
-                                      <input id="fechaDeSolicitud"  value="{{$registro->fechaDeSolicitud}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                      <input name="fechaDeSolicitud" id="fechaDeSolicitud"  value="{{$registro->fechaDeSolicitud}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
                                     </div>
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Armario:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Armario:</span>
                                       </div>
-                                      <input id="numerodearmario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input name="numerodearmario" id="numerodearmario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>        
                                     
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Red directa:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Red directa:</span>
                                       </div>
-                                      <input id="reddirecta" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input name="reddirecta" id="reddirecta" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>   
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par primario:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Par primario:</span>
                                       </div>
-                                      <input id="parprimario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input name="parprimario" id="parprimario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de reporte:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Fecha de reporte:</span>
                                       </div>
-                                      <input id="fechareporte" style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      <input name="fechareporte" id="fechareporte" style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Falla:</span>
+                                        <span  style="font-weight:bold;" class="input-group-text" id="">Falla:</span>
                                       </div>
-                                      <input id="falla" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input name="falla" id="falla" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
                             
 
@@ -82,51 +82,51 @@
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de linea:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Numero de linea:</span>
                                         </div>
-                                        <input id="numeroDeLinea"  readonly value="{{$registro->numeroDeLinea}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="numeroDeLinea" id="numeroDeLinea"  readonly value="{{$registro->numeroDeLinea}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Direccion:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Direccion:</span>
                                         </div>
-                                        <input id="direccion"  readonly value="{{$registro->direccion}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="direccion" id="direccion"  readonly value="{{$registro->direccion}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Tipo de Averia:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Tipo de Averia:</span>
                                         </div>
-                                        <input id="tipoaveria"  readonly value="{{$registro->tipoaveria}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="tipoaveria" id="tipoaveria"  readonly value="{{$registro->tipoaveria}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par secundario:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Par secundario:</span>
                                         </div>
-                                        <input id="parsecundario"  v  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="parsecundario" id="parsecundario"  v  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                        <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Caja terminal:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Caja terminal:</span>
                                         </div>
-                                        <input id="cajaterminal"   style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="cajaterminal" id="cajaterminal"   style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Bornes:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Bornes:</span>
                                         </div>
-                                        <input id="bornes"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="bornes" id="bornes"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Usuario:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="">Usuario:</span>
                                         </div>
-                                        <input id="usuario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input name="usuario" id="usuario" style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
 
