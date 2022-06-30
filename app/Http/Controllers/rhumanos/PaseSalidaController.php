@@ -36,54 +36,23 @@ class PaseSalidaController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
-        // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
-
-        // if ($request->ajax()) {
-
-        //     $data = new Rhpermiso();
-        //     $data = DB::table('rh_permisos');
-        //     return DataTables::of($data)->make(true);
-
-         
-        // }
- 
-        // return view('/recursos-humanos-permisos/pase-salida.index');
-
-
         if(request()->ajax())
-        {
-         if(!empty($request->from_date))
          {
-          $data = DB::table('rh_permisos')
-            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date))
-            ->get();
-         }
+        if(!empty($request->from_date))
+         {
+          $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            ->where('aprobacion', 'like', 'almacenado')
+            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+          }
          else
          {
-          $data = DB::table('rh_permisos')
-            ->get();
+            $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            ->where('aprobacion', 'like', 'almacenado');
+            
          }
-         return datatables()->of($data)->make(true);
+           return datatables()->of($data)->make(true);
         }
-        return view('/recursos-humanos-permisos/pase-salida.index');
-       
-       
-    }
-
-
-    
-
-    //AQUI ESTARA EL INDEX DE LOS PASES DE SALIDA PENDIENTE
-    public function pendiente()
-    {
-        //
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',);
-        // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/pase-salida', compact('permisos'));
-    
+           return view('/recursos-humanos-permisos/pase-salida.index');
     }
 
     /**

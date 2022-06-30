@@ -31,14 +31,15 @@
                      <thead style="background-color:#6777ef;">
                        <tr>          
                          
-                         <th style="color: #fff;">ID</th>
+                         <th style="color: #fff;">Nombre</th>
+                         <th style="color: #fff;">Hora salida</th>
                          <th style="color: #fff;">Hora entrada(aprox)</th>
                          <th style="color: #fff;">Hora entrada(real)</th>
                          <th style="color: #fff;">Motivo</th>
                          <th style="color: #fff;">Fecha solicitud</th>
-                         {{-- <th style="color: #fff;">Lugar</th>
                          <th style="color: #fff;">Creado por:</th>
-                         <th style="color: #fff;">Aprobado por:</th> --}}
+                         <th style="color: #fff;">Aprobado por:</th>
+                         <th style="color: #fff;">Accion</th>
                         
                         </tr>
                       </thead>
@@ -48,51 +49,6 @@
                     </table>
                             {{-- final --}}
                      @section('scripts') 
-
-                            {{-- <script>
-                             $(document).ready(function(){
-                
-                              $('#tabla').DataTable({
-                                "language": {
-                         "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-                                },
-
-                                 responsive: true,
-                                 autoWidth: false,
-                                 processing: true,
-                                 serverSide: true,
-                                
-                                 ajax: "{{route('pase-salida.index')}}",
-                                 dataType: 'json',
-                                 type: "POST",
-                                 
-                                  columns: [
-            
-            { data: 'horaSalida', name: 'horaSalida' },
-            { data: 'horaEntradaAproximada', name: 'horaEntradaAproximada' },
-            { data: 'horaEntradaReal', name: 'horaEntradaReal' },
-            { data: 'motivoTrabajoEnfermedad', name: 'motivoTrabajoEnfermedad' },
-            { data: 'fechaSolicitudPermiso', name: 'fechaSolicitudPermiso' },
-            { data: 'lugarSolicitudPermiso', name: 'lugarSolicitudPermiso' },
-            { data: 'nombreQuienCreo', name: 'nombreQuienCreo' },
-            { data: 'nombreQuienAprobo', name: 'nombreQuienAprobo' }
-        
-
-                                 ],
-
-                 
-                   
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-            
-                                                   });
-        
-                            });
-          
-        
-                            </script> --}}
-
-
                             <script>
 
 $(document).ready(function(){
@@ -121,8 +77,8 @@ $(document).ready(function(){
    },
    columns: [
     {
-     data:'id',
-     name:'id'
+     data:'empleados.nombreEmpleado',
+     name:'empleados.nombreEmpleado'
     },
     {
      data:'horaSalida',
@@ -137,9 +93,25 @@ $(document).ready(function(){
      name:'horaEntradaReal'
     },
     {
+     data:'motivoTrabajoEnfermedad',
+     name:'motivoTrabajoEnfermedad'
+    },
+    {
      data:'fechaSolicitudPermiso',
      name:'fechaSolicitudPermiso'
-    }
+    },
+    {
+     data:'nombreQuienCreo',
+     name:'nombreQuienCreo'
+    },
+    {
+     data:'nombreQuienAprobo',
+     name:'nombreQuienAprobo'
+    },
+    {
+     data:'actions',
+     name:'actions'
+    },
    ]
   });
  }
