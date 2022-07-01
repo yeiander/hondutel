@@ -41,23 +41,14 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('menu-cancelaciones') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
+                                      <a href="{{ route('armario.create') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                        <a  href="{{ route('menu-cancelaciones') }}">
+                                        <a  href="{{ route('armario.create') }}">
                                            <h5>Crear nuevo armario</h5></a>
                                            <p>Crear nuevos armarios</p>
                                     </div>
                                   </li>
 
-                                  <ul class="list-unstyled ">
-                                    <li class="media my-4">
-                                        <a href="{{ url('mapa-interactivo/create') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
-                                      <div class="media-body">
-                                          <a  href="{{ url('mapa-interactivo/create') }}">
-                                             <h5>Crear Ejemplo</h5></a>
-                                             <p>Crear nuevas coordenadas</p>
-                                      </div>
-                                    </li>
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
