@@ -31,7 +31,7 @@
                               <th style="color: #fff;">Tipo permiso</th>
                               <th style="color: #fff;">Fecha de solicitud</th>
                               
-                              <th style="color: #fff;">Acciones</th>
+                            <th style="color: #fff;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody style=" font-size:16px;">
