@@ -11,7 +11,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Armarios:</h5>
+            <h5 class="page__heading">Mapa interactivo</h5>
  
         </div>
         
@@ -21,16 +21,15 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">registro de Armarios:</h3><br>
+                            <h3 class="page__heading">registro de armarios:</h3><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="hola">
                                 <thead style="background-color:#6777ef;">
                                     <tr>
                                         
-                                  <th style="color: #fff;">NOMBRE</th>
-                                  <th style="color: #fff;">TELEFONO</th>
-                                  <th style="color: #fff;">CONTACTO</th>
-                                  <th style="color: #fff;">DIRECCION</th>
-                                  <th style="color: #fff;">MAPA</th>
+                                  <th style="color: #fff;">n armario</th>
+                                  <th style="color: #fff;">barrios</th>
+                                  <th style="color: #fff;">gps_armario</th>
+                                  
                                   
                                     </tr>
                                 </thead>
@@ -38,9 +37,9 @@
                                   @foreach($clientes as $cliente)
                                   <tr>
                                    
-                                    <td>{{$cliente->cliente}}</td>
-                                    <td>{{$cliente->telefono}}</td>
-                                    <td>{{$cliente->contacto}}</td>
+                                    <td>{{$cliente->numeroArmario}}</td>
+                                    <td>{{$cliente->barrio}}</td>
+                                    <td>{{$cliente->gps_armario}}</td>
                                     <td>{{$cliente->direccion}}</td>
                                   
                                 

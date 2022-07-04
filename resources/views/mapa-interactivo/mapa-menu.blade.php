@@ -41,9 +41,9 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('mapa-interactivo.index') }}"><img  class="mr-3" src="{{ asset('img/mapamarcador.png') }}" height="50px"></a>
+                                      <a href="{{ route('armario') }}"><img  class="mr-3" src="{{ asset('img/mapamarcador.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                        <a  href="{{ route('mapa-interactivo.index') }}">
+                                        <a  href="{{ route('armario') }}">
                                            <h5>Consultar coordenadas</h5></a>
                                            <p>Consultar todas las coordenadas en la base de datos</p>
                                     </div>

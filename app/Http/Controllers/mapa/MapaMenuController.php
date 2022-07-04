@@ -19,8 +19,22 @@ class MapaMenuController extends Controller
         $registros=Crudmapa::all();
         return View('/mapa-interactivo/mapa', compact('registros'));
         }
+
+
+
         public function menuCrearCoordenadas(){
             return View('/mapa-interactivo/menu-crear-coordenadas');
             }
+
+          
+          
+            public function consultaArmario(){
+                return View('/mapa-interactivo/consultas/armario');
+                }
+            
         
 }
+
+
+
+

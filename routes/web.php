@@ -31,6 +31,9 @@ use App\Http\Controllers\CrudmapaPrueba;
 use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\SoliaveriaController;
 use App\Http\Controllers\atencionCliente\MaterialaveriaController;
+use App\Http\Controllers\ArmarioController;
+use App\Http\Controllers\ClienteGpsController;
+use App\Http\Controllers\CajaTerminalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,4 +128,8 @@ Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuCon
 Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
 Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
 Route::resource('mapa-interactivo', CrudmapaPrueba::class);
+Route::resource('mapa-interactivo/armario', ArmarioController::class);
+Route::get('/mapa-interactivo/consultas/armario', [App\Http\Controllers\mapa\MapaMenuController::class, 'consultaArmario'])->name('armario');
+Route::resource('/mapa-interactivo/clientegps', ClienteGpsController::class);
+Route::resource('/mapa-interactivo/cajaterminal', CajaTerminalController::class);
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________

@@ -30,7 +30,7 @@
                                   <th style="color: #fff;">TELEFONO</th>
                                   <th style="color: #fff;">CONTACTO</th>
                                   <th style="color: #fff;">DIRECCION</th>
-                                  <th style="color: #fff;">MAPA</th>
+                                  
                                   
                                     </tr>
                                 </thead>
@@ -38,10 +38,11 @@
                                   @foreach($clientes as $cliente)
                                   <tr>
                                    
-                                    <td>{{$cliente->cliente}}</td>
+                                    <td>{{$cliente->nombre}}</td>
                                     <td>{{$cliente->telefono}}</td>
                                     <td>{{$cliente->contacto}}</td>
                                     <td>{{$cliente->direccion}}</td>
+                                    
                                   
                                 
                                     <td> <a href="{{$cliente->gps}}" class="btn btn-primary" target="_black">Ver mapa</a> </td>| 
