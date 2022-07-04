@@ -28,6 +28,7 @@ class CreateRhPermisosTable extends Migration
             $table->time('horaEntradaReal')->nullable();
             $table->text('motivoTrabajoEnfermedad')->nullable();
             $table->date('fechaSolicitudPermiso')->nullable();
+            $table->string('semanaSolicitudPermiso')->nullable();
             $table->string('lugarSolicitudPermiso')->nullable();
             $table->date('fechaPermisoPersonalDia1')->nullable();
             $table->date('fechaPermisoPersonalDia2')->nullable();

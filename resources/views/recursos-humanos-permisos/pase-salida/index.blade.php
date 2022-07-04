@@ -106,8 +106,18 @@ $(document).ready(function(){
     {
      data:'nombreQuienAprobo',
      name:'nombreQuienAprobo'
-    }
-   ]
+    },
+
+    {
+     data:'action',
+     name:'action'
+    },
+
+    
+
+   ],
+  
+
   });
  }
 
