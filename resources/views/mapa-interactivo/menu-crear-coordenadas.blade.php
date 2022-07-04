@@ -18,9 +18,9 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('menu-registro-averia') }}"><img  class="mr-3" src="{{ asset('img/mapausuario.png') }}" height="50px"></a>
+                                  <a href="{{ route('clientegps.create') }}"><img  class="mr-3" src="{{ asset('img/mapausuario.png') }}" height="50px"></a>
                                 <div class="media-body">
-                                    <a  href="{{ route('menu-registro-averia') }}">
+                                    <a  href="{{ route('clientegps.create') }}">
                                        <h5>Crear nuevo cliente</h5></a>
                                        <p>Crear nuevas coordenadas para clientes</p>
                                 </div>
@@ -29,9 +29,9 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/cajaterminal.png') }}" height="50px"></a>
+                                  <a href="{{ route('cajaterminal.create') }}"><img class="mr-3" src="{{ asset('img/cajaterminal.png') }}" height="50px"></a>
                                   <div class="media-body">
-                                      <a href="{{ route('mapa') }}">
+                                      <a href="{{ route('cajaterminal.create') }}">
                                          <h5>Crear caja terminal</h5>
                                       </a>
                                     
