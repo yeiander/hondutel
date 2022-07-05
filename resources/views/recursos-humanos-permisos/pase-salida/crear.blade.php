@@ -11,6 +11,9 @@
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
+        <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+          Numero de permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
+        </a>
 
         {{-- <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           Numero de la semana<span style="font-size: 15px" class="badge badge-light">{{ $semanaNum }}</span>
@@ -44,6 +47,7 @@
                                <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
                                  <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="1">
+                                 <input type = "hidden" name="semanaSolicitudPermiso" id="semanaSolicitudPermiso" value="{{ $semanaNum }}">
                                  <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
                                  
                                  <div class="container">
@@ -115,6 +119,9 @@
                             <div id="mensajeError" style="display: none">
                               <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
                             </div>
+                            <div id="mensajeError2" style="display: none">
+                              <center><h4>agotaste el numero de pases de salida para esta semana</h4></center>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +131,7 @@
     @section('scripts')
     <script>
       
-     $(function(){
+     $(function mes(){
         // FINAL pcultar boton
        if( {{ $individual }} >= 6){
         $('#botonGuardar').hide();
@@ -135,14 +142,21 @@
         mensaje.innerHTML = textoMensaje;
        }
      });
+$(function semana(){
+     if( {{ $individual2 }} >= 2){
+        $('#botonGuardar').hide();
+         $('#form').hide();
+         $('#mensajeError2').show();
+        var textoMensaje = "";
+        var mensaje = document.getElementById("paseSalidaMensaje");
+        mensaje.innerHTML = textoMensaje;
+       }
+     });
     
         // es para desabilitar al hacer submit una sola vez
     $('#form').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });
-
-
-
 
     </script>
     @endsection
