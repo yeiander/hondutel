@@ -36,32 +36,29 @@ class PaseSalidaController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
-        // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
-
-        if ($request->ajax()) {
-
-            $data = new Rhpermiso();
-            $data = DB::table('rh_permisos');
-            return DataTables::of($data)->make(true);
-
-         
+        if(request()->ajax())
+         {
+        if(!empty($request->from_date))
+         {
+          $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            ->where('aprobacion', 'like', 'almacenado')
+            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+          }
+         else
+         {
+            $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            ->where('aprobacion', 'like', 'almacenado');
+            
+         }
+           return datatables()->of($data)
+           ->addColumn('action', function ($data) {
+            return '<a href="#edit-'.$data->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            
+        })
+            ->editColumn('id', 'ID: {{$id}}')
+           ->make(true);
         }
- 
-        return view('/recursos-humanos-permisos/pase-salida.index');
-
-    }
-
-    //AQUI ESTARA EL INDEX DE LOS PASES DE SALIDA PENDIENTE
-    public function pendiente()
-    {
-        //
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',);
-        // return view('/recursos-humanos-permisos/pase-salida.index', compact('permisos'));
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado',)->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/pase-salida', compact('permisos'));
-    
+           return view('/recursos-humanos-permisos/pase-salida.index');
     }
 
     /**
@@ -147,10 +144,9 @@ class PaseSalidaController extends Controller
             
             
             'fk_id_empleado' => 'required|exists:empleados,id',
-            
-            
-           
+
         ]);
+
         $fecha = Carbon::now()->format('Y-m-d');
         $mes = Carbon::now()->format('m');
         $annio = Carbon::now();
@@ -164,8 +160,15 @@ class PaseSalidaController extends Controller
         ->where('fk_id_tipo_permiso', 'like', 1)
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
-    
-        return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio', 'dia','semanaNum'));
+
+        $individual2= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'almacenado')
+        ->where('fk_id_tipo_permiso', 'like', 1)
+        ->where('semanaSolicitudPermiso', '=', $semanaNum)->count();
+
+        
+        
+        return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio', 'dia','semanaNum', 'individual2'));
     }
 
     /**
