@@ -17,7 +17,7 @@ class LineafijaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all();
+        $registros=RegistroAveria::all()->where('estado','like','etapa3');
         return view('/atencion-al-cliente/linea-fija.index', compact('registros'));
     }
 
