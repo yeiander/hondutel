@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('menu-crear-coordenadas') }}"><img  class="mr-3" src="{{ asset('img/mapacoordenada.png') }}" height="50px"></a>
+                                  <a href="{{ route('menu-crear-coordenadas') }}"><i style="color:rgb(112, 126, 141)" class="fa fa-podcast fa-3x mr-3" aria-hidden="true"></i></a>
                                 <div class="media-body">
                                     <a  href="{{ route('menu-crear-coordenadas') }}">
                                        <h5>Crear nueva coordenada</h5></a>
@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('mapa') }}"><img class="mr-3" src="{{ asset('img/mapaver.png') }}" height="50px"></a>
+                                  <a href="{{ route('mapa') }}"i style="color:rgb(112, 126, 141)" class="fa fa-map fa-3x mr-3" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                       <a href="{{ route('mapa') }}">
                                          <h5>Ver mapa</h5>
@@ -41,7 +41,7 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('armario') }}"><img  class="mr-3" src="{{ asset('img/mapamarcador.png') }}" height="50px"></a>
+                                      <a href="{{ route('armario') }}"><i style="color:rgb(112, 126, 141)" class="fa fa-location-arrow fa-3x mr-3" aria-hidden="true"></i></a>
                                     <div class="media-body">
                                         <a  href="{{ route('armario') }}">
                                            <h5>Consultar coordenadas</h5></a>
