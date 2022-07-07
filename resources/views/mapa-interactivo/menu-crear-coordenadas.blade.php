@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('cajaterminal.create') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-map-pin fa-3x mr-3" aria-hidden="true"></i>></a>
+                                  <a href="{{ route('cajaterminal.create') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-map-pin fa-3x mr-3" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                       <a href="{{ route('cajaterminal.create') }}">
                                          <h5>Crear caja terminal</h5>

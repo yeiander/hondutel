@@ -19,7 +19,7 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Descripcion:</label>
-                                         <input placeholder="ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="NumeroArmario" id="NumeroArmario">
+                                         <input placeholder="Ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="NumeroArmario" id="NumeroArmario">
                                        </div>
                                     </div>
 
@@ -33,7 +33,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps_armario">GPS caja terminal:</label>
-                                           <input placeholder="ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
+                                           <input placeholder="Ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
                                          </div>
                                       </div>
 
@@ -45,7 +45,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="">Direccion</label>
-                                     <input placeholder="ingresar direccion" style="font-size:14px;" class="form-control" type="text" name="barrio" id="barrio">
+                                     <input placeholder="Ingresar direccion" style="font-size:14px;" class="form-control" type="text" name="barrio" id="barrio">
                                    </div>
                                 </div>
                                               <br>
