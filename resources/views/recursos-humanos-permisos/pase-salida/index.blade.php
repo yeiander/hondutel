@@ -69,6 +69,9 @@ $(document).ready(function(){
    processing: true,
    serverSide: true,
    responsive: true,
+  //  select: true,
+   dataSrc: "tableData",
+   bDestroy: true,
    autoWidth: true,
    ajax: {
     url:'{{ route("pase-salida.index") }}',

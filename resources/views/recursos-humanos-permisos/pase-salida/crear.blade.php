@@ -9,10 +9,10 @@
             <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
+          permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          Numero de permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
+          permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
         </a>
 
         {{-- <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
