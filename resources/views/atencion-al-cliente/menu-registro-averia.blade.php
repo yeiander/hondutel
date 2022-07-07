@@ -56,7 +56,7 @@
                                         </div>
                                       </li>
         
-                                      {{-- <ul class="list-unstyled ">
+                                      <ul class="list-unstyled ">
                                         <li class="media my-4">
                                             <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                           <div class="media-body">
@@ -66,19 +66,19 @@
                                             
                                             <p> Consultar averia linea fija</p>
                                           </div>
-                                        </li> --}}
+                                        </li>
 
 
-                                          {{-- <ul class="list-unstyled ">
+                                          <ul class="list-unstyled ">
                                             <li class="media my-4">
-                                                <img class="mr-3" src="{{ asset('img/operador.png') }}" height="50px">
+                                                <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                               <div class="media-body">
                                                   <a href="{{ route('solicitud-averia.index') }}">
                                                      <h5>Solicitudes averia</h5>
                                                   </a>
                                                 <p> consulta de averias</p>
                                               </div>
-                                            </li> --}}
+                                            </li>
 
                                             <ul class="list-unstyled ">
                                               <li class="media my-4">

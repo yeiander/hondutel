@@ -43,35 +43,35 @@
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Armario:</span>
                                       </div>
-                                      <input id="numerodearmario"  value="{{$registro->numerodearmario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="numerodearmario" readonly value="{{$registro->numerodearmario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>        
                                     
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Red directa:</span>
                                       </div>
-                                      <input id="reddirecta"  value="{{$registro->reddirecta}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="reddirecta"  readonly value="{{$registro->reddirecta}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div>   
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par primario:</span>
                                       </div>
-                                      <input id="parprimario"  value="{{$registro->parprimario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="parprimario"  readonly value="{{$registro->parprimario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de reporte:</span>
                                       </div>
-                                      <input id="fechareporte"  value="{{$registro->fechareporte}}"  style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      <input id="fechareporte" readonly value="{{$registro->fechareporte}}"  style="font-weight:bold;" type="date" class="form-control" aria-describedby="inputGroup-sizing-default">
                                     </div> 
 
                                     <div id="dia1Div" class="input-group mb-3">
                                       <div class="input-group-prepend">
                                         <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Falla:</span>
                                       </div>
-                                      <input id="falla"  value="{{$registro->falla}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      <input id="falla" readonly value="{{$registro->falla}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                     </div> 
                             
 
@@ -106,28 +106,28 @@
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Par secundario:</span>
                                         </div>
-                                        <input id="parsecundario"  value="{{$registro->parsecundario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="parsecundario" readonly value="{{$registro->parsecundario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                        <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Caja terminal:</span>
                                         </div>
-                                        <input id="cajaterminal"  value="{{$registro->cajaterminal}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="cajaterminal" readonly value="{{$registro->cajaterminal}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div> 
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Bornes:</span>
                                         </div>
-                                        <input id="bornes"  value="{{$registro->bornes}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="bornes" readonly value="{{$registro->bornes}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div id="dia1Div" class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Usuario:</span>
                                         </div>
-                                        <input id="usuario"  value="{{$registro->usuario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                        <input id="usuario" readonly value="{{$registro->usuario}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
 
@@ -140,188 +140,166 @@
                                      {{-- coloumna2 final --}}
                                     </div>
                                 </div> 
+
+                                  {{-- coloumna1 Inicio --}}
                                 <h3>Materia Invertido</h3>      
                                 <div class="container">
-                                    <div class="row">
-                                      <div class="col-sm">    
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si" name="abrazadera" id="abrazadera">
-                                            <label class="form-check-label" for="abrazadera">
-                                              Abrazadera
-                                            </label>
-                                          </div>
+                                  <div class="row">
+                                    <div class="col-sm">
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Abrazadera:</span>
+                                        </div>
+                                        <input name="abrazadera" id="abrazadera"  value="{{$registro->abrazadera}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Acom. ext:</span>
+                                        </div>
+                                        <input name="acomext" id="acomext"  value="{{$registro->acomext}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default"> G. de casa:</span>
+                                        </div>
+                                        <input name="gdecasa" id="gdecasa"  value="{{$registro->gdecasa}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+                                     
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Grapas R.E:</span>
+                                        </div>
+                                        <input name="grapasre" id="grapasre"  value="{{$registro->grapasre}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Grapas D:</span>
+                                        </div>
+                                        <input name="grapasd" id="grapasd"  value="{{$registro->grapasd}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Anclaje plastico:</span>
+                                        </div>
+                                        <input name="anclajeplastico" id="anclajeplastico"  value="{{$registro->anclajeplastico}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+
+
+         
+                                        {{-- coloumna2 --}}
+                                    </div>
+                                    <div class="col-sm">
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Anilla poste de c:</span>
+                                        </div>
+                                        <input name="anillopostedec" id="anillopostedec"  value="{{$registro->anillopostedec}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Acom. int:</span>
+                                        </div>
+                                        <input name="acomint" id="acomint"  value="{{$registro->acomint}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Mordazas:</span>
+                                        </div>
+                                        <input name="mordazas" id="mordazas"  value="{{$registro->mordazas}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">  Gancho J:</span>
+                                        </div>
+                                        <input name="ganchoj" id="ganchoj"  value="{{$registro->ganchoj}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
                                       
-                                      <div class="col-sm">   
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si" name="anillopostedec" id="anillopostedec">
-                                            <label class="form-check-label" for="anillopostedec">
-                                              Anilla poste de c
-                                            </label>
-                                          </div>
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">C jumper:</span>
+                                        </div>
+                                        <input name="cjumper" id="cjumper"  value="{{$registro->cjumper}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="col-sm">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="si"  name="anillopostedem" id="anillopostedem">
-                                            <label class="form-check-label" for="anillopostedem">
-                                                Anilla poste de m
-                                            </label>
-                                          </div>
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Conector U Y:</span>
+                                        </div>
+                                        <input name="conectoruy" id="conectoruy"  value="{{$registro->conectoruy}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="container">
-                                        <div class="row">
-                                          <div class="col-sm">    
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" name="acomext" id="acomext">
-                                                <label class="form-check-label" for="acomext">
-                                                  Acom. ext
-                                                </label>
-                                              </div>
-                                          </div>
-                                          
-                                          <div class="col-sm">   
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" name="acomint" id="acomint">
-                                                <label class="form-check-label" for="acomint">
-                                                    Acom. int
-                                                </label>
-                                              </div>
-                                          </div>
-    
-                                          <div class="col-sm">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="si" name="cmodular" id="cmodular">
-                                                <label class="form-check-label" for="cmodular">
-                                                    C. modular
-                                                </label>
-                                              </div>
-                                          </div>
+                                    </div>
 
-                                          <div class="container">
-                                            <div class="row">
-                                              <div class="col-sm">    
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" name="gdecasa" id="gdecasa">
-                                                    <label class="form-check-label" for="gdecasa">
-                                                      G. de casa
-                                                    </label>
-                                                  </div>
-                                              </div>
-                                              
-                                              <div class="col-sm">   
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" name="mordazas" id="mordazas">
-                                                    <label class="form-check-label" for="mordazas">
-                                                        Mordazas
-                                                    </label>
-                                                  </div>
-                                              </div>
-        
-                                              <div class="col-sm">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="si" name="grapas" id="grapas">
-                                                    <label class="form-check-label" for="grapas">
-                                                        Grapas
-                                                    </label>
-                                                  </div>
-                                              </div>
+                                  
+                                    
+                                    
+                                    
+                                      {{-- coloumna3 final --}}
+                                    <div class="col-sm">
+                                        <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Anilla poste de m:</span>
+                                        </div>
+                                        <input name="anillopostedem" id="anillopostedem"  value="{{$registro->anillopostedem}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
 
-                                              <div class="container">
-                                                <div class="row">
-                                                  <div class="col-sm">    
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" name="grapasre" id="grapasre">
-                                                        <label class="form-check-label" for="grapasre">
-                                                          Grapas R.E
-                                                        </label>
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class="col-sm">   
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" name="ganchoj" id="ganchoj">
-                                                        <label class="form-check-label" for="ganchoj">
-                                                            Gancho J
-                                                        </label>
-                                                      </div>
-                                                  </div>
-            
-                                                  <div class="col-sm">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="si" name="ganchosposte" id="ganchosposte">
-                                                        <label class="form-check-label" for="ganchosposte">
-                                                            Ganchos p/poste de c
-                                                        </label>
-                                                      </div>
-                                                  </div>
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default"> C. modular:</span>
+                                        </div>
+                                        <input name="cmodular" id="cmodular"  value="{{$registro->cmodular}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
 
-                                                  <div class="container">
-                                                    <div class="row">
-                                                      <div class="col-sm">    
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" name="grapasd" id="grapasd">
-                                                            <label class="form-check-label" for="grapasd">
-                                                              Grapas D
-                                                            </label>
-                                                          </div>
-                                                      </div>
-                                                      
-                                                      <div class="col-sm">   
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" name="cjumper" id="cjumper">
-                                                            <label class="form-check-label" for="cjumper">
-                                                                C jumper
-                                                            </label>
-                                                          </div>
-                                                      </div>
-                
-                                                      <div class="col-sm">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="si" name="protector" id="protector">
-                                                            <label class="form-check-label" for="protector">
-                                                                Protector
-                                                            </label>
-                                                          </div>
-                                                      </div>
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Grapas:</span>
+                                        </div>
+                                        <input name="grapas" id="grapas"  value="{{$registro->grapas}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
 
-                                                      <div class="container">
-                                                        <div class="row">
-                                                          <div class="col-sm">    
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="si" name="anclajeplastico" id="anclajeplastico">
-                                                                <label class="form-check-label" for="anclajeplastico">
-                                                                  Anclaje plastico
-                                                                </label>
-                                                              </div>
-                                                          </div>
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Ganchos p/poste de c:</span>
+                                        </div>
+                                        <input name="ganchosposte" id="ganchosposte"  value="{{$registro->ganchosposte}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
 
-                                                          <div class="col-sm">   
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="si" name="conectoruy" id="conectoruy">
-                                                                <label class="form-check-label" for="conectoruy">
-                                                                    Conector U Y
-                                                                </label>
-                                                              </div>
-                                                          </div>
-                    
-                                                          <div class="col-sm">
-                                                            <div class="form-check">
-                                                                </label>
-                                                              </div>
-                                                          </div>    
+                                      <div id="dia1Div" class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Protector:</span>
+                                        </div>
+                                        <input name="protector" id="protector"  value="{{$registro->protector}}"  style="font-weight:bold;" type="text" class="form-control"  aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                     
+
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <ul class="list-unstyled">
+                            
+                                      <div class="media-body"><br>
+                  
+                                <input  type="submit"  class="btn btn-primary" value="Aprobar">
+                             </form>
+                                </div>
+                                        
+     
 
                                                           <input value="etapa3" style="font-size:14px;" class="form-control" type="hidden" name="estado" id="estado">
                                     </div>
+                                    
                                   </div>                                
-                                              <br>
-                                              <ul class="list-unstyled">
-                                        
-                                                  <div class="media-body"><br>
-                              
-                                            <input  type="submit"  class="btn btn-primary" value="Aprobar">
-                                         </form>
+                                           
                                            
                                
                              {{-- final --}}

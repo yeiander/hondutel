@@ -56,6 +56,8 @@ class LineafijaController extends Controller
     public function show($id)
     {
         //
+        $registro=RegistroAveria::findOrFail($id);
+        return view('/atencion-al-cliente/linea-fija.ver', compact('registro'));
        
     }
 
