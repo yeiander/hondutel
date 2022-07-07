@@ -6,6 +6,19 @@
           <h5 class="page__heading">Recursos Humamos</h5>
         </div>
       <div class="text-center">
+         {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
+ @if(Session::has('notiEnviado') )
+ <div  style="max-height: 4rem; max-width: 32rem;" class="alert alert-primary alert-dismissible fade show" role="alert">
+   <strong>Notificación:</strong>
+
+      <span  style="font-size: 14px;" class="badge badge-light">{{Session('notiEnviado')}}</span>
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+  </div>
+ @endif
+
+{{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
         <h5>Permisos Pendientes (o nuevos):</h5>
         {{-- inicio estadisticas --}}
         
@@ -29,6 +42,7 @@
 
       </div>
 
+     
         {{-- final norificaciones --}}
         <div class="section-body">
             <div class="row">
@@ -46,9 +60,11 @@
                               
                       <ul class="list-unstyled ">
                         <li class="media my-4">
-                            <img class="mr-3" src="{{ asset('img/nuevoPermiso.png') }}" height="50px">
+                            
+                          <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><i style="color: rgb(112, 126, 141)" class="fa fa-address-card fa-3x mr-3" aria-hidden="true"></i>
+                           
                           <div class="media-body">
-                            <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><h5 class="mt-0 mb-1">Nuevo permiso</h5></a>
+                            <h5 class="mt-0 mb-1">Nuevo permiso</h5></a>
                             
                             <p>Creacion de nuevos permisos</p>
                           </div>
@@ -60,9 +76,9 @@
                               
                       <ul class="list-unstyled ">
                         <li class="media my-4">
-                            <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                          <a href="{{ url('/recursos-humanos-menu/consultas') }}"><i class="fa fa-folder-open fa-3x mr-3" aria-hidden="true" style="color: rgb(112, 126, 141)"></i>
                           <div class="media-body">
-                            <a href="{{ url('/recursos-humanos-menu/consultas') }}"><h5 class="mt-0 mb-1">Consultar</h5></a>
+                            <h5 class="mt-0 mb-1">Consultar</h5></a>
                            <p>Consultar permisos almacenados</p>
                           </div>
                         </li>
