@@ -15,7 +15,7 @@
     <a class="nav-link" href="{{ route('recursos_humanos')}}">
         <i class=" fas fa-house-user"></i><span>Recursos Humanos</span>
     </a>
-
+ 
     <a class="nav-link" href="{{ route('menu')}}">
         <i class=" fas fa-phone-square"></i><span>Atencion al Cliente</span>
     </a>

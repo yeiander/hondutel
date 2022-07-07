@@ -61,7 +61,6 @@ class PaseSalidaController extends Controller
            
             $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Borrar</a>';
 
-             
             return $btn;
 
         })
@@ -81,7 +80,6 @@ class PaseSalidaController extends Controller
     {
         $validated = $request->validate([
             
-           
             'horaSalida' => 'required',
             'horaEntradaAproximada' => 'required',
             'motivoTrabajoEnfermedad' => 'required',
@@ -177,7 +175,6 @@ class PaseSalidaController extends Controller
     {
         //
         $validated = $request->validate([
-            
             
             'fk_id_empleado' => 'required|exists:empleados,id',
 
