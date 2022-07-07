@@ -18,7 +18,7 @@
                                     
                             <ul class="list-unstyled ">
                               <li class="media my-4">
-                                  <a href="{{ route('clientegps.create') }}"><img  class="mr-3" src="{{ asset('img/mapausuario.png') }}" height="50px"></a>
+                                  <a href="{{ route('clientegps.create') }}"><i style="color: rgb(121, 126, 141)" class="fa fa-street-view fa-3x mr-3" aria-hidden="true"></i></a>
                                 <div class="media-body">
                                     <a  href="{{ route('clientegps.create') }}">
                                        <h5>Crear nuevo cliente</h5></a>
@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('cajaterminal.create') }}"><img class="mr-3" src="{{ asset('img/cajaterminal.png') }}" height="50px"></a>
+                                  <a href="{{ route('cajaterminal.create') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-map-pin fa-3x mr-3" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                       <a href="{{ route('cajaterminal.create') }}">
                                          <h5>Crear caja terminal</h5>
@@ -41,7 +41,8 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('armario.create') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
+                                      <a href="{{ route('armario.create') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
+                                      </a>
                                     <div class="media-body">
                                         <a  href="{{ route('armario.create') }}">
                                            <h5>Crear nuevo armario</h5></a>

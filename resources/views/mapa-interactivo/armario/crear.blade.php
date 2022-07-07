@@ -19,7 +19,7 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="NumeroArmario">Numero de armario:</label>
-                                         <input placeholder="ingresar numero de armario" style="font-size:14px;" class="form-control" type="text" name="NumeroArmario" id="NumeroArmario">
+                                         <input placeholder="Ingresar numero de armario" style="font-size:14px;" class="form-control" type="text" name="NumeroArmario" id="NumeroArmario">
                                        </div>
                                     </div>
 
@@ -33,7 +33,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps_armario">GPS armario:</label>
-                                           <input placeholder="ingresar gps de armario" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
+                                           <input placeholder="Ingresar gps de armario" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
                                          </div>
                                       </div>
 
@@ -45,7 +45,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
                                      <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="">barrios/colonias</label>
-                                     <input placeholder="ingresar barrios y colonias" style="font-size:14px;" class="form-control" type="text" name="barrio" id="barrio">
+                                     <input placeholder="Ingresar barrios y colonias" style="font-size:14px;" class="form-control" type="text" name="barrio" id="barrio">
                                    </div>
                                 </div>
                                               <br>
