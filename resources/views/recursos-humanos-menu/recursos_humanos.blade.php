@@ -61,12 +61,12 @@
                       <ul class="list-unstyled ">
                         <li class="media my-4">
                             
-                          <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><i style="color: rgb(112, 126, 141)" class="fa fa-address-card fa-3x mr-3" aria-hidden="true"></i>
+                          <a class="btn btn-outline-light" href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><i style="color: rgb(112, 126, 141); font-size:3.1rem;" class="fa fa-address-card " aria-hidden="true"></i></a>
                            
                           <div class="media-body">
-                            <h5 class="mt-0 mb-1">Nuevo permiso</h5></a>
+                           <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"> <h5 class="mt-1  ml-2">Nuevo permiso</h5></a>
                             
-                            <p>Creacion de nuevos permisos</p>
+                            <p class="ml-2">Creacion de nuevos permisos</p>
                           </div>
                         </li>
                               {{-- fin --}}
@@ -76,10 +76,10 @@
                               
                       <ul class="list-unstyled ">
                         <li class="media my-4">
-                          <a href="{{ url('/recursos-humanos-menu/consultas') }}"><i class="fa fa-folder-open fa-3x mr-3" aria-hidden="true" style="color: rgb(112, 126, 141)"></i>
+                          <a class="btn btn-outline-light" href="{{ url('/recursos-humanos-menu/consultas') }}"><i class="fa fa-folder-open" aria-hidden="true" style="color: rgb(112, 126, 141);  font-size:3.1rem;"></i></a>
                           <div class="media-body">
-                            <h5 class="mt-0 mb-1">Consultar</h5></a>
-                           <p>Consultar permisos almacenados</p>
+                            <a href="{{ url('/recursos-humanos-menu/consultas') }}" > <h5 class="mt-1  ml-2">Consultar</h5></a>
+                           <p class="ml-2">Consultar permisos almacenados</p>
                           </div>
                         </li>
                               {{-- fin --}}

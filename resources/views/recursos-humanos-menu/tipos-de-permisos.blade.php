@@ -62,11 +62,11 @@
                                     
                              <ul class="list-unstyled ">
                                <li class="media my-4">
-                                 <a href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x mr-3" aria-hidden="true"></i></a>
+                                 <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                     <a type="button" href="" data-toggle="modal" data-target="#paseSalida">
-                                      <h5>Pase de Salida</h5></a>
-                                      <p>Crear un pase de salida nuevo</p>
+                                      <h5 class="ml-2">Pase de Salida</h5></a>
+                                      <p class="ml-2">Crear un pase de salida nuevo</p>
                                   </div>
                                </li>
                              </ul>
