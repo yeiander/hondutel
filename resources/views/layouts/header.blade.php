@@ -9,9 +9,10 @@
         <li class="dropdown">
             <a href="#" data-toggle="dropdown"
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('img/user.png') }}"
-                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
-                <div class="d-sm-none d-lg-inline-block">
+                {{-- <img alt="image" src="{{ asset('img/user.png') }}"
+                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail "> --}}
+                     <i class="fa fa-user-circle mr-2 mb-1" aria-hidden="true" style="color: rgb(255, 255, 255);  font-size:1.4rem; "></i>
+                <div class="d-sm-none d-lg-inline-block mt-2">
                    {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
             </a>
 

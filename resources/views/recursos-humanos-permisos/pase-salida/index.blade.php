@@ -111,11 +111,12 @@ $(document).ready(function(){
      name:'nombreQuienAprobo'
     },
 
+    
     {
      data:'action',
      name:'action'
     },
-
+    
     
 
    ],
