@@ -24,8 +24,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {      $paseSalida= RhPermiso::where('aprobacion', 'like', 'pendiente')->count();
+
+    {   $paseSalida= RhPermiso::where('aprobacion', 'like', 'pendiente')->count();
         $contadoraveria= RegistroAveria::where('estadoAveria', 'like', 'pendiente')->count();
-        return view('home', compact('paseSalida', 'contadoraveria'));
+          return view('home', compact('paseSalida', 'contadoraveria'));
     }
 }

@@ -6,19 +6,7 @@
           <h5 class="page__heading">Recursos Humamos</h5>
         </div>
       <div class="text-center">
-         {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
- @if(Session::has('notiEnviado') )
- <div  style="max-height: 4rem; max-width: 32rem;" class="alert alert-primary alert-dismissible fade show" role="alert">
-   <strong>Notificación:</strong>
-
-      <span  style="font-size: 14px;" class="badge badge-light">{{Session('notiEnviado')}}</span>
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-  </div>
- @endif
-
-{{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
+       
         <h5>Permisos Pendientes (o nuevos):</h5>
         {{-- inicio estadisticas --}}
         
@@ -49,7 +37,19 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                          
+                            {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
+      @if(Session::has('notiEnviado') )
+      <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+       <h5 class="alert-heading">!Éxito!</h5>
+        <strong>{{Session('notiEnviado')}}  </strong>
+     
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+       </div>
+      @endif
+
+{{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
                   {{-- INICIO --}}
 
                             <hr>

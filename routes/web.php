@@ -80,7 +80,7 @@ Route::resource('/recursos-humanos-permisos/pase-salida-pendiente', PaseSalidaPe
 //_________________________________________PASE DE SALIDA (FINAL)________________________________________________________
 
 //_________________________________________PERMISO PERSONAL (INICIO)_______________________________________________________
-Route::post('/recursos-humanos-permisos/permiso-personal/edit2', [PermisoPersonalController::class, 'edit2']);
+Route::get('/recursos-humanos-permisos/permiso-personal/creacion2', [PermisoPersonalController::class, 'creacion2']);
 Route::resource('/recursos-humanos-permisos/permiso-personal', PermisoPersonalController::class);
 Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPersonalPendienteController::class);
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________

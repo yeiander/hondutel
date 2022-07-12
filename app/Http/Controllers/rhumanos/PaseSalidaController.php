@@ -125,8 +125,8 @@ class PaseSalidaController extends Controller
              Session::flash('notiPaseSalida', 'El empleado ya tiene un pase de salida pendiente');
 
        
-            //  return redirect()->route('recursos-h-tipos-de-permisos'); 
-             return view('/recursos-humanos-menu/tipos-de-permisos');  
+             return redirect()->route('recursos-h-tipos-de-permisos'); 
+            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
         }
 
 
@@ -212,8 +212,7 @@ class PaseSalidaController extends Controller
             //  return view('/recursos-humanos-menu/tipos-de-permisos');  
 
         }
-
-
+        
         else{
 
         return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio', 'dia','semanaNum', 'individual2'));
@@ -230,6 +229,13 @@ class PaseSalidaController extends Controller
     public function update(Request $request, $id)
     {
         // 
+
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        // $permiso = RhPermiso::findOrFail($id);
+        return redirect()->route('pase-salida.index');
+    
     }
 
     public function imprimir($id)
@@ -245,12 +251,8 @@ class PaseSalidaController extends Controller
                       $pdf = PDF::loadHTML($vista);
 
                       return $pdf->stream('nombre.pdf');
-
-        
     }
      
-
-
     /**
      * Remove the specified resource from storage.
      *

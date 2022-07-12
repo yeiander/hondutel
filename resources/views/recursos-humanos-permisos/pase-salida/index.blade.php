@@ -27,7 +27,7 @@
                           </div>
                           <br>
 
-                   <table  class="table table-striped table-bordered" style="width:100%; border:2px;" id="order_table">
+                   <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">
                      <thead style="background-color:#6777ef;">
                        <tr>          
                          <th style="color: #fff;">Nombre</th>

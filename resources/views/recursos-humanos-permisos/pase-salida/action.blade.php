@@ -1,1 +1,2 @@
 <a href="{{ route('pase-salida.edit',$data->id) }}" class="btn btn-primary btn-sm" type="button">Editar</a>
+<a href="{{ route('pase-salida.edit',$data->id) }}" class="btn btn-danger btn-sm" type="button">borrar</a>

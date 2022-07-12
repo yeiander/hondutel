@@ -22,15 +22,17 @@
                                                   </div>
                                                 </div>
          
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+                                                @if ($errors->any())
+                                                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                                  <strong>Complete los campos</strong>
+                                                    @foreach($errors->all() as $error)
+                                                      <span class="badge badge-danger">{{$error}}</span>
+                                                    @endforeach
+                                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                       <span aria-hidden="true">&times;</span>
+                                                     </button>
+                                                </div>
+                                              @endif
 
 
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
@@ -67,9 +69,9 @@
 
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                       <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horasPermisoPersonal ">duracion del permiso:</label>
+                                       <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horasPermisoPersonal">duracion del permiso:</label>
                                        <select class="form-control" id="horasPermisoPersonal" name="horasPermisoPersonal" required>
-                                         <option disabled selected>Seleccione la duracion</option>
+                                         <option disabled selected value="">Seleccione la duracion</option>
                                            <option id="medioDiaOption" value="4">Medio dia</option>
                                            <option id="diaUnoOption" value="8">Un dia</option>
                                            <option id="diaDosOption" value="16">Dos dias</option>
@@ -87,11 +89,12 @@
                                     <div style="display: none" id="dia2" class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group"> 
                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaPermisoPersonalDia2">fecha Dia 2.</label>
-                                        <input style="font-size:14;" class="form-control" type="date" name="fechaPermisoPersonalDia2"   id="fechaPermisoPersonalDia2">
+                                        <input id="dia2Igual" style="font-size:14;" value="" class="form-control" type="date" name="fechaPermisoPersonalDia2"   id="fechaPermisoPersonalDia2">
                                     </div>
                                     </div>
 
-                              
+                                  
+
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
@@ -120,7 +123,7 @@
                                            </select>
                                         </div>
                                       </div>
-                                      
+
                                      {{-- FIN --}}
                                     </div>
                                   </div>
@@ -145,9 +148,11 @@
     </section>
              
     @section('scripts')
+   
+
     <script>
 
-      // PERMISO AGOTADO
+ // PERMISO AGOTADO
      $(function permisoAgotado(){
        if( {{ $individual }} >= 16){
          $('#botonGuardar').hide();
@@ -201,16 +206,29 @@ $(function ocultarOption(){
 
  //ocultar mediante el select
  $('#horasPermisoPersonal').on('change',function(){
+      
+     
+
         var selectValor = $(this).val();
         if (selectValor == 16 || selectValor == null ) {
             $('#dia2').show();
             $("input").prop('required', true);
-        }else {
+
+
+        }else if ((selectValor == 4 || selectValor == 8 )){
           $('#dia2').hide();
-           
+          // $("input").prop('required', false);
+          // $('#fechaPermisoPersonalDia2').val('');
+          $('input[type="date"]').val('');
         }
     });
+
+  
     </script>
+
+
+  
+  
     @endsection
 @endsection
 
