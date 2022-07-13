@@ -31,12 +31,24 @@
                                     <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                   <div class="media-body">
                                       <a href="{{ route('internet-averia.index') }}">
-                                         <h5>Consulta Internet</h5>
+                                         <h5>Consulta Internet Final</h5>
                                       </a>
                                     
                                     <p> Consultar averia de internet</p>
                                   </div>
                                 </li>
+
+                                <ul class="list-unstyled ">
+                                  <li class="media my-4">
+                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                    <div class="media-body">
+                                        <a href="{{ route('internet-solicitud.index') }}">
+                                           <h5>Solicitudes Internet</h5>
+                                        </a>
+                                      
+                                      <p> Consulta solicitudes de internet</p>
+                                    </div>
+                                  </li>
 
                                 
 

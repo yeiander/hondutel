@@ -34,6 +34,7 @@ use App\Http\Controllers\atencionCliente\MaterialaveriaController;
 use App\Http\Controllers\ArmarioController;
 use App\Http\Controllers\ClienteGpsController;
 use App\Http\Controllers\CajaTerminalController;
+use App\Http\Controllers\atencionCliente\InternetsolicitudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,6 +122,7 @@ Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController
 Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
 Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
 Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
+Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

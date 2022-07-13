@@ -27,18 +27,10 @@
                                   <tr>
                                       
                                 <th style="color: #fff;">Nombre del cliente</th>
-                                <th style="color: #fff;">Numero de linea</th>
-                                <th style="color: #fff;">Contacto</th>
-                                <th style="color: #fff;">Direccion</th>
-                                <th style="color: #fff;">fecha de Solicitud</th>
-                                <th style="color: #fff;">Megas</th>
-                                                 
+                                <th style="color: #fff;">Numero de linea</th>                                
+                                <th style="color: #fff;">fecha de Solicitud</th>             
                                 <th style="color: #fff">acciones</th>
-                                <th style="color: #fff">Edit</th>
-
-                          
-                                
-                                
+   
                                   </tr>
                               </thead>
                               <tbody>
@@ -47,21 +39,20 @@
                                  
                                  
                                   <td>{{$registro->nombreCliente}}</td>
-                                  <td>{{$registro->numeroDeLinea}}</td>
-                                  <td>{{$registro->contacto}}</td>
-                                  <td>{{$registro->direccion}}</td>
+                                  <td>{{$registro->numeroDeLinea}}</td>                               
                                    <td>{{$registro->fechaDeSolicitud}}</td>
-                                   <td>{{$registro->Megas}}</td>
-                                  
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('internet-solicitud.show', $registro->id) }}" >ver </a>
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/edit') }}" >editar </a>
-                                      {{-- <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/imprimir') }}">Imprimir</a> --}}
+                                   
+                                 
+                                  <td> 
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/internet-solicitud/'.$registro->id.'/edit') }}" >ver</a>
+                                  </td>
+                                    {{-- <td> 
                                       <form action=" {{route('internet-averia.destroy',$registro->id)}} " method="post">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                    
                                     </form>    
-                                      </td>
+                                      </td> --}}
                                        
                 
                                 </tr>

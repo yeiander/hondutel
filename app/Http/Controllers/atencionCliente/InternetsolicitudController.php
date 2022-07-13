@@ -5,10 +5,8 @@ namespace App\Http\Controllers\atencionCliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
-use Barryvdh\DomPDF\Facade\Pdf;
 
-
-class InternetaveriaController extends Controller
+class InternetsolicitudController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class InternetaveriaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all()->where('estado','like','etapa2');
-        return view('/atencion-al-cliente/internet-averia.index', compact('registros'));
+        $registros=RegistroAveria::all()->where('estado','like','etapa1');
+        return view('/atencion-al-cliente/internet-solicitud.index', compact('registros'));
     }
 
     /**
@@ -30,7 +28,6 @@ class InternetaveriaController extends Controller
     public function create()
     {
         //
-        return view('/atencion-al-cliente/internet-averia.crear');
     }
 
     /**
@@ -54,7 +51,8 @@ class InternetaveriaController extends Controller
     {
         //
         $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/internet-averia.ver', compact('registro'));
+        return view('/atencion-al-cliente/internet-solicitud.ver', compact('registro'));
+       
     }
 
     /**
@@ -67,8 +65,7 @@ class InternetaveriaController extends Controller
     {
         //
         $registro=RegistroAveria::findOrFail($id);
-        return view('/atencion-al-cliente/internet-averia.editar', compact('registro'));
-    
+        return view('/atencion-al-cliente/internet-solicitud.editar', compact('registro'));
     }
 
     /**
@@ -84,7 +81,7 @@ class InternetaveriaController extends Controller
         $registro = request()->except(['_token', '_method']);
         RegistroAveria::where('id','=',$id)->update($registro);
 
-        return redirect()->route('internet-averia.index');
+        return redirect()->route('internet-solicitud.index');
     }
 
     /**
@@ -96,22 +93,5 @@ class InternetaveriaController extends Controller
     public function destroy($id)
     {
         //
-        RegistroAveria::find($id)->delete();
-        return redirect()->route('internet-averia.index');
     }
-
-    public function imprimir($id)
-    {
-        //
-        $internetaveria = RegistroAveria::find($id);
-
-        $vista = view('pdf/pdf-atencion-cliente.reporte-internetaveria')
-        ->with('internet-averia', $internetaveria);
-
-        $pdf = PDF::loadHTML($vista);
-        
-        return $pdf->stream('nombre.pdf');
-        
-    }
-
 }
