@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 //agregare para el control de usuarios con Spatie:
 use Spatie\Permission\Models\Role;
-
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -53,10 +52,55 @@ class PermisoPersonalController extends Controller
     public function store(Request $request)
     {
         //
-        $datosPermisoPersonal = request()->except('_token');
-        RhPermiso::insert($datosPermisoPersonal);
-        $permisos = RhPermiso::all();
+        $validated = $request->validate([
+            
+            
+            'fk_id_empleado' => 'required',
+            'horasPermisoPersonal' => 'required',
+            'fechaPermisoPersonalDia1' => 'required',
+            'motivoTrabajoEnfermedad' => 'required',
+            'fechaSolicitudPermiso' => 'required',
+            'lugarSolicitudPermiso' => 'required'
+            
+        ]);
+
+        // $datosPermisoPersonal = request()->except('_token');
+        // RhPermiso::insert($datosPermisoPersonal);
+        // $permisos = RhPermiso::all();
+        $fecha123 =  $request->fechaPermisoPersonalDia1;
+        $condicion = $request->horasPermisoPersonal;
+
+
+        if($condicion == 16){
+
+        $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
+        $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
+        $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
+        $permiso->fechaPermisoPersonalDia2 = $request->fechaPermisoPersonalDia2;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->save();
         return redirect()->route('recursos_humanos');
+
+        }
+
+
+        else{
+            $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
+        $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
+        $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
+        $permiso->fechaPermisoPersonalDia2 = $fecha123;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->save();
+        return redirect()->route('recursos_humanos');
+        }
     }
 
     /**
@@ -75,16 +119,14 @@ class PermisoPersonalController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit2(Request $request)
+    public function creacion2(Request $request)
     {
         //
         $validated = $request->validate([
             
             
             'fk_id_empleado' => 'required|exists:empleados,id',
-            
-            
-           
+     
         ]);
         
         $mes = Carbon::now()->format('m');
