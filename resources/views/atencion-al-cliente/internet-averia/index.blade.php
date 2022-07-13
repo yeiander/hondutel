@@ -11,7 +11,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Averia</h5>
+            <h4 class="page__heading">Averia</h4>
             
         </div>
         
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Consulta averia:</h3><br><br>
+                            <h5 class="page__heading">Consulta averia:</h5><br><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>
@@ -30,11 +30,10 @@
                                 <th style="color: #fff;">Numero de linea</th>
                                 <th style="color: #fff;">Contacto</th>
                                 <th style="color: #fff;">Direccion</th>
-                                <th style="color: #fff;">fecha de Solicitud</th>
-                                <th style="color: #fff;">Megas</th>
-                                <th style="color: #fff;">Id</th>                 
-                                <th style="color: #fff">acciones</th>
-                                <th style="color: #fff">Edit</th>
+                                <th style="color: #fff;">Fecha de Solicitud</th>
+                                <th style="color: #fff;">Megas</th>                      
+                                <th style="color: #fff">Acciones</th>
+                                <th style="color: #fff">Borrado</th>
 
                           
                                 
@@ -52,14 +51,21 @@
                                   <td>{{$registro->direccion}}</td>
                                    <td>{{$registro->fechaDeSolicitud}}</td>
                                    <td>{{$registro->Megas}}</td>
-                                  <td>{{$registro->id}}</td>
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ route('internet-averia.show', $registro->id) }}" >ver </a>
-                                  <td> <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/edit') }}" >editar </a>
-                                      <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/imprimir') }}">Imprimir</a>
+                                   
+                                   
+
+
+                                  
+                                  
+                                    <td> <a title="VER" type="submit" href="{{ route('internet-solicitud.show', $registro->id) }}"> <i style="font-size:1.4rem;" class="fa fa-eye" aria-hidden="true"></i></a>
+                                      <a title="EDITAR" type="submit" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/edit') }}"> <i style="font-size:1.4rem;" class="fas fa-pen-square" aria-hidden="true"></i></a>
+                                  
+                                      {{-- <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/internet-averia/'.$registro->id.'/imprimir') }}">Imprimir</a> --}}
+                                    <td>
                                       <form action=" {{route('internet-averia.destroy',$registro->id)}} " method="post">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                        <button class="btn btn-light" title="BORRAR" type="submit"><i style="font-size:1.4rem; color:rgb(235, 110, 110);" class="fa fa-trash" aria-hidden="true"></i></button>
                                     </form>    
                                       </td>
                                        
@@ -87,7 +93,7 @@ $(document).ready(function(){
 
         $('#permiso1').DataTable({
           responsive: true,
-          select: true,
+          
     
 
             autoWidth: false,

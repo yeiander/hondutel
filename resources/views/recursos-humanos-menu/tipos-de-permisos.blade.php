@@ -5,30 +5,59 @@
     <div class="section-header" style="max-height: 3rem;">
       <h5 class="page__heading">Recursos Humanos</h5>
         </div>
+
           <div class="section-body">
             <h4><center> (Selección del tipo de permiso)</center></h4>
+
+           
+
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-body">
                             {{-- inicio --}}
-                            @if(session('status'))
-                            .errorContainer
-                                p {{ session('status') }}
-                            @endif
+         {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
+         @if(Session::has('notiPaseSalida') )
+         <div  style="max-height: 4.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!Error!</h5>
+           <strong>{{Session('notiPaseSalida')}}  </strong>
+        
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+          </div>
+         @endif
+        
+         @if(Session::has('notiPaseSalidaSemana') )
+        
+         <div  style="max-height: 4.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!pases de salida agotados!</h5>
+           <strong>{{Session('notiPaseSalidaSemana')}}  </strong>
+        
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+          </div>
+          <hr>
+         @endif
+        
+         @if ($errors->any())
+         <div  style="max-height: 4.5rem; max-width: 24rem;"class="alert alert-danger alert-dismissible fade show" role="alert">
+           <h5 class="alert-heading">!Error!</h5>
+           <strong>El empleado no existe</strong>
+             @foreach($errors->all() as $error)
+             
+                @endforeach
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+          </div>
+          <hr>
+        @endif
+        {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
+                    
 
-                      @if ($errors->any())
-                        <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                          <strong>Complete los campos</strong>
-                            @foreach($errors->all() as $error)
-                             <span class="badge badge-danger">{{$error}}</span>
-                               @endforeach
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                         </div>
-                      @endif
-
+                       
                        <div class="container">
                          <div class="row">
                            <div class="col-sm">
@@ -36,44 +65,44 @@
                                     
                              <ul class="list-unstyled ">
                                <li class="media my-4">
-                                 <a href="" data-toggle="modal" data-target="#paseSalida"> <img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                 <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                     <a type="button" href="" data-toggle="modal" data-target="#paseSalida">
-                                      <h5>Pase de Salida</h5></a>
-                                      <p>Crear un pase de salida nuevo</p>
+                                      <h5 class="ml-2">Pase de Salida</h5></a>
+                                      <p class="ml-2">Crear un pase de salida nuevo</p>
                                   </div>
                                </li>
                              </ul>
 
                                <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <a data-toggle="modal" data-target="#permisoPersonal" href=""><img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                    <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoPersonal" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                     <a type="button" href="" data-toggle="modal" data-target="#permisoPersonal">
-                                      <h5>Permiso Personal</h5></a>
-                                      <p>Crear un permiso personal</p>
+                                      <h5 class="ml-2">Permiso Personal</h5></a>
+                                      <p class="ml-2">Crear un permiso personal</p>
                                   </div>
                                 </li>
                                </ul>
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                  <a data-toggle="modal" data-target="#permisoAdministrativo" href=""><img class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                  <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoAdministrativo" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                     <div class="media-body">
                                       <a type="button" href="" data-toggle="modal" data-target="#permisoAdministrativo">
-                                        <h5>Permiso Administrativo</h5></a>
-                                      <p>Crear un permiso (sección administrativa)</p>
+                                        <h5 class="ml-2">Permiso Administrativo</h5></a>
+                                      <p class="ml-2">Crear un permiso (sección administrativa)</p>
                                     </div>
                                 </li>
                               </ul>
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="" data-toggle="modal" data-target="#permisoVentas"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                      <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#permisoVentas"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                     <div class="media-body">
                                       <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
-                                        <h5>Permiso de Ventas</h5></a>
-                                           <p>Crear un permiso (sección de ventas)</p>
+                                        <h5 class="ml-2">Permiso de Ventas</h5></a>
+                                           <p class="ml-2">Crear un permiso (sección de ventas)</p>
                                     </div>
                                   </li>
                                 </ul>
@@ -229,8 +258,8 @@
       </div>
         <div class="modal-body">
           {{---inicio de formulario para crear un permiso adminitrativo--------------}}
-          <form action=" {{url('/recursos-humanos-permisos/permiso-personal/edit2')}} " method="post">
-            @csrf
+          <form action=" {{url('/recursos-humanos-permisos/permiso-personal/creacion2')}} " method="get">
+        
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>

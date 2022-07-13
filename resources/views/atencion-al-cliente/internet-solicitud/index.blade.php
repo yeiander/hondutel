@@ -7,10 +7,12 @@
 <link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
 @endsection
 
+
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h4 class="page__heading">Averias pendientes</h4>        
+            <h4 class="page__heading">Averia</h4>
+            
         </div>
         
         <div class="section-body">
@@ -19,29 +21,39 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h5 class="page__heading">Averias:</h5><br><br>
+                            <h5 class="page__heading">Consulta averia:</h5><br><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
                                 <th style="color: #fff;">Nombre del cliente</th>
-                                <th style="color: #fff;">Numero de linea</th>                               
-                                <th style="color: #fff;">Tipo de averia</th>
-                                <th style="color: #fff;">Acciones</th>                               
-                                
+                                <th style="color: #fff;">Numero de linea</th>                                
+                                <th style="color: #fff;">fecha de Solicitud</th>             
+                                <th style="color: #fff">acciones</th>
+   
                                   </tr>
                               </thead>
                               <tbody>
                                 @foreach($registros as $registro)
                                 <tr>
+                                 
+                                 
                                   <td>{{$registro->nombreCliente}}</td>
-                                  <td>{{$registro->numeroDeLinea}}</td>
-                                   <td>{{$registro->tipoaveria}}</td> 
+                                  <td>{{$registro->numeroDeLinea}}</td>                               
+                                   <td>{{$registro->fechaDeSolicitud}}</td>
                                    
-                                  <td>
-                                    <a href="{{ url('/atencion-al-cliente/material-averia/'.$registro->id.'/edit') }}" class="btn btn-primary" type="button">ver</a>
+                                 
+                                  <td> 
+                                    <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/internet-solicitud/'.$registro->id.'/edit') }}" >ver</a>
                                   </td>
-       
+                                    {{-- <td> 
+                                      <form action=" {{route('internet-averia.destroy',$registro->id)}} " method="post">
+                                        @csrf
+                                        {{method_field('DELETE')}}
+                                    
+                                    </form>    
+                                      </td> --}}
+                                       
                 
                                 </tr>
                                 @endforeach
@@ -50,20 +62,28 @@
 
 
                           
-            @section('dataTable_js')           
+            @section('dataTable_js')
+             
             <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
             <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
             <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script>
+          
+     
+  
     <script>
 
 $(document).ready(function(){
+
         $('#permiso1').DataTable({
           responsive: true,
-          select: true,
+          
     
+
             autoWidth: false,
+        
+            
 
     
             "language": {
@@ -81,7 +101,10 @@ $(document).ready(function(){
         });
 
       });
+
+  
     </script>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -102,8 +125,12 @@ $(document).ready(function(){
   </div>
 </div>
 
+
+
+  
 {{-- //    ALERTA de mensaje --}}
  <script>
+
 //   $('.MensajeBorrar').submit(function(e){
 //       e.preventDefault();
 //       swal({
@@ -136,8 +163,13 @@ $(document).ready(function(){
 // }
 // })
 // });
+  
  </script>
+
+
   @endsection
+    
+
                             {{-- final --}}
                         </div>
                     </div>
@@ -145,4 +177,8 @@ $(document).ready(function(){
             </div>
         </div>
     </section>
+    
+   
+    
+
 @endsection

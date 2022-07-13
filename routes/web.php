@@ -34,6 +34,7 @@ use App\Http\Controllers\atencionCliente\MaterialaveriaController;
 use App\Http\Controllers\ArmarioController;
 use App\Http\Controllers\ClienteGpsController;
 use App\Http\Controllers\CajaTerminalController;
+use App\Http\Controllers\atencionCliente\InternetsolicitudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,7 +81,7 @@ Route::resource('/recursos-humanos-permisos/pase-salida-pendiente', PaseSalidaPe
 //_________________________________________PASE DE SALIDA (FINAL)________________________________________________________
 
 //_________________________________________PERMISO PERSONAL (INICIO)_______________________________________________________
-Route::post('/recursos-humanos-permisos/permiso-personal/edit2', [PermisoPersonalController::class, 'edit2']);
+Route::get('/recursos-humanos-permisos/permiso-personal/creacion2', [PermisoPersonalController::class, 'creacion2']);
 Route::resource('/recursos-humanos-permisos/permiso-personal', PermisoPersonalController::class);
 Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPersonalPendienteController::class);
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________
@@ -121,6 +122,7 @@ Route::get('/atencion-al-cliente/linea-fija/{id}/imprimir', [LineafijaController
 Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteController::class);
 Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
 Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
+Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudController::class);
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________

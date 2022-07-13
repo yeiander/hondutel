@@ -9,10 +9,10 @@
             <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
+          permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          Numero de permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
+          permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
         </a>
 
         {{-- <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
@@ -64,7 +64,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                         <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida" required>Hora de salida:</label>
-                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
+                                        <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida" required>
                                       </div>
                                     </div>
 
@@ -89,7 +89,7 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group"> 
                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud</label>
-                                        <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                        <input style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                                       </div>
                                     </div>
 

@@ -35,7 +35,9 @@
                     
     <i  height="100px" class="fa fa-bath" aria-hidden="true"></i>
 
-
+    <i class="fa fa-battery-half fa-5x" aria-hidden="true"></i>
+    <i class="fa fa-file-text" aria-hidden="true"></i>
+    <i class="fa fa-file fa-5x" aria-hidden="true"></i>
     {{-------------------------- FINAL ---------------------------}}
               </div>
             </div>

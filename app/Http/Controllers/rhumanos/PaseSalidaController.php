@@ -15,6 +15,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
 
+use Illuminate\Support\Facades\Session;
+
 
 
 class PaseSalidaController extends Controller
@@ -22,7 +24,7 @@ class PaseSalidaController extends Controller
 
     function __construct()
     {
-        $this->middleware('permission:ver-permiso|crear-permiso|editar-permiso|borrar-permiso',['only'=>['index']]);
+        $this->middleware('permission:ver-permiso|editar-permiso|borrar-permiso',['only'=>['index']]);
         $this->middleware('permission:crear-permiso',['only'=>['create','store']]);
         $this->middleware('permission:editar-permiso',['only'=>['edit','update']]);
         $this->middleware('permission:borrar-permiso',['only'=>['destroy']]);
@@ -51,11 +53,20 @@ class PaseSalidaController extends Controller
             
          }
            return datatables()->of($data)
+           
            ->addColumn('action', function ($data) {
-            return '<a href="#edit-'.$data->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            // return '<a href="#edit-'.$data->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+      
+            // $btn =  '<a href="pase-salida/'. $data->id .'/edit" class="btn btn-primary btn-sm">Editar</a>';
+         
+            // $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Borrar</a>';
+
+            return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
             
+
         })
-            ->editColumn('id', 'ID: {{$id}}')
+            // ->editColumn('id', 'ID: {{$id}}')
+            ->rawColumns(['action'])
            ->make(true);
         }
            return view('/recursos-humanos-permisos/pase-salida.index');
@@ -70,7 +81,6 @@ class PaseSalidaController extends Controller
     {
         $validated = $request->validate([
             
-           
             'horaSalida' => 'required',
             'horaEntradaAproximada' => 'required',
             'motivoTrabajoEnfermedad' => 'required',
@@ -91,6 +101,8 @@ class PaseSalidaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+    
     { 
         $validated = $request->validate([
             
@@ -102,12 +114,30 @@ class PaseSalidaController extends Controller
             'lugarSolicitudPermiso' => 'required'
         ]);
 
+        $id = $request->input('fk_id_empleado');
         
+        $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'pendiente')
+        ->where('fk_id_tipo_permiso', 'like', 1)->count();
+
+        if($permiso >= 1){
+           
+             Session::flash('notiPaseSalida', 'El empleado ya tiene un pase de salida pendiente');
+
+       
+             return redirect()->route('recursos-h-tipos-de-permisos'); 
+            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+        }
+
+
+        else{
+
         $datosPaseSalida = request()->except('_token');
         RhPermiso::insert($datosPaseSalida);
         $permisos = RhPermiso::all();
+        Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
-
+        }
     }
 
     /**
@@ -130,6 +160,11 @@ class PaseSalidaController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        
+        return view('/recursos-humanos-permisos/pase-salida/editar', compact('permiso'));
+
+
     }
 
     /**
@@ -141,7 +176,6 @@ class PaseSalidaController extends Controller
     {
         //
         $validated = $request->validate([
-            
             
             'fk_id_empleado' => 'required|exists:empleados,id',
 
@@ -166,9 +200,23 @@ class PaseSalidaController extends Controller
         ->where('fk_id_tipo_permiso', 'like', 1)
         ->where('semanaSolicitudPermiso', '=', $semanaNum)->count();
 
+        $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'almacenado')
+        ->where('fk_id_tipo_permiso', 'like', 1)
+        ->where('semanaSolicitudPermiso', '=', $semanaNum)->count();
+
+        if($permiso >= 2){
+           
+             Session::flash('notiPaseSalidaSemana', 'se debe esperar a la siguiente semana ');
+             return redirect()->route('recursos-h-tipos-de-permisos'); 
+            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+
+        }
         
-        
+        else{
+
         return view('/recursos-humanos-permisos/pase-salida/crear', compact('empleado', 'individual', 'mes', 'annio', 'dia','semanaNum', 'individual2'));
+        }
     }
 
     /**
@@ -181,6 +229,13 @@ class PaseSalidaController extends Controller
     public function update(Request $request, $id)
     {
         // 
+
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        // $permiso = RhPermiso::findOrFail($id);
+        return redirect()->route('pase-salida.index');
+    
     }
 
     public function imprimir($id)
@@ -196,12 +251,8 @@ class PaseSalidaController extends Controller
                       $pdf = PDF::loadHTML($vista);
 
                       return $pdf->stream('nombre.pdf');
-
-        
     }
      
-
-
     /**
      * Remove the specified resource from storage.
      *
@@ -211,6 +262,7 @@ class PaseSalidaController extends Controller
     public function destroy($id)
     {
         //
-        
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('pase-salida.index');
     }
 }

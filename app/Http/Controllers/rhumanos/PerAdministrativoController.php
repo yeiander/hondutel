@@ -145,7 +145,7 @@ class PerAdministrativoController extends Controller
         }
         else{
             // $sessionManager->flash('mensaje', 'el usuario '.$empleado->nombreEmpleado. ' no es de Administración');
-            return view('/recursos-humanos-menu/tipos-de-permisos')->with('status', 'el usuario no es de administración');;
+            return view('/recursos-humanos-menu/tipos-de-permisos')->with('status', 'el usuario no es de administración');
         }
     }
 

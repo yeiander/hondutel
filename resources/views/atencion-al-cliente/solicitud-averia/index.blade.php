@@ -11,7 +11,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Solicitud de averia</h5>
+            <h4 class="page__heading">Planta Externa</h4>
             
         </div>
         
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Averias:</h3><br><br>
+                            <h5 class="page__heading">Datos Averias:</h5><br><br>
                             <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>

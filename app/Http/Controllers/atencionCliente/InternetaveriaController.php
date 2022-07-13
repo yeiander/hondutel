@@ -18,7 +18,7 @@ class InternetaveriaController extends Controller
     public function index()
     {
         //
-        $registros=RegistroAveria::all();
+        $registros=RegistroAveria::all()->where('estado','like','etapa2');
         return view('/atencion-al-cliente/internet-averia.index', compact('registros'));
     }
 

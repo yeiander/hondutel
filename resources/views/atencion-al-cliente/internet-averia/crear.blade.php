@@ -59,14 +59,30 @@
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megas">Megas:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="Megas" id="Megas">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megas">Megas:</label>
+                                          <select class="form-control" id="Megas" name="Megas">
+                                           <option disabled selected > Seleccione cantidad de megas</option>
+                                           <option value="2 MB">2 MB</option>
+                                              <option value="3 MB">3 MB</option>   
+                                              <option value="4 MB">4 MB</option>
+                                              <option value="5 MB">5 MB</option> 
+                                              <option value="6 MB">6 MB</option>
+                                              <option value="8 MB">8 MB</option> 
+                                              <option value="10 MB">10 MB</option>
+                                              <option value="12 MB">12 MB</option> 
+                                              <option value="15 MB">15 MB</option>
+                                              <option value="20 MB">20 MB</option>                     
+                                            </select>
                                          </div>
-                                      </div>
+                                       </div>
+
+                                      <input value="solicitado" type="hidden" id="estado" name="estado">
+
+
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
              
-                                           <input value ="pendiente" style="font-size:14px;" class="form-control" type="hidden" name="estadoAveria" id="estadoAveria">
+                                           <input value ="etapa1" style="font-size:14px;" class="form-control" type="hidden" name="estado" id="estado">
                                          </div>
                                       </div>
                                      {{-- coloumna2 final --}}
