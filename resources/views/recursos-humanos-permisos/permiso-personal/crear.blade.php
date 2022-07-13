@@ -198,7 +198,7 @@ $(function ocultarOption(){
 });
 
     
-      //  BOTON SUBMIT UNA SOLA VEZ
+      //  BOTON SUBMI nnnT UNA SOLA VEZ
     $('#form').one('submit', function() {
       $(this).find('input[type="submit"]').attr('disabled','disabled');
 });
