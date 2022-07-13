@@ -1,13 +1,6 @@
 
 @extends('layouts.app')
 
-@section('dataBaseCss')
-{{-- ESTA SECTION SOLO ES PARA LAS TABLAS RESPONSIVAS --}}
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/responsive.bootstrap4.min.css')}}"> 
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
-
-@endsection
 
 
 @section('content')
@@ -23,65 +16,45 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-
-                            <input id="min" type="date">
-                            <input id="max" type="date">
-                            <h3 class="page__heading">Consultar permisos personales almacenados:</h3><br><br>
+                            <h3 class="page__heading">Consultar permisos personales almacenados:</h3><br>
+                              <div id="input-daterange" class="row input-daterange">
+                                <div class="col-md-4">
+                                    <input type="text" name="from_date" id="from_date" class="form-control" placeholder="de" readonly />
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="to_date" id="to_date" class="form-control" placeholder="hasta" readonly />
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" name="filter" id="filter" class="btn btn-primary">Filtrar</button>
+                                    <button type="button" name="refresh" id="refresh" class="btn btn-secondary">Limpiar</button>
+                                </div>
+                            </div>
+                            <br>
 
                            
-                            <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
+                          
+
+                           
+                            <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
                                         
                                   <th style="color: #fff;">Nombre</th>
-                                  <th style="color: #fff;">Tipo permiso</th>
-                                  <th style="color: #fff;">Dia 1</th>
-                                  <th style="color: #fff;">Dia 2</th>
                                   <th style="color: #fff;">Horas</th>
+                                  <th style="color: #fff;">Inicio</th>
+                                  <th style="color: #fff;">Final</th>
                                   <th style="color: #fff;">Motivo</th>
                                    <th style="color: #fff;">fecha Solicitud</th>
-                                  <th style="color: #fff;">Lugar</th> 
-                                  <th style="color: #fff;">ID</th>
+                                  <th style="color: #fff;">Lugar</th>
+                                  <th style="color: #fff;">Creado por:</th>
+                                  <th style="color: #fff;">Aprobado por:</th>
                                   <th style="color: #fff;">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach($permisos as $permiso)
-                                  <tr>
-                                   
-                                    <td>{{$permiso->empleados->nombreEmpleado}}</td>
-                                    <td>{{$permiso->rhTipoPermisos->tipoPermiso}}</td>
-                                    <td>{{$permiso->fechaPermisoPersonalDia1}}</td>
-                                    <td>{{$permiso->fechaPermisoPersonalDia2}}</td>
-                                    <td>{{$permiso->horasPermisoPersonal}}</td>
-                                    <td>{{$permiso->motivoTrabajoEnfermedad}}</td>
-                                     <td>{{$permiso->fechaSolicitudPermiso}}</td>
-                                    <td>{{$permiso->lugarSolicitudPermiso}}</td> 
-                                    <td>{{$permiso->id}}</td>
-                                    <td> <button title="VER" type="submit" class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                        <button title="EDITAR" type="submit" class="btn btn-primary"><i class="fas fa-pen-square"></i></button>
-                                        
-                                         <button title="IMPRIMIR" type="submit" class="btn btn-success"><i class="fas fa-file-pdf"></i></button>
-                                         <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                         
-                                    </td>
-                  
-                                  </tr>
-                                  @endforeach
+                                
                                 </tbody>
                             </table>
-                          
-            @section('dataTable_js')
-             
-            <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
-            <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
-            {{-- <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script> --}}
-          
-     
-  
-  @endsection
     
 
                             {{-- final --}}
@@ -91,7 +64,7 @@
             </div>
         </div>
     </section>
-    
+    @section('scripts')
    <script>
     var minDate, maxDate;
  
@@ -114,55 +87,112 @@
      }
  );
    </script>
-    @section('scripts')
+   
     <script>
 
         $(document).ready(function(){
+         $('#input-daterange').datepicker({
+          todayBtn:'linked',
+          format:'yyyy-mm-dd',
+          language: 'es',
+          autoclose:true
+         });
         
-                $('#permiso1').DataTable({
-                  responsive: true,
-                  select: true,
+         load_data();
+        
+         function load_data(from_date = '', to_date = '')
+         {
+          $('#permisoPersonal').DataTable({
+            "language": {
+                                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                                        },
+           processing: true,
+           serverSide: true,
+           responsive: true,
+          //  select: true,
+           dataSrc: "tableData",
+           bDestroy: true,
+           autoWidth: true,
+           ajax: {
+            url:'{{ route("permiso-personal.index") }}',
+            data:{from_date:from_date, to_date:to_date}
+           },
+           columns: [
+            {
+             data:'empleados.nombreEmpleado',
+             name:'empleados.nombreEmpleado'
+            },
+            {
+             data:'horasPermisoPersonal',
+             name:'horasPermisoPersonal'
+            },
+            {
+             data:'fechaPermisoPersonalDia1',
+             name:'fechaPermisoPersonalDia1'
+            },
+            {
+             data:'fechaPermisoPersonalDia2',
+             name:'fechaPermisoPersonalDia2'
+            },
+            {
+             data:'motivoTrabajoEnfermedad',
+             name:'motivoTrabajoEnfermedad'
+            },
+            {
+             data:'fechaSolicitudPermiso',
+             name:'fechaSolicitudPermiso'
+            },
+            {
+             data:'lugarSolicitudPermiso',
+             name:'lugarSolicitudPermiso'
+            },
+            {
+             data:'nombreQuienCreo',
+             name:'nombreQuienCreo'
+            },
+            {
+             data:'nombreQuienAprobo',
+             name:'nombreQuienAprobo'
+            },
+        
+            
+            {
+             data:'action',
+             name:'action'
+            },
+            
             
         
-                    autoWidth: false,
-                
-                    "order": [[ 7, "desc" ]],
-        
-            
-                    "language": {
-                    "lengthMenu": "Mostrar _MENU_ registros por pagina",
-                    "zeroRecords": "Nada encontrado - prueba de nuevo",
-                    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-                    "infoEmpty": "no hay registros disponibles",
-                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
-                    "search" : "Buscar:",
-                    "paginate":{
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
-                }
-                });
-
-                // Create date inputs
-    minDate = new DateTime($('#min'), {
-        format: 'MMMM Do YYYY'
-    });
-    maxDate = new DateTime($('#max'), {
-        format: 'MMMM Do YYYY'
-    });
- 
-    // DataTables initialisation
-    var table = $('#example').DataTable();
- 
-    // Refilter the table
-    $('#min, #max').on('change', function () {
-        table.draw();
-    });
-        
-              });
-        
+           ],
           
-            </script>
+        
+          });
+         }
+        
+         $('#filter').click(function(){
+          var from_date = $('#from_date').val();
+          var to_date = $('#to_date').val();
+          if(from_date != '' &&  to_date != '')
+          {
+           $('#order_table').DataTable().destroy();
+           load_data(from_date, to_date);
+          }
+          else
+          {
+           alert('Both Date is required');
+          }
+         });
+        
+         $('#refresh').click(function(){
+          $('#from_date').val('');
+          $('#to_date').val('');
+          $('#order_table').DataTable().destroy();
+          load_data();
+         });
+        
+        });
+            
+                                    </script>
 
           
         
