@@ -262,6 +262,7 @@ class PaseSalidaController extends Controller
     public function destroy($id)
     {
         //
-        
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('pase-salida.index');
     }
 }

@@ -67,18 +67,40 @@ class PermisoPersonalController extends Controller
         // $datosPermisoPersonal = request()->except('_token');
         // RhPermiso::insert($datosPermisoPersonal);
         // $permisos = RhPermiso::all();
+        $fecha123 =  $request->fechaPermisoPersonalDia1;
+        $condicion = $request->horasPermisoPersonal;
+
+
+        if($condicion == 16){
 
         $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
         $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
         $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
-        $permiso->fechaPermisoPersonalDia1 = $request->fechaPermisoPersonalDia1;
+        $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
         $permiso->fechaPermisoPersonalDia2 = $request->fechaPermisoPersonalDia2;
         $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
         $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
         $permiso->save();
         return redirect()->route('recursos_humanos');
+
+        }
+
+
+        else{
+            $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
+        $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
+        $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
+        $permiso->fechaPermisoPersonalDia2 = $fecha123;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->save();
+        return redirect()->route('recursos_humanos');
+        }
     }
 
     /**
