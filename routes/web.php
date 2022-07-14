@@ -31,9 +31,9 @@ use App\Http\Controllers\CrudmapaPrueba;
 use App\Http\Controllers\atencionCliente\AveriaPendienteController;
 use App\Http\Controllers\atencionCliente\SoliaveriaController;
 use App\Http\Controllers\atencionCliente\MaterialaveriaController;
-use App\Http\Controllers\ArmarioController;
-use App\Http\Controllers\ClienteGpsController;
-use App\Http\Controllers\CajaTerminalController;
+use App\Http\Controllers\mapa\ArmarioController;
+use App\Http\Controllers\mapa\ClienteGpsController;
+use App\Http\Controllers\mapa\CajaTerminalController;
 use App\Http\Controllers\atencionCliente\InternetsolicitudController;
 
 /*

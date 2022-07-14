@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\mapa;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CajaTerminalController extends Controller
@@ -23,6 +24,7 @@ class CajaTerminalController extends Controller
      */
     public function create()
     {
+        //
         //
         return view('/mapa-interactivo/cajaterminal.crear');
     }

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\mapa;
 
+use App\Http\Controllers\Controller;
 use App\Models\Armario;
 use Illuminate\Http\Request;
+
 
 class ArmarioController extends Controller
 {
@@ -15,8 +17,6 @@ class ArmarioController extends Controller
     public function index()
     {
         //
-        $armarios=Armario::all();
-        return view('mapa-interactivo/armario.index', compact('armarios'));
     }
 
     /**
@@ -28,7 +28,6 @@ class ArmarioController extends Controller
     {
         //
         return view('mapa-interactivo/armario/crear');
-        
     }
 
     /**
@@ -44,6 +43,7 @@ class ArmarioController extends Controller
         Armario::insert($registroarmario);
        return redirect()->route('mapa-menu');
     }
+    
 
     /**
      * Display the specified resource.
