@@ -14,6 +14,7 @@ class ClienteGpsController extends Controller
     public function index()
     {
         //
+        return view('mapa-interactivo/armario.index');
     }
 
     /**

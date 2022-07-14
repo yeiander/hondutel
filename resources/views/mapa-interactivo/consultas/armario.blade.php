@@ -21,11 +21,11 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('armario.index') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
+                                      <a href="{{ route('clientegps.index') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
                                     <div class="media-body">
-                                        <a  href="{{ route('armario.index') }}">
-                                           <h5>Crear nuevo armario</h5></a>
-                                           <p>Crear nuevos armarios</p>
+                                        <a  href="{{ route('clientegps.index') }}">
+                                           <h5>Ver armario</h5></a>
+                                           <p> Ver armarios alamacenados</p>
                                     </div>
                                   </li>
 
