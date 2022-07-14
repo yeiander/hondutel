@@ -44,11 +44,13 @@ class PaseSalidaController extends Controller
          {
           $data = RhPermiso::with('empleados')->select('rh_permisos.*')
             ->where('aprobacion', 'like', 'almacenado')
+            ->where('fk_id_tipo_permiso', 'like', 1)
             ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
           }
          else
          {
             $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            ->where('fk_id_tipo_permiso', 'like', 1)
             ->where('aprobacion', 'like', 'almacenado');
             
          }
