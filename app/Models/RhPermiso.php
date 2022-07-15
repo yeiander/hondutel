@@ -9,11 +9,12 @@ class RhPermiso extends Model
 
 {
 
-    protected $fillable = ['fk_id_empleado'];
+    protected $fillable = ['fk_id_tipo_permiso','fk_id_empleado'];
+    
     use HasFactory;
 
     //funcion para las relaciones con las otras tablas
-    public function rhTipoPermisos(){
+    public function permisos(){
         return $this->belongsTo(RhTipoPermiso::class, 'fk_id_tipo_permiso');
     }
 

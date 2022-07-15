@@ -39,22 +39,9 @@
                      <form id="form" action=" {{url('/recursos-humanos-permisos/permiso-personal')}} " method="post">
                       @csrf
                         <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="2">
+                        <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
     
-                           {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                             <div class="form-group">
-                               <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)" for="fk_id_empleado">Empleado:</label> 
-                                 <select  style="font-size:15px;" name="fk_id_empleado" id="fk_id_empleado" class="form-control">
-                                   <option disabled selected>Seleccione un empleado</option>
-                                     @foreach($empleados as $empleado)
-                                    
-                                       <option  style="font-size:14px;" value=" {{ $empleado->id }}">{{ $empleado->nombreEmpleado }} </option>
-                                     
-                                    @endforeach
-                                  
-                                 </select>
-                                  </div>
-                                </div> --}}
-
+           
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">

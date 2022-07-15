@@ -15,7 +15,7 @@
                              
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                  <label id=""><h4> {{$permiso->rhTipoPermisos->tipoPermiso}} / {{$permiso->empleados->nombreEmpleado}}</h4></label>
+                                  <label id=""><h4> {{$permiso->permisos->tipoPermiso}} / {{$permiso->empleados->nombreEmpleado}}</h4></label>
                                   </div>
                               </div>
                               <div class="container" style="color:rgb(73, 73, 73)">
@@ -31,7 +31,7 @@
                                 </div>
                               </div>                                                  
                           
-                              <input id="numerotipoPermiso" name="numerotipoPermiso"  type="hidden" value="{{$permiso->rhTipoPermisos->id}} ">      
+                              <input id="numerotipoPermiso" name="numerotipoPermiso"  type="hidden" value="{{$permiso->permisos->id}} ">      
  <form action=" {{url('/recursos-humanos-permisos/pase-salida-admin/'.$permiso->id)}} " method="post">
    @csrf   
    {{ method_field('PATCH')}}   

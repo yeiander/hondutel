@@ -117,6 +117,7 @@ class PermisoPersonalController extends Controller
         $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
         $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->nombreQuienCreo = $request->nombreQuienCreo;
         $permiso->save();
         return redirect()->route('recursos_humanos');
 
@@ -133,6 +134,7 @@ class PermisoPersonalController extends Controller
         $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
         $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->nombreQuienCreo = $request->nombreQuienCreo;
         $permiso->save();
         return redirect()->route('recursos_humanos');
         }

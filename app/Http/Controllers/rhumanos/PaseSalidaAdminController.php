@@ -5,7 +5,10 @@ namespace App\Http\Controllers\rhumanos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RhPermiso;
+use App\Models\RhTipoPermiso;
 use App\Models\Empleado;
+
+
 
 class PaseSalidaAdminController extends Controller
 {
@@ -14,11 +17,42 @@ class PaseSalidaAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'pendiente');
-        return view('/recursos-humanos-permisos/pase-salida-admin.index', compact('permisos'));
+        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'pendiente');
+        // return view('/recursos-humanos-permisos/pase-salida-admin.index', compact('permisos'));
+
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('permisos','empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'pendiente')
+           
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('permisos','empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           
+           ->where('aprobacion', 'like', 'pendiente');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/pase-salida-admin.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          return view('/recursos-humanos-permisos/pase-salida-admin.index');
 
     }
 
@@ -61,7 +95,7 @@ class PaseSalidaAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         //   
         $permiso = RhPermiso::findOrFail($id);

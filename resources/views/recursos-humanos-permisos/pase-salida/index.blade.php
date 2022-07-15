@@ -16,15 +16,15 @@
                             <center>
                             <div id="input-daterange" class="row input-daterange">
                               <div class="col-md-2">
-                                  <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="de" readonly />
+                                  <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="Del" readonly />
                               </div>
                               <div class="col-md-2">
-                                  <input type="text" style="margin-top: 0.3rem" name="to_date" id="to_date" class="form-control" placeholder="hasta" readonly />
+                                  <input type="text" style="margin-top: 0.3rem" name="to_date" id="to_date" class="form-control" placeholder="Hasta" readonly />
                               </div>
                               <div class="col-md-3">
-                                  <button style="margin-top: 0.5rem" type="button" name="filter" id="filter" class="btn btn-outline-primary"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
-                                  <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
-                                  <button style="margin-left: 1rem; margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-success""><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</button>
+                                  <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
+                                  <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
+                                  <button style="margin-left: 1rem; margin-top: 0.5rem;" type="button" name="refresh" id="refresh" class="btn btn-outline-success font-weight-bold"><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</button>
                               </div>
                           </div>
                           <hr>
