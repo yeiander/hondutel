@@ -15,15 +15,13 @@
                                 <div class="row">
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    
-                         
-                         
+                          
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('clientegps.index') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
+                                      <a href="{{ route('armario.index') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
                                     <div class="media-body">
-                                        <a  href="{{ route('clientegps.index') }}">
+                                        <a  href="{{ route('armario.index') }}">
                                            <h5>Ver armario</h5></a>
                                            <p> Ver armarios alamacenados</p>
                                     </div>

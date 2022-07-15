@@ -17,6 +17,7 @@ class ArmarioController extends Controller
     public function index()
     {
         //
+         return view('mapa-interactivo/armario/crear');
     }
 
     /**
@@ -51,9 +52,10 @@ class ArmarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        return view('mapa-interactivo/armario/crear');
     }
 
     /**
