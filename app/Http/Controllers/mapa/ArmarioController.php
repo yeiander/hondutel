@@ -14,9 +14,37 @@ class ArmarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = Armario::select('armarios.*')->orderBy('id','DESC')
+         
+           
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+            $data = Armario::select('armarios.*')->orderBy('id','DESC');
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+   
          return view('mapa-interactivo/armario/index');
     }
 
