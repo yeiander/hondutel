@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\mapa;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ClienteGpsController extends Controller
@@ -14,7 +15,6 @@ class ClienteGpsController extends Controller
     public function index()
     {
         //
-        return view('mapa-interactivo/armario.index');
     }
 
     /**

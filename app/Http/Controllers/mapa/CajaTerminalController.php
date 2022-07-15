@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\mapa;
 
-use App\Models\Armario;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ArmarioController extends Controller
+class CajaTerminalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class ArmarioController extends Controller
     public function index()
     {
         //
-        $armarios=Armario::all();
-        return view('mapa-interactivo/armario.index', compact('armarios'));
     }
 
     /**
@@ -27,8 +25,8 @@ class ArmarioController extends Controller
     public function create()
     {
         //
-        return view('mapa-interactivo/armario/crear');
-        
+        //
+        return view('/mapa-interactivo/cajaterminal.crear');
     }
 
     /**
@@ -40,9 +38,6 @@ class ArmarioController extends Controller
     public function store(Request $request)
     {
         //
-        $registroarmario = request()->except('_token');
-        Armario::insert($registroarmario);
-       return redirect()->route('mapa-menu');
     }
 
     /**
