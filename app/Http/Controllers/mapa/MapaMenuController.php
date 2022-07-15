@@ -29,7 +29,7 @@ class MapaMenuController extends Controller
           
           
             public function consultaArmario(){
-                return View('/mapa-interactivo/consultas/armario123');
+                return View('/mapa-interactivo/menu-consultar-coordenada');
                 }
             
         

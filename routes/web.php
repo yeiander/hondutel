@@ -126,13 +126,15 @@ Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudCont
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________
+Route::resource('mapa-interactivo/armario', ArmarioController::class);
 Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
 Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
+Route::get('/mapa-interactivo/menu-consultar-coordenada', [App\Http\Controllers\mapa\MapaMenuController::class, 'consultaArmario'])->name('menu-consultar-coordenada');
 Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
 Route::resource('mapa-interactivo', CrudmapaPrueba::class);
-Route::get('mapa-interactivo/armario/inicio', [ ArmarioController::class, 'inicio']);
-Route::resource('mapa-interactivo/armario', ArmarioController::class);
-Route::get('/mapa-interactivo/consultas/armario123', [App\Http\Controllers\mapa\MapaMenuController::class, 'consultaArmario'])->name('armario123');
+
+
+
 Route::resource('/mapa-interactivo/clientegps', ClienteGpsController::class);
 Route::resource('/mapa-interactivo/cajaterminal', CajaTerminalController::class);
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________

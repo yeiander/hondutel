@@ -41,9 +41,9 @@
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('armario') }}"><i style="color:rgb(112, 126, 141)" class="fa fa-location-arrow fa-3x mr-3" aria-hidden="true"></i></a>
+                                      <a href="{{ route('menu-consultar-coordenada') }}"><i style="color:rgb(112, 126, 141)" class="fa fa-location-arrow fa-3x mr-3" aria-hidden="true"></i></a>
                                     <div class="media-body">
-                                        <a  href="{{ route('armario') }}">
+                                        <a  href="{{ route('menu-consultar-coordenada') }}">
                                            <h5>Consultar coordenadas</h5></a>
                                            <p>Consultar todas las coordenadas en la base de datos</p>
                                     </div>

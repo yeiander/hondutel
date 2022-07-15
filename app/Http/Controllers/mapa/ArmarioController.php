@@ -17,7 +17,7 @@ class ArmarioController extends Controller
     public function index()
     {
         //
-         return view('mapa-interactivo/armario/crear');
+         return view('mapa-interactivo/armario/index');
     }
 
     /**
