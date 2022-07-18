@@ -42,30 +42,28 @@ class PaseSalidaController extends Controller
          {
         if(!empty($request->from_date))
          {
-          $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+          $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
             ->where('aprobacion', 'like', 'almacenado')
+            ->where('fk_id_tipo_permiso', 'like', 1)
             ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
           }
          else
          {
-            $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+            ->where('fk_id_tipo_permiso', 'like', 1)
             ->where('aprobacion', 'like', 'almacenado');
             
          }
            return datatables()->of($data)
            
            ->addColumn('action', function ($data) {
-            // return '<a href="#edit-'.$data->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-      
-            // $btn =  '<a href="pase-salida/'. $data->id .'/edit" class="btn btn-primary btn-sm">Editar</a>';
-         
-            // $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Borrar</a>';
+          
 
             return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
             
 
         })
-            // ->editColumn('id', 'ID: {{$id}}')
+           
             ->rawColumns(['action'])
            ->make(true);
         }

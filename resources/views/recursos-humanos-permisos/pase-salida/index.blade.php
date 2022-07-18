@@ -13,20 +13,22 @@
             <div class="card">
               <div class="card-body">
                             {{-- inicio --}}
+                            <center>
                             <div id="input-daterange" class="row input-daterange">
-                              <div class="col-md-4">
-                                  <input type="text" name="from_date" id="from_date" class="form-control" placeholder="de" readonly />
+                              <div class="col-md-2">
+                                  <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="Del" readonly />
                               </div>
-                              <div class="col-md-4">
-                                  <input type="text" name="to_date" id="to_date" class="form-control" placeholder="hasta" readonly />
+                              <div class="col-md-2">
+                                  <input type="text" style="margin-top: 0.3rem" name="to_date" id="to_date" class="form-control" placeholder="Hasta" readonly />
                               </div>
-                              <div class="col-md-4">
-                                  <button type="button" name="filter" id="filter" class="btn btn-primary">Filtrar</button>
-                                  <button type="button" name="refresh" id="refresh" class="btn btn-secondary">Limpiar</button>
+                              <div class="col-md-3">
+                                  <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
+                                  <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
+                                  <button style="margin-left: 1rem; margin-top: 0.5rem;" type="button" name="refresh" id="refresh" class="btn btn-outline-success font-weight-bold"><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</button>
                               </div>
                           </div>
-                          <br>
-
+                          <hr>
+                        </center>
                    <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">
                      <thead style="background-color:#6777ef;">
                        <tr>          
@@ -47,7 +49,24 @@
                          </tbody>
                     </table>
                             {{-- final --}}
+                            
                      @section('scripts') 
+
+                     
+     
+     <script>
+            function DeleteFunction() {
+                if (confirm('seguro que deseas borrar este registro?'))
+                    return true;
+                else {
+                    return false;
+                }
+            }
+        </script> 
+                  
+                            
+                           
+
                             <script>
 
 $(document).ready(function(){
@@ -135,7 +154,7 @@ $(document).ready(function(){
   }
   else
   {
-   alert('Both Date is required');
+   alert('Ambos campos son requeridos');
   }
  });
 
@@ -149,6 +168,8 @@ $(document).ready(function(){
 });
     
                             </script>
+
+                                         
 
                         </div>
                     </div>

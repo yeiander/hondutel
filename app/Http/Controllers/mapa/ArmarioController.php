@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\mapa;
 
+use App\Http\Controllers\Controller;
 use App\Models\Armario;
 use Illuminate\Http\Request;
+
 
 class ArmarioController extends Controller
 {
@@ -12,11 +14,38 @@ class ArmarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $armarios=Armario::all();
-        return view('mapa-interactivo/armario.index', compact('armarios'));
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = Armario::select('armarios.*')->orderBy('id','DESC')
+         
+           
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+            $data = Armario::select('armarios.*')->orderBy('id','DESC');
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+   
+         return view('mapa-interactivo/armario/index');
     }
 
     /**
@@ -28,7 +57,6 @@ class ArmarioController extends Controller
     {
         //
         return view('mapa-interactivo/armario/crear');
-        
     }
 
     /**
@@ -44,6 +72,7 @@ class ArmarioController extends Controller
         Armario::insert($registroarmario);
        return redirect()->route('mapa-menu');
     }
+    
 
     /**
      * Display the specified resource.
@@ -51,9 +80,10 @@ class ArmarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        return view('mapa-interactivo/armario/crear');
     }
 
     /**

@@ -15,17 +15,15 @@
                                 <div class="row">
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    
-                         
-                         
+                          
 
                                 <ul class="list-unstyled ">
                                   <li class="media my-4">
-                                      <a href="{{ route('armario.index') }}"><img  class="mr-3" src="{{ asset('img/armario.png') }}" height="50px"></a>
+                                      <a href="{{ route('armario.index') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
                                     <div class="media-body">
                                         <a  href="{{ route('armario.index') }}">
-                                           <h5>Crear nuevo armario</h5></a>
-                                           <p>Crear nuevos armarios</p>
+                                           <h5>Ver armario</h5></a>
+                                           <p> Ver armarios alamacenados</p>
                                     </div>
                                   </li>
 

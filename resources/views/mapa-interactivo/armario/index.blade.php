@@ -1,111 +1,116 @@
 @extends('layouts.app')
-
-@section('dataBaseCss')
-{{-- ESTA SECTION SOLO ES PARA LAS TABLAS RESPONSIVAS --}}
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/responsive.bootstrap4.min.css')}}"> 
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
-@endsection
-
-
-@section('content')
+  @section('content')
     <section class="section">
-        <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Mapa interactivo</h5>
- 
-        </div>
-        
-        <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
+      <div class="section-header" style="max-height: 3rem;">
+        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
+        <h5 class="page__heading">armarios almacenados:</h5>
+      </div>
+      
+      <div class="section-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">registro de armarios:</h3><br>
-                            <table  class="table table-striped table-bordered" style="width:100%" id="hola">
-                                <thead style="background-color:#6777ef;">
-                                    <tr>
-                                        
-                                  <th style="color: #fff;">n armario</th>
-                                  <th style="color: #fff;">barrios</th>
-                                  <th style="color: #fff;">gps_armario</th>
-                                  
-                                  
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  @foreach($clientes as $cliente)
-                                  <tr>
-                                   
-                                    <td>{{$cliente->numeroArmario}}</td>
-                                    <td>{{$cliente->barrio}}</td>
-                                    <td>{{$cliente->gps_armario}}</td>
-                                    <td>{{$cliente->direccion}}</td>
-                                  
+                            
+                   <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">
+                     <thead style="background-color:#6777ef;">
+                       <tr>          
+                         <th style="color: #fff;">Descripcion</th>
+                         <th style="color: #fff;">Direccion</th>
+                         <th style="color: #fff;">GPS armario</th>
+                         <th style="color: #fff;">Acciones</th>
+                         
+                        
+                        </tr>
+                      </thead>
+                        <tbody>
                                 
-                                    <td> <a href="{{$cliente->gps}}" class="btn btn-primary" target="_black">Ver mapa</a> </td>| 
-                                 
-                  
-                                  </tr>
-                                  @endforeach
-                                </tbody>
-                            </table>
-                          
-            @section('dataTable_js')
-             
-            <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
-            <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
-            {{-- <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script> --}}
-          
+                         </tbody>
+                    </table>
+                            {{-- final --}}
+                            
+                     @section('scripts') 
+
+                     
      
-  
-    <script>
+     <script>
+            function DeleteFunction() {
+                if (confirm('seguro que deseas borrar este registro?'))
+                    return true;
+                else {
+                    return false;
+                }
+            }
+        </script> 
+                  
+                            
+                           
+
+                            <script>
 
 $(document).ready(function(){
 
-        $('#hola').DataTable({
-          responsive: true,
+ load_data();
 
+ function load_data(from_date = '', to_date = '')
+ {
+  $('#order_table').DataTable({
+    "language": {
+                         "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                                },
+   processing: true,
+   serverSide: true,
+   responsive: true,
+  //  select: true,
+   dataSrc: "tableData",
+   bDestroy: true,
+   autoWidth: true,
+   ajax: {
+    url:'{{ route("armario.index") }}',
+    data:{from_date:from_date, to_date:to_date}
+   },
+   columns: [
+    {
+     data:'numeroArmario',
+     name:'numeroArmario'
+    },
+    {
+     data:'barrio',
+     name:'barrio'
+    },
+    {
+     data:'gps_armario',
+     name:'gps_armario'
+    },
+    {
+     data:'action',
+     name:'action'
+    },
+   
+    
     
 
-            autoWidth: false,
-        
-           
-
-    
-            "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-            "zeroRecords": "Nada encontrado - prueba de nuevo",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "no hay registros disponibles",
-            "infoFiltered": "(filtrado de _MAX_ registros totales)",
-            "search" : "Buscar:",
-            "paginate":{
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
-        }
-        });
-
-      });
-
+   ],
   
-    </script>
 
-  @endsection
+  });
+ }
+
+
+
+});
     
+                            </script>
 
-                            {{-- final --}}
+                                         
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-   
-    
-
+    @endsection
 @endsection
+
