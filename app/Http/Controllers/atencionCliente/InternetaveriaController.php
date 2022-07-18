@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\atencionCliente;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
+use App\Models\Registrowifi;
 use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class InternetaveriaController extends Controller
@@ -31,6 +32,16 @@ class InternetaveriaController extends Controller
     {
         //
         return view('/atencion-al-cliente/internet-averia.crear');
+    }
+
+    public function averiainternet(Request $request)
+    {
+        //
+        $id = $request->input('hola');
+        //
+         $registrowifi = Registrowifi::findOrfail($id);
+      
+        return view('/atencion-al-cliente/internet-averia.crear', compact('registrowifi', 'id'));
     }
 
     /**

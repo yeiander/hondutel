@@ -51,6 +51,18 @@ class RegistroAveriaController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+           
+            'nombreCliente' => 'required',
+            'contacto' => 'required',
+            'fechaDeSolicitud' => 'required',
+            'numeroDeLinea' => 'required',
+            'Direccion' => 'required',  
+            'Megas' => 'required',  
+               
+        ]);
+
+
         $registroAveria = request()->except('_token');
         RegistroAveria::insert($registroAveria);
         return redirect()->route('menu-registro-averia');

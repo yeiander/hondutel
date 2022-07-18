@@ -110,11 +110,13 @@ Route::resource('/atencion-al-cliente/cancelaciones', RegistrocancelacionesContr
 Route::get('/atencion-al-cliente/cancelaciones/{id}/imprimir', [RegistroCancelacionesController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/ventas/{id}/imprimir', [RegistroventaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/registro-averia/{id}/imprimir', [RegistroAveriaController::class, 'imprimir']);
-Route::post('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
+Route::get('/atencion-al-cliente/ventas-linea/wifi123',[RegistrolineaController::class,'wifi123']);
 Route::resource('/atencion-al-cliente/ventas-linea', RegistrolineaController::class);
 Route::resource('/atencion-al-cliente/ventas-wifi', RegistrowifiController::class);
 Route::get('/atencion-al-cliente/ventas-linea/{id}/imprimir', [RegistrolineaController::class, 'imprimir']);
 Route::get('/atencion-al-cliente/ventas-wifi/{id}/imprimir', [RegistrowifiController::class, 'imprimir']);
+Route::get('/atencion-al-cliente/internet-averia/create2', [InternetaveriaController::class, 'create2']);
+Route::get('/atencion-al-cliente/internet-averia/averiainternet',[InternetaveriaController::class,'averiainternet']);
 Route::resource('/atencion-al-cliente/internet-averia', InternetaveriaController::class);
 Route::resource('/atencion-al-cliente/linea-fija', LineafijaController::class);
 Route::get('/atencion-al-cliente/internet-averia/{id}/imprimir', [InternetaveriaController::class, 'imprimir']);
@@ -123,6 +125,7 @@ Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteControll
 Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
 Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
 Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudController::class);
+
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 
 //_________________________________________MAPA INTERACTIVO (INICIO)________________________________________________
