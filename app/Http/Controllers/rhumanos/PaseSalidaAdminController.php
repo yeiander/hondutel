@@ -120,7 +120,7 @@ class PaseSalidaAdminController extends Controller
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
 
-        $permiso = RhPermiso::findOrFail($id);
+        // $permiso = RhPermiso::findOrFail($id);
         return redirect()->route('pase-salida-admin.index');
 
 

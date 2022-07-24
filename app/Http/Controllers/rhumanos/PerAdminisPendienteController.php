@@ -20,12 +20,45 @@ class PerAdminisPendienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'aprobado');
+        // $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'aprobado');
         // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado')->andWhere('fk_id_tipo_permiso', 'like', '2');
-        return view('/recursos-humanos-permisos/administrativo-pendiente.index', compact('permisos'));
+        // return view('/recursos-humanos-permisos/administrativo-pendiente.index', compact('permisos'));
+
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'aprobado')
+           ->where('fk_id_tipo_permiso', 'like', 3)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 3)
+           ->where('aprobacion', 'like', 'aprobado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/administrativo-pendiente.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          return view('/recursos-humanos-permisos/administrativo-pendiente.index');
+
+
     }
 
     /**
@@ -100,5 +133,7 @@ class PerAdminisPendienteController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('administrativo-pendiente.index');
     }
 }

@@ -112,6 +112,10 @@ class PaseSalidaController extends Controller
             'lugarSolicitudPermiso' => 'required'
         ]);
 
+        $fecha = Carbon::now()->format('Y-m-d');
+        $semanaNum=date('W',strtotime($fecha));
+
+
         $id = $request->input('fk_id_empleado');
         
         $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
@@ -130,11 +134,27 @@ class PaseSalidaController extends Controller
 
         else{
 
-        $datosPaseSalida = request()->except('_token');
-        RhPermiso::insert($datosPaseSalida);
-        $permisos = RhPermiso::all();
+        // $datosPaseSalida = request()->except('_token');
+        // RhPermiso::insert($datosPaseSalida);
+        // $permisos = RhPermiso::all();
+        // Session::flash('notiEnviado', 'El permiso ha sido enviado');
+        // return redirect()->route('recursos_humanos');
+        $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->semanaSolicitudPermiso = $semanaNum;
+        $permiso->aniioSolicitudPermiso = $fecha;
+        $permiso->fk_id_tipo_permiso = 1;
+        $permiso->aprobacion = 'pendiente';
+        $permiso->horaSalida = $request->horaSalida;
+        $permiso->horaEntradaAproximada =  $request->horaEntradaAproximada;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
+        $permiso->save();
         Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
+
         }
     }
 
@@ -187,6 +207,7 @@ class PaseSalidaController extends Controller
         $id = $request->input('fk_id_empleado');
         $empleado = Empleado::findOrFail($id);
         $semanaNum=date('W',strtotime($fecha));
+
         $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
         ->where('fk_id_tipo_permiso', 'like', 1)
@@ -196,11 +217,13 @@ class PaseSalidaController extends Controller
         $individual2= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
         ->where('fk_id_tipo_permiso', 'like', 1)
+        ->where('aniioSolicitudPermiso', 'like', $fecha)
         ->where('semanaSolicitudPermiso', '=', $semanaNum)->count();
 
         $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'almacenado')
         ->where('fk_id_tipo_permiso', 'like', 1)
+        ->where('aniioSolicitudPermiso', 'like', $fecha)
         ->where('semanaSolicitudPermiso', '=', $semanaNum)->count();
 
         if($permiso >= 2){

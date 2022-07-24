@@ -28,7 +28,7 @@
                                                   <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
                                                 </div>
                                               </div>
-                                              {{ $area }}
+                                            
                                  {{-- FORMULARIO PARA CREAR UN permiso administrativo                     --}}
                                  @if ($errors->any())
                                  <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -133,20 +133,6 @@
     </section>
     @section('scripts')
     <script>
-     
-   console.log(hola);
-     $(function(){
-        // AQUI DEBO OBTENERLO DE UN INPUT O VARIABLE
-       if( {{ $area }} == 'adminis'){
-        // $('#botonGuardar').hide();
-         $('#form').hide();
-        //  $('#mensajeError').show();
-      //   var textoMensaje = "";
-      //   var mensaje = document.getElementById("paseSalidaMensaje");
-      //   mensaje.innerHTML = textoMensaje;
-       }
-     });
-    
         // es para desabilitar al hacer submit una sola vez
     $('#form').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');

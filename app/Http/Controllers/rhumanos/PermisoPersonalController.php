@@ -13,6 +13,7 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class PermisoPersonalController extends Controller
 {
@@ -42,7 +43,6 @@ class PermisoPersonalController extends Controller
             $data = RhPermiso::with('empleados')->select('rh_permisos.*')
             ->where('aprobacion', 'like', 'almacenado')
             ->where('fk_id_tipo_permiso', 'like', 2);
-            
          }
            return datatables()->of($data)
            
@@ -53,7 +53,7 @@ class PermisoPersonalController extends Controller
          
             // $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Borrar</a>';
 
-            return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+            return view('/recursos-humanos-permisos/permiso-personal.action', compact('data'));
             
 
         })
@@ -105,19 +105,38 @@ class PermisoPersonalController extends Controller
         $fecha123 =  $request->fechaPermisoPersonalDia1;
         $condicion = $request->horasPermisoPersonal;
 
+        $id = $request->input('fk_id_empleado');
+        
+        $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'pendiente')
+        ->where('fk_id_tipo_permiso', 'like', 2)->count();
 
-        if($condicion == 16){
+        if($permiso >= 1){
+
+            Session::flash('notiPaseSalida', 'El empleado ya tiene un pase de salida pendiente');
+
+       
+            return redirect()->route('recursos-h-tipos-de-permisos'); 
+           //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+    }
+
+    else {
+       
+
+
+       if($condicion == 16){
 
         $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
-        $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
+        $permiso->fk_id_tipo_permiso = 2;
+        $permiso->aprobacion = 'pendiente';
         $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
         $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
         $permiso->fechaPermisoPersonalDia2 = $request->fechaPermisoPersonalDia2;
         $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
         $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
-        $permiso->nombreQuienCreo = $request->nombreQuienCreo;
+        $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
         $permiso->save();
         return redirect()->route('recursos_humanos');
 
@@ -127,17 +146,21 @@ class PermisoPersonalController extends Controller
         else{
             $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
-        $permiso->fk_id_tipo_permiso = $request->fk_id_tipo_permiso;
+        $permiso->fk_id_tipo_permiso = 2;
+        $permiso->aprobacion = 'pendiente';
         $permiso->horasPermisoPersonal = $request->horasPermisoPersonal;
         $permiso->fechaPermisoPersonalDia1 =  $request->fechaPermisoPersonalDia1;
         $permiso->fechaPermisoPersonalDia2 = $fecha123;
         $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
         $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
-        $permiso->nombreQuienCreo = $request->nombreQuienCreo;
+        $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
         $permiso->save();
         return redirect()->route('recursos_humanos');
         }
+    }
+
+
     }
 
     /**
@@ -191,6 +214,9 @@ class PermisoPersonalController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        
+        return view('/recursos-humanos-permisos/permiso-personal/editar', compact('permiso'));
     }
 
     /**
@@ -203,6 +229,8 @@ class PermisoPersonalController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
     }
 
     /**
@@ -214,5 +242,7 @@ class PermisoPersonalController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('permiso-personal.index');
     }
 }

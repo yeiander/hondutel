@@ -24,10 +24,41 @@ class PaseSalidaPendienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/pase-salida-pendiente.index', compact('permisos'));
+        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','1');
+        // return view('/recursos-humanos-permisos/pase-salida-pendiente.index', compact('permisos'));
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'aprobado')
+           ->where('fk_id_tipo_permiso', 'like', 1)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 1)
+           ->where('aprobacion', 'like', 'aprobado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/pase-salida-pendiente.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          return view('/recursos-humanos-permisos/pase-salida-pendiente.index');
+
     }
 
     /**
@@ -102,5 +133,7 @@ class PaseSalidaPendienteController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('pase-salida-pendiente.index');
     }
 }

@@ -1,40 +1,35 @@
-
 @extends('layouts.app')
-
-
-
-@section('content')
+  @section('content')
     <section class="section">
-        <div class="section-header"  style="max-height: 3rem;">
-            <h5 class="page__heading">Recursos Humamos</h5>
-            
-        </div>
-        
-        <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
+      <div class="section-header" style="max-height: 3rem;">
+        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
+        <h5 class="page__heading">Permisos personales almacenados:</h5>
+      </div>
+      
+      <div class="section-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">Consultar permisos personales almacenados:</h3><br>
-                              <div id="input-daterange" class="row input-daterange">
-                                <div class="col-md-4">
-                                    <input type="text" name="from_date" id="from_date" class="form-control" placeholder="de" readonly />
+                            <center>
+                            <div id="input-daterange" class="row input-daterange">
+                              <div class="col-md-2">
+                                  <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="Del" readonly />
+                              </div>
+                              <div class="col-md-2">
+                                  <input type="text" style="margin-top: 0.3rem" name="to_date" id="to_date" class="form-control" placeholder="Hasta" readonly />
+                              </div>
+                              <div class="col-md-3">
+                                <div class="d-flex">
+                                  <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
+                                  <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
+                                  <button style="margin-left: 1rem; margin-top: 0.5rem;" type="button" name="refresh" id="refresh" class="btn btn-outline-success font-weight-bold"><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</button>
+                                  </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="to_date" id="to_date" class="form-control" placeholder="hasta" readonly />
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="button" name="filter" id="filter" class="btn btn-primary">Filtrar</button>
-                                    <button type="button" name="refresh" id="refresh" class="btn btn-secondary">Limpiar</button>
-                                </div>
-                            </div>
-                            <br>
-
-                           
-                          
-
-                           
+                          </div>
+                          <hr>
+                        </center>
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
@@ -65,28 +60,20 @@
         </div>
     </section>
     @section('scripts')
-   <script>
-    var minDate, maxDate;
- 
- // Custom filtering function which will search data in column four between two values
- $.fn.dataTable.ext.search.push(
-     function( settings, data, dataIndex ) {
-         var min = minDate.val();
-         var max = maxDate.val();
-         var date = new Date( data[4] );
+
+    <script>
+      function DeleteFunction() {
+          if (confirm('seguro que deseas borrar este registro?'))
+              return true;
+          else {
+              return false;
+          }
+      }
+
+  </script> 
+
+
   
-         if (
-             ( min === null && max === null ) ||
-             ( min === null && date <= max ) ||
-             ( min <= date   && max === null ) ||
-             ( min <= date   && date <= max )
-         ) {
-             return true;
-         }
-         return false;
-     }
- );
-   </script>
    
     <script>
 
