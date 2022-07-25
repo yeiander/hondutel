@@ -4,14 +4,28 @@
     <section class="section">
         <div class="section-header"  style="max-height: 3rem;">
             <h5 class="page__heading">Crear nuevo registro</h5>
+     
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+
+                          @if ($errors->any())
+                          <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                            <strong>Complete los campos</strong>
+                              @foreach($errors->all() as $error)
+                                <span class="badge badge-danger">{{$error}}</span>
+                              @endforeach
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                               </button>
+                          </div>
+                        @endif
+                        
                             {{-- inicio --}}
-                            <form action=" {{url('/atencion-al-cliente/registro-averia ')}} " method="post">
+                            <form action=" {{url('/atencion-al-cliente/registro-averia')}} " method="post">
                                 @csrf
                                 <div class="container">
                                   <div class="row">
@@ -20,21 +34,21 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreCliente">Nombre del cliente:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
+                                         <input style="font-size:14px;" value="{{$registrowifi->nombrePropietario}}" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">Contacto:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="contacto" id="contacto">
+                                         <input style="font-size:14px;" value="" class="form-control" type="text" name="contacto" id="contacto">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group"> 
                                       <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaDeSolicitud">Fecha de solicitud.</label>
-                                      <input style="font-size:14px;" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
+                                      <input style="font-size:14px;" value="{{$registrowifi->fechaSolicitud}}" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
                                     </div>
                                     </div>
 
@@ -46,7 +60,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroDeLinea">Numero de linea:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
+                                           <input style="font-size:14px;" value="{{$registrowifi->propietarioLinea}}" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
                                          </div>
                                       </div>
 

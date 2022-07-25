@@ -40,7 +40,7 @@
                             {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
       @if(Session::has('notiEnviado') )
       <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
-       <h5 class="alert-heading">!Éxito!</h5>
+       <h5 class="alert-heading">!Enviado!</h5>
         <strong>{{Session('notiEnviado')}}  </strong>
      
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">

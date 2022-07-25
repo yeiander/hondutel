@@ -8,9 +8,9 @@
             
             <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
             
-        <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+        <button style="font-size: 15px"   style="mbuttonrgin-top: 0.5rem" type="" class="btn btn-primary">
           permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
-        </a>
+        </button>
         <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
           permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
         </a>
@@ -46,10 +46,7 @@
                                          
                                <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
                                  @csrf
-                                 <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="1">
-                                 <input type = "hidden" name="semanaSolicitudPermiso" id="semanaSolicitudPermiso" value="{{ $semanaNum }}">
-                                 <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
-                                 
+  
                                  <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
@@ -82,7 +79,7 @@
                                        <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Motivo del permiso:</label>
-                                          <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
+                                          <input placeholder="Escribir un motivo" style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                         </div>
                                      </div>
 
@@ -105,12 +102,16 @@
                                     </div>
                                   </div>
 
-                                    <br>
+                                    <hr>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">
-                                          <input class="btn btn-primary btn-lg" id="botonGuardar"  type="submit"  style="font-size: 15px" class="btn btn-primary" value="Enviar" >
+                                          
+                                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                          <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
                                         </div>
                                       </ul>
+                                    </div>
                                </form>
                                
                             </div>
@@ -155,7 +156,7 @@ $(function semana(){
     
         // es para desabilitar al hacer submit una sola vez
     $('#form').one('submit', function() {
-    $(this).find('input[type="submit"]').attr('disabled','disabled');
+    $(this).find('button[type="submit"]').attr('disabled','disabled');
 });
 
     </script>

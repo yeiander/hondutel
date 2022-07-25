@@ -8,9 +8,7 @@
         <div class="section-body">
        
           <center><h4>Crear un permiso de ventas</h4></center>
-          <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-            Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
-          </a>
+          
          
             <div class="row">
                <div class="col-lg-12">
@@ -37,7 +35,7 @@
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
                       @csrf
-                        <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="4">
+                        
                                  
                                  
                         <div class="container">
@@ -89,7 +87,7 @@
                              <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lineatVendida">Linea unificada vendida:</label>
-                               <select class="form-control" id="lineatVendida" name="lineatVendida">
+                               <select class="form-control" id="lineaVendida" name="lineaVendida">
                                 <option value="">no</option>
                                    <option value="si">si</option>
                                  

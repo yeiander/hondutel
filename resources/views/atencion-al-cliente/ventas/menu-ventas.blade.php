@@ -76,8 +76,8 @@
                                   
                                   <div class="modal-body">
                                     {{---inicio formulario para crear un pase de salida--------------}}
-                              <form action=" {{url('/atencion-al-cliente/ventas-linea/wifi123')}} " method="post">
-                                @csrf
+                              <form action=" {{url('/atencion-al-cliente/ventas-linea/wifi123')}} " method="get">
+                               
                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">

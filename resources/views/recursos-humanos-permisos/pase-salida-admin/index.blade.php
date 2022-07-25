@@ -46,22 +46,23 @@
                                 
                          </tbody>
                     </table>
+                    
                             {{-- final --}}
                             
                      @section('scripts') 
 
-                     
+                   
      
      <script>
-            function DeleteFunction() {
-                if (confirm('seguro que deseas borrar este registro?'))
-                    return true;
-                else {
-                    return false;
-                }
-            }
-        </script> 
-                  
+      function DeleteFunction() {
+          if (confirm('seguro que deseas borrar este registro?'))
+          
+              return true;
+          else {
+              return false;
+          }
+      }
+  </script>  
                             
                            
 

@@ -13,6 +13,7 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 
 class PermisoVentasController extends Controller
@@ -53,10 +54,64 @@ class PermisoVentasController extends Controller
        
        
         // $datosPaseSalida = request()->all();$
-        $datosPermisoVentas = request()->except('_token');
-        RhPermiso::insert($datosPermisoVentas);
-        $permisos = RhPermiso::all();
+        // $datosPermisoVentas = request()->except('_token');
+        // RhPermiso::insert($datosPermisoVentas);
+        // $permisos = RhPermiso::all();
+        // return redirect()->route('recursos_humanos');
+
+        $validated = $request->validate([
+            
+           
+            'horaSalida' => 'required',
+            'horaEntradaAproximada' => 'required',
+            'motivoTrabajoEnfermedad' => 'required',
+            'fechaSolicitudPermiso' => 'required',
+            'lugarSolicitudPermiso' => 'required',
+        ]);
+
+        
+      
+        $id = $request->input('fk_id_empleado');
+   
+        $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'pendiente')
+        ->where('fk_id_tipo_permiso', 'like', 4)->count();
+
+        if($permiso >= 1){
+           
+             Session::flash('notiPaseSalida', 'El empleado ya tiene un permiso administrativo pendiente');
+
+       
+             return redirect()->route('recursos-h-tipos-de-permisos'); 
+            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+        }
+
+        else {
+        
+
+        $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->fk_id_tipo_permiso = 4;
+        $permiso->aprobacion = 'pendiente';
+        $permiso->horaSalida = $request->horaSalida;
+        $permiso->horaEntradaAproximada =  $request->horaEntradaAproximada;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
+        $permiso->vehiculoDescripcion = $request->vehiculoDescripcion;
+        $permiso->internetVendido = $request->internetVendido;
+        $permiso->telefonoVendido = $request->telefonoVendido;
+        $permiso->lineaVendida = $request->lineaVendida;
+        $permiso->save();
+        Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
+        }
+
+
+
+
+
     }
 
     /**
@@ -75,7 +130,7 @@ class PermisoVentasController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit2(Request $request)
+    public function create3(Request $request)
     {
         //
         $validated = $request->validate([
@@ -87,19 +142,13 @@ class PermisoVentasController extends Controller
            
         ]);
         
-        $mes = Carbon::now()->format('m');
-        $annio = Carbon::now();
-        $annio = $annio->format('Y');
+       
                 
         $id = $request->input('fk_id_empleado');
         $empleado = Empleado::findOrFail($id);
-        $individual= RhPermiso::where('fk_id_empleado', 'like', $id)
-        ->where('aprobacion', 'like', 'almacenado')
-        ->where('fk_id_tipo_permiso', 'like', 4)
-        ->whereYear('fechaSolicitudPermiso', '=', $annio)
-        ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+       
     
-        return view('/recursos-humanos-permisos/ventas-rc/crear', compact('empleado', 'individual', 'mes', 'annio'));
+        return view('/recursos-humanos-permisos/ventas-rc/crear', compact('empleado'));
     }
 
     /**

@@ -41,6 +41,17 @@ class LineafijaController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+           
+            'nombreCliente' => 'required',
+            'contacto' => 'required',
+            'fechaDeSolicitud' => 'required',
+            'numeroDeLinea' => 'required',
+            'Direccion' => 'required',  
+            'tipoaveria' => 'required',  
+               
+        ]);
+
          $registrolinea = request()->except('_token');
          RegistroAveria::insert($registrolinea);
         return redirect()->route('solicitud-averia.index');
@@ -117,3 +128,5 @@ class LineafijaController extends Controller
         
     }
 }
+
+

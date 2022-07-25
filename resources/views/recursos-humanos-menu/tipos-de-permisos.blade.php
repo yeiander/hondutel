@@ -27,6 +27,16 @@
                  </button>
           </div>
          @endif
+         @if(Session::has('notiAdministrativo') )
+         <div  style="max-height: 4.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!Error!</h5>
+           <strong>{{Session('notiAdministrativo')}}  </strong>
+        
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+          </div>
+         @endif
         
          @if(Session::has('notiPaseSalidaSemana') )
         
@@ -142,7 +152,7 @@
 
                             
 {{-------------------------- MODAL PASE DE SALIDA --------------------------------------------------------------------------}}
-<div class="modal fade" id="paseSalida" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="paseSalidaLabel" aria-hidden="true">
+<div class="modal fade" id="paseSalida" tabindex="-1" role="dialog" aria-labelledby="paseSalidaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -157,15 +167,17 @@
            
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
-                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Número personal:</label>
+                 <input placeholder="Ingrese un número personal"  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado" required>
                </div>
-             </div>
+            
               <br>
                 <ul class="list-unstyled">
                  <div class="media-body">
                    <input class="btn btn-primary btn-lg btn-block"  type="submit"  class="btn btn-primary" value="Continuar">
                  </div>
+                </ul>
+              </div>
           </form>    
             {{---final formulario para crear un pase de salida----------------}}         
         </div>
@@ -223,8 +235,8 @@
       </div>
         <div class="modal-body">
           {{---inicio de formulario para crear un permiso de ventas--------------}}
-          <form action=" {{url('/recursos-humanos-permisos/ventas-rc/edit2')}} " method="post">
-            @csrf
+          <form action=" {{url('/recursos-humanos-permisos/ventas-rc/create3')}} " method="get">
+            
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
