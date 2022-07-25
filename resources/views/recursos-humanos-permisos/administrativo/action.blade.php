@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <a href="{{ route('administrativo.edit',$data->id) }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">Confirmar</a>
+    <a href="{{ route('administrativo.edit',$data->id) }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">Editar</a>
    
     
     <form id="borrarForm" action=" {{ route('administrativo.destroy',$data->id) }}"  id="MensajeBorrar" method="post">

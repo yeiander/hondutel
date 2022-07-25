@@ -12,6 +12,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Session;
 
 class PerAdminisPendienteController extends Controller
 {
@@ -121,6 +122,8 @@ class PerAdminisPendienteController extends Controller
         RhPermiso::where('id','=', $id)->update($permiso);
 
         // $permiso = RhPermiso::findOrFail($id);
+           
+        Session::flash('notiConfirmado', 'El permiso ha sido almacenado');
         return redirect()->route('administrativo-pendiente.index');
     }
 

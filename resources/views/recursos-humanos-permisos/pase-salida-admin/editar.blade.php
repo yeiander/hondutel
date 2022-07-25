@@ -126,7 +126,7 @@
         <input id="telefonoVendido" value=" {{$permiso->telefonoVendido}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="lineaVendida" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Linea vendida:</span>
         </div>
@@ -268,6 +268,9 @@
         $('#vehiculoDiv').show();
         $('#internetDiv').show();
         $('#telefonoDiv').show();
+        $('#lineaVendida').show();
+        
+
        }
 
 

@@ -94,7 +94,7 @@ Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdmini
 //_________________________________________PERMISO ADMINISTRATIVO (FINAL)______________________________________________________
 
 //_________________________________________PERMISO VENTAS (INICIO)_________________________________________________________
-Route::post('/recursos-humanos-permisos/ventas-rc/edit2', [PermisoVentasController::class, 'edit2']);
+Route::get('/recursos-humanos-permisos/ventas-rc/create3', [PermisoVentasController::class, 'create3']);
 Route::resource('/recursos-humanos-permisos/ventas-rc', PermisoVentasController::class);
 Route::resource('/recursos-humanos-permisos/ventas-pendientes', PerVentasPendienteController::class);
 //_________________________________________PERMISO VENTAS (FINAL)_________________________________________________________

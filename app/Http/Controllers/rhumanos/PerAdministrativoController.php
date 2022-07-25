@@ -50,7 +50,7 @@ class PerAdministrativoController extends Controller
       ->addColumn('action', function ($data) {
      
 
-       return view('/recursos-humanos-permisos/administrativo-pendiente.action', compact('data'));
+       return view('/recursos-humanos-permisos/administrativo.action', compact('data'));
        
 
    })
@@ -209,6 +209,8 @@ class PerAdministrativoController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        return view('/recursos-humanos-permisos/administrativo/editar', compact('permiso'));
     }
 
     /**
@@ -221,6 +223,13 @@ class PerAdministrativoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        // $permiso = RhPermiso::findOrFail($id);
+           
+        Session::flash('notiConfirmado', 'El permiso ha sido almacenado');
+        return redirect()->route('administrativo.index');
     }
 
     /**
@@ -232,5 +241,8 @@ class PerAdministrativoController extends Controller
     public function destroy($id)
     {
         //
+
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('administrativo.index');
     }
 }
