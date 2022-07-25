@@ -18,7 +18,6 @@
                        <tr>          
                          <th style="color: #fff;">Descripcion</th>
                          <th style="color: #fff;">Direccion</th>
-                         <th style="color: #fff;">GPS armario</th>
                          <th style="color: #fff;">Acciones</th>                        
                         
                         </tr>
@@ -78,10 +77,7 @@ $(document).ready(function(){
      data:'barrio',
      name:'barrio'
     },
-    {
-     data:'gps_armario',
-     name:'gps_armario'
-    },
+   
     {
      data:'action',
      name:'action'

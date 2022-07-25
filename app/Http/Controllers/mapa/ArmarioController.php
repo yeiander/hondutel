@@ -117,6 +117,8 @@ class ArmarioController extends Controller
      */
     public function destroy($id)
     {
+        Armario::find($id)->delete();
+        return redirect()->route('armario.index');
         //
     }
 }
