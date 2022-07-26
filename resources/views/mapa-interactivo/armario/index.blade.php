@@ -3,7 +3,7 @@
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">armarios almacenados:</h5>
+        <h5 class="page__heading">Armarios Almacenados:</h5>
       </div>
       
       <div class="section-body">
@@ -18,9 +18,7 @@
                        <tr>          
                          <th style="color: #fff;">Descripcion</th>
                          <th style="color: #fff;">Direccion</th>
-                         <th style="color: #fff;">GPS armario</th>
-                         <th style="color: #fff;">Acciones</th>
-                         
+                         <th style="color: #fff;">Acciones</th>                        
                         
                         </tr>
                       </thead>
@@ -79,10 +77,7 @@ $(document).ready(function(){
      data:'barrio',
      name:'barrio'
     },
-    {
-     data:'gps_armario',
-     name:'gps_armario'
-    },
+   
     {
      data:'action',
      name:'action'
