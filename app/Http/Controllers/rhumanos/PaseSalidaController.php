@@ -8,7 +8,6 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 //agregare para el control de usuarios con Spatie:
 use Spatie\Permission\Models\Role;
-
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -253,8 +252,7 @@ class PaseSalidaController extends Controller
 
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-
-        // $permiso = RhPermiso::findOrFail($id);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
         return redirect()->route('pase-salida.index');
     
     }
@@ -284,6 +282,7 @@ class PaseSalidaController extends Controller
     {
         //
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('pase-salida.index');
     }
 }

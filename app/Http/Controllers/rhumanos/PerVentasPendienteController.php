@@ -26,7 +26,7 @@ class PerVentasPendienteController extends Controller
         // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado',)->where('fk_id_tipo_permiso','like','4');
         // return view('/recursos-humanos-permisos/ventas-pendientes/index', compact('permisos'));
 
-        if(request()->ajax())
+       if(request()->ajax())
         {
        if(!empty($request->from_date))
         {

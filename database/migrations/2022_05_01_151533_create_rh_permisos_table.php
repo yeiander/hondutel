@@ -44,7 +44,7 @@ class CreateRhPermisosTable extends Migration
             $table->date('fechaInicioIncapacidad')->nullable();
             $table->date('fechafinalIncapacidad')->nullable();
             $table->string('totalDiasIncapacidad')->nullable();
-            $table->string('hss')->nullable();
+            $table->string('ihss')->nullable();
             $table->date('fechaInicioSubsidio')->nullable();
             $table->date('fechaFinalSubsidio')->nullable();
             $table->string('totalDiassubsidio')->nullable();

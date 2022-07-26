@@ -12,6 +12,25 @@
             <div class="card">
               <div class="card-body">
 
+     @if(Session::has('notiAprobado') )
+      <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+        <h5 class="alert-heading">!Aprobado!</h5>
+          <strong>{{Session('notiAprobado')}}  </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       @endif
+
+       @if(Session::has('notiBorrado') )
+      <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h5 class="alert-heading">!Eliminado!</h5>
+          <strong>{{Session('notiBorrado')}}  </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       @endif
                             {{-- inicio --}}
 
                             {{-- <center>

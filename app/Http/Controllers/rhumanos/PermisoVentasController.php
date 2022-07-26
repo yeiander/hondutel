@@ -23,11 +23,41 @@ class PermisoVentasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado',)->where('fk_id_tipo_permiso','like','1');
-        return view('/recursos-humanos-permisos/ventas-rc', compact('permisos'));
+      
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'almacenado')
+           ->where('fk_id_tipo_permiso', 'like', 4)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 4)
+           ->where('aprobacion', 'like', 'almacenado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/ventas-rc.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          return view('/recursos-humanos-permisos/ventas-rc.index');
+        
     }
 
     /**
@@ -160,6 +190,9 @@ class PermisoVentasController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        
+        return view('/recursos-humanos-permisos/pase-salida/editar', compact('permiso'));
     }
 
     /**
@@ -172,6 +205,11 @@ class PermisoVentasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        // $permiso = RhPermiso::findOrFail($id);
+        return redirect()->route('ventas-rc.index');
     }
 
     /**
@@ -183,5 +221,8 @@ class PermisoVentasController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        return redirect()->route('ventas-rc.index');
+
     }
 }

@@ -54,6 +54,15 @@
                                  <p>Consultar permisos personales</p>
                                 </div>
                               </li>
+
+                              <ul class="list-unstyled ">
+                                <li class="media my-4">
+                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                  <div class="media-body">
+                                    <a href="{{ route('ventas-rc.index') }}"><h5 class="mt-0 mb-1">Permiso de ventas</h5></a>
+                                   <p>Consultar permisos de ventas</p>
+                                  </div>
+                                </li>
                                     {{-- fin --}}
                                   </div>
                                 </div>
