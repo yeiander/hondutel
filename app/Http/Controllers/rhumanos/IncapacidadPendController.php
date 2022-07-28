@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\rhumanos;
 
 use App\Http\Controllers\Controller;
+use App\Models\RhPermiso;
 use Illuminate\Http\Request;
+
 
 class IncapacidadPendController extends Controller
 {
@@ -12,9 +14,39 @@ class IncapacidadPendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'aprobado')
+           ->where('fk_id_tipo_permiso', 'like', 3)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 5)
+           ->where('aprobacion', 'like', 'aprobado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/administrativo-pendiente.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+        
         return view('/recursos-humanos-permisos/incapacidad-pendiente/index');
     }
 
