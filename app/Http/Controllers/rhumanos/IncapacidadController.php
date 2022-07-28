@@ -15,9 +15,41 @@ class IncapacidadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'almacenado')
+           ->where('fk_id_tipo_permiso', 'like', 5)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 5)
+           ->where('aprobacion', 'like', 'almacenado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/incapacidad.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+        
+      
+        return view('/recursos-humanos-permisos/incapacidad/index');
     }
 
     /**
@@ -128,6 +160,8 @@ class IncapacidadController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        return view('/recursos-humanos-permisos/incapacidad/editar', compact('permiso'));
     }
 
     /**
@@ -140,6 +174,10 @@ class IncapacidadController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
+        return redirect()->route('incapacidad.index');
     }
 
     /**

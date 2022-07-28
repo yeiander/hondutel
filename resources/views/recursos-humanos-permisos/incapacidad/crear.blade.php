@@ -58,7 +58,7 @@
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación :</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
                                         </div>
                                         <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>

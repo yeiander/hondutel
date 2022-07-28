@@ -54,6 +54,7 @@
                                  <p>Consultar permisos personales</p>
                                 </div>
                               </li>
+                            </ul>
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
@@ -63,6 +64,17 @@
                                    <p>Consultar permisos de ventas</p>
                                   </div>
                                 </li>
+                              </ul>
+
+                                <ul class="list-unstyled ">
+                                  <li class="media my-4">
+                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                    <div class="media-body">
+                                      <a href="{{ route('incapacidad.index') }}"><h5 class="mt-0 mb-1">Permisos de Icapacidad</h5></a>
+                                     <p>Consultar permisos de incapacidad</p>
+                                    </div>
+                                  </li>
+                                </ul>
                                     {{-- fin --}}
                                   </div>
                                 </div>

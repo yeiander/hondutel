@@ -3,7 +3,7 @@
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">Permisos administrativos aprobados:</h5>
+        <h5 class="page__heading">Permisos de incapacidad aprobados:</h5>
       </div>
       
       <div class="section-body">
@@ -12,8 +12,28 @@
             <div class="card">
               <div class="card-body">
 
+                @if(Session::has('notiAlmacenado') )
+      <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+        <h5 class="alert-heading">!Almacenado!</h5>
+          <strong>{{Session('notiAlmacenado')}}  </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       @endif
+
+       @if(Session::has('notiBorrado') )
+       <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <h5 class="alert-heading">!Eliminado!</h5>
+           <strong>{{Session('notiBorrado')}}  </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        @endif
+
                 <div class="alert alert-danger" role="alert">
-                  <h6>Requieren confirmar la hora de entrada real</h6>
+                  <h6>Requieren ser almacenados</h6>
                 </div>
 
                 @if(Session::has('notiConfirmado') )
@@ -49,13 +69,14 @@
                                     <tr>
                                         
                                       <th style="color: #fff;">Nombre</th>
-                                      <th style="color: #fff;">Hora salida</th>
-                                      <th style="color: #fff;">Hora entrada(aprox)</th>
-                                      <th style="color: #fff;">Hora entrada(real)</th>
-                                      <th style="color: #fff;">Motivo</th>
-                                      <th style="color: #fff;">fecha Solicitud</th>
-                                      <th style="color: #fff;">Creado por:</th>
-                                      <th style="color: #fff;">Aprobado por:</th>
+                                      <th style="color: #fff;">Certificado</th>
+                                      <th style="color: #fff;">Afiliación</th>
+                                      <th style="color: #fff;">Enfermedad:</th>
+                                      <th style="color: #fff;">Fecha de solicitud:</th>
+                                      <th style="color: #fff;">Fecha de inicio</th>
+                                      <th style="color: #fff;">Fecha de finalización</th>
+                                      <th style="color: #fff;">Total de dias</th>
+                                      <th style="color: #fff;">Aprobado por</th>
                                       <th style="color: #fff;">Acciones</th>
                                     </tr>
                                 </thead>
@@ -123,29 +144,33 @@
              name:'empleados.nombreEmpleado'
             },
             {
-             data:'horaSalida',
-             name:'horaSalida'
+             data:'numCertificadoIncapacidad',
+             name:'numCertificadoIncapacidad'
             },
            
             {
-             data:'horaEntradaAproximada',
-             name:'horaEntradaAproximada'
-            },
-            {
-             data:'horaEntradaReal',
-             name:'horaEntradaReal'
+             data:'numAfiliacionIncapacidad',
+             name:'numAfiliacionIncapacidad'
             },
             {
              data:'motivoTrabajoEnfermedad',
              name:'motivoTrabajoEnfermedad'
             },
             {
-             data:'lugarSolicitudPermiso',
-             name:'lugarSolicitudPermiso'
+             data:'fechaSolicitudPermiso',
+             name:'fechaSolicitudPermiso'
             },
             {
-             data:'nombreQuienCreo',
-             name:'nombreQuienCreo'
+             data:'fechaInicioIncapacidad',
+             name:'fechaInicioIncapacidad'
+            },
+            {
+             data:'fechafinalIncapacidad',
+             name:'fechafinalIncapacidad'
+            },
+            {
+             data:'totalDiasIncapacidad',
+             name:'totalDiasIncapacidad'
             },
             {
              data:'nombreQuienAprobo',

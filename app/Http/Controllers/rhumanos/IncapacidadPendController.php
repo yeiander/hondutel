@@ -5,6 +5,7 @@ namespace App\Http\Controllers\rhumanos;
 use App\Http\Controllers\Controller;
 use App\Models\RhPermiso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 
 class IncapacidadPendController extends Controller
@@ -23,7 +24,7 @@ class IncapacidadPendController extends Controller
         {
          $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
            ->where('aprobacion', 'like', 'aprobado')
-           ->where('fk_id_tipo_permiso', 'like', 3)
+           ->where('fk_id_tipo_permiso', 'like', 5)
            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
          }
         else
@@ -38,7 +39,7 @@ class IncapacidadPendController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/recursos-humanos-permisos/administrativo-pendiente.action', compact('data'));
+           return view('/recursos-humanos-permisos/incapacidad-pendiente.action', compact('data'));
            
 
        })
@@ -103,6 +104,10 @@ class IncapacidadPendController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiAlmacenado', 'El permiso ha sido almacenado');
+        return redirect()->route('incapacidad-pendiente.index');
     }
 
     /**
@@ -114,5 +119,8 @@ class IncapacidadPendController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('incapacidad-pendiente.index');
     }
 }
