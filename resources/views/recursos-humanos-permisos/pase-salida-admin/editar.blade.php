@@ -83,20 +83,7 @@
         <input id="horaSalida" value=" {{$permiso->motivoTrabajoEnfermedad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div id="fechaSolicitudDiv" style="display: none" class="input-group mb-2">
-        <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha del permiso:</span>
-        </div>
-        <input id="fechaSolicitudPermiso" value=" {{$permiso->fechaSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
-      </div>
-
-
-      <div id="lugarDiv" style="display: none" class="input-group mb-2">
-        <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Lugar del permiso:</span>
-        </div>
-        <input id="lugarSolicitudPermiso" value=" {{$permiso->lugarSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
-      </div>
+     
 
       <div style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
@@ -133,46 +120,46 @@
         <input id="lineaVendida" value=" {{$permiso->lineaVendida}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="divCertificado" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Certificado de incapacidad:</span>
         </div>
         <input id="numCertificadoIncapacidad" value=" {{$permiso->numCertificadoIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="divAfiliacion" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliacion:</span>
         </div>
         <input id="numAfiliacionIncapacidad" value=" {{$permiso->numAfiliacionIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="divInicioIncapacidad" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio de incapacidad:</span>
         </div>
         <input id="fechaInicioIncapacidad" value=" {{$permiso->fechaInicioIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
         
-      <div style="display: none" class="input-group mb-2">
+      <div id="divFinalIncapacidad" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha final de incapacidad:</span>
         </div>
         <input id="fechafinalIncapacidad" value=" {{$permiso->fechafinalIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="divDiasIncapacidad" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total dias de incapacidad:</span>
         </div>
         <input id="totalDiasIncapacidad" value=" {{$permiso->totalDiasIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-      <div style="display: none" class="input-group mb-2">
+      <div id="divIHSS" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">hss FALTA PREGUNTAR:</span>
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">IHSS:</span>
         </div>
-        <input id="hss" value=" {{$permiso->hss}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+        <input id="hss" value=" {{$permiso->ihss}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="input-group mb-2">
@@ -180,6 +167,21 @@
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Creado por:</span>
         </div>
         <input id="fk_id_user" value=" {{$permiso->nombreQuienCreo}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="fechaSolicitudDiv" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha del permiso:</span>
+        </div>
+        <input id="fechaSolicitudPermiso" value=" {{$permiso->fechaSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+
+      <div id="lugarDiv" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Lugar del permiso:</span>
+        </div>
+        <input id="lugarSolicitudPermiso" value=" {{$permiso->lugarSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
          <input class="form-control" type="hidden" name="aprobacion"  id="aprobacion" value="aprobado">
@@ -269,6 +271,19 @@
         $('#internetDiv').show();
         $('#telefonoDiv').show();
         $('#lineaVendida').show();
+        
+
+       }
+       else if(tipoDePermiso == 5){
+        $('#divCertificado').show();
+        $('#divAfiliacion').show();
+        $('#divInicioIncapacidad').show();
+        $('#divFinalIncapacidad').show(); 
+        $('#fechaSolicitudDiv').show();
+        $('#lugarDiv').show();
+        $('#divDiasIncapacidad').show();
+        $('#divIHSS').show();
+      
         
 
        }

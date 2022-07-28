@@ -26,6 +26,10 @@
         <a href="{{ route('ventas-pendientes.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
           Ventas <span class="badge badge-light">{{ $permisoVenta }}</span>
         </a>
+
+        <a href="{{ route('incapacidad-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
+          Incapacidades <span class="badge badge-light">{{ $permisoIncapacidad }}</span>
+        </a>
         {{-- final de estadisticas --}}
 
       </div>

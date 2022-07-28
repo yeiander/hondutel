@@ -15,6 +15,7 @@ class IncapacidadPendController extends Controller
     public function index()
     {
         //
+        return view('/recursos-humanos-permisos/incapacidad-pendiente/index');
     }
 
     /**

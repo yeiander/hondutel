@@ -6,7 +6,7 @@
         </div>
         <div class="section-body">
             
-            <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
+            <center><h4 id="paseSalidaMensaje">Crear un permiso de incapacidad:</h4></center>
             
         
         
@@ -32,10 +32,10 @@
          </button>
     </div>
   @endif
-                                            {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
+                                            {{-- FORMULARIO PARA CREAR UN PERMISO DE INCAPACIDAD  --}}
 
                                          
-                               <form id="form" action=" {{url('/recursos-humanos-permisos/pase-salida')}} " method="post">
+                               <form id="form" action=" {{url('/recursos-humanos-permisos/incapacidad')}} " method="post">
                                  @csrf
   
                                  <div class="container">
@@ -44,77 +44,72 @@
                                      {{-- INICIO --}}
                                      <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero personal:</span>
                                         </div>
-                                        <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="fk_id_empleado" name="fk_id_empleado"  style="font-weight:bold;" type="text" class="form-control" readonly value="{{ $empleado->id }}" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de certificado:</span>
                                         </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación :</span>
                                         </div>
-                                        <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Nombre completo:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Tipo de enfermedad:</span>
                                         </div>
-                                        <input style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="motivoTrabajoEnfermedad" name="motivoTrabajoEnfermedad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de identidad:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
                                         </div>
-                                        <input style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="fechaSolicitudPermiso" name="fechaSolicitudPermiso"  style="font-weight:bold;" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
+
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
                                        {{-- INICIO --}}
+                                       <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
+                                        </div>
+                                        <input style="font-weight:bold;" id="fechaInicioIncapacidad" name="fechaInicioIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
+                                        </div>
+                                        <input style="font-weight:bold;" id="fechafinalIncapacidad" name="fechafinalIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      </div>
 
                                        <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Area de Trabajo:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total de dias:</span>
                                         </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="totalDiasIncapacidad" name="totalDiasIncapacidad" style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">CPU/IHSS:</span>
                                         </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+                                        <input id="ihss"  name="ihss" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
-                                        </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
-                                        </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Telefono de emergencia:</span>
-                                        </div>
-                                        <input id="telefonoEmergencia"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
-                                      </div>
+                                      
                                      {{-- FIN --}}
                                     </div>
                                   </div>
