@@ -73,7 +73,7 @@
                            <div class="col-sm">
                                     {{-- columna 1 --}}
                                     
-                             <ul class="list-unstyled ">
+                             <ul class="list-unstyled">
                                <li class="media my-4">
                                  <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                   <div class="media-body">
@@ -84,7 +84,7 @@
                                </li>
                              </ul>
 
-                               <ul class="list-unstyled ">
+                               <ul class="list-unstyled">
                                 <li class="media my-4">
                                     <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoPersonal" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                   <div class="media-body">
@@ -95,7 +95,7 @@
                                 </li>
                                </ul>
 
-                              <ul class="list-unstyled ">
+                              <ul class="list-unstyled">
                                 <li class="media my-4">
                                   <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoAdministrativo" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                     <div class="media-body">
@@ -106,7 +106,7 @@
                                 </li>
                               </ul>
 
-                                <ul class="list-unstyled ">
+                                <ul class="list-unstyled">
                                   <li class="media my-4">
                                       <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#permisoVentas"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
                                     <div class="media-body">
@@ -121,7 +121,7 @@
                                   <div class="col-sm">
                                     {{-- segunda Columna --}}
            
-                                    <ul class="list-unstyled ">
+                                    <ul class="list-unstyled">
                                       <li class="media my-4">
                                           <a href="" data-toggle="modal" data-target="#incapacidad"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                         <div class="media-body">
@@ -132,13 +132,13 @@
                                       </li>
                                     </ul>
 
-                                    <ul class="list-unstyled ">
+                                    <ul class="list-unstyled">
                                       <li class="media my-4">
-                                          <a href="" data-toggle="modal" data-target="#permisoVentas"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
+                                          <a href="" data-toggle="modal" data-target="#subsidio"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                         <div class="media-body">
-                                          <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
-                                            <h5>Permiso de Incapacidad</h5></a>
-                                               <p>Crear un permiso de incapacidad</p>
+                                          <a type="button" href="" data-toggle="modal" data-target="#subsidio">
+                                            <h5>Pago de subsidio </h5></a>
+                                               <p>Crear un Pago de subsidio </p>
                                         </div>
                                       </li>
                                     </ul>
@@ -330,6 +330,42 @@
   </div>
 {{-------------------------- FINAL MODAL INCAPACIDAD -----------------------------------------------------------------}}
 
+{{-------------------------- MODAL SUBSIDIO --------------------------------------------------------------------------}}
+<div class="modal fade" id="subsidio" tabindex="-1" role="dialog" aria-labelledby="paseSalidaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="paseSalidaLabel">Pago de subsidio</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+        <div class="modal-body">
+          {{---inicio formulario para crear una pago subsidio--------------}}
+          <form action=" {{url('/recursos-humanos-permisos/subsidio/create5')}} " method="get">
+           
+             <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="form-group">
+                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Número personal:</label>
+                 <input placeholder="Ingrese un número personal"  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado" required>
+               </div>
+            
+              <br>
+                <ul class="list-unstyled">
+                 <div class="media-body">
+                   <input class="btn btn-primary btn-lg btn-block"  type="submit"  class="btn btn-primary" value="Continuar">
+                 </div>
+                </ul>
+              </div>
+          </form>    
+            {{---final formulario para crear pago subsidio---------------}}         
+        </div>
+         <div class="modal-footer">
+           </div>
+      </div>
+    </div>
+  </div>
+{{-------------------------- FINAL MODAL SUBSIDIO -----------------------------------------------------------------}}
                             {{-- final --}}
                         </div>
                     </div>

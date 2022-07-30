@@ -7,7 +7,6 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Controllers\rhumanos\PaseSalidaController;
 use App\Http\Controllers\rhumanos\PaseSalidaAdminController;
 use App\Http\Controllers\rhumanos\PaseSalidaPendienteController;
@@ -19,6 +18,8 @@ use App\Http\Controllers\rhumanos\PermisoVentasController;
 use App\Http\Controllers\rhumanos\PerVentasPendienteController;
 use App\Http\Controllers\rhumanos\IncapacidadController;
 use App\Http\Controllers\rhumanos\IncapacidadPendController;
+use App\Http\Controllers\rhumanos\SubsidioController;
+use App\Http\Controllers\rhumanos\SubsidioPendController;
 
 use App\Http\Controllers\atencionCliente\RegistroAveriaController;
 use App\Http\Controllers\atencionCliente\RegistroventaController;
@@ -104,6 +105,11 @@ Route::resource('/recursos-humanos-permisos/incapacidad', IncapacidadController:
 Route::resource('/recursos-humanos-permisos/incapacidad-pendiente', IncapacidadPendController::class);
 //_________________________________________PERMISO DE INCAPACIDAD (FINAL)________________________________________________
 
+//_________________________________________PERMISO SUBSIDIO (INICIO)________________________________________________
+Route::get('/recursos-humanos-permisos/subsidio/create5', [SubsidioController::class, 'create5']);
+Route::resource('/recursos-humanos-permisos/subsidio', SubsidioController::class);
+Route::resource('/recursos-humanos-permisos/subsidio-pendiente', SubsidioPendController::class);
+//_________________________________________PERMISO SUBSIDIO (FINAL)________________________________________________
 
 //_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________
 Route::get('/atencion-al-cliente/menu', [App\Http\Controllers\atencionCliente\MenuatencionclienteController::class, 'menuatencion'])->name('menu');
