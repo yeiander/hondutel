@@ -75,6 +75,16 @@
                                     </div>
                                   </li>
                                 </ul>
+
+                                <ul class="list-unstyled ">
+                                  <li class="media my-4">
+                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                    <div class="media-body">
+                                      <a href="{{ route('subsidio.index') }}"><h5 class="mt-0 mb-1">Pagos de subsidio</h5></a>
+                                     <p>Consultar pagos de subsidio</p>
+                                    </div>
+                                  </li>
+                                </ul>
                                     {{-- fin --}}
                                   </div>
                                 </div>

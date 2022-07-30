@@ -36,7 +36,6 @@
    @csrf   
    {{ method_field('PATCH')}}   
    
-   
   
  <div class="container">
 
@@ -82,8 +81,6 @@
         </div>
         <input id="horaSalida" value=" {{$permiso->motivoTrabajoEnfermedad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
-
-     
 
       <div style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
@@ -162,6 +159,48 @@
         <input id="hss" value=" {{$permiso->ihss}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
+      <div id="divSueldoBase" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Sueldo base:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->sueldoBaseSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="divFechaInicioSubsidio" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->fechaInicioSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="divFechaFinalSubsidio" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->fechaFinalSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="divDiasSubsidio" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Dias de incapacidad:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->totalDiassubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="divDiasSubsidioPagar" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Dias a pagar:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->DiasPagarSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div id="divObservacion" style="display: none" class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Observación:</span>
+        </div>
+        <input id="hss" value=" {{$permiso->ObservacionesSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+
       <div class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Creado por:</span>
@@ -176,7 +215,6 @@
         <input id="fechaSolicitudPermiso" value=" {{$permiso->fechaSolicitudPermiso}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
-
       <div id="lugarDiv" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Lugar del permiso:</span>
@@ -185,22 +223,8 @@
       </div>
 
          <input class="form-control" type="hidden" name="aprobacion"  id="aprobacion" value="aprobado">
-        
-     
-     <input type = "hidden" name="nombreQuienAprobo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
-
-     
-
-      
-        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-        <ul class="list-unstyled">
   
-            <div class="media-body">
-              
-      <button  type="submit"  class="btn btn-primary" value="Aprobar">Aprobar</button>
-           
-    </div> --}}
-
+     <input type = "hidden" name="nombreQuienAprobo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
 <hr>
     <div class="col-xs-12 col-sm-12 col-md-12">
       
@@ -215,14 +239,9 @@
 
   </div>
  </form>
-
-
-                              
-                                 
-                                
+  
                             {{-- final --}}
 
-                            
                         </div>
                     </div>
                 </div>
@@ -283,9 +302,18 @@
         $('#lugarDiv').show();
         $('#divDiasIncapacidad').show();
         $('#divIHSS').show();
-      
-        
+       }
 
+       else if(tipoDePermiso == 6){
+        $('#divCertificado').show();
+        $('#divAfiliacion').show();
+        $('#divSueldoBase').show();
+        $('#divFechaInicioSubsidio').show();
+        $('#divFechaFinalSubsidio').show();
+        $('#divDiasSubsidio').show(); 
+        $('#divDiasSubsidioPagar').show(); 
+        $('#fechaSolicitudDiv').show();
+        $('#divObservacion').show();
        }
 
 

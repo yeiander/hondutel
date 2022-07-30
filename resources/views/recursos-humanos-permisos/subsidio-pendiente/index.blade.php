@@ -3,7 +3,7 @@
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">Pagos de subsidio almacenados:</h5>
+        <h5 class="page__heading">Pagos de subsidio aprobados:</h5>
       </div>
       
       <div class="section-body">
@@ -32,6 +32,9 @@
         </div>
         @endif
 
+                <div class="alert alert-danger" role="alert">
+                  <h6>Requieren ser almacenados</h6>
+                </div>
 
                 @if(Session::has('notiConfirmado') )
                 <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -43,7 +46,7 @@
            </div>
           @endif
                             {{-- inicio --}}
-                            <center>
+                            {{-- <center>
                             <div id="input-daterange" class="row input-daterange">
                               <div class="col-md-2">
                                   <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="Del" readonly />
@@ -60,7 +63,7 @@
                                 </div>
                           </div>
                           <hr>
-                        </center>
+                        </center> --}}
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
@@ -130,7 +133,7 @@
            bDestroy: true,
            autoWidth: true,
            ajax: {
-            url:'{{ route("subsidio.index") }}',
+            url:'{{ route("subsidio-pendiente.index") }}',
             data:{from_date:from_date, to_date:to_date}
            },
            columns: [

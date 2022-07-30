@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\rhumanos;
 
 use App\Http\Controllers\Controller;
+use App\Models\RhPermiso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SubsidioPendController extends Controller
 {
@@ -12,9 +14,41 @@ class SubsidioPendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('aprobacion', 'like', 'aprobado')
+           ->where('fk_id_tipo_permiso', 'like', 6)
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+           ->where('fk_id_tipo_permiso', 'like', 6)
+           ->where('aprobacion', 'like', 'aprobado');
+           
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/recursos-humanos-permisos/subsidio-pendiente.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+        
+     
+        return view('/recursos-humanos-permisos/subsidio-pendiente/index');
     }
 
     /**
@@ -70,6 +104,10 @@ class SubsidioPendController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiAlmacenado', 'El permiso ha sido almacenado');
+        return redirect()->route('subsidio-pendiente.index');
     }
 
     /**
@@ -81,5 +119,8 @@ class SubsidioPendController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('subsidio-pendiente.index');
     }
 }

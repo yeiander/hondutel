@@ -111,7 +111,7 @@
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Observacion:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Observación:</span>
                                         </div>
                                         <input id="ObservacionesSubsidio"  name="ObservacionesSubsidio" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>

@@ -30,6 +30,10 @@
         <a href="{{ route('incapacidad-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
           Incapacidades <span class="badge badge-light">{{ $permisoIncapacidad }}</span>
         </a>
+
+        <a href="{{ route('subsidio-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
+          Pago de subsidio <span class="badge badge-light">{{ $permisoSubsidio }}</span>
+        </a>
         {{-- final de estadisticas --}}
 
       </div>
