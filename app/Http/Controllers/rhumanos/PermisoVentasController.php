@@ -82,13 +82,6 @@ class PermisoVentasController extends Controller
     public function store(Request $request)
     {
        
-       
-        // $datosPaseSalida = request()->all();$
-        // $datosPermisoVentas = request()->except('_token');
-        // RhPermiso::insert($datosPermisoVentas);
-        // $permisos = RhPermiso::all();
-        // return redirect()->route('recursos_humanos');
-
         $validated = $request->validate([
             
            
@@ -97,12 +90,13 @@ class PermisoVentasController extends Controller
             'motivoTrabajoEnfermedad' => 'required',
             'fechaSolicitudPermiso' => 'required',
             'lugarSolicitudPermiso' => 'required',
+            'vehiculoDescripcion' => 'required',
+            'lineaVendida' => 'required',
+            'telefonoVendido' => 'required',
+            'internetVendido' => 'required'
         ]);
 
-        
-      
         $id = $request->input('fk_id_empleado');
-   
         $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
         ->where('aprobacion', 'like', 'pendiente')
         ->where('fk_id_tipo_permiso', 'like', 4)->count();
@@ -113,7 +107,7 @@ class PermisoVentasController extends Controller
 
        
              return redirect()->route('recursos-h-tipos-de-permisos'); 
-            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+          
         }
 
         else {
@@ -137,9 +131,6 @@ class PermisoVentasController extends Controller
         Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
         }
-
-
-
 
 
     }
@@ -167,9 +158,7 @@ class PermisoVentasController extends Controller
             
             
             'fk_id_empleado' => 'required|exists:empleados,id',
-            
-            
-           
+     
         ]);
         
        

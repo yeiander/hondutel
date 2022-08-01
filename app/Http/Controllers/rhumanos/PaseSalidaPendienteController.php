@@ -116,6 +116,11 @@ class PaseSalidaPendienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $validated = $request->validate([
+            'horaEntradaReal' => 'required',
+            
+        ]);
         
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);

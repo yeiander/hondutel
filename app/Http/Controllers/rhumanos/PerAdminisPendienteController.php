@@ -137,6 +137,7 @@ class PerAdminisPendienteController extends Controller
     {
         //
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('administrativo-pendiente.index');
     }
 }

@@ -7,7 +7,7 @@
             <button onclick="return confirmarFunction()" style="margin-right: 0.3rem" type="submit" class="btn btn-primary btn-sm formulario-eliminar">Almacenar</button>
            
 </form>
-    <form id="borrarForm" action=" {{ route('pase-salida.destroy',$data->id) }}"  id="MensajeBorrar" method="post">
+    <form id="borrarForm" action=" {{ route('p-personal-pendiente.destroy',$data->id) }}"  id="MensajeBorrar" method="post">
         @method('DELETE')
         @csrf
         <button onclick="return DeleteFunction()" type="submit" class="btn btn-danger btn-sm formulario-eliminar">Eliminar</button>

@@ -35,9 +35,7 @@
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
                       @csrf
-                        
-                                 
-                                 
+
                         <div class="container">
                           <div class="row">
                             <div class="col-sm">
@@ -53,30 +51,28 @@
                              <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida">Hora de salida:</label>
-                                <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
+                                <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida" required>
                               </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                 <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaEntradaAproximada">Hora de entrada (aproximada):</label> 
-                               <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada">
+                               <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada" required>
                               </div>
                            </div>
-
-                           
 
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Trabajo a realizar:</label>
-                               <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad">
+                               <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                              </div>
                           </div>
 
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="vehiculoDescripcion">descripcion del vehiculo:</label>
-                               <input style="font-size:14px;" class="form-control" type="text" name="vehiculoDescripcion" id="vehiculoDescripcion">
+                               <input style="font-size:14px;" class="form-control" type="text" name="vehiculoDescripcion" id="vehiculoDescripcion" required>
                              </div>
                           </div>
                               {{-- final --}}
@@ -109,7 +105,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="internetVendido">Internet vendido:</label>
-                               <select class="form-control" id="internetVendido" name="internetVendido">
+                               <select class="form-control" id="internetVendido" name="internetVendido" required> 
                                 <option value="">no</option>
                                    <option value="si">si</option>
                                  
@@ -117,13 +113,11 @@
                               </div>
                             </div>
 
-                            
-                           
-
+             
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group"> 
                                 <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso">Fecha de solicitud</label>
-                                <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                             </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

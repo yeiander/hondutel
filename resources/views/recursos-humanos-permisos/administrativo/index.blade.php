@@ -11,6 +11,26 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
+
+                @if(Session::has('notiConfirmado') )
+                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                 <h5 class="alert-heading">!Editado!</h5>
+                  <strong>{{Session('notiConfirmado')}}  </strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+           </div>
+          @endif
+
+          @if(Session::has('notiBorrado') )
+          <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h5 class="alert-heading">!Eliminado!</h5>
+              <strong>{{Session('notiBorrado')}}  </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+           </div>
+           @endif
                             {{-- inicio --}}
                             <center>
                             <div id="input-daterange" class="row input-daterange">
@@ -70,10 +90,6 @@
       }
 
   </script> 
-
-
-  
-   
     <script>
 
         $(document).ready(function(){
@@ -81,11 +97,10 @@
           todayBtn:'linked',
           format:'yyyy-mm-dd',
           language: 'es',
-          autoclose:true
+          autoclose:true  
          });
         
          load_data();
-        
          function load_data(from_date = '', to_date = '')
          {
           $('#permisoPersonal').DataTable({
@@ -144,8 +159,6 @@
              name:'action'
             },
             
-            
-        
            ],
           
         
@@ -175,9 +188,7 @@
         
         });
             
-                                    </script>
+     </script>
 
-          
-        
-@endsection
+  @endsection
 @endsection

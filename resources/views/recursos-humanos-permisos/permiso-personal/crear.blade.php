@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div id="mensajeError" style="display: none">
-                      <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
+                      <center><h4>agotaste el numero de horas para este mes</h4></center>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
          $('#botonGuardar').hide();
          $('#form').hide();
          $('#mensajeError').show();
-            var textoMensaje = "Pase de Salida";
+            var textoMensaje = "Permiso personal";
             var mensaje = document.getElementById("permisoPersonalMensaje");
             mensaje.innerHTML = textoMensaje;
     }

@@ -133,11 +133,6 @@ class PaseSalidaController extends Controller
 
         else{
 
-        // $datosPaseSalida = request()->except('_token');
-        // RhPermiso::insert($datosPaseSalida);
-        // $permisos = RhPermiso::all();
-        // Session::flash('notiEnviado', 'El permiso ha sido enviado');
-        // return redirect()->route('recursos_humanos');
         $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
         $permiso->semanaSolicitudPermiso = $semanaNum;

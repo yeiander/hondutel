@@ -226,9 +226,7 @@ class PerAdministrativoController extends Controller
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
 
-        // $permiso = RhPermiso::findOrFail($id);
-           
-        Session::flash('notiConfirmado', 'El permiso ha sido almacenado');
+        Session::flash('notiConfirmado', 'El permiso ha sido editado');
         return redirect()->route('administrativo.index');
     }
 
@@ -243,6 +241,7 @@ class PerAdministrativoController extends Controller
         //
 
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('administrativo.index');
     }
 }

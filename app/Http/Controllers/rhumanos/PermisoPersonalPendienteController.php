@@ -105,7 +105,7 @@ class PermisoPersonalPendienteController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-        Session::flash('notiAprobado', 'El permiso ha sido almacenado');
+        Session::flash('notiAlmacenado', 'El permiso ha sido almacenado');
         return redirect()->route('p-personal-pendiente.index');
     }
 
@@ -118,5 +118,8 @@ class PermisoPersonalPendienteController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('p-personal-pendiente.index');
     }
 }

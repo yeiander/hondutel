@@ -27,6 +27,7 @@
                  </button>
           </div>
          @endif
+
          @if(Session::has('notiAdministrativo') )
          <div  style="max-height: 4.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!Error!</h5>
@@ -43,6 +44,19 @@
          <div  style="max-height: 4.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!pases de salida agotados!</h5>
            <strong>{{Session('notiPaseSalidaSemana')}}  </strong>
+        
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+          </div>
+          <hr>
+         @endif
+
+         @if(Session::has('notiPermisoPersonalMes') )
+        
+         <div  style="max-height: 4.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!Permisos personales agotados!</h5>
+           <strong>{{Session('notiPermisoPersonalMes')}}  </strong>
         
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
