@@ -33,7 +33,7 @@
 @endif
                             
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
-                     <form action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
+                     <form id="form" action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
                       @csrf
 
                         <div class="container">
@@ -83,9 +83,10 @@
                              <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lineatVendida">Linea unificada vendida:</label>
-                               <select class="form-control" id="lineaVendida" name="lineaVendida">
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                               <select class="form-control" id="lineaVendida" name="lineaVendida" required>
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
@@ -94,9 +95,10 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoVendido">Telefono vendido:</label>
-                               <select class="form-control" id="telefonoVendido" name="telefonoVendido">
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                               <select class="form-control" id="telefonoVendido" name="telefonoVendido" required>
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
@@ -106,8 +108,9 @@
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="internetVendido">Internet vendido:</label>
                                <select class="form-control" id="internetVendido" name="internetVendido" required> 
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
@@ -130,18 +133,20 @@
                                  </select>
                               </div>
                             </div>
+                          </div>
                               {{-- final --}}
                               
                             </div>
+                        
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                          <ul class="list-unstyled">
+                              <div class="media-body">
+                                
+                                <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                              </div>
+                            </ul>
                           </div>
-
-      
-                                    <br>
-                                    <ul class="list-unstyled">
-                              
-                                        <div class="media-body">
-                                         
-                                  <input  type="submit"  class="btn btn-primary" value="Guardar">
                                </form>
                                  
                                {{-- final --}}
@@ -153,6 +158,17 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+    <script>
+      
+    
+        // es para desabilitar al hacer submit una sola vez
+    $('#form').one('submit', function() {
+    $(this).find('button[type="submit"]').attr('disabled','disabled');
+});
+
+    </script>
+    @endsection
             
 @endsection
 

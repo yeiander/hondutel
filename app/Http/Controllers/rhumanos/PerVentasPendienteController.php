@@ -12,7 +12,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\Session;
 class PerVentasPendienteController extends Controller
 {
     /**
@@ -22,10 +22,7 @@ class PerVentasPendienteController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado',)->where('fk_id_tipo_permiso','like','4');
-        // return view('/recursos-humanos-permisos/ventas-pendientes/index', compact('permisos'));
-
+    
        if(request()->ajax())
         {
        if(!empty($request->from_date))
@@ -117,8 +114,7 @@ class PerVentasPendienteController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-
-        // $permiso = RhPermiso::findOrFail($id);
+        Session::flash('notiConfirmado', 'El permiso ha sido almacenado');
         return redirect()->route('ventas-pendientes.index');
     }
 
@@ -131,5 +127,8 @@ class PerVentasPendienteController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('ventas-pendientes.index');
     }
 }

@@ -23,10 +23,7 @@ class PerAdminisPendienteController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'aprobado');
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado')->andWhere('fk_id_tipo_permiso', 'like', '2');
-        // return view('/recursos-humanos-permisos/administrativo-pendiente.index', compact('permisos'));
+        
 
         if(request()->ajax())
         {

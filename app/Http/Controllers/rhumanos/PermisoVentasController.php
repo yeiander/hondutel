@@ -104,15 +104,11 @@ class PermisoVentasController extends Controller
         if($permiso >= 1){
            
              Session::flash('notiPaseSalida', 'El empleado ya tiene un permiso administrativo pendiente');
-
-       
              return redirect()->route('recursos-h-tipos-de-permisos'); 
           
         }
 
         else {
-        
-
         $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
         $permiso->fk_id_tipo_permiso = 4;
@@ -196,8 +192,6 @@ class PermisoVentasController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-
-        // $permiso = RhPermiso::findOrFail($id);
         return redirect()->route('ventas-rc.index');
     }
 
