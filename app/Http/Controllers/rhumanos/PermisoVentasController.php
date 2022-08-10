@@ -177,7 +177,7 @@ class PermisoVentasController extends Controller
         //
         $permiso = RhPermiso::findOrFail($id);
         
-        return view('/recursos-humanos-permisos/pase-salida/editar', compact('permiso'));
+        return view('/recursos-humanos-permisos/ventas-rc/editar', compact('permiso'));
     }
 
     /**
@@ -192,6 +192,7 @@ class PermisoVentasController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
         return redirect()->route('ventas-rc.index');
     }
 
@@ -205,6 +206,7 @@ class PermisoVentasController extends Controller
     {
         //
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('ventas-rc.index');
 
     }
