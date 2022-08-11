@@ -126,7 +126,7 @@
 
       <div id="divAfiliacion" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliacion:</span>
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
         </div>
         <input id="numAfiliacionIncapacidad" value=" {{$permiso->numAfiliacionIncapacidad}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
@@ -182,14 +182,14 @@
 
       <div id="divDiasSubsidio" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Dias de incapacidad:</span>
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días de incapacidad:</span>
         </div>
         <input id="hss" value=" {{$permiso->totalDiassubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div id="divDiasSubsidioPagar" style="display: none" class="input-group mb-2">
         <div class="input-group-prepend">
-          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Dias a pagar:</span>
+          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días a pagar:</span>
         </div>
         <input id="hss" value=" {{$permiso->DiasPagarSubsidio}}"  style="font-weight:bold;" type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default">
       </div>

@@ -189,5 +189,8 @@ class IncapacidadController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('incapacidad.index');
     }
 }

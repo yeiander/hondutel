@@ -34,7 +34,6 @@
   @endif
                                             {{-- FORMULARIO PARA CREAR UN PERMISO DE INCAPACIDAD  --}}
 
-                                         
                                <form id="form" action=" {{url('/recursos-humanos-permisos/incapacidad')}} " method="post">
                                  @csrf
   
@@ -99,7 +98,19 @@
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total de dias:</span>
                                         </div>
-                                        <input id="totalDiasIncapacidad" name="totalDiasIncapacidad" style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                        <select class="form-control" style="font-weight:bold;" id="totalDiasIncapacidad" name="totalDiasIncapacidad" required>
+                                          <option disabled selected value="">Seleccione el total de días</option>
+                                          <option value="1">1 día</option>
+                                          <option value="2">2 días</option>
+                                          <option value="3">3 días</option>
+                                          <option value="4">4 días</option>
+                                          <option value="5">5 días</option>
+                                          <option value="6">6 días</option>
+                                          <option value="7">7 días</option>
+                                          <option value="8">8 días</option>
+                                          <option value="9">9 días</option>
+                                          <option value="10">10 días</option>
+                                        </select>
                                       </div>
 
                                       <div class="input-group mb-2">
@@ -108,8 +119,6 @@
                                         </div>
                                         <input id="ihss"  name="ihss" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>
-
-                                      
                                      {{-- FIN --}}
                                     </div>
                                   </div>
@@ -128,13 +137,6 @@
                                
                             </div>
                             {{-- final --}}
-
-                            <div id="mensajeError" style="display: none">
-                              <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
-                            </div>
-                            <div id="mensajeError2" style="display: none">
-                              <center><h4>agotaste el numero de pases de salida para esta semana</h4></center>
-                            </div>
                         </div>
                     </div>
                 </div>

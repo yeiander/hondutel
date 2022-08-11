@@ -41,7 +41,7 @@ class SubsidioController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/recursos-humanos-permisos/subsidio-pendiente.action', compact('data'));
+           return view('/recursos-humanos-permisos/subsidio.action', compact('data'));
            
 
        })
@@ -158,6 +158,8 @@ class SubsidioController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        return view('/recursos-humanos-permisos/subsidio.editar', compact('permiso'));
     }
 
     /**
@@ -170,6 +172,10 @@ class SubsidioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
+        return redirect()->route('subsidio.index');
     }
 
     /**
@@ -181,5 +187,8 @@ class SubsidioController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('subsidio.index');
     }
 }

@@ -6,7 +6,7 @@
         </div>
         <div class="section-body">
             
-            <center><h4 id="paseSalidaMensaje">Crear un permiso de incapacidad:</h4></center>
+            <center><h4 id="paseSalidaMensaje">Editar permiso de incapacidad:</h4></center>
             
         
         
@@ -114,7 +114,7 @@
                                     <ul class="list-unstyled">
                                         <div class="media-body">
                                           
-                                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
                                           <a href="{{ route('incapacidad.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
                                         </div>
                                       </ul>

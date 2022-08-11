@@ -94,19 +94,43 @@
                                         </div>
                                         <input style="font-weight:bold;" id="fechaFinalSubsidio" name="fechaFinalSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
-
-                                       <div class="input-group mb-2">
+                
+                                      <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">dias de incapacidad:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días de incapacidad:</span>
                                         </div>
-                                        <input id="totalDiassubsidio" name="totalDiassubsidio" style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                        <select class="form-control" style="font-weight:bold;" id="totalDiassubsidio" name="totalDiassubsidio" required>
+                                          <option disabled selected value="">Seleccione el total de días</option>
+                                          <option value="1">1 día</option>
+                                          <option value="2">2 días</option>
+                                          <option value="3">3 días</option>
+                                          <option value="4">4 días</option>
+                                          <option value="5">5 días</option>
+                                          <option value="6">6 días</option>
+                                          <option value="7">7 días</option>
+                                          <option value="8">8 días</option>
+                                          <option value="9">9 días</option>
+                                          <option value="10">10 días</option>
+                                        </select>
                                       </div>
 
                                       <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Dias a pagar:</span>
+                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días a pagar:</span>
                                         </div>
-                                        <input id="DiasPagarSubsidio"  name="DiasPagarSubsidio" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
+                                        <select class="form-control" style="font-weight:bold;" id="DiasPagarSubsidio" name="DiasPagarSubsidio" required>
+                                          <option disabled selected value="">Seleccione el total de días</option>
+                                          <option value="1">1 día</option>
+                                          <option value="2">2 días</option>
+                                          <option value="3">3 días</option>
+                                          <option value="4">4 días</option>
+                                          <option value="5">5 días</option>
+                                          <option value="6">6 días</option>
+                                          <option value="7">7 días</option>
+                                          <option value="8">8 días</option>
+                                          <option value="9">9 días</option>
+                                          <option value="10">10 días</option>
+                                        </select>
                                       </div>
 
                                       <div class="input-group mb-2">

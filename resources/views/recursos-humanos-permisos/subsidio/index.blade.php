@@ -12,15 +12,15 @@
             <div class="card">
               <div class="card-body">
 
-                @if(Session::has('notiAlmacenado') )
-      <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
-        <h5 class="alert-heading">!Almacenado!</h5>
-          <strong>{{Session('notiAlmacenado')}}  </strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-       </div>
-       @endif
+                @if(Session::has('notiEditado') )
+                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                  <h5 class="alert-heading">!Editado!</h5>
+                    <strong>{{Session('notiEditado')}}  </strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                 </div>
+                 @endif
 
        @if(Session::has('notiBorrado') )
        <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -32,16 +32,7 @@
         </div>
         @endif
 
-
-                @if(Session::has('notiConfirmado') )
-                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
-                 <h5 class="alert-heading">!Almacenado!</h5>
-                  <strong>{{Session('notiConfirmado')}}  </strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-           </div>
-          @endif
+              
                             {{-- inicio --}}
                             <center>
                             <div id="input-daterange" class="row input-daterange">
