@@ -1,5 +1,5 @@
-{{-- <div class="d-flex">
-    <a href="{{ route('permiso-personal.edit',$data->id) }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">Editar</a> --}}
+<div class="d-flex">
+    <a href="{{ route('permiso-personal.edit',$data->id) }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">Editar</a>
    
     
     <form id="borrarForm" action=" {{ route('permiso-personal.destroy',$data->id) }}"  id="MensajeBorrar" method="post">

@@ -222,8 +222,10 @@ class PermisoPersonalController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
+        return redirect()->route('permiso-personal.index');
     }
 
     /**
