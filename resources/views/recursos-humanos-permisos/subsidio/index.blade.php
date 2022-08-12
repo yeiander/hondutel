@@ -32,7 +32,6 @@
         </div>
         @endif
 
-              
                             {{-- inicio --}}
                             <center>
                             <div id="input-daterange" class="row input-daterange">
@@ -55,13 +54,15 @@
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
-                                        
                                       <th style="color: #fff;">Nombre</th>
                                       <th style="color: #fff;">Certificado</th>
                                       <th style="color: #fff;">Afiliación</th>
-                                      <th style="color: #fff;">Fecha de solicitud:</th>
+                                      <th style="color: #fff;">Sueldo base:</th>
                                       <th style="color: #fff;">Fecha de inicio</th>
-                                      <th style="color: #fff;">Fecha de finalización</th>                                    
+                                      <th style="color: #fff;">Fecha de finalización</th>  
+                                      <th style="color: #fff;">Días de incapacidad:</th>
+                                      <th style="color: #fff;">Días a pagar:</th>
+                                      <th style="color: #fff;">Fecha de solicitud:</th>                                  
                                       <th style="color: #fff;">Aprobado por</th>
                                       <th style="color: #fff;">Acciones</th>
                                     </tr>
@@ -70,8 +71,6 @@
                                 
                                 </tbody>
                             </table>
-    
-
                             {{-- final --}}
                         </div>
                     </div>
@@ -138,11 +137,11 @@
              data:'numAfiliacionIncapacidad',
              name:'numAfiliacionIncapacidad'
             },
-            
             {
-             data:'fechaSolicitudPermiso',
-             name:'fechaSolicitudPermiso'
+             data:'sueldoBaseSubsidio',
+             name:'sueldoBaseSubsidio'
             },
+            
             {
              data:'fechaInicioSubsidio',
              name:'fechaInicioSubsidio'
@@ -151,7 +150,21 @@
              data:'fechaFinalSubsidio',
              name:'fechaFinalSubsidio'
             },
-           
+
+            {
+             data:'totalDiassubsidio',
+             name:'totalDiassubsidio'
+            },
+
+            {
+             data:'DiasPagarSubsidio',
+             name:'DiasPagarSubsidio'
+            },
+
+            {
+             data:'fechaSolicitudPermiso',
+             name:'fechaSolicitudPermiso'
+            },
             {
              data:'nombreQuienAprobo',
              name:'nombreQuienAprobo'
