@@ -252,19 +252,22 @@ class PaseSalidaController extends Controller
     
     }
 
-    public function imprimir($id)
+    public function imprimir()
     {   
-        $permiso = RhPermiso::find($id);
+        // $permiso = RhPermiso::find($id);
         // return view('pdf.reportePaseSalida', compact('permisos'));
         // $data = compact('permisos');
         // $pdf = PDF::loadView('pdf.reportePaseSalida',['permisos'=>$permisos]);
         // return $pdf->stream();
-         $vista = view('pdf.reportePaseSalida')
-                      ->with('permiso', $permiso);
+        //  $vista = view('pdf.reportePaseSalida')
+        //               ->with('permiso', $permiso);
 
-                      $pdf = PDF::loadHTML($vista);
+        //               $pdf = PDF::loadHTML($vista);
 
-                      return $pdf->stream('nombre.pdf');
+        //               return $pdf->stream('nombre.pdf');
+
+              $pdf = PDF::loadView('/recursos-humanos-permisos/pase-salida.imprimir');
+              return $pdf->stream('reporte.pdf');
     }
      
     /**

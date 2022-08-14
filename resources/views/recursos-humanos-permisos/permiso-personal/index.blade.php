@@ -121,6 +121,44 @@
            dataSrc: "tableData",
            bDestroy: true,
            autoWidth: true,
+           "dom": "<'row' <'col-md-12 float-right'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+           
+   buttons: [
+    {
+                extend: 'print', title: "Permisos personales", titleAttr: 'Imprimir', text: '<i class="fa fa-print" aria-hidden="true"></i>', className: 'btn btn-secondary', exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6]
+                }, customize: function (win) {
+                    $(win.document.body).find('table')
+                        .addClass('compact')
+                        .css('font-size', 'inherit');
+                    $(win.document.body).find('h1').css('text-align', 'center');
+                    $(win.document.body).css('font-size', '9px');
+                }
+            },
+    
+   {
+        //Botón para Excel
+        extend: 'excel',
+        footer: true,
+        title: 'Archivo',
+        filename: 'Export_File',
+        //Aquí es donde generas el botón personalizado
+        text: '<button class="btn btn-success">Excel <i class="fas fa-file-excel"></i></button>'
+      },
+      //Botón para PDF
+      {
+        extend: 'pdf',
+        footer: true,
+        title: 'pases de salida PDF',
+        messageTop: 'Pedidos de Concentrados Tramitados',
+        filename: 'Export_File_pdf',
+        orientation: 'landscape',
+        text: '<button class="btn btn-danger">PDF <i class="far fa-file-pdf"></i></button>',
+        exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 5, 6,7]
+      }
+    }
+    ],
            ajax: {
             url:'{{ route("permiso-personal.index") }}',
             data:{from_date:from_date, to_date:to_date}
