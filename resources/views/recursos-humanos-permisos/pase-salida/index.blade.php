@@ -45,13 +45,12 @@
                                 <div class="d-flex">
                                   <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
                                   <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
-                                  <a href="{{ url('/recursos-humanos-permisos/pase-salida/imprimir') }}" target="_blink" style="margin-left: 1rem; margin-top: 0.5rem;" type="button" name="refresh" id="refresh" class="btn btn-outline-success font-weight-bold"><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</a>
                                   </div>
                                 </div>
                           </div>
                           <hr>
                         </center>
-                   <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">
+                   <table  class="table table-striped table-bordered  table-sm" style="width:100%; border:2px;" id="order_table">
                      <thead style="background-color:#6777ef;">
                        <tr>          
                          <th style="color: #fff;">Nombre</th>
@@ -64,7 +63,6 @@
                          <th style="color: #fff;">Creado por:</th>
                          <th style="color: #fff;">Aprobado por:</th>
                          <th style="color: #fff;">Accion</th>
-                        
                         </tr>
                       </thead>
                         <tbody>
@@ -74,9 +72,6 @@
                             {{-- final --}}
                             
                      @section('scripts') 
-
-                     
-     
      <script>
             function DeleteFunction() {
                 if (confirm('seguro que deseas borrar este registro?'))
@@ -85,17 +80,9 @@
                     return false;
                 }
             }
-        </script> 
+     </script> 
                   
-                            
-                           
-
-                            <script>
-                         
-
-
-                            
-
+<script>
 
 $(document).ready(function(){
  $('#input-daterange').datepicker({
@@ -109,13 +96,11 @@ $(document).ready(function(){
 
  function load_data(from_date = '', to_date = '')
  {
-  var currentDate = new Date()
+var currentDate = new Date()
 var day = currentDate.getDate()
 var month = currentDate.getMonth() + 1
 var year = currentDate.getFullYear()
-
 var d = day + "-" + month + "-" + year;
-console.log(d);
 
   $('#order_table').DataTable({
     "language": {
@@ -124,23 +109,24 @@ console.log(d);
    processing: true,
    serverSide: true,
    responsive: true,
-  //  select: true,
    dataSrc: "tableData",
    bDestroy: true,
    autoWidth: true,
-   "dom": "<'row' <'col-md-12 float-right'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+   paging: true,
+   dom: '<"dt-buttons"Bf><"clear">lirtp',
    buttons: [{
-        //Botón para Excel
         extend: 'excel',
         footer: true,
-        title: 'Archivo',
-        filename: 'Export_File',
+        title: 'Pases de salida - Juticalpa Olancho',
+        messageTop: 'Pases de salida aprobados: del ' + '(' + from_date + ')' +' al '+'(' + to_date + ')',
+        filename: 'PasesDeSalidaExcel',
         className: 'btn-success',
-        //Aquí es donde generas el botón personalizado
         text: 'Excel <i class="far fa-file-pdf"></i>',
+        exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 5, 6, 7,8],
+                        alignment: 'center',
+                    },
       },
-      //Botón para PDF
-     
       {
                     extend: 'pdf',
                     filename: 'Export_File',
@@ -148,7 +134,6 @@ console.log(d);
                     download: 'open',
                     orientation: 'landscape',
                     className: 'btn-danger',
-                    // messageTop: 'Pases de salida aprobados del ' + from_date +' al ' + to_date,
                     title:'Pases de salida - Juticalpa Olancho',
                     customize: function ( doc ) {
                     doc.content.splice( 1, 0, {
@@ -176,15 +161,10 @@ console.log(d);
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 5, 6, 7,8],
                         alignment: 'center',
-                        
                     },
-                    
-                },
-                
-                
-                
-
+                },              
     ],
+
    ajax: {
     url:'{{ route("pase-salida.index") }}',
     data:{from_date:from_date, to_date:to_date}
@@ -226,13 +206,10 @@ console.log(d);
      data:'nombreQuienAprobo',
      name:'nombreQuienAprobo'
     },
-
-    
     {
      data:'action',
      name:'action'
     },
-    
     
 
    ],

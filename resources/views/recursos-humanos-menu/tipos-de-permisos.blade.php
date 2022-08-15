@@ -3,18 +3,16 @@
 @section('content')
   <section class="">
     <div class="section-header" style="max-height: 3rem;">
-      <h5 class="page__heading">Recursos Humanos</h5>
+      <h5 style="background-color:white; padding:0.4rem" class="page__heading">Recursos Humanos</h5>
         </div>
 
           <div class="section-body">
-            <h4><center> (Selección del tipo de permiso)</center></h4>
-
            
-
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-body">
+                      <h4><center> Selección del tipo de permiso</center></h4> <hr>
                             {{-- inicio --}}
          {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
          @if(Session::has('notiPaseSalida') )
@@ -80,8 +78,6 @@
         @endif
         {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
                     
-
-                       
                        <div class="container">
                          <div class="row">
                            <div class="col-sm">
@@ -89,7 +85,7 @@
                                     
                              <ul class="list-unstyled">
                                <li class="media my-4">
-                                 <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
+                                 <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                     <a type="button" href="" data-toggle="modal" data-target="#paseSalida">
                                       <h5 class="ml-2">Pase de Salida</h5></a>
@@ -100,7 +96,7 @@
 
                                <ul class="list-unstyled">
                                 <li class="media my-4">
-                                    <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoPersonal" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
+                                    <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoPersonal" href=""><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                     <a type="button" href="" data-toggle="modal" data-target="#permisoPersonal">
                                       <h5 class="ml-2">Permiso Personal</h5></a>
@@ -111,7 +107,7 @@
 
                               <ul class="list-unstyled">
                                 <li class="media my-4">
-                                  <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoAdministrativo" href=""><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
+                                  <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoAdministrativo" href=""><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                                     <div class="media-body">
                                       <a type="button" href="" data-toggle="modal" data-target="#permisoAdministrativo">
                                         <h5 class="ml-2">Permiso Administrativo</h5></a>
@@ -122,7 +118,7 @@
 
                                 <ul class="list-unstyled">
                                   <li class="media my-4">
-                                      <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#permisoVentas"><i style="color: rgb(112, 126, 141)" class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
+                                      <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#permisoVentas"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>
                                     <div class="media-body">
                                       <a type="button" href="" data-toggle="modal" data-target="#permisoVentas">
                                         <h5 class="ml-2">Permiso de Ventas</h5></a>
@@ -134,29 +130,28 @@
                                   </div>
                                   <div class="col-sm">
                                     {{-- segunda Columna --}}
-           
+          
                                     <ul class="list-unstyled">
                                       <li class="media my-4">
-                                          <a href="" data-toggle="modal" data-target="#incapacidad"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
-                                        <div class="media-body">
-                                          <a type="button" href="" data-toggle="modal" data-target="#incapacidad">
-                                            <h5>Permiso de Incapacidad</h5></a>
-                                               <p>Crear un permiso de incapacidad</p>
-                                        </div>
+                                        <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#incapacidad"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-home" aria-hidden="true"></i></a>
+                                         <div class="media-body">
+                                           <a type="button" href="" data-toggle="modal" data-target="#incapacidad">
+                                             <h5 class="ml-2">Permiso de Incapacidad</h5></a>
+                                             <p class="ml-2">Crear un permiso de incapacidad</p>
+                                         </div>
                                       </li>
                                     </ul>
 
                                     <ul class="list-unstyled">
                                       <li class="media my-4">
-                                          <a href="" data-toggle="modal" data-target="#subsidio"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
-                                        <div class="media-body">
-                                          <a type="button" href="" data-toggle="modal" data-target="#subsidio">
-                                            <h5>Pago de subsidio </h5></a>
-                                               <p>Crear un Pago de subsidio </p>
-                                        </div>
+                                        <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#subsidio"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-home" aria-hidden="true"></i></a>
+                                         <div class="media-body">
+                                           <a type="button" href="" data-toggle="modal" data-target="#subsidio">
+                                             <h5 class="ml-2">Pago de subsidio</h5></a>
+                                             <p class="ml-2">Crear un Pago de subsidio</p>
+                                         </div>
                                       </li>
-                                    </ul>
-                       
+                                    </ul><hr>
                        
                                     {{-- fin --}}
                                   </div>

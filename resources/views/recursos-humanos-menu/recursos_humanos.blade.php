@@ -77,6 +77,7 @@
                             <p class="ml-2">Creacion de nuevos permisos</p>
                           </div>
                         </li>
+                      </ul>
                               {{-- fin --}}
                             </div>
                             <div class="col-sm">
@@ -90,6 +91,7 @@
                            <p class="ml-2">Consultar permisos almacenados</p>
                           </div>
                         </li>
+                      </ul>
                               {{-- fin --}}
                             </div>
                           </div>

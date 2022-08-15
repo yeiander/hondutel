@@ -6,19 +6,16 @@
         </div>
         <div class="section-body">
             
-            <center><h4 id="paseSalidaMensaje">Crear un pase de salida:</h4></center>
+       <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un pase de salida:</h5></center>
             
-        <button style="font-size: 15px"   style="mbuttonrgin-top: 0.5rem" type="" class="btn btn-primary">
-          permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
-        </button>
-        <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
-        </a>
+       <center><button style="font-size: 15px; border-radius:1.5rem; margin-top: 0.5rem" type="" class="btn btn-primary">
+                  permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
+               </button>
+               <button style="font-size: 15px; border-radius:1.5rem; margin-top: 0.5rem" type="" class="btn btn-primary">
+                  permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
+               </button>
+       </center>
 
-        {{-- <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-          Numero de la semana<span style="font-size: 15px" class="badge badge-light">{{ $semanaNum }}</span>
-        </a> --}}
-        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -26,7 +23,7 @@
                       
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
-                                <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Empleado: {{ $empleado->nombreEmpleado }}</label>
+                                <label  style="font-size:17px; font-weight:bold; color:rgb(80, 80, 80); background-color:rgb(224, 224, 224); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado"> Empleado: {{ $empleado->nombreEmpleado }}</label>
                               </div>
                             </div>
   
