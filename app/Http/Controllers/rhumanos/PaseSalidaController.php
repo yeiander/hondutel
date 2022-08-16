@@ -222,7 +222,7 @@ class PaseSalidaController extends Controller
 
         if($permiso >= 2){
            
-             Session::flash('notiPaseSalidaSemana', 'se debe esperar a la siguiente semana ');
+             Session::flash('notiPaseSalidaSemana', 'debe esperar la siguiente semana');
              return redirect()->route('recursos-h-tipos-de-permisos'); 
             //  return view('/recursos-humanos-menu/tipos-de-permisos');  
 

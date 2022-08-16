@@ -17,46 +17,47 @@
                                 <div class="row">
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    
-                            <ul class="list-unstyled ">
-                              <li class="media my-4">
-                                  <img class="mr-3" src="{{ asset('img/perminuevo.png') }}" height="50px">
-                                <div class="media-body">
-                                    <a href="{{ route('pase-salida.index') }}">
-                                       <h5> Pase de salida</h5>
-                                    </a>
-                                      <p>consultar pases de salida</p>
-                                </div>
-                              </li>
-
-                              <ul class="list-unstyled ">
+                              <ul class="list-unstyled">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                  <div class="media-body">
-                                    <a href="{{ route('permiso-personal.index') }}"><h5 class="mt-0 mb-1">Permiso personal</h5></a>
-                                   <p>Consultar permisos personales</p>
-                                  </div>
+                                  <a class="btn btn-outline-light" href="{{ route('pase-salida.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                   <div class="media-body">
+                                     <a type="button" href="{{ route('pase-salida.index') }}">
+                                       <h5 class="ml-2">Pase de Salida</h5></a>
+                                       <p class="ml-2">consultar pases de salida</p>
+                                   </div>
                                 </li>
                               </ul>
 
-                              <ul class="list-unstyled ">
+                              <ul class="list-unstyled">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/perminuevo.png') }}" height="50px">
-                                  <div class="media-body">
-                                      <a href="{{ route('administrativo.index') }}">
-                                         <h5> Permiso Administrativo</h5>
-                                      </a>
-                                         <p>consultar los permisos administrativos</p>
-                                  </div>
+                                  <a class="btn btn-outline-light" href="{{ route('permiso-personal.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                   <div class="media-body">
+                                     <a type="button" href="{{ route('permiso-personal.index') }}">
+                                       <h5 class="ml-2">Permiso personal</h5></a>
+                                       <p class="ml-2">Consultar permisos personales</p>
+                                   </div>
                                 </li>
+                              </ul>
 
-                                <ul class="list-unstyled ">
+                                <ul class="list-unstyled">
                                   <li class="media my-4">
-                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                    <div class="media-body">
-                                      <a href="{{ route('ventas-rc.index') }}"><h5 class="mt-0 mb-1">Permiso de ventas</h5></a>
-                                     <p>Consultar permisos de ventas</p>
-                                    </div>
+                                    <a class="btn btn-outline-light" href="{{ route('administrativo.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                     <div class="media-body">
+                                       <a type="button" href="{{ route('administrativo.index') }}">
+                                         <h5 class="ml-2">Permiso Administrativo</h5></a>
+                                         <p class="ml-2">consultar los permisos administrativos</p>
+                                     </div>
+                                  </li>
+                                </ul>
+
+                                <ul class="list-unstyled">
+                                  <li class="media my-4">
+                                    <a class="btn btn-outline-light" href="{{ route('ventas-rc.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                     <div class="media-body">
+                                       <a type="button" href="{{ route('ventas-rc.index') }}">
+                                         <h5 class="ml-2">Permiso de ventas</h5></a>
+                                         <p class="ml-2">Consultar permisos de ventas</p>
+                                     </div>
                                   </li>
                                 </ul>
 
@@ -64,24 +65,25 @@
                                   </div>
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    
-                                <ul class="list-unstyled ">
+                                <ul class="list-unstyled">
                                   <li class="media my-4">
-                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                    <div class="media-body">
-                                      <a href="{{ route('incapacidad.index') }}"><h5 class="mt-0 mb-1">Permisos de Icapacidad</h5></a>
-                                     <p>Consultar permisos de incapacidad</p>
-                                    </div>
+                                    <a class="btn btn-outline-light" href="{{ route('incapacidad.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                     <div class="media-body">
+                                       <a type="button" href="{{ route('incapacidad.index') }}">
+                                         <h5 class="ml-2">Permisos de Icapacidad</h5></a>
+                                         <p class="ml-2">Consultar permisos de incapacidad</p>
+                                     </div>
                                   </li>
                                 </ul>
 
-                                <ul class="list-unstyled ">
+                                <ul class="list-unstyled">
                                   <li class="media my-4">
-                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                    <div class="media-body">
-                                      <a href="{{ route('subsidio.index') }}"><h5 class="mt-0 mb-1">Pagos de subsidio</h5></a>
-                                     <p>Consultar pagos de subsidio</p>
-                                    </div>
+                                    <a class="btn btn-outline-light" href="{{ route('subsidio.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
+                                     <div class="media-body">
+                                       <a type="button" href="{{ route('subsidio.index') }}">
+                                         <h5 class="ml-2">Pagos de subsidio</h5></a>
+                                         <p class="ml-2">Consultar pagos de subsidio</p>
+                                     </div>
                                   </li>
                                 </ul><hr>
                                     {{-- fin --}}

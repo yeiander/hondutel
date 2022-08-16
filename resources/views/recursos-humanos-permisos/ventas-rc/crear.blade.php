@@ -6,9 +6,8 @@
       {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
        </div>
         <div class="section-body">
-       
-          <center><h4>Crear un permiso de ventas</h4></center>
-          
+      
+          <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso de ventas:</h5></center>
          
             <div class="row">
                <div class="col-lg-12">
@@ -17,7 +16,7 @@
                                                 {{-- inicio --}}
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                   <div class="form-group">
-                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                                                   </div>
                                                 </div>
                            

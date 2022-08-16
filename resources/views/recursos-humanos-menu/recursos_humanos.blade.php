@@ -68,9 +68,8 @@
                               
                       <ul class="list-unstyled ">
                         <li class="media my-4">
-                            
                           <a class="btn btn-outline-light" href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"><i style="color: rgb(112, 126, 141); font-size:3.1rem;" class="fa fa-address-card " aria-hidden="true"></i></a>
-                           
+                        
                           <div class="media-body">
                            <a href="{{ url('/recursos-humanos-menu/tipos-de-permisos') }}"> <h5 class="mt-1  ml-2">Nuevo permiso</h5></a>
                             

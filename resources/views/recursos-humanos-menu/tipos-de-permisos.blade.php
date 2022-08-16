@@ -3,20 +3,20 @@
 @section('content')
   <section class="">
     <div class="section-header" style="max-height: 3rem;">
-      <h5 style="background-color:white; padding:0.4rem" class="page__heading">Recursos Humanos</h5>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" class="page__heading">Recursos Humanos</h5>
         </div>
 
           <div class="section-body">
-           
+         
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4><center> Selección del tipo de permiso</center></h4> <hr>
+                      <h4><center> Selección del tipo de permiso</center></h4><hr>
                             {{-- inicio --}}
          {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE INICIO --}}
          @if(Session::has('notiPaseSalida') )
-         <div  style="max-height: 4.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div  style="max-height: 6.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!Error!</h5>
            <strong>{{Session('notiPaseSalida')}}  </strong>
         
@@ -27,7 +27,7 @@
          @endif
 
          @if(Session::has('notiAdministrativo') )
-         <div  style="max-height: 4.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div  style="max-height: 6.5rem; max-width: 32rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!Error!</h5>
            <strong>{{Session('notiAdministrativo')}}  </strong>
         
@@ -39,7 +39,7 @@
         
          @if(Session::has('notiPaseSalidaSemana') )
         
-         <div  style="max-height: 4.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div  style="max-height: 6.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!pases de salida agotados!</h5>
            <strong>{{Session('notiPaseSalidaSemana')}}  </strong>
         
@@ -52,7 +52,7 @@
 
          @if(Session::has('notiPermisoPersonalMes') )
         
-         <div  style="max-height: 4.5rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div  style="max-height:10rem; max-width: 24rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
           <h5 class="alert-heading">!Permisos personales agotados!</h5>
            <strong>{{Session('notiPermisoPersonalMes')}}  </strong>
         
@@ -64,7 +64,7 @@
          @endif
         
          @if ($errors->any())
-         <div  style="max-height: 4.5rem; max-width: 24rem;"class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div  style="max-height: 6.5rem; max-width: 24rem;"class="alert alert-danger alert-dismissible fade show" role="alert">
            <h5 class="alert-heading">!Error!</h5>
            <strong>El empleado no existe</strong>
              @foreach($errors->all() as $error)
@@ -74,7 +74,6 @@
                    <span aria-hidden="true">&times;</span>
                  </button>
           </div>
-          <hr>
         @endif
         {{-- NOTIFICACIONES PARA PERMISOS QUE YA TIENE UNO PENDIENTE FINAL --}}
                     
@@ -158,8 +157,7 @@
                                 </div>
                               </div>
                                  {{-- aqui termina el menu  --}}
-
-                            
+                      
 {{-------------------------- MODAL PASE DE SALIDA --------------------------------------------------------------------------}}
 <div class="modal fade" id="paseSalida" tabindex="-1" role="dialog" aria-labelledby="paseSalidaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
@@ -179,8 +177,7 @@
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Número personal:</label>
                  <input placeholder="Ingrese un número personal"  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado" required>
                </div>
-            
-              <br>
+          
                 <ul class="list-unstyled">
                  <div class="media-body">
                    <input class="btn btn-primary btn-lg btn-block"  type="submit"  class="btn btn-primary" value="Continuar">
@@ -198,7 +195,7 @@
 {{-------------------------- FINAL MODAL PASE DE SALIDA -----------------------------------------------------------------}}
 
 {{-------------------------- INICIO MODAL PERMISO ADMINISTRATIVO --------------------------------------------------------------------------}}
-<div class="modal fade" id="permisoAdministrativo" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="permisoAdministrativoLabel" aria-hidden="true">
+<div class="modal fade" id="permisoAdministrativo" tabindex="-1" role="dialog" aria-labelledby="permisoAdministrativoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -214,14 +211,16 @@
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                 <input placeholder="Ingrese un número personal" style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
                </div>
-             </div>
-              <br>
+             
+            
                 <ul class="list-unstyled">
                  <div class="media-body">
-                   <input  type="submit"  class="btn btn-primary" value="Continuar">
+                   <input  type="submit"  class="btn btn-primary btn-lg btn-block" value="Continuar">
                  </div>
+                </ul>
+             </div>
           </form>    
             {{---final para crear un permiso administrativo----------------}}         
         </div>
@@ -233,7 +232,7 @@
 {{-------------------------- FINAL MODAL PASE ADMINISTRATIVO -----------------------------------------------------------------}}
 
 {{-------------------------- INICIO MODAL PERMISO VENTAS --------------------------------------------------------------------------}}
-<div class="modal fade" id="permisoVentas" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="permisoVentas" aria-hidden="true">
+<div class="modal fade" id="permisoVentas" tabindex="-1" role="dialog" aria-labelledby="permisoVentas" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -249,14 +248,15 @@
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                 <input  placeholder="Ingrese un número personal" style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
                </div>
-             </div>
-              <br>
+           
                 <ul class="list-unstyled">
                  <div class="media-body">
-                   <input  type="submit"  class="btn btn-primary" value="Continuar">
+                   <input  type="submit"  class="btn btn-primary btn-lg btn-block" value="Continuar">
                  </div>
+                </ul>
+             </div>
           </form>    
             {{---final para crear un permiso de ventas----------------}}         
         </div>
@@ -267,8 +267,8 @@
   </div>
 {{-------------------------- FINAL MODAL PERMISO VENTAS -----------------------------------------------------------------}}
 
-{{-------------------------- INICIO MODAL PERMISO ADMINISTRATIVO --------------------------------------------------------------------------}}
-<div class="modal fade" id="permisoPersonal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="permisoPersonal" aria-hidden="true">
+{{-------------------------- INICIO MODAL PERMISO PERSONAL --------------------------------------------------------------------------}}
+<div class="modal fade" id="permisoPersonal" tabindex="-1" role="dialog" aria-labelledby="permisoPersonal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -278,29 +278,30 @@
           </button>
       </div>
         <div class="modal-body">
-          {{---inicio de formulario para crear un permiso adminitrativo--------------}}
+          {{---inicio de formulario para crear un permiso personal--------------}}
           <form action=" {{url('/recursos-humanos-permisos/permiso-personal/creacion2')}} " method="get">
         
              <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                  <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Ingrese el numero personal:</label>
-                 <input  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
+                 <input placeholder="Ingrese un número personal"  style="font-size:16px;"  class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
                </div>
-             </div>
-              <br>
+            
                 <ul class="list-unstyled">
                  <div class="media-body">
-                   <input  type="submit"  class="btn btn-primary" value="Continuar">
+                   <input  type="submit"  class="btn btn-primary btn-lg btn-block" value="Continuar">
                  </div>
+                </ul>
+             </div>
           </form>    
-            {{---final para crear un permiso administrativo----------------}}         
+            {{---final para crear un permiso personal----------------}}         
         </div>
          <div class="modal-footer">
            </div>
       </div>
     </div>
   </div>
-{{-------------------------- FINAL MODAL PASE ADMINISTRATIVO -----------------------------------------------------------------}}
+{{-------------------------- FINAL MODAL PERMISO PERSONAL -----------------------------------------------------------------}}
 
 {{-------------------------- MODAL INCAPACIDAD --------------------------------------------------------------------------}}
 <div class="modal fade" id="incapacidad" tabindex="-1" role="dialog" aria-labelledby="paseSalidaLabel" aria-hidden="true">

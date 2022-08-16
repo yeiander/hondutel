@@ -7,7 +7,6 @@
         <div class="section-body">
             
        <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un pase de salida:</h5></center>
-            
        <center><button style="font-size: 15px; border-radius:1.5rem; margin-top: 0.5rem" type="" class="btn btn-primary">
                   permisos en esta semana<span style="font-size: 15px" class="badge badge-light">{{ $individual2 }}</span>
                </button>
@@ -15,7 +14,6 @@
                   permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
                </button>
        </center>
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -23,7 +21,7 @@
                       
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
-                                <label  style="font-size:17px; font-weight:bold; color:rgb(80, 80, 80); background-color:rgb(224, 224, 224); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado"> Empleado: {{ $empleado->nombreEmpleado }}</label>
+                                <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                               </div>
                             </div>
   
@@ -99,11 +97,9 @@
                                     </div>
                                   </div>
 
-                                    <hr>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">
-                                          
                                           <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
                                           <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
                                         </div>

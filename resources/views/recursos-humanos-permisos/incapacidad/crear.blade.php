@@ -5,11 +5,7 @@
         <div class="section-header" style="max-height: 4rem;">
         </div>
         <div class="section-body">
-            
-            <center><h4 id="paseSalidaMensaje">Crear un permiso de incapacidad:</h4></center>
-            
-        
-        
+            <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso de incapacidad:</h5></center>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -17,7 +13,7 @@
                       
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
-                                <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Empleado: {{ $empleado->nombreEmpleado }}</label>
+                                <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                               </div>
                             </div>
   
@@ -41,60 +37,61 @@
                                   <div class="row">
                                     <div class="col-sm">
                                      {{-- INICIO --}}
-                                     <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero personal:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Numero personal:</label>
+                                          <input  style="font-size:16px;" readonly value="{{ $empleado->id }}" class="form-control" type="text" name="fk_id_empleado" id="fk_id_empleado">
                                         </div>
-                                        <input id="fk_id_empleado" name="fk_id_empleado"  style="font-weight:bold;" type="text" class="form-control" readonly value="{{ $empleado->id }}" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de certificado:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numCertificadoIncapacidad" required>Numero de certificado:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="text" name="numCertificadoIncapacidad" id="numCertificadoIncapacidad" required>
                                         </div>
-                                        <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      </div>
+                                      
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Numero de afiliación:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="text" name="numAfiliacionIncapacidad" id="numAfiliacionIncapacidad" required>
+                                        </div>
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                                         </div>
-                                        <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Tipo de enfermedad:</span>
-                                        </div>
-                                        <input id="motivoTrabajoEnfermedad" name="motivoTrabajoEnfermedad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
-                                        </div>
-                                        <input id="fechaSolicitudPermiso" name="fechaSolicitudPermiso"  style="font-weight:bold;" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
                                        {{-- INICIO --}}
-                                       <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
+                                      
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad" required>Tipo de enfermedad:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                         </div>
-                                        <input style="font-weight:bold;" id="fechaInicioIncapacidad" name="fechaInicioIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaInicioIncapacidad" required>Fecha de inicio:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="date" name="fechaInicioIncapacidad" id="fechaInicioIncapacidad" required>
                                         </div>
-                                        <input style="font-weight:bold;" id="fechafinalIncapacidad" name="fechafinalIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                       <div class="input-group mb-2">
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechafinalIncapacidad" required>Fecha de finalización:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="date" name="fechafinalIncapacidad" id="fechafinalIncapacidad" required>
+                                        </div>
+                                      </div>
+
+                                       {{-- <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total de dias:</span>
                                         </div>
@@ -111,19 +108,18 @@
                                           <option value="9">9 días</option>
                                           <option value="10">10 días</option>
                                         </select>
-                                      </div>
+                                      </div> --}}
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">CPU/IHSS:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="ihss" required>CPU/IHSS:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="text" name="ihss" id="ihss" required>
                                         </div>
-                                        <input id="ihss"  name="ihss" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>
                                      {{-- FIN --}}
                                     </div>
                                   </div>
 
-                                    <hr>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">
