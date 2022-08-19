@@ -112,6 +112,25 @@
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechafinalIncapacidad" required>Total de dias:</label>
+                                          <select class="form-control" style="font-weight:bold;" id="totalDiasIncapacidad" name="totalDiasIncapacidad" required>
+                                            <option disabled selected value="">Seleccione el total de días</option>
+                                            <option value="1">1 día</option>
+                                            <option value="2">2 días</option>
+                                            <option value="3">3 días</option>
+                                            <option value="4">4 días</option>
+                                            <option value="5">5 días</option>
+                                            <option value="6">6 días</option>
+                                            <option value="7">7 días</option>
+                                            <option value="8">8 días</option>
+                                            <option value="9">9 días</option>
+                                            <option value="10">10 días</option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
                                           <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="ihss" required>CPU/IHSS:</label>
                                           <input  style="font-size:16px;" class="form-control" type="text" name="ihss" id="ihss" required>
                                         </div>

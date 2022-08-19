@@ -43,73 +43,101 @@
                                   <div class="row">
                                     <div class="col-sm">
                                      {{-- INICIO --}}
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de certificado:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numCertificadoIncapacidad" required>Numero de certificado:</label>
+                                          <input value="{{ $permiso->numCertificadoIncapacidad }}"  style="font-size:16px;" class="form-control" type="text" name="numCertificadoIncapacidad" id="numCertificadoIncapacidad" required>
                                         </div>
-                                        <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad" value="{{$permiso->numCertificadoIncapacidad}}"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      </div>
+                                      
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Numero de afiliación:</label>
+                                          <input value="{{ $permiso->numAfiliacionIncapacidad }}"  style="font-size:16px;" class="form-control" type="text" name="numAfiliacionIncapacidad" id="numAfiliacionIncapacidad" required>
+                                        </div>
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud:</label>
+                                          <input value="{{ $permiso->fechaSolicitudPermiso }}" style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                                         </div>
-                                        <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad" value="{{$permiso->numAfiliacionIncapacidad}}"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Tipo de enfermedad:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad" required>Tipo de enfermedad:</label>
+                                          <input value="{{ $permiso->motivoTrabajoEnfermedad }}"  style="font-size:16px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                         </div>
-                                        <input id="motivoTrabajoEnfermedad" name="motivoTrabajoEnfermedad" value="{{$permiso->motivoTrabajoEnfermedad}}"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
-                                        </div>
-                                        <input id="fechaSolicitudPermiso" name="fechaSolicitudPermiso" value="{{$permiso->fechaSolicitudPermiso}}"  style="font-weight:bold;" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
                                        {{-- INICIO --}}
-                                       <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaInicioIncapacidad" required>Fecha de inicio:</label>
+                                          <input value="{{ $permiso->fechaInicioIncapacidad }}" style="font-size:16px;" class="form-control" type="date" name="fechaInicioIncapacidad" id="fechaInicioIncapacidad" required>
                                         </div>
-                                        <input style="font-weight:bold;" id="fechaInicioIncapacidad" value="{{$permiso->fechaInicioIncapacidad}}" name="fechaInicioIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechafinalIncapacidad" required>Fecha de finalización:</label>
+                                          <input value="{{ $permiso->fechafinalIncapacidad }}" style="font-size:16px;" class="form-control" type="date" name="fechafinalIncapacidad" id="fechafinalIncapacidad" required>
                                         </div>
-                                        <input style="font-weight:bold;" id="fechafinalIncapacidad" value="{{$permiso->fechafinalIncapacidad}}" name="fechafinalIncapacidad" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                       <div class="input-group mb-2">
+                                       {{-- <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                           <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Total de dias:</span>
                                         </div>
-                                        <input id="totalDiasIncapacidad" name="totalDiasIncapacidad" value="{{$permiso->totalDiasIncapacidad}}" style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                      </div>
+                                        <select class="form-control" style="font-weight:bold;" id="totalDiasIncapacidad" name="totalDiasIncapacidad" required>
+                                          <option disabled selected value="">Seleccione el total de días</option>
+                                          <option value="1">1 día</option>
+                                          <option value="2">2 días</option>
+                                          <option value="3">3 días</option>
+                                          <option value="4">4 días</option>
+                                          <option value="5">5 días</option>
+                                          <option value="6">6 días</option>
+                                          <option value="7">7 días</option>
+                                          <option value="8">8 días</option>
+                                          <option value="9">9 días</option>
+                                          <option value="10">10 días</option>
+                                        </select>
+                                      </div> --}}
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">CPU/IHSS:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechafinalIncapacidad" required>Total de dias:</label>
+                                          <select class="form-control" style="font-weight:bold;" id="totalDiasIncapacidad" name="totalDiasIncapacidad" required>
+                                            <option value="{{ $permiso->totalDiasIncapacidad }}">{{ $permiso->totalDiasIncapacidad }}</option>
+                                            <option value="1">1 día</option>
+                                            <option value="2">2 días</option>
+                                            <option value="3">3 días</option>
+                                            <option value="4">4 días</option>
+                                            <option value="5">5 días</option>
+                                            <option value="6">6 días</option>
+                                            <option value="7">7 días</option>
+                                            <option value="8">8 días</option>
+                                            <option value="9">9 días</option>
+                                            <option value="10">10 días</option>
+                                          </select>
                                         </div>
-                                        <input id="ihss"  name="ihss" style="font-weight:bold;" type="text" value="{{$permiso->ihss}}" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="ihss" required>CPU/IHSS:</label>
+                                          <input value="{{ $permiso->ihss }}" style="font-size:16px;" class="form-control" type="text" name="ihss" id="ihss" required>
+                                        </div>
+                                      </div>
                                      {{-- FIN --}}
                                     </div>
                                   </div>
 
-                                    <hr>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">

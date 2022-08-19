@@ -42,65 +42,85 @@
                                   <div class="row">
                                     <div class="col-sm">
                                      {{-- INICIO --}}
-                                     <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero personal:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fk_id_empleado">Numero personal:</label>
+                                          <input id="fk_id_empleado" name="fk_id_empleado"  style="font-weight:bold;" type="text" class="form-control" readonly value="{{ $empleado->id }}" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input id="fk_id_empleado" name="fk_id_empleado"  style="font-weight:bold;" type="text" class="form-control" readonly value="{{ $empleado->id }}" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de certificado:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numCertificadoIncapacidad" required>Numero de certificado:</label>
+                                          <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Numero de afiliación:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="text" name="numAfiliacionIncapacidad" id="numAfiliacionIncapacidad" required>
                                         </div>
-                                        <input id="numAfiliacionIncapacidad" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Sueldo base:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Sueldo base:</label>
+                                          <input id="sueldoBaseSubsidio" name="sueldoBaseSubsidio"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input id="sueldoBaseSubsidio" name="sueldoBaseSubsidio"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud:</label>
+                                          <input  style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                                         </div>
-                                        <input id="fechaSolicitudPermiso" name="fechaSolicitudPermiso"  style="font-weight:bold;" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
+                                      
 
                                      {{-- FIN --}}
                                     </div>
                                     <div class="col-sm">
                                        {{-- INICIO --}}
-                                       <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
+
+                                       <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de inicio:</label>
+                                          <input style="font-weight:bold;" id="fechaInicioSubsidio" name="fechaInicioSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input style="font-weight:bold;" id="fechaInicioSubsidio" name="fechaInicioSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de finalización:</label>
+                                          <input style="font-weight:bold;" id="fechaFinalSubsidio" name="fechaFinalSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input style="font-weight:bold;" id="fechaFinalSubsidio" name="fechaFinalSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                       </div>
-                
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días de incapacidad:</span>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Días de incapacidad:</label>
+                                          <select class="form-control" style="font-weight:bold;" id="totalDiassubsidio" name="totalDiassubsidio" required>
+                                            <option disabled selected value="">Seleccione el total de días</option>
+                                            <option value="1">1 día</option>
+                                            <option value="2">2 días</option>
+                                            <option value="3">3 días</option>
+                                            <option value="4">4 días</option>
+                                            <option value="5">5 días</option>
+                                            <option value="6">6 días</option>
+                                            <option value="7">7 días</option>
+                                            <option value="8">8 días</option>
+                                            <option value="9">9 días</option>
+                                            <option value="10">10 días</option>
+                                          </select>
                                         </div>
-                                        <select class="form-control" style="font-weight:bold;" id="totalDiassubsidio" name="totalDiassubsidio" required>
-                                          <option disabled selected value="">Seleccione el total de días</option>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Días a pagar:</label>
+                                          <select class="form-control" style="font-weight:bold;" id="DiasPagarSubsidio" name="DiasPagarSubsidio" required>
+                                            <option disabled selected value="">Seleccione el total de días</option>
                                           <option value="1">1 día</option>
                                           <option value="2">2 días</option>
                                           <option value="3">3 días</option>
@@ -111,41 +131,21 @@
                                           <option value="8">8 días</option>
                                           <option value="9">9 días</option>
                                           <option value="10">10 días</option>
-                                        </select>
-                                      </div>
-
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días a pagar:</span>
+                                          </select>
                                         </div>
-                                        <select class="form-control" style="font-weight:bold;" id="DiasPagarSubsidio" name="DiasPagarSubsidio" required>
-                                          <option disabled selected value="">Seleccione el total de días</option>
-                                          <option value="1">1 día</option>
-                                          <option value="2">2 días</option>
-                                          <option value="3">3 días</option>
-                                          <option value="4">4 días</option>
-                                          <option value="5">5 días</option>
-                                          <option value="6">6 días</option>
-                                          <option value="7">7 días</option>
-                                          <option value="8">8 días</option>
-                                          <option value="9">9 días</option>
-                                          <option value="10">10 días</option>
-                                        </select>
                                       </div>
 
-                                      <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                          <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Observación:</span>
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Observación:</label>
+                                          <input id="ObservacionesSubsidio"  name="ObservacionesSubsidio" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                         </div>
-                                        <input id="ObservacionesSubsidio"  name="ObservacionesSubsidio" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                       </div>
-
                                       
                                      {{-- FIN --}}
                                     </div>
                                   </div>
 
-                                    <hr>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">
