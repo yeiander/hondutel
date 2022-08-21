@@ -7,14 +7,10 @@
         <div class="section-body">
             
             <center><h4 id="paseSalidaMensaje">Planilla por pago de subsidio:</h4></center>
-            
-        
-        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">        
-                      
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                 <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Empleado: {{ $empleado->nombreEmpleado }}</label>

@@ -38,59 +38,60 @@
                                  {{ method_field('PATCH')}}   
   
                                  <div class="container">
-                                    <div class="row">
-                                      <div class="col-sm">
-                                
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de certificado:</span>
-                                          </div>
-                                          <input id="numCertificadoIncapacidad" value="{{ $permiso->numCertificadoIncapacidad }}" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                  <div class="row">
+                                    <div class="col-sm">
+                                     {{-- INICIO --}}
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numCertificadoIncapacidad" required>Numero de certificado:</label>
+                                          <input value="{{ $permiso->numCertificadoIncapacidad }}" id="numCertificadoIncapacidad" name="numCertificadoIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Numero de afiliación:</span>
-                                          </div>
-                                          <input id="numAfiliacionIncapacidad"  value="{{ $permiso->numAfiliacionIncapacidad }}" name="numAfiliacionIncapacidad"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                        </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Sueldo base:</span>
-                                          </div>
-                                          <input id="sueldoBaseSubsidio" value="{{ $permiso->sueldoBaseSubsidio }}" name="sueldoBaseSubsidio"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                        </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de solicitud:</span>
-                                          </div>
-                                          <input id="fechaSolicitudPermiso" value="{{ $permiso->fechaSolicitudPermiso }}" name="fechaSolicitudPermiso"  style="font-weight:bold;" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
-                                        </div>
-  
-                                       {{-- FIN --}}
                                       </div>
-                                      <div class="col-sm">
-                                         {{-- INICIO --}}
-                                         <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio:</span>
-                                          </div>
-                                          <input style="font-weight:bold;" value="{{ $permiso->fechaInicioSubsidio }}" id="fechaInicioSubsidio" name="fechaInicioSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Numero de afiliación:</label>
+                                          <input value="{{ $permiso->numAfiliacionIncapacidad }}"  style="font-size:16px;" class="form-control" type="text" name="numAfiliacionIncapacidad" id="numAfiliacionIncapacidad" required>
                                         </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización:</span>
-                                          </div>
-                                          <input style="font-weight:bold;" value="{{ $permiso->fechaFinalSubsidio }}" id="fechaFinalSubsidio" name="fechaFinalSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numAfiliacionIncapacidad" required>Sueldo base:</label>
+                                          <input value="{{ $permiso->sueldoBaseSubsidio }}" id="sueldoBaseSubsidio" name="sueldoBaseSubsidio"  style="font-weight:bold;" type="text" required class="form-control" aria-describedby="inputGroup-sizing-default">
                                         </div>
-                  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días de incapacidad:</span>
-                                          </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de solicitud:</label>
+                                          <input value="{{ $permiso->fechaSolicitudPermiso }}" style="font-size:16px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
+                                        </div>
+                                      </div>
+                                      
+
+                                     {{-- FIN --}}
+                                    </div>
+                                    <div class="col-sm">
+                                       {{-- INICIO --}}
+
+                                       <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de inicio:</label>
+                                          <input value="{{ $permiso->fechaInicioSubsidio }}" style="font-weight:bold;" id="fechaInicioSubsidio" name="fechaInicioSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Fecha de finalización:</label>
+                                          <input value="{{ $permiso->fechaFinalSubsidio }}" style="font-weight:bold;" id="fechaFinalSubsidio" name="fechaFinalSubsidio" type="date" required class="form-control" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Días de incapacidad:</label>
                                           <select class="form-control" style="font-weight:bold;" id="totalDiassubsidio" name="totalDiassubsidio" required>
                                             <option value="{{ $permiso->totalDiassubsidio }}">{{ $permiso->totalDiassubsidio }}</option>
                                             <option value="1">1 día</option>
@@ -105,45 +106,44 @@
                                             <option value="10">10 días</option>
                                           </select>
                                         </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Días a pagar:</span>
-                                          </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Días a pagar:</label>
                                           <select class="form-control" style="font-weight:bold;" id="DiasPagarSubsidio" name="DiasPagarSubsidio" required>
                                             <option value="{{ $permiso->DiasPagarSubsidio }}">{{ $permiso->DiasPagarSubsidio }}</option>
-                                            <option value="1">1 día</option>
-                                            <option value="2">2 días</option>
-                                            <option value="3">3 días</option>
-                                            <option value="4">4 días</option>
-                                            <option value="5">5 días</option>
-                                            <option value="6">6 días</option>
-                                            <option value="7">7 días</option>
-                                            <option value="8">8 días</option>
-                                            <option value="9">9 días</option>
-                                            <option value="10">10 días</option>
+                                          <option value="1">1 día</option>
+                                          <option value="2">2 días</option>
+                                          <option value="3">3 días</option>
+                                          <option value="4">4 días</option>
+                                          <option value="5">5 días</option>
+                                          <option value="6">6 días</option>
+                                          <option value="7">7 días</option>
+                                          <option value="8">8 días</option>
+                                          <option value="9">9 días</option>
+                                          <option value="10">10 días</option>
                                           </select>
                                         </div>
-  
-                                        <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                            <span  style="font-weight:bold;" class="input-group-text" id="inputGroup-sizing-default">Observación:</span>
-                                          </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso" required>Observación:</label>
                                           <input value="{{ $permiso->ObservacionesSubsidio }}" id="ObservacionesSubsidio"  name="ObservacionesSubsidio" style="font-weight:bold;" type="text" class="form-control" required aria-describedby="inputGroup-sizing-default">
                                         </div>
-  
-                                        
-                                       {{-- FIN --}}
                                       </div>
+                                      
+                                     {{-- FIN --}}
                                     </div>
+                                  </div>
 
-                                    <hr>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <ul class="list-unstyled">
                                         <div class="media-body">
                                           
-                                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
-                                          <a href="{{ route('subsidio.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                          <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
                                         </div>
                                       </ul>
                                     </div>

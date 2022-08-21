@@ -1,11 +1,10 @@
 @extends('layouts.app')
   @section('content')
-    <section class="section">
+    <section>
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">Permisos de incapacidad Almacenados:</h5>
       </div>
-      
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Permisos de incapacidad Almacenados:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
@@ -44,12 +43,10 @@
                                 <div class="d-flex">
                                   <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
                                   <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
-                                  <button style="margin-left: 1rem; margin-top: 0.5rem;" type="button" name="refresh" id="refresh" class="btn btn-outline-success font-weight-bold"><i class="fa fa-file-pdf" aria-hidden="true"></i> Imprimir</button>
-                                  </div>
                                 </div>
                           </div>
-                          <hr>
                         </center>
+                        <hr>
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
@@ -59,8 +56,8 @@
                                       <th style="color: #fff;">Certificado</th>
                                       <th style="color: #fff;">Afiliación</th>
                                       <th style="color: #fff;">Enfermedad:</th>
-                                      <th style="color: #fff;">Fecha de inicio</th>
-                                      <th style="color: #fff;">Fecha de finalización</th>
+                                      <th style="color: #fff;">inicio</th>
+                                      <th style="color: #fff;">finalización</th>
                                       <th style="color: #fff;">Total de dias</th>
                                       <th style="color: #fff;">Fecha de solicitud:</th>
                                       <th style="color: #fff;">Aprobado por</th>

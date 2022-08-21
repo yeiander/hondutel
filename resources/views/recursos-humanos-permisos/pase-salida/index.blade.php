@@ -1,12 +1,10 @@
 
 @extends('layouts.app')
   @section('content')
-    <section class="section">
+    <section class="">
       <div class="section-header" style="max-height: 3rem;">
-        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">pases de salida almacenados:</h5>
       </div>
-      
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">pases de salida almacenados:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
@@ -136,7 +134,10 @@ var d = day + "-" + month + "-" + year;
                     className: 'btn-danger',
                     title:'Pases de salida - Juticalpa Olancho',
                     customize: function ( doc ) {
-                    doc.content.splice( 1, 0, {
+                      doc.styles.tableBodyEven.alignment = 'center';
+                      doc.styles.tableBodyOdd.alignment = 'center'; 
+                      doc.styles.table = 'borderer';
+                      doc.content.splice( 1, 0, {
                       
                         margin: [ 0, 0, 0, 4 ],
                         alignment: 'left',

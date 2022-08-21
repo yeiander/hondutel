@@ -70,7 +70,7 @@
                                     <a class="btn btn-outline-light" href="{{ route('incapacidad.index') }}"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-archive" aria-hidden="true"></i></a>
                                      <div class="media-body">
                                        <a type="button" href="{{ route('incapacidad.index') }}">
-                                         <h5 class="ml-2">Permisos de Icapacidad</h5></a>
+                                         <h5 class="ml-2">Permisos de Incapacidad</h5></a>
                                          <p class="ml-2">Consultar permisos de incapacidad</p>
                                      </div>
                                   </li>
