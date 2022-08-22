@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+  Editar Incapacidad
+@endsection
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 4rem;">
@@ -8,8 +10,6 @@
             
             <center><h4 id="paseSalidaMensaje">Editar permiso de incapacidad:</h4></center>
             
-        
-        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

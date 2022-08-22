@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Permisos de ventas almacenados
+@endsection
   @section('content')
     <section>
       <div class="section-header" style="max-height: 3rem;">
@@ -9,8 +12,6 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-
-                
 
                 @if(Session::has('notiConfirmado') )
                 <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
