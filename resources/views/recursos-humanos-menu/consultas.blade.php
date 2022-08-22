@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
-
+@section('title')
+    Consultar permisos
+@endsection
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 4rem;">

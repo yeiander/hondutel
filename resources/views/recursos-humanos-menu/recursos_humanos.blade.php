@@ -1,44 +1,41 @@
 @extends('layouts.app')
-
+  @section('title')
+    Recursos Humamos
+  @endsection
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
           <h5 class="page__heading">Recursos Humamos</h5>
         </div>
       <div class="text-center">
-       
-        <h5>Permisos Pendientes (o nuevos):</h5>
+    
         {{-- inicio estadisticas --}}
-        
-        
-        <a href="{{ route('pase-salida-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-          Pase Salida<span class="badge badge-light">{{$paseSalida}}</span>
+        <a id="paseSalidaNot" href="{{ route('pase-salida-pendiente.index') }}" style="margin-top: 0.5rem; display:none;" type="button" class="btn btn-danger">
+          Pases de salida nuevos:<span class="badge badge-light">{{$paseSalida}}</span>
         </a>
 
-        <a href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-           Personal <span class="badge badge-light">{{$permisoPersonal}}</span>
+        <a id="personalNot" href="{{ route('p-personal-pendiente.index') }}" type="button" style="margin-top: 0.5rem; display:none;" type="button" class="btn btn-danger">
+           Permisos personales nuevos: <span class="badge badge-light">{{$permisoPersonal}}</span>
         </a>
 
-        <a href="{{ route('administrativo-pendiente.index') }}" type="button" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-          Administrativo <span class="badge badge-light">{{ $permisoAdministrativo }}</span>
+        <a id="administrativoNot" href="{{ route('administrativo-pendiente.index') }}" type="button" style="margin-top: 0.5rem; display:none;" type="button" class="btn btn-danger">
+          Permisos Administrativos nuevos: <span class="badge badge-light">{{ $permisoAdministrativo }}</span>
         </a>
 
-        <a href="{{ route('ventas-pendientes.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
-          Ventas <span class="badge badge-light">{{ $permisoVenta }}</span>
+        <a id="ventaNot" href="{{ route('ventas-pendientes.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem; display:none;" type="button">
+          Permisos de venta nuevos: <span class="badge badge-light">{{ $permisoVenta }}</span>
         </a>
 
-        <a href="{{ route('incapacidad-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
-          Incapacidades <span class="badge badge-light">{{ $permisoIncapacidad }}</span>
+        <a id="incapacidadNot" href="{{ route('incapacidad-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem; display:none;" type="button">
+          Incapacidades nuevas: <span class="badge badge-light">{{ $permisoIncapacidad }}</span>
         </a>
 
-        <a href="{{ route('subsidio-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem" type="button">
-          Pago de subsidio <span class="badge badge-light">{{ $permisoSubsidio }}</span>
+        <a id="subsidioNot" href="{{ route('subsidio-pendiente.index') }}" type="button" class="btn btn-danger" style="margin-top: 0.5rem; display:none;" type="button">
+          Pagos de subsidio nuevos: <span class="badge badge-light">{{ $permisoSubsidio }}</span>
         </a>
         {{-- final de estadisticas --}}
 
       </div>
-
-     
         {{-- final norificaciones --}}
         <div class="section-body">
             <div class="row">
@@ -96,13 +93,8 @@
                           </div>
                         </div>
                            {{-- aqui termina el menu  --}}
-
                         <!-- Button trigger modal -->
 <hr>
-
-
-             
-
                               {{-- FINAL --}}
                         </div>
                     </div>
@@ -110,6 +102,51 @@
             </div>
         </div>
     </section>
-    
+
+    @section('scripts')
+   
+
+    <script>
+// Notifiaciones
+$(function paseSalida(){
+       if( {{$paseSalida}} >= 1){
+         $('#paseSalidaNot').show();
+        }
+});
+$(function personal(){
+       if( {{$permisoPersonal}} >= 1){
+         $('#personalNot').show();
+        }
+});
+$(function administrativo(){
+       if( {{$permisoAdministrativo}} >= 1){
+         $('#administrativoNot').show();
+        }
+});
+$(function venta(){
+       if( {{$permisoVenta}} >= 1){
+         $('#ventaNot').show();
+        }
+});
+$(function incapacidad(){
+       if( {{$permisoIncapacidad}} >= 1){
+         $('#incapacidadNot').show();
+        }
+});
+$(function subsidio(){
+       if( {{$permisoSubsidio}} >= 1){
+         $('#subsidioNot').show();
+        }
+});
+//  recargar automaticamente el inico
+ $(document).ready(function(){
+       setTimeout(refrescar, 20000);
+      });
+  function refrescar(){
+      location.reload();
+     }
+</script>
+
+    @endsection
 @endsection
 
