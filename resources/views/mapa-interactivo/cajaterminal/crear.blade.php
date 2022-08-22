@@ -23,6 +23,19 @@
                                        </div>
                                     </div>
 
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Armario:</label>
+                                         <select class="form-control" id="direccion" name="direccion">
+                                          <option disabled selected value="">Seleccion armario</option>
+                                          @foreach($armarios as $armario)
+                                        <option value="{{$armario->numeroArmario}}">  {{$armario->numeroArmario}} </option>
+
+                                        @endforeach
+                                         </select>
+                                       </div>
+                                    </div>
+
                                      {{-- coloumna1 final --}}
                                     </div>
 
@@ -37,63 +50,64 @@
                                          </div>
                                       </div>
 
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion" required>Direccion:</label>
+                                           <select class="form-control" id="direccion" name="direccion">
+                                            <option disabled selected value="">seleccione la direccion</option>
+                                            <option value="Barrio Calona">Barrio Calona</option>
+                                            <option value="Colonia Santos Calix">Colonia Santos Calix</option>
+                                            <option value="Colonia Portal el Angel">Colonia Portal el Angel</option>
+                                            <option value="Sesteo">Sesteo</option>
+                                            <option value="Colonia el Trapiche">Colonia el Trapiche</option>
+                                            <option value="Colonia San Ramon">Colonia San Ramon</option>
+                                            <option value="Colonia Monte Palomar">Colonia Monte Palomar</option>
+                                            <option value="Residencial Guanacaste">Residencial Guanacaste</option>
+                                            <option value="Colonia Porvenir Norte">Colonia Porvenir Norte</option>
+                                            <option value="Colonia Monte Fresco">Colonia Monte Fresco</option>
+                                            <option value="Colonia Universidad Sur">Colonia Universidad Sur</option>
+                                            <option value="Colonia la Granja">Colonia la Granja</option>
+                                            <option value="Colonia Magarita">Colonia Margarita</option>
+                                            <option value="Colonia Sosa Lobo">Colonia Sosa Lobo</option>
+                                            <option value="Residencial el Trapiche">Residencial el Trapiche</option>
+                                            <option value="Colonia Meneca">Colonia Meneca</option>
+                                            <option value="Colonia Monte Palomar">Colonia Monte Palomar</option>
+                                            <option value="Residencial la Florida">Residencial la Florida</option>
+                                            <option value="Colonia la Prado Universitarios">Colonia la Prado Universitarios</option>
+                                            <option value="Colonia Rivas Montes">Colonia Rivas Montes</option>
+                                            <option value="Barrio la Hoya">Barrio la Hoya</option>
+                                            <option value="Colonia Mina Guifarro">Colonia Mina Guifarro</option>
+                                            <option value="Barrio el Castaño">Barrio el Castaño</option>
+                                            <option value="Bulebar los Poetas">Bulevar los Poetas</option>
+                                            <option value="Colonia Modelo">Colonia Modelo</option>
+                                            <option value="Colonia Maria Regina">Colonia Maria Regina</option>
+                                            <option value="Colonia los Angeles">Colonia los Angeles</option>
+                                            <option value="Colonia Daniel Sanchez">Colonia Daniel Sanchez</option>
+                                            <option value="Colonia la Solidaridad">Colonia la Solidaridad</option>
+                                            <option value="Colonia Santa Julia">Colonia Santa Julia</option>
+                                            <option value="Colonia Bella Vista">Colonia Bella Vista</option>
+                                            <option value="Colonia Ciudad Jardines">Colonia Ciudad Jardines</option>
+                                            <option value="Colonia Nazareth">Colonia Nazareth</option>
+                                            <option value="Colonia Modelo">Colonia Modelo</option>
+                                            <option value="Colonia Margarita 4">Colonia Margarita 4</option>
+                                            <option value="Colonia la Cofradia">Colonia la Cofradia</option>
+                                            <option value="Colonia Santa Julia">Colonia Santa Julia</option>
+                                            <option value="Colonia las Colinas">Colonia las Colinas</option>
+                                            <option value="Barrio de Jesus">Barrio de Jesus</option>
+                                            <option value="Barrio las Acasias">Barrio las Acasias</option>
+                                            <option value="Barrio Buenos Aires">Barrio Buenos Aires</option>
+                                            <option value="Barrio el Portillo">Barrio el Portillo</option>
+                                            <option value="Residencial los Robles">Residencial los Robles</option>
+                                           </select>
+                                         </div>
+                                      </div>
+
                                       
                                      {{-- coloumna2 final --}}
                                     </div>
-
+                                  </div>
                                     
-                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion" required>Direccion:</label>
-                                            <select class="form-control" id="direccion" name="direccion">
-                                                <option disabled selected value="">seleccione la direccion</option>
-                                              <option value="Barrio Calona">Barrio Calona</option>
-                                              <option value="Colonia Santos Calix">Colonia Santos Calix</option>
-                                              <option value="Colonia Portal el Angel">Colonia Portal el Angel</option>
-                                              <option value="Sesteo">Sesteo</option>
-                                              <option value="Colonia el Trapiche">Colonia el Trapiche</option>
-                                              <option value="Colonia San Ramon">Colonia San Ramon</option>
-                                              <option value="Colonia Monte Palomar">Colonia Monte Palomar</option>
-                                              <option value="Residencial Guanacaste">Residencial Guanacaste</option>
-                                              <option value="Colonia Porvenir Norte">Colonia Porvenir Norte</option>
-                                              <option value="Colonia Monte Fresco">Colonia Monte Fresco</option>
-                                              <option value="Colonia Universidad Sur">Colonia Universidad Sur</option>
-                                              <option value="Colonia la Granja">Colonia la Granja</option>
-                                              <option value="Colonia Magarita">Colonia Margarita</option>
-                                              <option value="Colonia Sosa Lobo">Colonia Sosa Lobo</option>
-                                              <option value="Colonia el Trapiche">Colonia el Trapiche</option>
-                                              <option value="Colonia Meneca">Colonia Meneca</option>
-                                              <option value="Colonia Monte Palomar">Colonia Monte Palomar</option>
-                                              <option value="Residencial la Florida">Residencial la Florida</option>
-                                              <option value="Colonia la Prado Universitarios">Colonia la Prado Universitarios</option>
-                                              <option value="Colonia Rivas Montes">Colonia Rivas Montes</option>
-                                              <option value="Barrio la Hoya">Barrio la Hoya</option>
-                                              <option value="Colonia Mina Guifarro">Colonia Mina Guifarro</option>
-                                              <option value="Barrio el Castaño">Barrio el Castaño</option>
-                                              <option value="Bulebar los Poetas">Bulevar los Poetas</option>
-                                              <option value="Colonia Modelo">Colonia Modelo</option>
-                                              <option value="Colonia Maria Regina">Colonia Maria Regina</option>
-                                              <option value="Colonia los Angeles">Colonia los Angeles</option>
-                                              <option value="Colonia Daniel Sanchez">Colonia Daniel Sanchez</option>
-                                              <option value="Colonia la Solidaridad">Colonia la Solidaridad</option>
-                                              <option value="Colonia Santa Julia">Colonia Santa Julia</option>
-                                              <option value="Colonia Bella Vista">Colonia Bella Vista</option>
-                                              <option value="Colonia Ciudad Jardines">Colonia Ciudad Jardines</option>
-                                              <option value="Colonia Nazareth">Colonia Nazareth</option>
-                                              <option value="Colonia Modelo">Colonia Modelo</option>
-                                              <option value="Colonia Margarita 4">Colonia Margarita 4</option>
-                                              <option value="Colonia la Cofradia">Colonia la Cofradia</option>
-                                              <option value="Colonia Santa Julia">Colonia Santa Julia</option>
-                                              <option value="Colonia las Colinas">Colonia las Colinas</option>
-                                              <option value="Barrio de Jesus">Barrio de Jesus</option>
-                                              <option value="Barrio las Acasias">Barrio las Acasias</option>
-                                              <option value="Barrio Buenos Aires">Barrio Buenos Aires</option>
-                                              <option value="Barrio el Portillo">Barrio el Portillo</option>
-                                            </select>
-                                        </div>
-                                      </div>
-
-                                
+                                 
                                               <br>
                                               <ul class="list-unstyled">
                                         
