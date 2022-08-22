@@ -34,7 +34,7 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreCliente">Nombre del cliente:</label>
-                                         <input style="font-size:14px;" value="{{$registrowifi->nombrePropietario}}" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
+                                         <input style="font-size:14px;" value="{{$Registro->nombrePropietario}}" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
                                        </div>
                                     </div>
 
@@ -48,7 +48,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group"> 
                                       <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaDeSolicitud">Fecha de solicitud.</label>
-                                      <input style="font-size:14px;" value="{{$registrowifi->fechaSolicitud}}" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
+                                      <input style="font-size:14px;" value="{{$registrowifi}}" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
                                     </div>
                                     </div>
 
@@ -60,7 +60,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroDeLinea">Numero de linea:</label>
-                                           <input style="font-size:14px;" value="{{$registrowifi->propietarioLinea}}" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
+                                           <input style="font-size:14px;" value="" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
                                          </div>
                                       </div>
 

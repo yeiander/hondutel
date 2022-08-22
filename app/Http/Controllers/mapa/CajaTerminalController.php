@@ -4,6 +4,7 @@ namespace App\Http\Controllers\mapa;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Armario;
 
 class CajaTerminalController extends Controller
 {
@@ -26,7 +27,8 @@ class CajaTerminalController extends Controller
     {
         //
         //
-        return view('/mapa-interactivo/cajaterminal.crear');
+        $armarios = Armario::all();
+        return view('/mapa-interactivo/cajaterminal.crear', compact('armarios'));
     }
 
     /**

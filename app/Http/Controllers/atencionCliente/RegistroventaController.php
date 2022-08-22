@@ -44,6 +44,29 @@ class RegistroventaController extends Controller
         $registroventa = request()->except('_token');
         Registroventa::insert($registroventa);
         return redirect()->route('menu-ventas');
+
+
+        if($condicion == 16){
+
+            $ventas = new Registroventa;
+            $ventas->id = $request->id;
+            $ventas->clienteNombre = $request->clienteNombre;
+            $ventas->clienteCorreo = $request->clienteCorreo;
+            $ventas->clienteProfesion =  $request->clienteProfesion;
+            $ventas->telefonoContacto = $request->telefonoContacto;
+            $ventas->clienteDireccionTrabajo = $request->clienteDireccionTrabajo;
+            $ventas->clienteEstadoCivil = $request->clienteEstadoCivil;
+            $ventas->cuotas = $request->cuotas;
+            $ventas->numeroCuotas = $request->numeroCuotas;
+            $ventas->nombreBeneficiario = $request->nombreBeneficiario;
+            $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
+            $ventas->save();
+            return redirect()->route('recursos_humanos');
+    
+            }
+    
+    
+            else{
     }
 
     /**
