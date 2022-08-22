@@ -98,7 +98,16 @@
                                       <div id="numerocuotas" style="display: none" class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas">
+                                           {{-- <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas"> --}}
+                                           <select class="form-control" id="numeroCuotas" name="numeroCuotas">
+                                            <option id="seleccion" disabled selected value="">Seleccione una cuota</option>
+                                            <option id="no" value="no">no</option>
+                                            
+                                               <option id="cuota1" value="1">1 cuota</option>
+                                               <option id="cuota2" value="2">2 cuota</option>
+                                               <option id="cuota3" value="3">3 cuota</option>
+                                               
+                                             </select>
                                          </div>
                                       </div>
 
@@ -152,13 +161,27 @@
      //ocultar mediante el select
      $('#cuotas').on('change',function(){
         var selectValor = $(this).val();
-        if (selectValor == "si" || selectValor == null ) {
+        if (selectValor == "no" || selectValor == null ) {
+            $('#numerocuotas').hide();
+            $('#no').show();
+            $('#seleccion').hide();
+          $('#cuota1').hide();
+          $('#cuota2').hide();
+          $('#cuota2').hide();
+        }
+        else if (selectValor == "si" || selectValor == null ) {
             $('#numerocuotas').show();
+            $('#no').hide();
         }else {
           $('#numerocuotas').hide();
-           
+          $('#seleccion').hide();
+          $('#cuota1').hide();
+          $('#cuota2').hide();
+          $('#cuota2').hide();
+          $('#no').show();
         }
     });
+    
     </script>
     @endsection
 @endsection
