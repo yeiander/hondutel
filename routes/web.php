@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//agregue los controladores necesarios para las rutas
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
@@ -16,15 +16,16 @@ use App\Http\Controllers\rhumanos\PerAdministrativoController;
 use App\Http\Controllers\rhumanos\PerAdminisPendienteController;
 use App\Http\Controllers\rhumanos\PermisoVentasController;
 use App\Http\Controllers\rhumanos\PerVentasPendienteController;
-use App\Models\RhPermiso;
+use App\Http\Controllers\rhumanos\IncapacidadController;
+use App\Http\Controllers\rhumanos\IncapacidadPendController;
+use App\Http\Controllers\rhumanos\SubsidioController;
+use App\Http\Controllers\rhumanos\SubsidioPendController;
+
 use App\Http\Controllers\atencionCliente\RegistroAveriaController;
-use App\Models\RegistroAveria;
 use App\Http\Controllers\atencionCliente\RegistroventaController;
 use App\Http\Controllers\atencionCliente\RegistroCancelacionesController;
 use App\Http\Controllers\atencionCliente\RegistrolineaController;
 use App\Http\Controllers\atencionCliente\RegistrowifiController;
-// use App\Http\Controllers\GoogleController;
-// use App\Models\Registrolinea;
 use App\Http\Controllers\atencionCliente\InternetaveriaController;
 use App\Http\Controllers\atencionCliente\LineafijaController;
 use App\Http\Controllers\CrudmapaPrueba;
@@ -74,7 +75,7 @@ Route::get('/recursos-humanos-menu/consultas', [App\Http\Controllers\rhumanos\Re
 
 //_________________________________________PASE DE SALIDA (INICO)__________________________________________________________
 Route::get('/recursos-humanos-permisos/pase-salida/creacion', [PaseSalidaController::class, 'creacion']);
-Route::get('/recursos-humanos-permisos/pase-salida/{id}/imprimir', [PaseSalidaController::class, 'imprimir']);
+Route::get('/recursos-humanos-permisos/pase-salida/imprimir', [PaseSalidaController::class, 'imprimir']);
 Route::resource('/recursos-humanos-permisos/pase-salida', PaseSalidaController::class);
 Route::resource('/recursos-humanos-permisos/pase-salida-admin', PaseSalidaAdminController::class);
 Route::resource('/recursos-humanos-permisos/pase-salida-pendiente', PaseSalidaPendienteController::class);
@@ -86,18 +87,29 @@ Route::resource('/recursos-humanos-permisos/permiso-personal', PermisoPersonalCo
 Route::resource('/recursos-humanos-permisos/p-personal-pendiente', PermisoPersonalPendienteController::class);
 //_________________________________________PERMISO PERSONAL (FINAL)______________________________________________________
 
-//_________________________________________PERMISO ADMINISTRATIVO (INICIO)________________________________________________
-// Route::match(['get', 'post'], '/recursos-humanos-permisos/administrativo/create2', [PerAdministrativoController::class, 'create2']);
-Route::get('/recursos-humanos-permisos/administrativo/create2', [PerAdministrativoController::class, 'create2']);
-Route::resource('/recursos-humanos-permisos/administrativo', PerAdministrativoController::class);
-Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdminisPendienteController::class);
-//_________________________________________PERMISO ADMINISTRATIVO (FINAL)______________________________________________________
-
 //_________________________________________PERMISO VENTAS (INICIO)_________________________________________________________
 Route::get('/recursos-humanos-permisos/ventas-rc/create3', [PermisoVentasController::class, 'create3']);
 Route::resource('/recursos-humanos-permisos/ventas-rc', PermisoVentasController::class);
 Route::resource('/recursos-humanos-permisos/ventas-pendientes', PerVentasPendienteController::class);
 //_________________________________________PERMISO VENTAS (FINAL)_________________________________________________________
+
+//_________________________________________PERMISO ADMINISTRATIVO (INICIO)________________________________________________
+Route::get('/recursos-humanos-permisos/administrativo/create2', [PerAdministrativoController::class, 'create2']);
+Route::resource('/recursos-humanos-permisos/administrativo', PerAdministrativoController::class);
+Route::resource('/recursos-humanos-permisos/administrativo-pendiente', PerAdminisPendienteController::class);
+//_________________________________________PERMISO ADMINISTRATIVO (FINAL)______________________________________________________
+
+//_________________________________________PERMISO DE INCAPACIDAD (INICIO)________________________________________________
+Route::get('/recursos-humanos-permisos/incapacidad/create4', [IncapacidadController::class, 'create4']);
+Route::resource('/recursos-humanos-permisos/incapacidad', IncapacidadController::class);
+Route::resource('/recursos-humanos-permisos/incapacidad-pendiente', IncapacidadPendController::class);
+//_________________________________________PERMISO DE INCAPACIDAD (FINAL)________________________________________________
+
+//_________________________________________PERMISO SUBSIDIO (INICIO)________________________________________________
+Route::get('/recursos-humanos-permisos/subsidio/create5', [SubsidioController::class, 'create5']);
+Route::resource('/recursos-humanos-permisos/subsidio', SubsidioController::class);
+Route::resource('/recursos-humanos-permisos/subsidio-pendiente', SubsidioPendController::class);
+//_________________________________________PERMISO SUBSIDIO (FINAL)________________________________________________
 
 //_________________________________________MENU ATENCION AL CLIENTE (INICIO)_________________________________________________________
 Route::get('/atencion-al-cliente/menu', [App\Http\Controllers\atencionCliente\MenuatencionclienteController::class, 'menuatencion'])->name('menu');

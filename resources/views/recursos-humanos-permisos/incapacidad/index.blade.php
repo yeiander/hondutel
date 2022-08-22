@@ -1,34 +1,35 @@
 @extends('layouts.app')
   @section('content')
-    <section class="">
+    <section>
       <div class="section-header" style="max-height: 3rem;">
+        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
       </div>
-      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Permisos administrativos aprobados:</h5>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Permisos de incapacidad Almacenados:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
 
-                @if(Session::has('notiConfirmado') )
-                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
-                 <h5 class="alert-heading">!Editado!</h5>
-                  <strong>{{Session('notiConfirmado')}}  </strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-           </div>
-          @endif
+       @if(Session::has('notiBorrado') )
+       <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <h5 class="alert-heading">!Eliminado!</h5>
+           <strong>{{Session('notiBorrado')}}  </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        @endif
 
-          @if(Session::has('notiBorrado') )
-          <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <h5 class="alert-heading">!Eliminado!</h5>
-              <strong>{{Session('notiBorrado')}}  </strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-           </div>
-           @endif
+        @if(Session::has('notiEditado') )
+        <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!Editado!</h5>
+            <strong>{{Session('notiEditado')}}  </strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         @endif
                             {{-- inicio --}}
                             <center>
                             <div id="input-daterange" class="row input-daterange">
@@ -42,25 +43,24 @@
                                 <div class="d-flex">
                                   <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
                                   <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
-                                  
-                                  </div>
                                 </div>
                           </div>
-                          <hr>
                         </center>
+                        <hr>
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
                                         
                                       <th style="color: #fff;">Nombre</th>
-                                      <th style="color: #fff;">Numero personal</th>
-                                      <th style="color: #fff;">Hora salida</th>
-                                      <th style="color: #fff;">Hora entrada(aprox)</th>
-                                      <th style="color: #fff;">Hora entrada(real)</th>
-                                      <th style="color: #fff;">Motivo</th>
-                                      <th style="color: #fff;">fecha Solicitud</th>
-                                      <th style="color: #fff;">Creado por:</th>
-                                      <th style="color: #fff;">Aprobado por:</th>
+                                      <th style="color: #fff;">Identidad</th>
+                                      <th style="color: #fff;">Certificado</th>
+                                      <th style="color: #fff;">Afiliación</th>
+                                      <th style="color: #fff;">Enfermedad:</th>
+                                      <th style="color: #fff;">inicio</th>
+                                      <th style="color: #fff;">finalización</th>
+                                      <th style="color: #fff;">Total de dias</th>
+                                      <th style="color: #fff;">Fecha de solicitud:</th>
+                                      <th style="color: #fff;">Aprobado por</th>
                                       <th style="color: #fff;">Acciones</th>
                                     </tr>
                                 </thead>
@@ -89,17 +89,22 @@
       }
 
   </script> 
-    <script>
+
+
+  
+   
+<script>
 
         $(document).ready(function(){
          $('#input-daterange').datepicker({
           todayBtn:'linked',
           format:'yyyy-mm-dd',
           language: 'es',
-          autoclose:true  
+          autoclose:true
          });
         
          load_data();
+        
          function load_data(from_date = '', to_date = '')
          {
           $('#permisoPersonal').DataTable({
@@ -109,7 +114,6 @@
            processing: true,
            serverSide: true,
            responsive: true,
-          //  select: true,
            dataSrc: "tableData",
            bDestroy: true,
            autoWidth: true,
@@ -117,13 +121,13 @@
    buttons: [{
         extend: 'excel',
         footer: true,
-        title: 'Permisos administrativos - Juticalpa Olancho',
-        messageTop: 'Permisos administrativos aprobados: del ' + '(' + from_date + ')' +' al '+'(' + to_date + ')',
+        title: 'Permisos Personales - Juticalpa Olancho',
+        messageTop: 'Permisos personales aprobados: del ' + '(' + from_date + ')' +' al '+'(' + to_date + ')',
         filename: 'PasesDeSalidaExcel',
         className: 'btn-success',
         text: 'Excel <i class="far fa-file-pdf"></i>',
         exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8],
+                        columns: [ 0, 1, 2, 3, 4, 5, 6, 7,8,9],
                         alignment: 'center',
                         
                     },
@@ -135,7 +139,7 @@
                     download: 'open',
                     orientation: 'landscape',
                     className: 'btn-danger',
-                    title:'Permisos administrativos - Juticalpa Olancho',
+                    title:'Permisos personales - Juticalpa Olancho',
                     customize: function ( doc ) {
                       doc.styles.tableBodyEven.alignment = 'center';
                       doc.styles.tableBodyOdd.alignment = 'center'; 
@@ -149,7 +153,7 @@
                     } ,
                     {
         margin: [4, 4],
-        text: 'Permisos administrativos aprobados: del ' + '(' + from_date + ')' +' al '+'(' + to_date + ')',
+        text: 'Permisos personales aprobados: del ' + '(' + from_date + ')' +' al '+'(' + to_date + ')',
         fontSize: 12,
         alignment: 'left',
       },
@@ -162,14 +166,13 @@
                     );
                   },
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8],
+                        columns: [ 0, 1, 2, 3, 4, 5, 6, 7,8, 9],
                         alignment: 'center',
                     },
                 },              
     ],
-           
            ajax: {
-            url:'{{ route("administrativo.index") }}',
+            url:'{{ route("incapacidad.index") }}',
             data:{from_date:from_date, to_date:to_date}
            },
            columns: [
@@ -178,33 +181,38 @@
              name:'empleados.nombreEmpleado'
             },
             {
-             data:'empleados.id',
-             name:'empleados.id'
+             data:'empleados.numIdentidadEmpleado',
+             name:'empleados.numIdentidadEmpleado'
             },
             {
-             data:'horaSalida',
-             name:'horaSalida'
+             data:'numCertificadoIncapacidad',
+             name:'numCertificadoIncapacidad'
             },
            
             {
-             data:'horaEntradaAproximada',
-             name:'horaEntradaAproximada'
-            },
-            {
-             data:'horaEntradaReal',
-             name:'horaEntradaReal'
+             data:'numAfiliacionIncapacidad',
+             name:'numAfiliacionIncapacidad'
             },
             {
              data:'motivoTrabajoEnfermedad',
              name:'motivoTrabajoEnfermedad'
             },
+            
+            {
+             data:'fechaInicioIncapacidad',
+             name:'fechaInicioIncapacidad'
+            },
+            {
+             data:'fechafinalIncapacidad',
+             name:'fechafinalIncapacidad'
+            },
+            {
+             data:'totalDiasIncapacidad',
+             name:'totalDiasIncapacidad'
+            },
             {
              data:'fechaSolicitudPermiso',
              name:'fechaSolicitudPermiso'
-            },
-            {
-             data:'nombreQuienCreo',
-             name:'nombreQuienCreo'
             },
             {
              data:'nombreQuienAprobo',
@@ -217,6 +225,8 @@
              name:'action'
             },
             
+            
+        
            ],
           
         
@@ -246,7 +256,9 @@
         
         });
             
-     </script>
+</script>
 
+          
+        
   @endsection
 @endsection

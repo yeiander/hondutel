@@ -11,6 +11,10 @@
     <a class="nav-link" href="{{ route('roles.index')}}">
         <i class=" fas fa-user-lock"></i><span>Roles</span>
     </a>
+
+    <a class="nav-link" href="{{ route('recursos_humanos')}}">
+        <i class=" fas fa-house-user"></i><span>Empleados</span>
+    </a>
    
     <a class="nav-link" href="{{ route('recursos_humanos')}}">
         <i class=" fas fa-house-user"></i><span>Recursos Humanos</span>

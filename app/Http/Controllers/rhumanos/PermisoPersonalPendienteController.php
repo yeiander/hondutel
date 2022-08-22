@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RhPermiso;
 use App\Models\Empleado;
+use Illuminate\Support\Facades\Session;
 
 class PermisoPersonalPendienteController extends Controller
 {
@@ -16,11 +17,7 @@ class PermisoPersonalPendienteController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'aprobado')->where('fk_id_tipo_permiso','like','2');
-        // return view('recursos-humanos-permisos/p-personal-pendiente.index', compact('permisos'));
-
+    
         if(request()->ajax())
         {
        if(!empty($request->from_date))
@@ -35,20 +32,17 @@ class PermisoPersonalPendienteController extends Controller
            $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
            ->where('fk_id_tipo_permiso', 'like', 2)
            ->where('aprobacion', 'like', 'aprobado');
-           
         }
           return datatables()->of($data)
           
           ->addColumn('action', function ($data) {
-         
-
+       
            return view('/recursos-humanos-permisos/p-personal-pendiente.action', compact('data'));
            
-
        })
           
            ->rawColumns(['action'])
-          ->make(true);
+           ->make(true);
        }
           return view('/recursos-humanos-permisos/p-personal-pendiente.index');
     }
@@ -111,8 +105,7 @@ class PermisoPersonalPendienteController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-
-        // $permiso = RhPermiso::findOrFail($id);
+        Session::flash('notiAlmacenado', 'El permiso ha sido almacenado');
         return redirect()->route('p-personal-pendiente.index');
     }
 
@@ -125,5 +118,8 @@ class PermisoPersonalPendienteController extends Controller
     public function destroy($id)
     {
         //
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('p-personal-pendiente.index');
     }
 }

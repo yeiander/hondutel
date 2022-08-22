@@ -24,42 +24,33 @@ class PermisoPersonalController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','2')->where('aprobacion', 'like', 'almacenado');
-        // $permisos = RhPermiso::all()->where('aprobacion', 'like', 'almacenado')->andWhere('fk_id_tipo_permiso', 'like', '2');
-        // return view('/recursos-humanos-permisos/permiso-personal.index', compact('permisos'));
-
+        
         if(request()->ajax())
          {
         if(!empty($request->from_date))
          {
-          $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+          $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
             ->where('aprobacion', 'like', 'almacenado')
             ->where('fk_id_tipo_permiso', 'like', 2)
             ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
           }
          else
          {
-            $data = RhPermiso::with('empleados')->select('rh_permisos.*')
+            $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
             ->where('aprobacion', 'like', 'almacenado')
             ->where('fk_id_tipo_permiso', 'like', 2);
          }
            return datatables()->of($data)
            
            ->addColumn('action', function ($data) {
-            // return '<a href="#edit-'.$data->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-      
-            // $btn =  '<a href="pase-salida/'. $data->id .'/edit" class="btn btn-primary btn-sm">Editar</a>';
-         
-            // $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Borrar</a>';
-
+    
             return view('/recursos-humanos-permisos/permiso-personal.action', compact('data'));
             
 
         })
-            // ->editColumn('id', 'ID: {{$id}}')
+            
             ->rawColumns(['action'])
-           ->make(true);
+            ->make(true);
         }
            return view('/recursos-humanos-permisos/permiso-personal.index');
     }
@@ -74,7 +65,7 @@ class PermisoPersonalController extends Controller
 
         // esto me llevara los valores de empleados a los formularios
         $permisos = RhPermiso::all();
-              $empleados = Empleado::all();
+        $empleados = Empleado::all();
         return view('/recursos-humanos-permisos/permiso-personal.crear', compact('empleados', 'permisos'));
     }
 
@@ -88,8 +79,7 @@ class PermisoPersonalController extends Controller
     {
         //
         $validated = $request->validate([
-            
-            
+
             'fk_id_empleado' => 'required',
             'horasPermisoPersonal' => 'required',
             'fechaPermisoPersonalDia1' => 'required',
@@ -99,9 +89,6 @@ class PermisoPersonalController extends Controller
             
         ]);
 
-        // $datosPermisoPersonal = request()->except('_token');
-        // RhPermiso::insert($datosPermisoPersonal);
-        // $permisos = RhPermiso::all();
         $fecha123 =  $request->fechaPermisoPersonalDia1;
         $condicion = $request->horasPermisoPersonal;
 
@@ -115,14 +102,11 @@ class PermisoPersonalController extends Controller
 
             Session::flash('notiPaseSalida', 'El empleado ya tiene un pase de salida pendiente');
 
-       
             return redirect()->route('recursos-h-tipos-de-permisos'); 
-           //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+          
     }
 
     else {
-       
-
 
        if($condicion == 16){
 
@@ -138,6 +122,7 @@ class PermisoPersonalController extends Controller
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
         $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
         $permiso->save();
+        Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
 
         }
@@ -156,6 +141,7 @@ class PermisoPersonalController extends Controller
         $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
         $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
         $permiso->save();
+        Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
         }
     }
@@ -200,8 +186,15 @@ class PermisoPersonalController extends Controller
         ->where('fk_id_tipo_permiso', 'like', 2)
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->sum('horasPermisoPersonal');
-    
+
+        if($individual >= 16){
+            Session::flash('notiPermisoPersonalMes', 'se debe esperar al siguiente mes');
+            return redirect()->route('recursos-h-tipos-de-permisos'); 
+        }
+
+    else{
         return view('/recursos-humanos-permisos/permiso-personal/crear', compact('empleado', 'individual', 'mes', 'annio'));
+        }
     }
 
 
@@ -229,8 +222,10 @@ class PermisoPersonalController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
+        return redirect()->route('permiso-personal.index');
     }
 
     /**
@@ -243,6 +238,7 @@ class PermisoPersonalController extends Controller
     {
         //
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('permiso-personal.index');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\RhPermiso;
 use App\Models\RhTipoPermiso;
 use App\Models\Empleado;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -50,7 +51,7 @@ class PaseSalidaAdminController extends Controller
        })
           
            ->rawColumns(['action'])
-          ->make(true);
+           ->make(true);
        }
           return view('/recursos-humanos-permisos/pase-salida-admin.index');
 
@@ -99,12 +100,7 @@ class PaseSalidaAdminController extends Controller
     {
         //   
         $permiso = RhPermiso::findOrFail($id);
-        // $individual= RhPermiso::where('fk_id_empleado')->where('fechaSolicitudPermiso','>=', now()->subDays(30))->count();
         return view('/recursos-humanos-permisos/pase-salida-admin/editar', compact('permiso'));
-
-    //     $datos = vEstadoPedidos::where('created_at', '>=', now()->subDays(30))
-    //          ->whereCodVendedor($userAct->codvendedor)
-    //          ->get();
     }
 
     /**
@@ -120,9 +116,8 @@ class PaseSalidaAdminController extends Controller
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
 
-        // $permiso = RhPermiso::findOrFail($id);
+        Session::flash('notiAprobado', 'El permiso ha sido aprobado');
         return redirect()->route('pase-salida-admin.index');
-
 
     }
 
@@ -136,6 +131,7 @@ class PaseSalidaAdminController extends Controller
     {
         //
         RhPermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('pase-salida-admin.index');
 
     }

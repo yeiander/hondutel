@@ -8,7 +8,6 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 //agregare para el control de usuarios con Spatie:
 use Spatie\Permission\Models\Role;
-
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -134,11 +133,6 @@ class PaseSalidaController extends Controller
 
         else{
 
-        // $datosPaseSalida = request()->except('_token');
-        // RhPermiso::insert($datosPaseSalida);
-        // $permisos = RhPermiso::all();
-        // Session::flash('notiEnviado', 'El permiso ha sido enviado');
-        // return redirect()->route('recursos_humanos');
         $permiso = new Rhpermiso;
         $permiso->fk_id_empleado = $request->fk_id_empleado;
         $permiso->semanaSolicitudPermiso = $semanaNum;
@@ -228,7 +222,7 @@ class PaseSalidaController extends Controller
 
         if($permiso >= 2){
            
-             Session::flash('notiPaseSalidaSemana', 'se debe esperar a la siguiente semana ');
+             Session::flash('notiPaseSalidaSemana', 'debe esperar la siguiente semana');
              return redirect()->route('recursos-h-tipos-de-permisos'); 
             //  return view('/recursos-humanos-menu/tipos-de-permisos');  
 
@@ -253,25 +247,27 @@ class PaseSalidaController extends Controller
 
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-
-        // $permiso = RhPermiso::findOrFail($id);
+        Session::flash('notiEditado', 'El permiso ha sido editado');
         return redirect()->route('pase-salida.index');
     
     }
 
-    public function imprimir($id)
+    public function imprimir()
     {   
-        $permiso = RhPermiso::find($id);
+        // $permiso = RhPermiso::find($id);
         // return view('pdf.reportePaseSalida', compact('permisos'));
         // $data = compact('permisos');
         // $pdf = PDF::loadView('pdf.reportePaseSalida',['permisos'=>$permisos]);
         // return $pdf->stream();
-         $vista = view('pdf.reportePaseSalida')
-                      ->with('permiso', $permiso);
+        //  $vista = view('pdf.reportePaseSalida')
+        //               ->with('permiso', $permiso);
 
-                      $pdf = PDF::loadHTML($vista);
+        //               $pdf = PDF::loadHTML($vista);
 
-                      return $pdf->stream('nombre.pdf');
+        //               return $pdf->stream('nombre.pdf');
+
+              $pdf = PDF::loadView('/recursos-humanos-permisos/pase-salida.imprimir');
+              return $pdf->stream('reporte.pdf');
     }
      
     /**
@@ -284,6 +280,7 @@ class PaseSalidaController extends Controller
     {
         //
         Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
         return redirect()->route('pase-salida.index');
     }
 }

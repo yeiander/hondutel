@@ -6,9 +6,8 @@
      
        </div>
         <div class="section-body">
-       
-          <center><h4>Crear un permiso administrativo</h4></center>
-           <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+          <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso administrativo:</h5></center>
+           <a style="font-size: 15px; border-radius:1.5rem;" type="" class="btn btn-primary">
           Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
         </a>
         
@@ -25,7 +24,7 @@
 
                                               <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
-                                                  <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                  <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                                                 </div>
                                               </div>
                                             
@@ -111,7 +110,7 @@
                                       </div>
                                          {{-- FIN --}}
 
-                                         <hr>
+                                        
                                          <div class="col-xs-12 col-sm-12 col-md-12">
                                          <ul class="list-unstyled">
                                              <div class="media-body">

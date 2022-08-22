@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Inicio
+@endsection
 @section('content')
   <section class="section">
     <div class="section-header"  style="max-height: 3rem;">
@@ -33,11 +36,7 @@
 
     {{-------------------------- INICIO --------------------------}}
                     
-    <i  height="100px" class="fa fa-bath" aria-hidden="true"></i>
-
-    <i class="fa fa-battery-half fa-5x" aria-hidden="true"></i>
-    <i class="fa fa-file-text" aria-hidden="true"></i>
-    <i class="fa fa-file fa-5x" aria-hidden="true"></i>
+    
     {{-------------------------- FINAL ---------------------------}}
               </div>
             </div>

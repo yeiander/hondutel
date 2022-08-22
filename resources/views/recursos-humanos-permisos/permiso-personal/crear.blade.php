@@ -6,8 +6,8 @@
       {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
        </div>
         <div class="section-body">
-          <center><h4 id="permisoPersonalMensaje">Crear un permiso personal</h4></center>
-          <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+          <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso personal:</h5></center>
+          <a style="font-size: 15px;  border-radius:1.5rem;"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
             Numero de horas solicitadas en este mes:<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
           </a>
             <div class="row">
@@ -18,7 +18,7 @@
                            
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                   <div class="form-group">
-                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                                                   </div>
                                                 </div>
          
@@ -86,7 +86,7 @@
                                        <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Motivo del permiso:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
+                                           <input placeholder="Escribir un motivo" style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                          </div>
                                       </div>
 
@@ -111,7 +111,7 @@
                                      {{-- FIN --}}
                                     </div>
                                   </div>
-                                  <hr>
+                               
                                   <div class="col-xs-12 col-sm-12 col-md-12">
                                   <ul class="list-unstyled">
                                       <div class="media-body">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div id="mensajeError" style="display: none">
-                      <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
+                      <center><h4>agotaste el numero de horas para este mes</h4></center>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
          $('#botonGuardar').hide();
          $('#form').hide();
          $('#mensajeError').show();
-            var textoMensaje = "Pase de Salida";
+            var textoMensaje = "Permiso personal";
             var mensaje = document.getElementById("permisoPersonalMensaje");
             mensaje.innerHTML = textoMensaje;
     }

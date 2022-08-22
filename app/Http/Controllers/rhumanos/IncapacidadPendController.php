@@ -4,16 +4,11 @@ namespace App\Http\Controllers\rhumanos;
 
 use App\Http\Controllers\Controller;
 use App\Models\RhPermiso;
-use App\Models\Empleado;
 use Illuminate\Http\Request;
-//agregare para el control de usuarios con Spatie:
-use Spatie\Permission\Models\Role;
-
-use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
-class PerVentasPendienteController extends Controller
+
+
+class IncapacidadPendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,20 +17,20 @@ class PerVentasPendienteController extends Controller
      */
     public function index(Request $request)
     {
-    
-       if(request()->ajax())
+        //
+        if(request()->ajax())
         {
        if(!empty($request->from_date))
         {
          $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
            ->where('aprobacion', 'like', 'aprobado')
-           ->where('fk_id_tipo_permiso', 'like', 4)
+           ->where('fk_id_tipo_permiso', 'like', 5)
            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
          }
         else
         {
            $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
-           ->where('fk_id_tipo_permiso', 'like', 4)
+           ->where('fk_id_tipo_permiso', 'like', 5)
            ->where('aprobacion', 'like', 'aprobado');
            
         }
@@ -44,7 +39,7 @@ class PerVentasPendienteController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/recursos-humanos-permisos/ventas-pendientes.action', compact('data'));
+           return view('/recursos-humanos-permisos/incapacidad-pendiente.action', compact('data'));
            
 
        })
@@ -52,8 +47,8 @@ class PerVentasPendienteController extends Controller
            ->rawColumns(['action'])
           ->make(true);
        }
-          return view('/recursos-humanos-permisos/ventas-pendientes.index');
         
+        return view('/recursos-humanos-permisos/incapacidad-pendiente/index');
     }
 
     /**
@@ -97,9 +92,6 @@ class PerVentasPendienteController extends Controller
     public function edit($id)
     {
         //
-          //
-          $permiso = RhPermiso::findOrFail($id);
-          return view('/recursos-humanos-permisos/ventas-pendientes/editar', compact('permiso'));
     }
 
     /**
@@ -114,8 +106,8 @@ class PerVentasPendienteController extends Controller
         //
         $permiso = request()->except(['_token', '_method']);
         RhPermiso::where('id','=', $id)->update($permiso);
-        Session::flash('notiConfirmado', 'El permiso ha sido almacenado');
-        return redirect()->route('ventas-pendientes.index');
+        Session::flash('notiAlmacenado', 'El permiso ha sido almacenado');
+        return redirect()->route('incapacidad-pendiente.index');
     }
 
     /**
@@ -129,6 +121,6 @@ class PerVentasPendienteController extends Controller
         //
         Rhpermiso::find($id)->delete();
         Session::flash('notiBorrado', 'El permiso ha sido borrado');
-        return redirect()->route('ventas-pendientes.index');
+        return redirect()->route('incapacidad-pendiente.index');
     }
 }
