@@ -15,7 +15,7 @@
                               {{-- <h3 class="text-center">Pase de salida</h3> --}}
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                  <label id=""><h4> {{$permiso->rhTipoPermisos->tipoPermiso}} / {{$permiso->empleados->nombreEmpleado}}</h4></label>
+                                  <label id=""><h4> {{$permiso->permisos->tipoPermiso}} / {{$permiso->empleados->nombreEmpleado}}</h4></label>
                                   </div>
                               </div>
                                                           

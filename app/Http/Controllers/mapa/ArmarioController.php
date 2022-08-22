@@ -35,7 +35,7 @@ class ArmarioController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+           return view('/mapa-interactivo/armario.action', compact('data'));
            
 
        })
@@ -117,6 +117,8 @@ class ArmarioController extends Controller
      */
     public function destroy($id)
     {
+        Armario::find($id)->delete();
+        return redirect()->route('armario.index');
         //
     }
 }

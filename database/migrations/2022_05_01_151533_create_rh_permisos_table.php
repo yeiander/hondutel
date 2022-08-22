@@ -29,6 +29,7 @@ class CreateRhPermisosTable extends Migration
             $table->text('motivoTrabajoEnfermedad')->nullable();
             $table->date('fechaSolicitudPermiso')->nullable();
             $table->string('semanaSolicitudPermiso')->nullable();
+            $table->string('aniioSolicitudPermiso')->nullable();
             $table->string('lugarSolicitudPermiso')->nullable();
             $table->date('fechaPermisoPersonalDia1')->nullable();
             $table->date('fechaPermisoPersonalDia2')->nullable();
@@ -43,14 +44,14 @@ class CreateRhPermisosTable extends Migration
             $table->date('fechaInicioIncapacidad')->nullable();
             $table->date('fechafinalIncapacidad')->nullable();
             $table->string('totalDiasIncapacidad')->nullable();
-            $table->string('hss')->nullable();
+            $table->string('ihss')->nullable();
             $table->date('fechaInicioSubsidio')->nullable();
             $table->date('fechaFinalSubsidio')->nullable();
             $table->string('totalDiassubsidio')->nullable();
             $table->string('DiasPagarSubsidio')->nullable();
             $table->string('sueldoBaseSubsidio')->nullable();
             $table->string('ObservacionesSubsidio')->nullable();
-            $table->string('aprobacion')->default('pendiente');
+            $table->string('aprobacion');
             $table->string('nombreQuienCreo')->nullable();
             $table->string('nombreQuienAprobo')->nullable();
              

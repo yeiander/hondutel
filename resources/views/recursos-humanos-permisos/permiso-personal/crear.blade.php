@@ -6,8 +6,8 @@
       {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
        </div>
         <div class="section-body">
-          <center><h4 id="permisoPersonalMensaje">Crear un permiso personal</h4></center>
-          <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
+          <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso personal:</h5></center>
+          <a style="font-size: 15px;  border-radius:1.5rem;"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
             Numero de horas solicitadas en este mes:<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
           </a>
             <div class="row">
@@ -18,7 +18,7 @@
                            
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                   <div class="form-group">
-                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                                                   </div>
                                                 </div>
          
@@ -38,10 +38,7 @@
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
                      <form id="form" action=" {{url('/recursos-humanos-permisos/permiso-personal')}} " method="post">
                       @csrf
-                        <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="2">
-                        <input type = "hidden" name="nombreQuienCreo" id="nombreQuienCreo" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
-    
-           
+  
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
@@ -89,7 +86,7 @@
                                        <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Motivo del permiso:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
+                                           <input placeholder="Escribir un motivo" style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                                          </div>
                                       </div>
 
@@ -114,11 +111,16 @@
                                      {{-- FIN --}}
                                     </div>
                                   </div>
-                                    <ul class="list-unstyled">
-                              
-                                        <div class="media-body">
-                                          
-                                  <input id="botonGuardar"  type="submit"  class="btn btn-primary" value="Guardar">
+                               
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                  <ul class="list-unstyled">
+                                      <div class="media-body">
+                                        
+                                        <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                        <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                                      </div>
+                                    </ul>
+                                  </div>
                                </form>
           
                             </div>
@@ -127,7 +129,7 @@
                         </div>
                     </div>
                     <div id="mensajeError" style="display: none">
-                      <center><h4>agotaste el numero de pases de salida para este mes</h4></center>
+                      <center><h4>agotaste el numero de horas para este mes</h4></center>
                     </div>
                 </div>
             </div>
@@ -145,7 +147,7 @@
          $('#botonGuardar').hide();
          $('#form').hide();
          $('#mensajeError').show();
-            var textoMensaje = "Pase de Salida";
+            var textoMensaje = "Permiso personal";
             var mensaje = document.getElementById("permisoPersonalMensaje");
             mensaje.innerHTML = textoMensaje;
     }
@@ -187,7 +189,7 @@ $(function ocultarOption(){
     
       //  BOTON SUBMI nnnT UNA SOLA VEZ
     $('#form').one('submit', function() {
-      $(this).find('input[type="submit"]').attr('disabled','disabled');
+      $(this).find('button[type="submit"]').attr('disabled','disabled');
 });
 
 
@@ -197,9 +199,10 @@ $(function ocultarOption(){
      
 
         var selectValor = $(this).val();
-        if (selectValor == 16 || selectValor == null ) {
+        if (selectValor == 16) {
             $('#dia2').show();
-            $("input").prop('required', true);
+            $("#dia2Igual").prop('required', true);
+            $('input[type="date"]').val('');
 
 
         }else if ((selectValor == 4 || selectValor == 8 )){
@@ -207,9 +210,11 @@ $(function ocultarOption(){
           // $("input").prop('required', false);
           // $('#fechaPermisoPersonalDia2').val('');
           $('input[type="date"]').val('');
+          $("#dia2Igual").prop('required', false);
         }
     });
 
+  
   
     </script>
 

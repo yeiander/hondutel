@@ -1,6 +1,6 @@
 @extends('layouts.auth_app')
 @section('title')
-    Admin Login
+    Iniciar
 @endsection
 @section('content')
     <div class="card card-primary">
@@ -34,9 +34,9 @@
                     <div class="d-block">
                         <label for="password" class="control-label">Contraseña</label>
                         <div class="float-right">
-                            <a href="{{ route('password.request') }}" class="text-small">
+                            {{-- <a href="{{ route('password.request') }}" class="text-small">
                                 Olvido su Contraseña?
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                     <input aria-describedby="passwordHelpBlock" id="password" type="password"

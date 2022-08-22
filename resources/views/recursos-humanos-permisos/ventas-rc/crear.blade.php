@@ -6,11 +6,8 @@
       {{-- <h3 class="page__heading">Recursos Humanos:</h3> --}}
        </div>
         <div class="section-body">
-       
-          <center><h4>Crear un permiso de ventas</h4></center>
-          <a style="font-size: 15px"   style="margin-top: 0.5rem" type="" class="btn btn-primary">
-            Numero de permisos en este mes<span style="font-size: 15px" class="badge badge-light">{{ $individual }}</span>
-          </a>
+      
+          <center><h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Crear un permiso de ventas:</h5></center>
          
             <div class="row">
                <div class="col-lg-12">
@@ -19,7 +16,7 @@
                                                 {{-- inicio --}}
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                   <div class="form-group">
-                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreEmpleado">Nombre: {{ $empleado->nombreEmpleado }}</label>
+                                                    <label  style="font-size:17px; font-weight:bold; color:rgb(89, 89, 89); background-color:rgb(230, 230, 230); padding:0.3rem; border-radius:1rem;"  for="nombreEmpleado">-Empleado: {{ $empleado->nombreEmpleado }}-</label>
                                                   </div>
                                                 </div>
                            
@@ -35,11 +32,9 @@
 @endif
                             
                                  {{-- FORMULARIO PARA CREAR UN PASE DE SALIDA                       --}}
-                     <form action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
+                     <form id="form" action=" {{url('/recursos-humanos-permisos/ventas-rc')}} " method="post">
                       @csrf
-                        <input type = "hidden" name="fk_id_tipo_permiso" id="fk_id_tipo_permiso" value="4">
-                                 
-                                 
+
                         <div class="container">
                           <div class="row">
                             <div class="col-sm">
@@ -55,30 +50,28 @@
                              <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                 <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaSalida">Hora de salida:</label>
-                                <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida">
+                                <input  style="font-size:16px;" class="form-control" type="time" name="horaSalida" id="horaSalida" required>
                               </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                 <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="horaEntradaAproximada">Hora de entrada (aproximada):</label> 
-                               <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada">
+                               <input  style="font-size:16px;" class="form-control" type="time" name="horaEntradaAproximada" id="horaEntradaAproximada" required>
                               </div>
                            </div>
-
-                           
 
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="motivoTrabajoEnfermedad">Trabajo a realizar:</label>
-                               <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad">
+                               <input style="font-size:14px;" class="form-control" type="text" name="motivoTrabajoEnfermedad" id="motivoTrabajoEnfermedad" required>
                              </div>
                           </div>
 
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="vehiculoDescripcion">descripcion del vehiculo:</label>
-                               <input style="font-size:14px;" class="form-control" type="text" name="vehiculoDescripcion" id="vehiculoDescripcion">
+                               <input style="font-size:14px;" class="form-control" type="text" name="vehiculoDescripcion" id="vehiculoDescripcion" required>
                              </div>
                           </div>
                               {{-- final --}}
@@ -89,9 +82,10 @@
                              <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="lineatVendida">Linea unificada vendida:</label>
-                               <select class="form-control" id="lineatVendida" name="lineatVendida">
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                               <select class="form-control" id="lineaVendida" name="lineaVendida" required>
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
@@ -100,9 +94,10 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoVendido">Telefono vendido:</label>
-                               <select class="form-control" id="telefonoVendido" name="telefonoVendido">
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                               <select class="form-control" id="telefonoVendido" name="telefonoVendido" required>
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
@@ -111,21 +106,20 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="internetVendido">Internet vendido:</label>
-                               <select class="form-control" id="internetVendido" name="internetVendido">
-                                <option value="">no</option>
-                                   <option value="si">si</option>
+                               <select class="form-control" id="internetVendido" name="internetVendido" required> 
+                                <option disabled selected value="">Seleccione una opción</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
                                  
                                  </select>
                               </div>
                             </div>
 
-                            
-                           
-
+             
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group"> 
                                 <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitudPermiso">Fecha de solicitud</label>
-                                <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso">
+                                <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitudPermiso" id="fechaSolicitudPermiso" required>
                             </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -138,18 +132,20 @@
                                  </select>
                               </div>
                             </div>
+                          </div>
                               {{-- final --}}
                               
                             </div>
+                        
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                          <ul class="list-unstyled">
+                              <div class="media-body">
+                                
+                                <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Enviar</button>
+                                <a href="{{ route('recursos-h-tipos-de-permisos') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                              </div>
+                            </ul>
                           </div>
-
-      
-                                    <br>
-                                    <ul class="list-unstyled">
-                              
-                                        <div class="media-body">
-                                         
-                                  <input  type="submit"  class="btn btn-primary" value="Guardar">
                                </form>
                                  
                                {{-- final --}}
@@ -161,6 +157,17 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+    <script>
+      
+    
+        // es para desabilitar al hacer submit una sola vez
+    $('#form').one('submit', function() {
+    $(this).find('button[type="submit"]').attr('disabled','disabled');
+});
+
+    </script>
+    @endsection
             
 @endsection
 

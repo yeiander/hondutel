@@ -14,6 +14,7 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 
 class PerAdministrativoController extends Controller
@@ -23,12 +24,43 @@ class PerAdministrativoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'almacenado');
-       return view('/recursos-humanos-permisos/administrativo.index', compact('permisos'));
+    //     $permisos = RhPermiso::all()->where('fk_id_tipo_permiso','like','3')->where('aprobacion', 'like', 'almacenado');
+    //    return view('/recursos-humanos-permisos/administrativo.index', compact('permisos'));
+    if(request()->ajax())
+    {
+   if(!empty($request->from_date))
+    {
+     $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+       ->where('aprobacion', 'like', 'almacenado')
+       ->where('fk_id_tipo_permiso', 'like', 3)
+       ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+     }
+    else
+    {
+       $data = RhPermiso::with('empleados')->select('rh_permisos.*')->orderBy('id','DESC')
+       ->where('fk_id_tipo_permiso', 'like', 3)
+       ->where('aprobacion', 'like', 'almacenado');
+       
+    }
+      return datatables()->of($data)
       
+      ->addColumn('action', function ($data) {
+     
+
+       return view('/recursos-humanos-permisos/administrativo.action', compact('data'));
+       
+
+   })
+      
+       ->rawColumns(['action'])
+      ->make(true);
+   }
+      return view('/recursos-humanos-permisos/administrativo.index');
+
+
     }
 
     /**
@@ -64,38 +96,48 @@ class PerAdministrativoController extends Controller
             'fechaSolicitudPermiso' => 'required',
             'lugarSolicitudPermiso' => 'required'
         ]);
+        $fecha = Carbon::now()->format('Y-m-d');
+        $semanaNum=date('W',strtotime($fecha));
+        $id = $request->input('fk_id_empleado');
    
+        $permiso= RhPermiso::where('fk_id_empleado', 'like', $id)
+        ->where('aprobacion', 'like', 'pendiente')
+        ->where('fk_id_tipo_permiso', 'like', 3)->count();
 
+        if($permiso >= 1){
+           
+             Session::flash('notiPaseSalida', 'El empleado ya tiene un permiso administrativo pendiente');
+
+       
+             return redirect()->route('recursos-h-tipos-de-permisos'); 
+            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+        }
+
+        else {
         // $datosPaseSalida = request()->all();
 
-        $datosAdministrativo = request()->except('_token');
-        RhPermiso::insert($datosAdministrativo);
-        $permisos = RhPermiso::all();
+        // $datosAdministrativo = request()->except('_token');
+        // RhPermiso::insert($datosAdministrativo);
+        // $permisos = RhPermiso::all();
+        // return redirect()->route('recursos_humanos');
+
+        $permiso = new Rhpermiso;
+        $permiso->fk_id_empleado = $request->fk_id_empleado;
+        $permiso->semanaSolicitudPermiso = $semanaNum;
+        $permiso->aniioSolicitudPermiso = $fecha;
+        $permiso->fk_id_tipo_permiso = 3;
+        $permiso->aprobacion = 'pendiente';
+        $permiso->horaSalida = $request->horaSalida;
+        $permiso->horaEntradaAproximada =  $request->horaEntradaAproximada;
+        $permiso->motivoTrabajoEnfermedad = $request->motivoTrabajoEnfermedad;
+        $permiso->fechaSolicitudPermiso = $request->fechaSolicitudPermiso;
+        $permiso->lugarSolicitudPermiso = $request->lugarSolicitudPermiso;
+        $permiso->nombreQuienCreo =  (\Illuminate\Support\Facades\Auth::user()->name);
+        $permiso->save();
+        Session::flash('notiEnviado', 'El permiso ha sido enviado');
         return redirect()->route('recursos_humanos');
-
-        // $datosAdministrativo = new Rhpermiso;
-        // $datosAdministrativo->fk_id_empleado = $request->input('fk_id_empleado');
-        // $datosAdministrativo->fk_id_tipo_permiso = $request->input('fk_id_tipo_permiso');
-        // $datosAdministrativo->horaSalida = $request->input('horaSalida');
-        // $datosAdministrativo->horaEntradaAproximada = $request->input('horaEntradaAproximada');
-        // $datosAdministrativo->motivoTrabajoEnfermedad = $request->input('motivoTrabajoEnfermedad');
-        // $datosAdministrativo->fechaSolicitudPermiso = $request->input('fechaSolicitudPermiso');
-        // $datosAdministrativo->lugarSolicitudPermiso = $request->input('lugarSolicitudPermiso');
+        }
         
-        // if( $datosAdministrativo->save()){
-        //            return redirect()->route('recursos_humanos');
-                        
-            
-        //     }
-
-        //     else{
-
-        //         return redirect()->route('usuarios.index');
-        //     }
-       
-
-
-        // return redirect()->route('recursos_humanos')->with('status','Student Added Successfully');
         
     }
 
@@ -139,13 +181,22 @@ class PerAdministrativoController extends Controller
         ->where('aprobacion', 'like', 'almacenado')
         ->whereYear('fechaSolicitudPermiso', '=', $annio)
         ->whereMonth('fechaSolicitudPermiso', '=', $mes)->count();
+
+          if($individual >= 6){
+            Session::flash('notiAdministrativo', 'El empleado agoto el numero de permisos en este mes');
+            return redirect()->route('recursos-h-tipos-de-permisos'); 
+
+          }
+          else{
        
         return view('/recursos-humanos-permisos/administrativo/crear', compact('empleado', 'individual', 'mes', 'annio', 'area'));
-
+          }
         }
+
+
         else{
-            // $sessionManager->flash('mensaje', 'el usuario '.$empleado->nombreEmpleado. ' no es de Administración');
-            return view('/recursos-humanos-menu/tipos-de-permisos')->with('status', 'el usuario no es de administración');
+            Session::flash('notiAdministrativo', 'El empleado no es de Administración');
+            return redirect()->route('recursos-h-tipos-de-permisos'); 
         }
     }
 
@@ -158,6 +209,8 @@ class PerAdministrativoController extends Controller
     public function edit($id)
     {
         //
+        $permiso = RhPermiso::findOrFail($id);
+        return view('/recursos-humanos-permisos/administrativo/editar', compact('permiso'));
     }
 
     /**
@@ -170,6 +223,11 @@ class PerAdministrativoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permiso = request()->except(['_token', '_method']);
+        RhPermiso::where('id','=', $id)->update($permiso);
+
+        Session::flash('notiConfirmado', 'El permiso ha sido editado');
+        return redirect()->route('administrativo.index');
     }
 
     /**
@@ -181,5 +239,9 @@ class PerAdministrativoController extends Controller
     public function destroy($id)
     {
         //
+
+        Rhpermiso::find($id)->delete();
+        Session::flash('notiBorrado', 'El permiso ha sido borrado');
+        return redirect()->route('administrativo.index');
     }
 }

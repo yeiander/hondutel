@@ -29,7 +29,7 @@
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
                               
-                                  <a href="{{ route('cajaterminal.create') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-map-pin fa-3x mr-3" aria-hidden="true"></i></a>
+                                  <a href="{{ route('cajaterminal.create') }}"><i style="color:rgb(63, 71, 99)" class="fa fa-map-pin fa-3x mr-3" aria-hidden="true"></i></a>
                                   <div class="media-body">
                                       <a href="{{ route('cajaterminal.create') }}">
                                          <h5>Crear caja terminal</h5>
@@ -46,7 +46,7 @@
                                     <div class="media-body">
                                         <a  href="{{ route('armario.create') }}">
                                            <h5>Crear nuevo armario</h5></a>
-                                           <p>Crear nuevos armarios</p>
+                                           <p>Crear nevos armarios</p>
                                     </div>
                                   </li>
 

@@ -58,14 +58,7 @@
 
                                     <div class="col-sm">
                                       {{-- columna2 inicio --}}
-                                     
-
-                                     
-
-                    
-
-                                   
-                                    
+                                                                                                        
                                     </div>
                                 </div>       
                                               <br>
