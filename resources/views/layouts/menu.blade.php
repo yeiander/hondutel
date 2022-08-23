@@ -13,7 +13,7 @@
     </a>
 
     <a class="nav-link" href="{{ route('recursos_humanos')}}">
-        <i class=" fas fa-house-user"></i><span>Empleados</span>
+        <i class=" fas fa-address-card"></i><span>Empleados</span>
     </a>
    
     <a class="nav-link" href="{{ route('recursos_humanos')}}">

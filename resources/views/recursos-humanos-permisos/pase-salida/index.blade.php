@@ -71,7 +71,7 @@
                          </tbody>
                     </table>
                             {{-- final --}}
-                            
+                          </section>
                      @section('scripts') 
      <script>
             function DeleteFunction() {
@@ -254,6 +254,6 @@ var d = day + "-" + month + "-" + year;
                 </div>
             </div>
         </div>
-    </section>
+    
     @endsection
 @endsection

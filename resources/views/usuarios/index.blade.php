@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+  Usuarios
+@endsection
 @section('content')
     <section class="section">
         <div class="section-header"  style="max-height: 3rem;">
@@ -16,33 +18,31 @@
                            
                             <ul class="list-unstyled">
                                 <li class="media">
-                                    <img class="align-self-center mr-3" src="{{ asset('img/permiso.png') }}" height="50px">
+                                  
                                   <div class="media-body">
-                                    <a class="btn btn-primary" href="{{ route('usuarios.create') }}">nuevo</a>
+                                    {{-- <a class="btn btn-primary" href="{{ route('usuarios.create') }}">nuevo</a> --}}
+                                    <a href="{{ route('usuarios.create') }}" class="btn btn-primary" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-user-circle" aria-hidden="true"></i> Nuevo</a>
                                    {{-- <p>creacion de nuevos usuarios</p> --}}
                                   </div>
                                 </li>
                             </ul>
-                           
                             
                              {{-- Tabla de usuarios --}}
-                            <table class="table table-striped mt-2">
+                             <table  class="table table-striped table-bordered  table-sm" style="width:100%; border:2px;" id="order_table">
                                    <thead style="background-color:#6777ef;">
-                                     <th style="display:none">Id</th>
+                                     
                                      <th style="color: #fff;">Nombre</th>
                                      <th style="color: #fff">E-mail</th>
                                      <th style="color: #fff;">Rol</th>
-                                     
                                      <th style="color: #fff;">Accion</th>
                                      
                                   </thead>
                                   <tbody>
                                       @foreach ($usuarios as $usuario)
                                         <tr>
-                                             <td style="display: none;">{{$usuario->id}}</td>
                                              <td>{{$usuario->name}}</td>
                                              <td>{{$usuario->email}}</td>
-                                             {{-- este codigo siguiente lo provee Spatie para mostrar los roles mas facil: --}}
+                                             {{-- codigo de la documentacion de spatie --}}
                                              <td>
                                                 @if(!empty($usuario->getRoleNames()))
                                                   @foreach($usuario->getRoleNames() as $rolName)
@@ -51,11 +51,8 @@
                                                 @endif
                                              </td>
                                              <td>
-                                                 
-                                                 <a class="btn btn-info" href="{{route('usuarios.edit', $usuario->id)}}">Editar</a>
-                                                 
+                                                 <a class="btn btn-primary" href="{{route('usuarios.edit', $usuario->id)}}">Editar</a>
                                                  {{-- laravel Collective  --}}
-                                                 
                                                  {!! Form::open(['method'=>'DELETE','route'=>['usuarios.destroy', $usuario->id], 'style'=>'display:inline']) !!}
                                                       {!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}
                                                  {!! Form::close() !!}    
@@ -76,5 +73,55 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+
+    <script>
+      function DeleteFunction() {
+          if (confirm('seguro que deseas borrar este registro?'))
+              return true;
+          else {
+              return false;
+          }
+      }
+
+  </script> 
+
+
+  
+   
+    <script>
+
+$(document).ready(function(){
+
+$('#order_table').DataTable({
+  responsive: true,
+  
+
+
+    autoWidth: false,
+
+    
+
+
+    "language": {
+    "lengthMenu": "Mostrar _MENU_ registros por pagina",
+    "zeroRecords": "Nada encontrado - prueba de nuevo",
+    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+    "infoEmpty": "no hay registros disponibles",
+    "infoFiltered": "(filtrado de _MAX_ registros totales)",
+    "search" : "Buscar:",
+    "paginate":{
+        "next": "Siguiente",
+        "previous": "Anterior"
+    }
+}
+});
+
+});
+            
+ </script>
+          
+        
+@endsection
 @endsection
 
