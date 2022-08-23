@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+  Editar pago de subsidio
+@endsection
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 4rem;">

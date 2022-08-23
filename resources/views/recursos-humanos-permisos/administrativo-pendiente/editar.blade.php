@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+  Confirmar permiso administrativo
+@endsection
 @section('content')
     <section class="section">
         <div class="section-header"  style="max-height: 3rem;">
@@ -37,8 +39,6 @@
                                     <input id="horaEntradaReal" name="horaEntradaReal" style="font-weight:bold;" type="time" class="form-control" aria-describedby="inputGroup-sizing-default">
                                   </div>
                              <hr>
-                                
-                               
       
                                     <div class="media-body">
                                       <div class="d-flex">

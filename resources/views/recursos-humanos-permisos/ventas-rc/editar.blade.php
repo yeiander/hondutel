@@ -1,12 +1,14 @@
 @extends('layouts.app')
-
+@section('title')
+  Editar permiso de venta
+@endsection
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 4rem;">
         </div>
         <div class="section-body">
             
-            <center><h4 id="paseSalidaMensaje">Editar el pase de salida:</h4></center>
+            <center><h4 id="paseSalidaMensaje">Editar el Permiso de venta:</h4></center>
 
             <div class="row">
                 <div class="col-lg-12">
