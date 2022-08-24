@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/mapa-interactivo/armario/')}} " method="post">
+                            <form action=" {{url('/mapa-interactivo/cajaterminal/')}} " method="post">
                                 @csrf
                                 <div class="container">
                                   <div class="row">
@@ -19,17 +19,17 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Descripcion:</label>
-                                         <input placeholder="Ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="NumeroArmario" id="NumeroArmario">
+                                         <input placeholder="Ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="descripcion" id="descripcion">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Armario:</label>
-                                         <select class="form-control" id="direccion" name="direccion">
+                                         <select class="form-control" id="fk_id_armario" name="fk_id_armario">
                                           <option disabled selected value="">Seleccion armario</option>
                                           @foreach($armarios as $armario)
-                                        <option value="{{$armario->numeroArmario}}">  {{$armario->numeroArmario}} </option>
+                                        <option value="{{$armario->id}}">  {{$armario->numeroArmario}} </option>
 
                                         @endforeach
                                          </select>
@@ -37,7 +37,8 @@
                                     </div>
 
                                      {{-- coloumna1 final --}}
-                                    </div>
+                                    </div>ñl
+                                    
 
                                     <div class="col-sm">
                                       {{-- columna2 inicio --}}
@@ -46,7 +47,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps_armario">GPS caja terminal:</label>
-                                           <input placeholder="Ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
+                                           <input placeholder="Ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_caja_terminal" id="gps_caja_terminal">
                                          </div>
                                       </div>
 

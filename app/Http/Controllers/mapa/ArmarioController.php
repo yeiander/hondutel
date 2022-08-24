@@ -70,7 +70,7 @@ class ArmarioController extends Controller
         //
         $registroarmario = request()->except('_token');
         Armario::insert($registroarmario);
-       return redirect()->route('mapa-menu');
+       return redirect()->route('armario.index');
     }
     
 

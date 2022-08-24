@@ -5,6 +5,9 @@ namespace App\Http\Controllers\mapa;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Armario;
+use App\Models\CajaTerminal;
+use Illuminate\Support\Facades\Session;
+
 
 class CajaTerminalController extends Controller
 {
@@ -13,9 +16,38 @@ class CajaTerminalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = CajaTerminal::select('caja_terminals.*')->orderBy('id','DESC')
+         
+           
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+            $data = CajaTerminal::select('caja_terminals.*')->orderBy('id','DESC');
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/mapa-interactivo/cajaterminal.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+   
+         return view('mapa-interactivo/cajaterminal/index');
     }
 
     /**
@@ -40,6 +72,15 @@ class CajaTerminalController extends Controller
     public function store(Request $request)
     {
         //
+        $caja = new CajaTerminal();
+
+       $caja->descripcion = $request->descripcion;
+       $caja->direccion = $request->direccion;
+       $caja->gps_caja_terminal =  $request->gps_caja_terminal;
+       $caja->fk_id_armario = $request->fk_id_armario;
+       $caja->save();
+       Session::flash('notiEnviado', 'El permiso ha sido enviado');
+       return redirect()->route('cajaterminal.index');
     }
 
     /**

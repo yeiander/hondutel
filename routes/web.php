@@ -144,6 +144,7 @@ Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudCont
 Route::resource('mapa-interactivo/armario', ArmarioController::class);
 Route::get('/mapa-interactivo/mapa-menu', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuMapa'])->name('mapa-menu');
 Route::get('/mapa-interactivo/mapa', [App\Http\Controllers\mapa\MapaMenuController::class, 'vistamapa'])->name('mapa');
+Route::resource('/mapa-interactivo/cajaterminal', CajaTerminalController::class);
 Route::get('/mapa-interactivo/menu-consultar-coordenada', [App\Http\Controllers\mapa\MapaMenuController::class, 'consultaArmario'])->name('menu-consultar-coordenada');
 Route::get('/mapa-interactivo/menu-crear-coordenadas', [App\Http\Controllers\mapa\MapaMenuController::class, 'menuCrearCoordenadas'])->name('menu-crear-coordenadas');
 Route::resource('mapa-interactivo', CrudmapaPrueba::class);
@@ -151,5 +152,5 @@ Route::resource('mapa-interactivo', CrudmapaPrueba::class);
 
 
 Route::resource('/mapa-interactivo/clientegps', ClienteGpsController::class);
-Route::resource('/mapa-interactivo/cajaterminal', CajaTerminalController::class);
+
 //_________________________________________MAPA INTERACTIVO (FINAL)________________________________________________
