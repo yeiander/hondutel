@@ -27,7 +27,7 @@
                             
                             {{-- laravel collective --}}
                             {!! Form::open(array('route'=>'usuarios.store', 'method'=>'POST')) !!}
-                          <div class="row">
+                          {{-- <div class="row">
                                <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="form-group">
                                        <label for="name">Nombre</label>
@@ -67,7 +67,64 @@
                                   <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
 
+                          </div> --}}
+
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-sm">
+                               {{-- 1 --}}
+                               <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    {!! Form::text('name',null,array('class'=>'form-control')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Email</label>
+                                    {!! Form::text('email',null,array('class'=>'form-control')) !!}
+                                </div>
+                            </div>
+
+
+                               {{-- 1 --}}
+                              </div>
+                              <div class="col-sm">
+                               {{-- 1 --}}
+                               <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    {!! Form::password('password', array('class'=>'form-control')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Confirmar Password</label>
+                                    {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
+                                </div>
+                            </div>
+
+
+                               {{-- 1 --}}
+                              </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Roles</label>
+                                    {!! Form::select('roles[]', $roles, array('class'=>'form-control')) !!}
+                                </div>
+                            </div>
+    
+        
+                          <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
+                                          <a href="{{ route('usuarios.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+
                           </div>
+                         
+
                             {!! Form::close() !!}
                             {{-- para no confundirme aqui temrina el formulario --}}
                         </div>

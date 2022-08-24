@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\RegistroAveria;
 use App\Models\Registrowifi;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+
+
 
 
 
@@ -37,11 +40,14 @@ class InternetaveriaController extends Controller
     public function averiainternet(Request $request)
     {
         //
-        $id = $request->input('hola');
+        $linea = $request->input('hola');
         //
-         $registrowifi = Registrowifi::findOrfail($id);
-      
-        return view('/atencion-al-cliente/internet-averia.crear', compact('registrowifi', 'id'));
+         $registrowifi = Registrowifi::all()->where('propietarioLinea','like', $linea);
+         $hola123 = DB::table('registrowifis')->select('id')->where('propietarioLinea','like', $linea)
+         ->get(); 
+         $registro=Registrowifi::findOrFail($hola123);
+
+        return view('/atencion-al-cliente/internet-averia.crear', compact('registrowifi','hola123','registro'));
     }
 
     /**

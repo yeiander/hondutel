@@ -87,6 +87,7 @@
                                         <div class="form-group">
                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
                                          <select class="form-control" id="cuotas" name="cuotas">
+                                          <option disabled selected value="">seleccione un valor</option> 
                                           <option value="no">no</option>
                                              <option value="si">si</option>
                                              
@@ -95,10 +96,19 @@
                                       </div>
 
 
-                                      <div id="numerocuotas" style="display: none" class="col-xs-12 col-sm-12 col-md-12">
+                                      <div id="numerocuotas" class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas">
+                                           {{-- <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas"> --}}
+                                           <select class="form-control" id="numeroCuotas" name="numeroCuotas">
+                                           
+                                            <option disabled selected value="">seleccione un valor</option> 
+                                          
+                                               <option id="cuota1" value="1">1 cuota</option>
+                                               <option id="cuota2" value="2">2 cuota</option>
+                                               <option id="cuota3" value="3">3 cuota</option>
+                                              
+                                             </select>
                                          </div>
                                       </div>
 
@@ -152,13 +162,24 @@
      //ocultar mediante el select
      $('#cuotas').on('change',function(){
         var selectValor = $(this).val();
-        if (selectValor == "si" || selectValor == null ) {
-            $('#numerocuotas').show();
-        }else {
-          $('#numerocuotas').hide();
+        if (selectValor == "no" || selectValor == null ) {
+          
            
+            
+          $('#cuota1').show();
+          $('#cuota2').hide();
+          $('#cuota3').hide();
+        }
+        else if(selectValor == "si" || selectValor == null ) {
+            $('#numerocuotas').show();
+            
+            $('#cuota1').show();
+          $('#cuota2').show();
+          $('#cuota3').show();
+          $('#no').hide();
         }
     });
+    
     </script>
     @endsection
 @endsection

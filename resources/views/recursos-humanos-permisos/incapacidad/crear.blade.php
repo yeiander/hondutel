@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Crear permiso de incapacidad
+@endsection
 @section('content')
     <section class="">
         <div class="section-header" style="max-height: 4rem;">

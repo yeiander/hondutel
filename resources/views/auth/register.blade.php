@@ -56,9 +56,9 @@
                             <label for="password_confirmation"
                                    class="control-label">Confirmar contraseña:</label><span
                                     class="text-danger">*</span>
-                            <input id="password_confirmation" type="password" placeholder="Confirm account password"
+                            <input id="password_confirmation" type="password" placeholder="Confirme la contraseña"
                                    class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid': '' }}"
-                                   name="Confirme la contraseña" tabindex="2">
+                                   name="password_confirmation" tabindex="2">
                             <div class="invalid-feedback">
                                 {{ $errors->first('password_confirmation') }}
                             </div>

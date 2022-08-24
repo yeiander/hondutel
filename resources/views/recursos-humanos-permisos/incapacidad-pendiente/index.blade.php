@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+  Incapacidades aprobadas
+@endsection
   @section('content')
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
