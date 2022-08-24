@@ -28,13 +28,13 @@
                             </ul>
                             
                              {{-- Tabla de usuarios --}}
-                             <table  class="table table-striped table-bordered  table-sm" style="width:100%; border:2px;" id="order_table">
+                             <table  class="table table-striped table-bordered  table-sm text-center" style="width:100%; border:2px;" id="order_table">
                                    <thead style="background-color:#6777ef;">
                                      
-                                     <th style="color: #fff;">Nombre</th>
-                                     <th style="color: #fff">E-mail</th>
-                                     <th style="color: #fff;">Rol</th>
-                                     <th style="color: #fff;">Accion</th>
+                                     <th class="text-center" style="color: #fff;">Nombre</th>
+                                     <th class="text-center" style="color: #fff ">E-mail</th>
+                                     <th class="text-center" style="color: #fff;">Rol</th>
+                                     <th class="text-center" style="color: #fff;">Accion</th>
                                      
                                   </thead>
                                   <tbody>
@@ -51,10 +51,10 @@
                                                 @endif
                                              </td>
                                              <td>
-                                                 <a class="btn btn-primary" href="{{route('usuarios.edit', $usuario->id)}}">Editar</a>
+                                                 <a class="btn btn-primary btn-sm" href="{{route('usuarios.edit', $usuario->id)}}">Editar</a>
                                                  {{-- laravel Collective  --}}
                                                  {!! Form::open(['method'=>'DELETE','route'=>['usuarios.destroy', $usuario->id], 'style'=>'display:inline']) !!}
-                                                      {!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}
+                                                      {!! Form::submit('Borrar',['class'=>'btn btn-danger btn-sm', 'onclick="return DeleteFunction()"']) !!}
                                                  {!! Form::close() !!}    
                                                  
                                              </td>
