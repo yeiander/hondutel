@@ -41,12 +41,12 @@ class RegistroventaController extends Controller
     public function store(Request $request)
     {
         //
-        $registroventa = request()->except('_token');
-        Registroventa::insert($registroventa);
-        return redirect()->route('menu-ventas');
+        // $registroventa = request()->except('_token');
+        // Registroventa::insert($registroventa);
+        // return redirect()->route('menu-ventas');
 
 
-        if($condicion == 16){
+    
 
             $ventas = new Registroventa;
             $ventas->id = $request->id;
@@ -61,12 +61,9 @@ class RegistroventaController extends Controller
             $ventas->nombreBeneficiario = $request->nombreBeneficiario;
             $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
             $ventas->save();
-            return redirect()->route('recursos_humanos');
+            return redirect()->route('menu-ventas');
     
-            }
-    
-    
-            else{
+          
     }
 
     /**
