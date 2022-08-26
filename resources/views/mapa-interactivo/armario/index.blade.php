@@ -11,6 +11,25 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
+                @if(Session::has('notiGuardado') )
+                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                 <h5 class="alert-heading">!Guardado!</h5>
+                  <strong>{{Session('notiGuardado')}}  </strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+           </div>
+          @endif
+
+          @if(Session::has('notiBorrado') )
+          <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+           <h5 class="alert-heading">!Borrado!</h5>
+            <strong>{{Session('notiBorrado')}}  </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+     </div>
+    @endif
                             {{-- inicio --}}
                             
                    <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">

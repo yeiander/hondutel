@@ -5,12 +5,23 @@
             <h5 class="page__heading">Registro de caja terminal</h5>
         </div>
         <div class="section-body">
+          @if ($errors->any())
+          <div class="alert alert-dark alert-dismissible fade show" role="alert">
+            <strong>Complete los campos</strong>
+              @foreach($errors->all() as $error)
+                <span class="badge badge-danger">{{$error}}</span>
+              @endforeach
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+          </div>
+        @endif
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/mapa-interactivo/cajaterminal/')}} " method="post">
+                            <form id="form" action=" {{url('/mapa-interactivo/cajaterminal/')}} " method="post">
                                 @csrf
                                 <div class="container">
                                   <div class="row">
@@ -19,14 +30,14 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Descripcion:</label>
-                                         <input placeholder="Ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="descripcion" id="descripcion">
+                                         <input required placeholder="Ingresar de descripcion" style="font-size:14px;" class="form-control" type="text" name="descripcion" id="descripcion">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Caja Terminal">Armario:</label>
-                                         <select class="form-control" id="fk_id_armario" name="fk_id_armario">
+                                         <select required class="form-control" id="fk_id_armario" name="fk_id_armario">
                                           <option disabled selected value="">Seleccion armario</option>
                                           @foreach($armarios as $armario)
                                         <option value="{{$armario->id}}">  {{$armario->numeroArmario}} </option>
@@ -37,7 +48,7 @@
                                     </div>
 
                                      {{-- coloumna1 final --}}
-                                    </div>ñl
+                                    </div>
                                     
 
                                     <div class="col-sm">
@@ -47,14 +58,14 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps_armario">GPS caja terminal:</label>
-                                           <input placeholder="Ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_caja_terminal" id="gps_caja_terminal">
+                                           <input required placeholder="Ingresar gps de caja terminal" style="font-size:14px;" class="form-control" type="text" name="gps_caja_terminal" id="gps_caja_terminal">
                                          </div>
                                       </div>
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                           <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion" required>Direccion:</label>
-                                           <select class="form-control" id="direccion" name="direccion">
+                                           <select required class="form-control" id="direccion" name="direccion">
                                             <option disabled selected value="">seleccione la direccion</option>
                                             <option value="Barrio Calona">Barrio Calona</option>
                                             <option value="Colonia Santos Calix">Colonia Santos Calix</option>
@@ -110,11 +121,14 @@
                                     
                                  
                                               <br>
-                                              <ul class="list-unstyled">
-                                        
-                                                  <div class="media-body">
-                              
-                                            <input  type="submit"  class="btn btn-primary" value="Guardar">
+                                              < <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <ul class="list-unstyled">
+                                                    <div class="media-body">
+                                                      <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
+                                                      <a href="{{ route('menu-crear-coordenadas') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                                                    </div>
+                                                  </ul>
+                                                </div>
                                          </form>
                                            
                                
@@ -125,4 +139,15 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+    <script>
+      
+    
+        // es para desabilitar al hacer submit una sola vez
+    $('#form').one('submit', function() {
+    $(this).find('button[type="submit"]').attr('disabled','disabled');
+});
+
+    </script>
+    @endsection
 @endsection

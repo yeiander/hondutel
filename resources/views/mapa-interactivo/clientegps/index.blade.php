@@ -2,8 +2,8 @@
   @section('content')
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
-       
-        <h5 class="page__heading">cajas terminales almacenadas:</h5>
+        
+        <h5 class="page__heading">Clientes Almacenados:</h5>
       </div>
       
       <div class="section-body">
@@ -35,11 +35,12 @@
                    <table  class="table table-striped table-bordered table-sm" style="width:100%; border:2px;" id="order_table">
                      <thead style="background-color:#6777ef;">
                        <tr>          
-                         <th style="color: #fff;">Descripcion</th>
+                         <th style="color: #fff;">Nombre del cliente</th>
                          <th style="color: #fff;">Direccion</th>
-                         <th style="color: #fff;">Armario</th>   
-                         <th style="color: #fff;">Gps caja terminal</th>
-                         <th style="color: #fff;">Acciones</th>
+                         <th style="color: #fff;">Telefono</th>  
+                         <th style="color: #fff;">Contacto</th>
+                         <th style="color: #fff;">Gps</th>     
+                         <th style="color: #fff;">Acciones</th>                   
                         
                         </tr>
                       </thead>
@@ -86,27 +87,30 @@ $(document).ready(function(){
    bDestroy: true,
    autoWidth: true,
    ajax: {
-    url:'{{ route("cajaterminal.index") }}',
+    url:'{{ route("clientegps.index") }}',
     data:{from_date:from_date, to_date:to_date}
    },
    columns: [
     {
-     data:'descripcion',
-     name:'descripcion'
+     data:'id',
+     name:'id'
     },
     {
      data:'direccion',
      name:'direccion'
     },
     {
-     data:'armarios.numeroArmario',
-     name:'armarios.numeroArmario'
+     data:'telefono',
+     name:'telefono'
     },
     {
-     data:'gps_caja_terminal',
-     name:'gps_caja_terminal'
+     data:'contacto',
+     name:'contacto'
     },
-   
+    {
+     data:'gps',
+     name:'gps'
+    },
     {
      data:'action',
      name:'action'
@@ -137,3 +141,4 @@ $(document).ready(function(){
     </section>
     @endsection
 @endsection
+

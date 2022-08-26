@@ -11,16 +11,27 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form action=" {{url('/mapa-interactivo')}} " method="post">
+                            <form action=" {{url('/mapa-interactivo/clientegps')}} " method="post">
                                 @csrf
                                 <div class="container">
+                                  @if ($errors->any())
+                                  <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                    <strong>Complete los campos</strong>
+                                      @foreach($errors->all() as $error)
+                                        <span class="badge badge-danger">{{$error}}</span>
+                                      @endforeach
+                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                         <span aria-hidden="true">&times;</span>
+                                       </button>
+                                  </div>
+                                @endif
                                   <div class="row">
                                     <div class="col-sm">
                                      {{-- columna1 inicio --}}
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cliente">Nombre del cliente:</label>
-                                         <input placeholder="Ingresar cliente" style="font-size:14px;" class="form-control" type="text" name="cliente" id="cliente">
+                                         <input required placeholder="Ingresar cliente" style="font-size:14px;" class="form-control" type="text" name="cliente" id="cliente">
                                        </div>
                                     </div>
 
@@ -28,28 +39,15 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="direccion">Direccion:</label>
-                                         <input placeholder="Ingresar direccion" style="font-size:14px;" class="form-control" type="text" name="direccion" id="direccion">
+                                         <input required placeholder="Ingresar direccion" style="font-size:14px;" class="form-control" type="text" name="direccion" id="direccion">
                                        </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">Contacto:</label>
-                                         <input placeholder="Ingresar contacto" style="font-size:14px;" class="form-control" type="text" name="contacto" id="contacto">
-                                       </div>
-                                    {{-- </div> --}}
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefono">Telefono:</label>
-                                         <input placeholder="Ingresar telefono" style="font-size:14px;" class="form-control" type="text" name="telefono" id="'telefono">
-                                       </div>
-                                    </div>
-
+                                    
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps">gps:</label>
-                                         <input placeholder="Ingresar gps"style="font-size:14px;" class="form-control" type="text" name="gps" id="gps">
+                                         <input required placeholder="Ingresar gps"style="font-size:14px;" class="form-control" type="text" name="gps" id="gps">
                                        </div>
                                     </div>
 
@@ -58,6 +56,20 @@
 
                                     <div class="col-sm">
                                       {{-- columna2 inicio --}}
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">Contacto:</label>
+                                           <input required placeholder="Ingresar contacto" style="font-size:14px;" class="form-control" type="text" name="contacto" id="contacto">
+                                         </div>
+                                      {{-- </div> --}}
+  
+                                      <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefono">Telefono:</label>
+                                           <input required placeholder="Ingresar telefono" style="font-size:14px;" class="form-control" type="text" name="telefono" id="'telefono">
+                                         </div>
+                                      </div>
+  
                                      
 
                                      
@@ -65,7 +77,7 @@
                     
 
                                    
-                                    
+</div>
                                     </div>
                                 </div>       
                                               <br>

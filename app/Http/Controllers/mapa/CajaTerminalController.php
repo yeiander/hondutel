@@ -23,14 +23,14 @@ class CajaTerminalController extends Controller
         {
        if(!empty($request->from_date))
         {
-         $data = CajaTerminal::select('caja_terminals.*')->orderBy('id','DESC')
+         $data = CajaTerminal::with('armarios','armarios')->select('caja_terminals.*')->orderBy('id','DESC')
          
            
            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
          }
         else
         {
-            $data = CajaTerminal::select('caja_terminals.*')->orderBy('id','DESC');
+            $data = CajaTerminal::with('armarios','armarios')->select('caja_terminals.*')->orderBy('id','DESC');
         }
           return datatables()->of($data)
           
@@ -71,6 +71,14 @@ class CajaTerminalController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            
+            'fk_id_armario' => 'required',
+            'gps_caja_terminal' => 'required',
+            'direccion' => 'required',
+            'descripcion' => 'required',
+            
+        ]);
         //
         $caja = new CajaTerminal();
 
@@ -79,7 +87,7 @@ class CajaTerminalController extends Controller
        $caja->gps_caja_terminal =  $request->gps_caja_terminal;
        $caja->fk_id_armario = $request->fk_id_armario;
        $caja->save();
-       Session::flash('notiEnviado', 'El permiso ha sido enviado');
+       Session::flash('notiGuardado', 'La caja terminal a sido agregado');
        return redirect()->route('cajaterminal.index');
     }
 
@@ -125,6 +133,9 @@ class CajaTerminalController extends Controller
      */
     public function destroy($id)
     {
+        CajaTerminal::find($id)->delete();
+        Session::flash('notiBorrado', 'La caja terminal a sido borrado');
+        return redirect()->route('cajaterminal.index');
         //
     }
 }
