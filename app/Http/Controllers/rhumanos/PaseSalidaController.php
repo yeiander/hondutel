@@ -127,7 +127,7 @@ class PaseSalidaController extends Controller
 
        
              return redirect()->route('recursos-h-tipos-de-permisos'); 
-            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+            
         }
 
 
@@ -224,7 +224,7 @@ class PaseSalidaController extends Controller
            
              Session::flash('notiPaseSalidaSemana', 'debe esperar la siguiente semana');
              return redirect()->route('recursos-h-tipos-de-permisos'); 
-            //  return view('/recursos-humanos-menu/tipos-de-permisos');  
+        
 
         }
         
