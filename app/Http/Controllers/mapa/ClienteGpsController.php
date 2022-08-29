@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\mapa;
 
 use App\Http\Controllers\Controller;
+use App\Models\MapaCliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ClienteGpsController extends Controller
 {
@@ -12,9 +14,38 @@ class ClienteGpsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = MapaCliente::select('mapa_clientes.*')->orderBy('id','DESC')
+         
+           
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+            $data = MapaCliente::select('mapa_clientes.*')->orderBy('id','DESC');
+        }
+          return datatables()->of($data)
+          
+          ->addColumn('action', function ($data) {
+         
+
+           return view('/mapa-interactivo/armario.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+   
+       
+        return view('/mapa-interactivo/clientegps.index');
     }
 
     /**
@@ -36,6 +67,23 @@ class ClienteGpsController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            
+            'cliente' => 'required',
+            'direccion' => 'required',
+            'gps' => 'required',
+            'contacto' => 'required',
+            'telefono' => 'required',
+            
+            
+            
+        ]);
+
+
+        $registrocliente = request()->except('_token');
+        MapaCliente::insert($registrocliente);
+        Session::flash('notiGuardado', 'El cliente a sido agregado');
+       return redirect()->route('clientegps.index');
         //
     }
 

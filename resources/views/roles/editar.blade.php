@@ -1,17 +1,19 @@
 @extends('layouts.app')
-
+@section('title')
+  Editar roles
+@endsection
 @section('content')
-    <section class="section">
+    <section class="">
         <div class="section-header">
-            <h3 class="page__heading">Dashboard</h3>
         </div>
         <div class="section-body">
+            <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Editar rol:</h5>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="text-center">Dashboard Content</h3>
+                           
                             {{-- control de errores: --}}
                             @if ($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -45,7 +47,10 @@
                                        
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+
+                                <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
+                                <a href="{{ route('roles.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                               
                                 {!! Form::close() !!}
 
 

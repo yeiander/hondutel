@@ -5,6 +5,7 @@ namespace App\Http\Controllers\mapa;
 use App\Http\Controllers\Controller;
 use App\Models\Armario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 
 class ArmarioController extends Controller
@@ -68,9 +69,19 @@ class ArmarioController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            
+            'NumeroArmario' => 'required',
+            'gps_armario' => 'required',
+            'barrio' => 'required',
+            
+        ]);
+
+
         $registroarmario = request()->except('_token');
         Armario::insert($registroarmario);
-       return redirect()->route('mapa-menu');
+        Session::flash('notiGuardado', 'El armario a sido agregado');
+       return redirect()->route('armario.index');
     }
     
 
@@ -118,6 +129,7 @@ class ArmarioController extends Controller
     public function destroy($id)
     {
         Armario::find($id)->delete();
+        Session::flash('notiBorrado', 'El armario a sido borrado');
         return redirect()->route('armario.index');
         //
     }
