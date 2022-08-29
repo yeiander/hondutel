@@ -26,7 +26,18 @@
                                            <p> Ver armarios alamacenados</p>
                                     </div>
                                   </li>
+                                </ul>
 
+                                <ul class="list-unstyled ">
+                                    <li class="media my-4">
+                                        <a href="{{ route('cajaterminal.index') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
+                                      <div class="media-body">
+                                          <a  href="{{ route('cajaterminal.index') }}">
+                                             <h5>Ver cajas terminales</h5></a>
+                                             <p> Ver cajas terminales almacenadas</p>
+                                      </div>
+                                    </li>
+                                  </ul>
                                 
                                     {{-- fin --}}
                                   </div>

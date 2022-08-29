@@ -2,8 +2,8 @@
   @section('content')
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
-        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
-        <h5 class="page__heading">Armarios Almacenados:</h5>
+       
+        <h5 class="page__heading">cajas terminales almacenadas:</h5>
       </div>
       
       <div class="section-body">
@@ -37,7 +37,9 @@
                        <tr>          
                          <th style="color: #fff;">Descripcion</th>
                          <th style="color: #fff;">Direccion</th>
-                         <th style="color: #fff;">Acciones</th>                        
+                         <th style="color: #fff;">Armario</th>   
+                         <th style="color: #fff;">Gps caja terminal</th>
+                         <th style="color: #fff;">Acciones</th>
                         
                         </tr>
                       </thead>
@@ -84,17 +86,25 @@ $(document).ready(function(){
    bDestroy: true,
    autoWidth: true,
    ajax: {
-    url:'{{ route("armario.index") }}',
+    url:'{{ route("cajaterminal.index") }}',
     data:{from_date:from_date, to_date:to_date}
    },
    columns: [
     {
-     data:'numeroArmario',
-     name:'numeroArmario'
+     data:'descripcion',
+     name:'descripcion'
     },
     {
-     data:'barrio',
-     name:'barrio'
+     data:'direccion',
+     name:'direccion'
+    },
+    {
+     data:'armarios.numeroArmario',
+     name:'armarios.numeroArmario'
+    },
+    {
+     data:'gps_caja_terminal',
+     name:'gps_caja_terminal'
     },
    
     {
@@ -127,4 +137,3 @@ $(document).ready(function(){
     </section>
     @endsection
 @endsection
-
