@@ -40,10 +40,40 @@ class RegistrolineaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $registrolinea = request()->except('_token');
-        Registrolinea::insert($registrolinea);
-        return redirect()->route('ventas-linea.index');
+        $validated = $request->validate([
+           
+            'id' => 'required',
+            'clienteNombre' => 'required',
+            'clienteCorreo' => 'required',
+            'clienteProfesion' => 'required',
+            'telefonoContacto' => 'required',  
+            'clienteDireccionTrabajo' => 'required',  
+            'clienteEstadoCivil' => 'required', 
+            'cuotas' => 'required', 
+            'numeroCuotas' => 'required', 
+            'nombreBeneficiario' => 'required', 
+            'beneficiarioParentesco' => 'required', 
+               
+        ]);
+
+
+
+    
+
+            $ventas = new Registrolinea;
+            $ventas->id = $request->id;
+            $ventas->clienteNombre = $request->clienteNombre;
+            $ventas->clienteCorreo = $request->clienteCorreo;
+            $ventas->clienteProfesion =  $request->clienteProfesion;
+            $ventas->telefonoContacto = $request->telefonoContacto;
+            $ventas->clienteDireccionTrabajo = $request->clienteDireccionTrabajo;
+            $ventas->clienteEstadoCivil = $request->clienteEstadoCivil;
+            $ventas->cuotas = $request->cuotas;
+            $ventas->numeroCuotas = $request->numeroCuotas;
+            $ventas->nombreBeneficiario = $request->nombreBeneficiario;
+            $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
+            $ventas->save();
+            return redirect()->route('menu-ventas');
     }
     
 

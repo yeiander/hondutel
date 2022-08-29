@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header"  style="max-height: 3rem;">
-            <h5 class="page__heading">Crear nuevo registro</h5>
+            <h5 class="page__heading">Agregar numero de linea</h5>
         </div>
         <div class="section-body">
             <div class="row">
@@ -20,55 +20,13 @@
                                      {{-- columna1 inicio --}}
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Identidad:</label>
-                                         <input value="{{$registro->id}}" class="form-control" type="text" name="id" id="id">
+                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Numero de linea:</label>
+                                         <input class="form-control" type="text" name="numLinea" id="numLinea">
                                        </div>
                                     </div>
                                     
 
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente:</label>
-                                         <input value="{{$registro->clienteNombre}}" class="form-control" type="text" name="clienteNombre" id="clienteNombre">
-                                       </div>
-                                    </div>
-
-         
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo:</label>
-                                         <input value="{{$registro->clienteCorreo}}" class="form-control" type="text" name="clienteCorreo" id="clienteCorreo">
-                                       </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion:</label>
-                                         <input value="{{$registro->clienteProfesion}}" class="form-control" type="text" name="clienteProfesion" id="clienteProfesion">
-                                       </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto:</label>
-                                         <input value="{{$registro->telefonoContacto}}" class="form-control" type="text" name="telefonoContacto" id="telefonoContacto">
-                                       </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo:</label>
-                                         <input value="{{$registro->clienteDireccionTrabajo}}" class="form-control" type="text" name="clienteDireccionTrabajo" id="clienteDireccionTrabajo">
-                                       </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                      <div class="form-group">
-                                         <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:</label>
-                                         <input value="{{$registro->clienteEstadoCivil}}" class="form-control" type="text" name="clienteEstadoCivil" id="clienteEstadoCivil">
-                                       </div>
-                                    </div>
-
+                       
                                     
 
                                     
@@ -80,39 +38,7 @@
                                       {{-- columna2 inicio --}}
 
 
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
-                                           <input value="{{$registro->cuotas}}" class="form-control" type="text" name="cuotas" id="cuotas">
-                                         </div>
-                                      </div>
-
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
-                                           <input value="{{$registro->numeroCuotas}}" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas">
-                                         </div>
-                                      </div>
-
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:</label>
-                                           <input value="{{$registro->nombreBeneficiario}}" class="form-control" type="text" name="nombreBeneficiario" id="nombreBeneficiario">
-                                         </div>
-                                      </div>
-
-                                      
-
-          
-
-    
-
-                                      <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                           <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco:</label>
-                                           <input value="{{$registro->beneficiarioParentesco}}" class="form-control" type="text" name="beneficiarioParentesco" id="beneficiarioParentesco">
-                                         </div>
-                                      </div>
+              
 
                                       
 

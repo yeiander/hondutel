@@ -11,7 +11,7 @@
 @section('content')
     <section class="section">
         <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Consulta Linea</h5>
+            <h5 class="page__heading">Lineas contratadas</h5>
           
         </div>
         
@@ -21,19 +21,19 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <h3 class="page__heading">LINEA</h3><br><br>
+                           
 
-                            <table  class="table table-striped table-bordered" style="width:100%" id="permiso1">
+                            <table  class="table table-striped table-bordered table-sm text-center" style="width:100%" id="permiso1">
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
-                                <th style="color: #fff;">Identidad</th>
-                                <th style="color: #fff;">Nombre del Cliente</th>
-                                <th style="color: #fff;">Direccion</th>
-                                <th style="color: #fff;">Telefono</th>
-                                <th style="color: #fff;">Cuotas</th>
-                                <th style="color: #fff;">Acciones</th>
-                                <th style="color: #fff;">Borrado</th>
+                                <th class="text-center" style="color: #fff;">Identidad</th>
+                                <th class="text-center" style="color: #fff;">Nombre del Cliente</th>
+                                <th class="text-center" style="color: #fff;">contacto</th>
+                                <th class="text-center" style="color: #fff;">Direccion</th>                           
+                                <th class="text-center" style="color: #fff;">correo</th>
+                                <th class="text-center" style="color: #fff;">Acciones</th>
+                                
                               
                                                           
                                 
@@ -44,13 +44,31 @@
                                 <tr>
                                  
                                  
-                                  <td>{{$registro->id}}</td>
-                                  <td>{{$registro->clienteNombre}}</td>
-                                  <td>{{$registro->clienteDireccionTrabajo}}</td>
-                                  <td>{{$registro->telefonoContacto}}</td>
-                                  <td>{{$registro->cuotas}}</td>
+                                  <td class="text-center">{{$registro->id}}</td>
+                                  <td class="text-center">{{$registro->clienteNombre}}</td>
+                                  <td class="text-center">{{$registro->telefonoContacto}}</td>
+                                  <td class="text-center">{{$registro->clienteDireccionTrabajo}}</td>                
+                                  <td class="text-center">{{$registro->clienteCorreo}}</td>
                                    <td>
-                                    <a title="VER" type="submit" class="btn btn-info" href="{{ route('ventas-linea.show',$registro->id) }}" ><i class="fas fa-eye"></i></a>
+
+                                    <div class="d-flex">
+                                      <a href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">editar</a>
+                                      <a target="_blank" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}" class="btn btn-success btn-sm" type="button" style="margin-right: 0.3rem">imprimir</a>
+                                      
+                                      <form id="borrarForm" action="{{route('ventas-linea.destroy',$registro->id)}}"  id="MensajeBorrar" method="post">
+                                          @method('DELETE')
+                                          @csrf
+                                          <button onclick="return DeleteFunction()" type="submit" class="btn btn-danger btn-sm formulario-eliminar">Eliminar</button>
+                                          
+                                         
+                                            
+                                          </form></td>
+                                      
+                                      </div>
+                                      
+                                      
+
+                                    {{-- <a title="VER" type="submit" class="btn btn-info" href="{{ route('ventas-linea.show',$registro->id) }}" ><i class="fas fa-eye"></i></a>
                                     <a title="EDITAR" type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" ><i  class="fas fa-pen-square"></i> </a>
                                     <a title="IMPRIMIR" type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}"><i class="fas fa-file-pdf"></i></a>    
                                   </td>
@@ -58,7 +76,7 @@
                                     <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
                                       @csrf
                                       {{method_field('DELETE')}}
-                                  <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                  <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button> --}}
                                   </form>
                                   </td>
                                 </tr>

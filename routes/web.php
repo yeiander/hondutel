@@ -36,6 +36,8 @@ use App\Http\Controllers\mapa\ArmarioController;
 use App\Http\Controllers\mapa\ClienteGpsController;
 use App\Http\Controllers\mapa\CajaTerminalController;
 use App\Http\Controllers\atencionCliente\InternetsolicitudController;
+use App\Http\Controllers\atencionCliente\RegistrolineapendienteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -137,6 +139,7 @@ Route::resource('/atencion-al-cliente/averia-pendiente', AveriaPendienteControll
 Route::resource('/atencion-al-cliente/solicitud-averia', SoliaveriaController::class);
 Route::resource('/atencion-al-cliente/material-averia', MaterialaveriaController::class);
 Route::resource('/atencion-al-cliente/internet-solicitud', InternetsolicitudController::class);
+Route::resource('/atencion-al-cliente/lineas-pendientes', RegistrolineapendienteController::class);
 
 //_________________________________________MENU ATENCION AL CLIENTE (FINAL)_________________________________________________________
 

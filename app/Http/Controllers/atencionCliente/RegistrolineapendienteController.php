@@ -3,22 +3,44 @@
 namespace App\Http\Controllers\atencionCliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Registrolinea;
 use Illuminate\Http\Request;
-use App\Models\Registroventa;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class RegistroventaController extends Controller
+class RegistrolineapendienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $registros=Registroventa::all();
-        return view('/atencion-al-cliente/ventas.index', compact('registros'));
+        if(request()->ajax())
+         {
+        if(!empty($request->from_date))
+         {
+          $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+          }
+         else
+         {
+            $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC');     
+         }
+           return datatables()->of($data)  
+           ->addColumn('action', function ($data) {
+          
+            return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+            
+
+        })
+           
+            ->rawColumns(['action'])
+           ->make(true);
+        }
+           
+        return view('/atencion-al-cliente/lineas-pendientes.index');
     }
 
     /**
@@ -29,7 +51,7 @@ class RegistroventaController extends Controller
     public function create()
     {
         //
-        return view('/atencion-al-cliente/ventas.crear');
+        return view('/atencion-al-cliente/ventas-linea.crear');
     }
 
     /**
@@ -40,6 +62,7 @@ class RegistroventaController extends Controller
      */
     public function store(Request $request)
     {
+        //
         $validated = $request->validate([
            
             'id' => 'required',
@@ -60,7 +83,7 @@ class RegistroventaController extends Controller
 
     
 
-            $ventas = new Registroventa;
+            $ventas = new Registrolinea;
             $ventas->id = $request->id;
             $ventas->clienteNombre = $request->clienteNombre;
             $ventas->clienteCorreo = $request->clienteCorreo;
@@ -74,8 +97,6 @@ class RegistroventaController extends Controller
             $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
             $ventas->save();
             return redirect()->route('menu-ventas');
-    
-          
     }
 
     /**
@@ -87,6 +108,8 @@ class RegistroventaController extends Controller
     public function show($id)
     {
         //
+        $registro=Registrolinea::findOrFail($id);
+        return view('/atencion-al-cliente/ventas-linea.ver', compact('registro'));
     }
 
     /**
@@ -95,11 +118,21 @@ class RegistroventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function wifi123(Request $request)
+    {
+        //
+        $id = $request->input('id');
+        $registrowifi = Registrolinea::findOrfail($id);
+
+        return view('/atencion-al-cliente/ventas-wifi/crear', compact('registrowifi'));
+    }
+
     public function edit($id)
     {
         //
-        $registro=Registroventa::findOrFail($id);
-        return view('/atencion-al-cliente/ventas.editar', compact('registro'));
+        $registro=Registrolinea::findOrFail($id);
+        return view('/atencion-al-cliente/ventas-linea.editar', compact('registro'));
     }
 
     /**
@@ -113,8 +146,9 @@ class RegistroventaController extends Controller
     {
         //
         $registro = request()->except(['_token', '_method']);
-        Registroventa::where('id','=',$id)->update($registro);
-        return redirect()->route('ventas.index');
+        Registrolinea::where('id','=',$id)->update($registro);
+
+        return redirect()->route('ventas-linea.index');
     }
 
     /**
@@ -126,21 +160,22 @@ class RegistroventaController extends Controller
     public function destroy($id)
     {
         //
-        Registroventa::find($id)->delete();
-        return redirect()->route('ventas.index');
+        Registrolinea::find($id)->delete();
+        return redirect()->route('ventas-linea.index');
     }
 
     public function imprimir($id)
     {
         //
-        $ventas = Registroventa::find($id);
+        $ventaslinea = Registrolinea::find($id);
 
-        $vista = view('pdf/pdf-atencion-cliente.reporte-venta')
-        ->with('ventas', $ventas);
+        $vista = view('pdf/pdf-atencion-cliente.reporte-ventaslinea')
+        ->with('ventas-linea', $ventaslinea);
 
         $pdf = PDF::loadHTML($vista);
         
         return $pdf->stream('nombre.pdf');
+        
+    }
 
-}
 }
