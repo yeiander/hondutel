@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-Incapacidades almacenadas
+Lineas pendientes
 @endsection
   @section('content')
     <section>
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
       </div>
-      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Permisos de incapacidad Almacenados:</h5>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Lineas pendientes:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
@@ -34,36 +34,18 @@ Incapacidades almacenadas
          </div>
          @endif
                             {{-- inicio --}}
-                            <center>
-                            <div id="input-daterange" class="row input-daterange">
-                              <div class="col-md-2">
-                                  <input type="text" style="margin-top: 0.3rem" name="from_date" id="from_date" class="form-control" placeholder="Del" readonly />
-                              </div>
-                              <div class="col-md-2">
-                                  <input type="text" style="margin-top: 0.3rem" name="to_date" id="to_date" class="form-control" placeholder="Hasta" readonly />
-                              </div>
-                              <div class="col-md-3">
-                                <div class="d-flex">
-                                  <button style="  margin-top: 0.5rem;" type="button" name="filter" id="filter" class="btn btn-outline-primary font-weight-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtrar</button>
-                                  <button style="margin-top: 0.5rem" type="button" name="refresh" id="refresh" class="btn btn-outline-info font-weight-bold"><i class="fa fa-spinner" aria-hidden="true"></i> Limpiar</button>
-                                </div>
-                          </div>
-                        </center>
-                        <hr>
+                          
+                        
                             <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
                                         
                                       <th style="color: #fff;">Nombre</th>
                                       <th style="color: #fff;">Identidad</th>
-                                      <th style="color: #fff;">Certificado</th>
-                                      <th style="color: #fff;">Afiliación</th>
-                                      <th style="color: #fff;">Enfermedad:</th>
-                                      <th style="color: #fff;">inicio</th>
-                                      <th style="color: #fff;">finalización</th>
-                                      <th style="color: #fff;">Total de dias</th>
-                                      <th style="color: #fff;">Fecha de solicitud:</th>
-                                      <th style="color: #fff;">Aprobado por</th>
+                                      <th style="color: #fff;">Contacto</th>
+                                      <th style="color: #fff;">Correo</th>
+                                      <th style="color: #fff;">Numero de linea:</th>  
+                                      <th style="color: #fff;">estado</th>
                                       <th style="color: #fff;">Acciones</th>
                                     </tr>
                                 </thead>
@@ -120,64 +102,47 @@ Incapacidades almacenadas
            dataSrc: "tableData",
            bDestroy: true,
            autoWidth: true,
-           dom: '<"dt-buttons"Bf><"clear">lirtp',
+          //  dom: '<"dt-buttons"Bf><"clear">lirtp',
   
            ajax: {
-            url:'{{ route("incapacidad.index") }}',
+            url:'{{ route("lineas-pendientes.index") }}',
             data:{from_date:from_date, to_date:to_date}
            },
            columns: [
             {
-             data:'empleados.nombreEmpleado',
-             name:'empleados.nombreEmpleado'
+             data:'clienteNombre',
+             name:'clienteNombre'
             },
             {
-             data:'empleados.numIdentidadEmpleado',
-             name:'empleados.numIdentidadEmpleado'
+             data:'id',
+             name:'id'
             },
             {
-             data:'numCertificadoIncapacidad',
-             name:'numCertificadoIncapacidad'
+             data:'telefonoContacto',
+             name:'telefonoContacto'
             },
            
             {
-             data:'numAfiliacionIncapacidad',
-             name:'numAfiliacionIncapacidad'
+             data:'clienteCorreo',
+             name:'clienteCorreo'
             },
             {
-             data:'motivoTrabajoEnfermedad',
-             name:'motivoTrabajoEnfermedad'
+             data:'numLinea',
+             name:'numLinea'
             },
-            
+
             {
-             data:'fechaInicioIncapacidad',
-             name:'fechaInicioIncapacidad'
+             data:'estado',
+             name:'estado'
             },
-            {
-             data:'fechafinalIncapacidad',
-             name:'fechafinalIncapacidad'
-            },
-            {
-             data:'totalDiasIncapacidad',
-             name:'totalDiasIncapacidad'
-            },
-            {
-             data:'fechaSolicitudPermiso',
-             name:'fechaSolicitudPermiso'
-            },
-            {
-             data:'nombreQuienAprobo',
-             name:'nombreQuienAprobo'
-            },
-        
+                      
             
             {
              data:'action',
              name:'action'
             },
             
-            
-        
+                
            ],
           
         

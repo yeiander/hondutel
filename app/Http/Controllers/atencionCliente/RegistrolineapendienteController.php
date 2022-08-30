@@ -26,12 +26,13 @@ class RegistrolineapendienteController extends Controller
           }
          else
          {
-            $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC');     
+            $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+            ->where('estado','like','pendiente');     
          }
            return datatables()->of($data)  
            ->addColumn('action', function ($data) {
           
-            return view('/recursos-humanos-permisos/pase-salida.action', compact('data'));
+            return view('/atencion-al-cliente/lineas-pendientes.action', compact('data'));
             
 
         })
@@ -132,7 +133,7 @@ class RegistrolineapendienteController extends Controller
     {
         //
         $registro=Registrolinea::findOrFail($id);
-        return view('/atencion-al-cliente/ventas-linea.editar', compact('registro'));
+        return view('/atencion-al-cliente/lineas-pendientes.editar', compact('registro'));
     }
 
     /**
@@ -161,7 +162,7 @@ class RegistrolineapendienteController extends Controller
     {
         //
         Registrolinea::find($id)->delete();
-        return redirect()->route('ventas-linea.index');
+        return redirect()->route('lineas-pendientes.index');
     }
 
     public function imprimir($id)

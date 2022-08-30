@@ -1,194 +1,58 @@
 @extends('layouts.app')
-
-@section('dataBaseCss')
-{{-- ESTA SECTION SOLO ES PARA LAS TABLAS RESPONSIVAS --}}
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/responsive.bootstrap4.min.css')}}"> 
-<link rel="stylesheet" href="{{ asset('assets/css/dataTable/select.bootstrap4.css')}}"> 
+@section('title')
+Lineas contratadas
 @endsection
+  @section('content')
+    <section>
+      <div class="section-header" style="max-height: 3rem;">
+        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
+      </div>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Lineas contratadas:</h5>
+      <div class="section-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
 
-
-@section('content')
-    <section class="section">
-        <div class="section-header" style="max-height: 3rem;">
-            <h5 class="page__heading">Lineas contratadas</h5>
-          
+       @if(Session::has('notiBorrado') )
+       <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+         <h5 class="alert-heading">!Eliminado!</h5>
+           <strong>{{Session('notiBorrado')}}  </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
         </div>
-        
-        <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
+        @endif
+
+        @if(Session::has('notiEditado') )
+        <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+          <h5 class="alert-heading">!Editado!</h5>
+            <strong>{{Session('notiEditado')}}  </strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         @endif
                             {{-- inicio --}}
-                           
-
-                            <table  class="table table-striped table-bordered table-sm text-center" style="width:100%" id="permiso1">
-                              <thead style="background-color:#6777ef;">
-                                  <tr>
-                                      
-                                <th class="text-center" style="color: #fff;">Identidad</th>
-                                <th class="text-center" style="color: #fff;">Nombre del Cliente</th>
-                                <th class="text-center" style="color: #fff;">contacto</th>
-                                <th class="text-center" style="color: #fff;">Direccion</th>                           
-                                <th class="text-center" style="color: #fff;">correo</th>
-                                <th class="text-center" style="color: #fff;">Acciones</th>
-                                
-                              
-                                                          
-                                
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                @foreach($registros as $registro)
-                                <tr>
-                                 
-                                 
-                                  <td class="text-center">{{$registro->id}}</td>
-                                  <td class="text-center">{{$registro->clienteNombre}}</td>
-                                  <td class="text-center">{{$registro->telefonoContacto}}</td>
-                                  <td class="text-center">{{$registro->clienteDireccionTrabajo}}</td>                
-                                  <td class="text-center">{{$registro->clienteCorreo}}</td>
-                                   <td>
-
-                                    <div class="d-flex">
-                                      <a href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" class="btn btn-primary btn-sm" type="button" style="margin-right: 0.3rem">editar</a>
-                                      <a target="_blank" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}" class="btn btn-success btn-sm" type="button" style="margin-right: 0.3rem">imprimir</a>
-                                      
-                                      <form id="borrarForm" action="{{route('ventas-linea.destroy',$registro->id)}}"  id="MensajeBorrar" method="post">
-                                          @method('DELETE')
-                                          @csrf
-                                          <button onclick="return DeleteFunction()" type="submit" class="btn btn-danger btn-sm formulario-eliminar">Eliminar</button>
-                                          
-                                         
-                                            
-                                          </form></td>
-                                      
-                                      </div>
-                                      
-                                      
-
-                                    {{-- <a title="VER" type="submit" class="btn btn-info" href="{{ route('ventas-linea.show',$registro->id) }}" ><i class="fas fa-eye"></i></a>
-                                    <a title="EDITAR" type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/edit') }}" ><i  class="fas fa-pen-square"></i> </a>
-                                    <a title="IMPRIMIR" type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/ventas-linea/'.$registro->id.'/imprimir') }}"><i class="fas fa-file-pdf"></i></a>    
-                                  </td>
-                                    <td>
-                                    <form action=" {{route('ventas-linea.destroy',$registro->id)}} " method="post">
-                                      @csrf
-                                      {{method_field('DELETE')}}
-                                  <button title="BORRAR" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button> --}}
-                                  </form>
-                                  </td>
-                                </tr>
-                                @endforeach
-                              </tbody>
-                          </table>
-
-                           
- 
                           
-            @section('dataTable_js')
-             
-            <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTable/dataTables.responsive.min.js') }}"></script>
-            <script src="{{ asset('assets/js/responsive.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script>
-          
-     
-  
-    <script>
-
-$(document).ready(function(){
-
-        $('#permiso1').DataTable({
-          responsive: true,
-          select: true,
-
-            autoWidth: false,
-      
-            "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-            "zeroRecords": "Nada encontrado - prueba de nuevo",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "no hay registros disponibles",
-            "infoFiltered": "(filtrado de _MAX_ registros totales)",
-            "search" : "Buscar:",
-            "paginate":{
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
-        }
-        });
-
-      });
-
-  
-    </script>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-  
-{{-- //    ALERTA de mensaje --}}
- <script>
-
-//   $('.MensajeBorrar').submit(function(e){
-//       e.preventDefault();
-//       swal({
-// title: 'Are you sure?',
-// text: "You won't be able to revert this!",
-// type: 'warning',
-// showCancelButton: true,
-// confirmButtonColor: '#3085d6',
-// cancelButtonColor: '#d33',
-// confirmButtonText: 'Yes, delete it!',
-// cancelButtonText: 'No, cancel!',
-// confirmButtonClass: 'btn btn-success',
-// cancelButtonClass: 'btn btn-danger',
-// buttonsStyling: false
-// }).then(function () {
-// swal(
-//   'Deleted!',
-//   'Your file has been deleted.',
-//   'success'
-// )
-// }, function (dismiss) {
-// dismiss can be 'cancel', 'overlay',
-// 'close', and 'timer'
-// if (dismiss === 'cancel') {
-//   swal(
-//     'Cancelled',
-//     'Your imaginary file is safe :)',
-//     'error'
-//   )
-// }
-// })
-// });
-  
- </script>
-
-
-  @endsection
+                        
+                            <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
+                                <thead style="background-color:#6777ef;">
+                                    <tr>
+                                        
+                                      <th style="color: #fff;">Nombre</th>
+                                      <th style="color: #fff;">Identidad</th>
+                                      <th style="color: #fff;">Contacto</th>
+                                      <th style="color: #fff;">Correo</th>
+                                      <th style="color: #fff;">Numero de linea:</th>  
+                                      <th style="color: #fff;">estado</th>
+                                      <th style="color: #fff;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                </tbody>
+                            </table>
     
 
                             {{-- final --}}
@@ -198,8 +62,119 @@ $(document).ready(function(){
             </div>
         </div>
     </section>
-    
-   
-    
+    @section('scripts')
 
+    <script>
+      function DeleteFunction() {
+          if (confirm('seguro que deseas borrar este registro?'))
+              return true;
+          else {
+              return false;
+          }
+      }
+
+  </script> 
+
+
+  
+   
+<script>
+
+        $(document).ready(function(){
+         $('#input-daterange').datepicker({
+          todayBtn:'linked',
+          format:'yyyy-mm-dd',
+          language: 'es',
+          autoclose:true
+         });
+        
+         load_data();
+        
+         function load_data(from_date = '', to_date = '')
+         {
+          $('#permisoPersonal').DataTable({
+            "language": {
+                                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                                        },
+           processing: true,
+           serverSide: true,
+           responsive: true,
+           dataSrc: "tableData",
+           bDestroy: true,
+           autoWidth: true,
+          //  dom: '<"dt-buttons"Bf><"clear">lirtp',
+  
+           ajax: {
+            url:'{{ route("ventas-linea.index") }}',
+            data:{from_date:from_date, to_date:to_date}
+           },
+           columns: [
+            {
+             data:'clienteNombre',
+             name:'clienteNombre'
+            },
+            {
+             data:'id',
+             name:'id'
+            },
+            {
+             data:'telefonoContacto',
+             name:'telefonoContacto'
+            },
+           
+            {
+             data:'clienteCorreo',
+             name:'clienteCorreo'
+            },
+            {
+             data:'numLinea',
+             name:'numLinea'
+            },
+
+            {
+             data:'estado',
+             name:'estado'
+            },
+                      
+            
+            {
+             data:'action',
+             name:'action'
+            },
+            
+                
+           ],
+          
+        
+          });
+         }
+        
+         $('#filter').click(function(){
+          var from_date = $('#from_date').val();
+          var to_date = $('#to_date').val();
+          if(from_date != '' &&  to_date != '')
+          {
+           $('#order_table').DataTable().destroy();
+           load_data(from_date, to_date);
+          }
+          else
+          {
+           alert('Both Date is required');
+          }
+         });
+        
+         $('#refresh').click(function(){
+          $('#from_date').val('');
+          $('#to_date').val('');
+          $('#order_table').DataTable().destroy();
+          load_data();
+         });
+        
+        });
+            
+</script>
+
+          
+        
+  @endsection
 @endsection

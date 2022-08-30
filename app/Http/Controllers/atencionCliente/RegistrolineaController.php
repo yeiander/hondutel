@@ -14,11 +14,34 @@ class RegistrolineaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $registros=Registrolinea::all();
-        return view('/atencion-al-cliente/ventas-linea.index', compact('registros'));
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+           $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+           ->where('estado','like','contratado'); 
+        }
+          return datatables()->of($data)  
+          ->addColumn('action', function ($data) {
+         
+           return view('/atencion-al-cliente/ventas-linea.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+        return view('/atencion-al-cliente/ventas-linea.index');
     }
 
     /**
@@ -57,7 +80,6 @@ class RegistrolineaController extends Controller
         ]);
 
 
-
     
 
             $ventas = new Registrolinea;
@@ -72,6 +94,7 @@ class RegistrolineaController extends Controller
             $ventas->numeroCuotas = $request->numeroCuotas;
             $ventas->nombreBeneficiario = $request->nombreBeneficiario;
             $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
+            $ventas->estado = 'pendiente';
             $ventas->save();
             return redirect()->route('menu-ventas');
     }
