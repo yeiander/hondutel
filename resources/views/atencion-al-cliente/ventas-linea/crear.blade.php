@@ -10,6 +10,17 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                          @if ($errors->any())
+                          <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                            <strong>Complete los campos</strong>
+                              @foreach($errors->all() as $error)
+                                <span class="badge badge-danger">{{$error}}</span>
+                              @endforeach
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                               </button>
+                          </div>
+                        @endif
                             {{-- inicio --}}
                             <form action=" {{url('/atencion-al-cliente/ventas-linea')}} " method="post">
                                 @csrf
@@ -20,7 +31,7 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="id">Identidad:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="id" id="id">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="id" id="id">
                                        </div>
                                     </div>
                                     
@@ -28,7 +39,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteNombre">Nombre del cliente:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteNombre" id="clienteNombre">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="clienteNombre" id="clienteNombre">
                                        </div>
                                     </div>
 
@@ -36,36 +47,36 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteCorreo">Correo:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteCorreo" id="clienteCorreo">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="clienteCorreo" id="clienteCorreo">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteProfesion">Profesion:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteProfesion" id="clienteProfesion">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="clienteProfesion" id="clienteProfesion">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="telefonoContacto">Contacto:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="telefonoContacto" id="telefonoContacto">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="telefonoContacto" id="telefonoContacto">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteDireccionTrabajo">Direccion del Trabajo:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteDireccionTrabajo" id="clienteDireccionTrabajo">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="clienteDireccionTrabajo" id="clienteDireccionTrabajo">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteEstadoCivil">Estado Civil:</label>
-                                       <select class="form-control" id="clienteEstadoCivil" name="clienteEstadoCivil">
-                                         <option disabled selected>Seleccione estado civil</option>
+                                       <select required class="form-control" id="clienteEstadoCivil" name="clienteEstadoCivil">
+                                         <option disabled selected value="">Seleccione estado civil</option>
                                            <option value="Soltero">Soltero</option>
                                            <option value="Casado">Casado</option>
                                            <option value="Divorciado">Divorciado</option>
@@ -86,7 +97,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                          <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="cuotas">Cuotas:</label>
-                                         <select class="form-control" id="cuotas" name="cuotas">
+                                         <select required class="form-control" id="cuotas" name="cuotas">
                                           <option disabled selected value="">seleccione un valor</option> 
                                           <option value="no">no</option>
                                              <option value="si">si</option>
@@ -100,13 +111,13 @@
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroCuotas">Numero de cuotas:</label>
                                            {{-- <input style="font-size:14px;" class="form-control" type="text" name="numeroCuotas" id="numeroCuotas"> --}}
-                                           <select class="form-control" id="numeroCuotas" name="numeroCuotas">
+                                           <select required class="form-control" id="numeroCuotas" name="numeroCuotas">
                                            
                                             <option disabled selected value="">seleccione un valor</option> 
                                           
-                                               <option id="cuota1" value="1">1 cuota</option>
-                                               <option id="cuota2" value="2">2 cuota</option>
-                                               <option id="cuota3" value="3">3 cuota</option>
+                                               <option style="display:none" id="cuota1" value="1">1 cuota</option>
+                                               <option style="display:none" id="cuota2" value="2">2 cuota</option>
+                                               <option style="display:none" id="cuota3" value="3">3 cuota</option>
                                               
                                              </select>
                                          </div>
@@ -115,7 +126,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreBeneficiario">Beneficiario:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="nombreBeneficiario" id="nombreBeneficiario">
+                                           <input required style="font-size:14px;" class="form-control" type="text" name="nombreBeneficiario" id="nombreBeneficiario">
                                          </div>
                                       </div>
 
@@ -128,7 +139,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="beneficiarioParentesco">Parentesco:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="beneficiarioParentesco" id="beneficiarioParentesco">
+                                           <input required style="font-size:14px;" class="form-control" type="text" name="beneficiarioParentesco" id="beneficiarioParentesco">
                                          </div>
                                       </div>
 
@@ -165,15 +176,18 @@
         if (selectValor == "no" || selectValor == null ) {
           
            
-            
+          // $('#numerocuotas');
+          document.getElementById('numerocuotas').selectedIndex = 0;
+         
+
           $('#cuota1').show();
           $('#cuota2').hide();
           $('#cuota3').hide();
         }
         else if(selectValor == "si" || selectValor == null ) {
-            $('#numerocuotas').show();
+         
             
-            $('#cuota1').show();
+          $('#cuota1').show();
           $('#cuota2').show();
           $('#cuota3').show();
           $('#no').hide();

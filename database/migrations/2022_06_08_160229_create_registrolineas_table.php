@@ -28,6 +28,8 @@ class CreateRegistrolineasTable extends Migration
             $table->string('telefonoContacto')->nullable();
             $table->string('clienteDireccionTrabajo')->nullable();
             $table->string('clienteCorreo')->nullable();
+            $table->string('numLinea')->nullable();
+            $table->string('estado')->nullable();
           
             $table->timestamps();
         });

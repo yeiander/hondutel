@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-Lineas contratadas
+Lineas pendientes
 @endsection
   @section('content')
     <section>
       <div class="section-header" style="max-height: 3rem;">
         {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
       </div>
-      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Lineas contratadas:</h5>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Lineas pendientes:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
@@ -105,7 +105,7 @@ Lineas contratadas
           //  dom: '<"dt-buttons"Bf><"clear">lirtp',
   
            ajax: {
-            url:'{{ route("ventas-linea.index") }}',
+            url:'{{ route("lineas-pendientes.index") }}',
             data:{from_date:from_date, to_date:to_date}
            },
            columns: [

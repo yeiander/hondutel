@@ -37,6 +37,17 @@
                                   </div>
                                 </li>
 
+                                
+                                  <li class="media my-4">
+                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                    <div class="media-body">
+                                        <a href="{{ route('lineas-pendientes.index') }}">
+                                           <h5>Lineas Pendientes</h5>
+                                        </a>
+                                      <p> Consulta pendientes</p>
+                                    </div>
+                                  </li>
+
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
