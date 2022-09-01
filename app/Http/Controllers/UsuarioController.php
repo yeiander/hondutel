@@ -18,11 +18,10 @@ class UsuarioController extends Controller
 {
     function __construct()
     {    
-        $this->middleware('permission:ver-admin|crear-admin|editar-admin|borrar-admin',['only'=>['index']]);
-        $this->middleware('permission:crear-admin',['only'=>['create','store']]);
-        $this->middleware('permission:editar-admin',['only'=>['edit','update']]);
-        $this->middleware('permission:borrar-admin',['only'=>['destroy']]);
-
+        $this->middleware('permission:admin-ver|admin-crear|admin-editar|admin-borrar',['only'=>['index']]);
+        $this->middleware('permission:admin-crear',['only'=>['create','store']]);
+        $this->middleware('permission:admin-editar',['only'=>['edit','update']]);
+        $this->middleware('permission:admin-borrar',['only'=>['destroy']]);
     }
 
     /**

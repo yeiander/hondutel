@@ -13,21 +13,17 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
-
 use Illuminate\Support\Facades\Session;
-
-
 
 class PaseSalidaController extends Controller
 {
 
     function __construct()
     {
-        $this->middleware('permission:ver-permiso|editar-permiso|borrar-permiso',['only'=>['index']]);
-        $this->middleware('permission:crear-permiso',['only'=>['create','store']]);
-        $this->middleware('permission:editar-permiso',['only'=>['edit','update']]);
-        $this->middleware('permission:borrar-permiso',['only'=>['destroy']]);
-
+        $this->middleware('permission:recursos-humanos-ver|recursos-humanos-editar|recursos-humanos-borrar',['only'=>['index']]);
+        $this->middleware('permission:recursos-humanos-crear',['only'=>['create','store']]);
+        $this->middleware('permission:recursos-humanos-editar',['only'=>['edit','update']]);
+        $this->middleware('permission:recursos-humanos-borrar',['only'=>['destroy']]);
     }
 
     /**
