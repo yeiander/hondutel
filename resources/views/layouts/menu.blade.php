@@ -16,7 +16,7 @@
 @endcan
 
 @can('recursos-humanos-ver')
-      <a class="nav-link" href="{{ route('recursos_humanos')}}">
+      <a class="nav-link" href="{{ route('empleados.index')}}">
         <i class=" fas fa-address-card"></i><span>Empleados</span>
       </a>
 @endcan
