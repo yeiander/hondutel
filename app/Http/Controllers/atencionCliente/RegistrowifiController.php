@@ -16,11 +16,35 @@ class RegistrowifiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $registros=Registrowifi::all();
-        return view('/atencion-al-cliente/ventas-wifi.index', compact('registros'));
+        if(request()->ajax())
+        {
+       if(!empty($request->from_date))
+        {
+         $data = Registrowifi::with('registrolineas','registrolineas')->select('registrowifis.*')->orderBy('id','DESC')
+           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         }
+        else
+        {
+            $data = Registrowifi::with('registrolineas','registrolineas')->select('registrowifis.*')->orderBy('id','DESC');
+        
+        }
+          return datatables()->of($data)  
+          ->addColumn('action', function ($data) {
+         
+           return view('/atencion-al-cliente/ventas-wifi.action', compact('data'));
+           
+
+       })
+          
+           ->rawColumns(['action'])
+          ->make(true);
+       }
+          
+       
+        return view('/atencion-al-cliente/ventas-wifi.index');
     }
 
     /**
