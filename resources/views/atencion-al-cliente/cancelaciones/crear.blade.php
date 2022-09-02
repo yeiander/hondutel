@@ -46,7 +46,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaCancelacion">Fecha de cancelacion:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="fechaCancelacion" id="fechaCancelacion">
+                                           <input style="font-size:14px;" class="form-control" type="date" name="fechaCancelacion" id="fechaCancelacion">
                                          </div>
                                       </div>
 

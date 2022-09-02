@@ -15,7 +15,7 @@
                                 <div class="row">
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-
+                            <h5>Ventas</h5>
                             <ul class="list-unstyled ">
                               <li class="media my-4">
                                   <a href="{{ route('ventas-linea.create') }}"><img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
@@ -28,53 +28,61 @@
 
                               <ul class="list-unstyled ">
                                 <li class="media my-4">
-                                    <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                    <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
                                   <div class="media-body">
-                                      <a href="{{ route('ventas-linea.index') }}">
-                                         <h5>Consulta registro linea</h5>
-                                      </a>
-                                    <p> Consulta linea</p>
+                                    <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
+                                         <h5>Servicio ADSL</h5></a>
+                                         <p>Registro de internet</p>
                                   </div>
                                 </li>
 
-                                
-                                  <li class="media my-4">
-                                      <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                    <div class="media-body">
-                                        <a href="{{ route('lineas-pendientes.index') }}">
-                                           <h5>Lineas Pendientes</h5>
-                                        </a>
-                                      <p> Consulta pendientes</p>
-                                    </div>
-                                  </li>
+                              
 
                                     {{-- fin --}}
                                   </div>
                                   <div class="col-sm">
                                     {{-- One of three columns --}}
-                                    <ul class="list-unstyled ">
-                                      <li class="media my-4">
-                                          <a data-toggle="modal" data-target="#exampleModalCenter"> <img  class="mr-3" src="{{ asset('img/crearPermisos.png') }}" height="50px"></a>
-                                        <div class="media-body">
-                                          <a type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
-                                               <h5>Servicio ADSL</h5></a>
-                                               <p>Registro de internet</p>
-                                        </div>
-                                      </li>
+                                    
 
-                                      <ul class="list-unstyled ">
-                                        <li class="media my-4">
-                                            <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
-                                          <div class="media-body">
-                                              <a href="{{ route('ventas-wifi.index') }}">
-                                                 <h5>Consulta registro internet</h5>
-                                              </a>
-                                            <p> Consulta internet</p>
-                                          </div>
-                                        </li>
+                                  
 
                                         {{-- Este es el nodal para el wifi --}}
                                         <!-- Modal -->
+                                    <h5>Consultas</h5>
+                                        <ul class="list-unstyled ">
+                                          <li class="media my-4">
+                                              <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                            <div class="media-body">
+                                                <a href="{{ route('ventas-linea.index') }}">
+                                                   <h5>Consulta registro linea</h5>
+                                                </a>
+                                              <p> Consulta linea</p>
+                                            </div>
+                                          </li>
+          
+                                          
+                                            <li class="media my-4">
+                                                <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                              <div class="media-body">
+                                                  <a href="{{ route('lineas-pendientes.index') }}">
+                                                     <h5>Lineas Pendientes</h5>
+                                                  </a>
+                                                <p> Consulta pendientes</p>
+                                              </div>
+                                            </li>
+                                            <hr>
+
+                                            <ul class="list-unstyled ">
+                                              <li class="media my-4">
+                                                  <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
+                                                <div class="media-body">
+                                                    <a href="{{ route('ventas-wifi.index') }}">
+                                                       <h5>Consulta registro internet</h5>
+                                                    </a>
+                                                  <p> Consulta internet</p>
+                                                </div>
+                                              </li>
+
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
