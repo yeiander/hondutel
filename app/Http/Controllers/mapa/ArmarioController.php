@@ -71,7 +71,7 @@ class ArmarioController extends Controller
         //
         $validated = $request->validate([
             
-            'NumeroArmario' => 'required',
+            'numeroArmario' => 'required',
             'gps_armario' => 'required',
             'barrio' => 'required',
             
