@@ -92,8 +92,8 @@ $(document).ready(function(){
    },
    columns: [
     {
-     data:'id',
-     name:'id'
+     data:'cliente',
+     name:'cliente'
     },
     {
      data:'direccion',

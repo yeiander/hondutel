@@ -20,6 +20,7 @@ use App\Http\Controllers\rhumanos\IncapacidadController;
 use App\Http\Controllers\rhumanos\IncapacidadPendController;
 use App\Http\Controllers\rhumanos\SubsidioController;
 use App\Http\Controllers\rhumanos\SubsidioPendController;
+use App\Http\Controllers\rhumanos\EmpleadoController;
 
 use App\Http\Controllers\atencionCliente\RegistroAveriaController;
 use App\Http\Controllers\atencionCliente\RegistroventaController;
@@ -74,6 +75,11 @@ Route::get('/recursos_humanos', [App\Http\Controllers\rhumanos\RecursoshumanosCo
 Route::get('/recursos-humanos-menu/tipos-de-permisos', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'permisos'])->name('recursos-h-tipos-de-permisos');
 //vista de la parte principal de tipos de permisos recursos humanos
 Route::get('/recursos-humanos-menu/consultas', [App\Http\Controllers\rhumanos\RecursoshumanosController::class, 'consultas'])->name('recursos-humanos-consultas');
+
+
+//_________________________________________EMPLEADO (INICO)__________________________________________________________
+Route::resource('/empleados', EmpleadoController::class);
+//_________________________________________EMPLEADO (INICO)__________________________________________________________
 
 //_________________________________________PASE DE SALIDA (INICO)__________________________________________________________
 Route::get('/recursos-humanos-permisos/pase-salida/creacion', [PaseSalidaController::class, 'creacion']);

@@ -20,7 +20,7 @@ $empleado->id = '0408';
 $empleado->nombreEmpleado = 'Yeison Anderson Figueroa';
 $empleado->telefonoEmpleado = '+725357789';
 $empleado->numIdentidadEmpleado = '0801199202897';
-$empleado->areaTrabajo = 'administración';
+$empleado->areaTrabajo = 'administrativa';
 $empleado->save();
 
 $empleado1 = new Empleado();

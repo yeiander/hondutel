@@ -10,13 +10,14 @@
 {{-------------------------- NOTIFICACIONES INICIO--------------------------------------}}
 
      {{-- INICIO recursso humanos notificacion --}}
+     @can('admin-ver')
        <div style="display: none" name="notificaciones" id="notificaciones">
          <input  name="NotificacionRecursosH" type="hidden" value="{{ $paseSalida }}">
            <a id="NotificacionRecursosH" style="font-size: 14px;"  href="{{ url('/recursos-humanos-permisos/pase-salida-admin') }}" style="margin-top: 0.5rem" type="button" class="btn btn-primary">
            Recursos Humanos:<span style="font-size: 14px" class="badge badge-light">{{ $paseSalida }}</span>
            </a>
        </div>
-       
+     @endcan 
      {{-- FINAL recursso humanos notificacion --}}
 
      {{-- INICIO atencion al cliente notificacion --}}

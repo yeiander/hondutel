@@ -2,7 +2,6 @@
   @section('content')
     <section class="section">
       <div class="section-header" style="max-height: 3rem;">
-        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
         <h5 class="page__heading">Armarios Almacenados:</h5>
       </div>
       

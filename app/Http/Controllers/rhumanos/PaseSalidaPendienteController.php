@@ -7,17 +7,19 @@ use App\Models\Empleado;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+//agregare para el control de usuarios con Spatie:
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class PaseSalidaPendienteController extends Controller
 {
 
     function __construct()
     {
-        $this->middleware('permission:ver-permiso|crear-permiso|editar-permiso|borrar-permiso',['only'=>['index']]);
-        $this->middleware('permission:crear-permiso',['only'=>['create','store']]);
-        $this->middleware('permission:editar-permiso',['only'=>['edit','update']]);
-        $this->middleware('permission:borrar-permiso',['only'=>['destroy']]);
-
+        $this->middleware('permission:recursos-humanos-ver|recursos-humanos-editar|recursos-humanos-borrar',['only'=>['index']]);
+        $this->middleware('permission:recursos-humanos-crear',['only'=>['create','store']]);
+        $this->middleware('permission:recursos-humanos-ver',['only'=>['edit','update']]);
+        $this->middleware('permission:recursos-humanos-borrar',['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.
