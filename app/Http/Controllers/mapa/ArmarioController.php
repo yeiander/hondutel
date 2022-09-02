@@ -105,7 +105,8 @@ class ArmarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $armario = Armario::findOrFail($id);
+        return view('mapa-interactivo/armario/editar', compact('armario'));
     }
 
     /**
@@ -118,6 +119,10 @@ class ArmarioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $armario = request()->except(['_token', '_method']);
+        Armario::where('id','=', $id)->update($armario);
+        Session::flash('notiEditado', 'El armario ha sido editado');
+        return redirect()->route('armario.index');
     }
 
     /**

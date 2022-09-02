@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\MapaCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Armario;
+use App\Models\CajaTerminal;
 
 class ClienteGpsController extends Controller
 {
@@ -106,7 +108,9 @@ class ClienteGpsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $cliente = MapaCliente::findOrFail($id);
+        return view('mapa-interactivo/clientegps/editar', compact('cliente'));
     }
 
     /**
@@ -119,6 +123,10 @@ class ClienteGpsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $cliente = request()->except(['_token', '_method']);
+        MapaCliente::where('id','=', $id)->update($cliente);
+        Session::flash('notiEditado', 'El cliente ha sido editado');
+        return redirect()->route('clientegps.index');
     }
 
     /**
