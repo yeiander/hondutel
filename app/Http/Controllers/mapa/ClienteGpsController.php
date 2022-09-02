@@ -34,7 +34,7 @@ class ClienteGpsController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/mapa-interactivo/armario.action', compact('data'));
+           return view('/mapa-interactivo/clientegps.action', compact('data'));
            
 
        })
@@ -130,5 +130,8 @@ class ClienteGpsController extends Controller
     public function destroy($id)
     {
         //
+        MapaCliente::find($id)->delete();
+        Session::flash('notiBorrado', 'El cliente a sido borrado');
+        return redirect()->route('clientegps.index');
     }
 }
