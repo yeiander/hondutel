@@ -12,7 +12,33 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            
+                            @if(Session::has('notiUsuario') )
+                            <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                              <h5 class="alert-heading">!Guardado!</h5>
+                                <strong>{{Session('notiUsuario')}}  </strong>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                             </div>
+                             @endif
+                             @if(Session::has('notiEditado') )
+                             <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                               <h5 class="alert-heading">!Editado!</h5>
+                                 <strong>{{Session('notiEditado')}}  </strong>
+                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                                 </button>
+                              </div>
+                              @endif
+                              @if(Session::has('notiBorrado') )
+                              <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <h5 class="alert-heading">!Eliminado!</h5>
+                                  <strong>{{Session('notiBorrado')}}  </strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                               </div>
+                               @endif
                             {{-- aqui ira todo el contenido --}}
                             {{-- <h3 class="text-center">Dashboard Content</h3> --}}
                            
@@ -21,7 +47,7 @@
                                   
                                   <div class="media-body">
                                     {{-- <a class="btn btn-primary" href="{{ route('usuarios.create') }}">nuevo</a> --}}
-                                    <a href="{{ route('usuarios.create') }}" class="btn btn-primary" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-user-circle" aria-hidden="true"></i> Nuevo</a>
+                                    <a href="{{ route('usuarios.create') }}" class="btn btn-primary" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-user-circle" aria-hidden="true"></i> Crear usuario</a>
                                    {{-- <p>creacion de nuevos usuarios</p> --}}
                                   </div>
                                 </li>
@@ -77,7 +103,7 @@
 
     <script>
       function DeleteFunction() {
-          if (confirm('seguro que deseas borrar este registro?'))
+          if (confirm('¿seguro que deseas borrar este usuario?'))
               return true;
           else {
               return false;

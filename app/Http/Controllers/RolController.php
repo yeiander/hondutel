@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class RolController extends Controller
 {
@@ -56,6 +57,7 @@ class RolController extends Controller
         $this->validate($request,['name'=>'required','permission'=>'required']);
         $role = Role::create(['name'=> $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
+        Session::flash('notiRol', 'El rol ha sido creado');
         return redirect()->route('roles.index');
     }
 
@@ -102,6 +104,7 @@ class RolController extends Controller
           $role->name = $request->input('name');
           $role->save();
           $role->syncPermissions($request->input('permission'));
+          Session::flash('notiEditado', 'El rol ha sido editado');
           return redirect()->route('roles.index');
 
 
@@ -117,6 +120,7 @@ class RolController extends Controller
     {
         //
         DB::table('roles')->where('id', $id)->delete();
+        Session::flash('notiBorrado', 'El rol ha sido borrado');
         return redirect()->route('roles.index');
 
     }

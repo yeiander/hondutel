@@ -8,13 +8,19 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 //agregare para el control de usuarios con Spatie:
 use Spatie\Permission\Models\Role;
-
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
 class PerVentasPendienteController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:recursos-humanos-ver|recursos-humanos-editar|recursos-humanos-borrar',['only'=>['index']]);
+        $this->middleware('permission:recursos-humanos-crear',['only'=>['create','store']]);
+        $this->middleware('permission:recursos-humanos-ver',['only'=>['edit','update']]);
+        $this->middleware('permission:recursos-humanos-borrar',['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

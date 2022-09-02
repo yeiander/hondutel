@@ -40,10 +40,22 @@ class RegistroventaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // $registroventa = request()->except('_token');
-        // Registroventa::insert($registroventa);
-        // return redirect()->route('menu-ventas');
+        $validated = $request->validate([
+           
+            'id' => 'required',
+            'clienteNombre' => 'required',
+            'clienteCorreo' => 'required',
+            'clienteProfesion' => 'required',
+            'telefonoContacto' => 'required',  
+            'clienteDireccionTrabajo' => 'required',  
+            'clienteEstadoCivil' => 'required', 
+            'cuotas' => 'required', 
+            'numeroCuotas' => 'required', 
+            'nombreBeneficiario' => 'required', 
+            'beneficiarioParentesco' => 'required', 
+               
+        ]);
+
 
 
     

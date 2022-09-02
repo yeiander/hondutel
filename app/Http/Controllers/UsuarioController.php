@@ -12,16 +12,16 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use Symfony\Contracts\Service\Attribute\Required;
+use Illuminate\Support\Facades\Session;
 
 class UsuarioController extends Controller
 {
     function __construct()
     {    
-        $this->middleware('permission:ver-admin|crear-admin|editar-admin|borrar-admin',['only'=>['index']]);
-        $this->middleware('permission:crear-admin',['only'=>['create','store']]);
-        $this->middleware('permission:editar-admin',['only'=>['edit','update']]);
-        $this->middleware('permission:borrar-admin',['only'=>['destroy']]);
-
+        $this->middleware('permission:admin-ver|admin-crear|admin-editar|admin-borrar',['only'=>['index']]);
+        $this->middleware('permission:admin-crear',['only'=>['create','store']]);
+        $this->middleware('permission:admin-editar',['only'=>['edit','update']]);
+        $this->middleware('permission:admin-borrar',['only'=>['destroy']]);
     }
 
     /**
@@ -69,6 +69,7 @@ class UsuarioController extends Controller
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
+        Session::flash('notiUsuario', 'El usuario ha sido creado');
         return redirect()->route('usuarios.index');
     }
 
@@ -127,6 +128,7 @@ class UsuarioController extends Controller
       $user->update($input);
       DB::table('model_has_roles')->where('model_id', $id)->delete();
       $user->assignRole($request->input('roles'));
+      Session::flash('notiEditado', 'El usuario ha sido editado');
       return redirect()->route('usuarios.index');
 
     }
@@ -141,6 +143,7 @@ class UsuarioController extends Controller
     {
         //
         User::find($id)->delete();
+        Session::flash('notiBorrado', 'El usuario ha sido borrado');
         return redirect()->route('usuarios.index');
     }
 }

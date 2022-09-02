@@ -7,12 +7,24 @@ use Illuminate\Http\Request;
 use App\Models\RhPermiso;
 use App\Models\RhTipoPermiso;
 use App\Models\Empleado;
+//agregare para el control de usuarios con Spatie:
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Session;
 
 
 
 class PaseSalidaAdminController extends Controller
 {
+
+    function __construct()
+    {    
+        $this->middleware('permission:admin-ver|admin-crear|admin-editar|admin-borrar',['only'=>['index']]);
+        $this->middleware('permission:admin-crear',['only'=>['create','store']]);
+        $this->middleware('permission:admin-editar',['only'=>['edit','update']]);
+        $this->middleware('permission:admin-borrar',['only'=>['destroy']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

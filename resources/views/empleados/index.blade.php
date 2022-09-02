@@ -1,18 +1,48 @@
 @extends('layouts.app')
 @section('title')
-Lineas contratadas
+Empleados
 @endsection
   @section('content')
     <section>
       <div class="section-header" style="max-height: 3rem;">
-        {{-- <h5 class="page__heading">Recursos Humamos</h5> --}}
       </div>
-      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Lineas contratadas:</h5>
+      <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Empleados almacenados:</h5>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
+                @if ($errors->any())
+    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+      <strong>Revise los campos</strong>
+        @foreach($errors->all() as $error)
+          <span class="badge badge-danger">{{$error}}</span>
+        @endforeach
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+  @endif
+
+                @if(Session::has('notiEditado') )
+                <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                  <h5 class="alert-heading">!Editado!</h5>
+                    <strong>{{Session('notiEditado')}}  </strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                 </div>
+                 @endif
+
+                 @if(Session::has('notiGuardado') )
+                 <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
+                   <h5 class="alert-heading">!Guardado!</h5>
+                     <strong>{{Session('notiGuardado')}}  </strong>
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  @endif
 
        @if(Session::has('notiBorrado') )
        <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -24,28 +54,25 @@ Lineas contratadas
         </div>
         @endif
 
-        @if(Session::has('notiEditado') )
-        <div  style="max-height: 4.5rem; max-width: 20rem;" class="alert alert-success alert-dismissible fade show" role="alert">
-          <h5 class="alert-heading">!Editado!</h5>
-            <strong>{{Session('notiEditado')}}  </strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         @endif
                             {{-- inicio --}}
                           
-                        
-                            <table id="permisoPersonal"  class="table table-striped table-bordered table-sm" style="width:100%" >
+                            <ul class="list-unstyled">
+                              <li class="media">
+                                
+                                <div class="media-body">
+                                  <a href="{{ route('empleados.create') }}" class="btn btn-primary" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 16px" class="fa fa-user-circle" aria-hidden="true"></i> Crear empleado</a>
+                                </div>
+                              </li>
+                          </ul>
+
+                            <table id="permisoPersonal"  class="table table-striped table-bordered table-sm text-center" style="width:100%" >
                                 <thead style="background-color:#6777ef;">
                                     <tr>
-                                        
                                       <th style="color: #fff;">Nombre</th>
-                                      <th style="color: #fff;">Identidad</th>
+                                      <th style="color: #fff;">Numero personal</th>
                                       <th style="color: #fff;">Contacto</th>
-                                      <th style="color: #fff;">Correo</th>
-                                      <th style="color: #fff;">Numero de linea:</th>  
-                                      <th style="color: #fff;">estado</th>
+                                      <th style="color: #fff;">Identidad</th>
+                                      <th style="color: #fff;">Area de trabajo:</th>
                                       <th style="color: #fff;">Acciones</th>
                                     </tr>
                                 </thead>
@@ -53,8 +80,6 @@ Lineas contratadas
                                 
                                 </tbody>
                             </table>
-    
-
                             {{-- final --}}
                         </div>
                     </div>
@@ -78,7 +103,7 @@ Lineas contratadas
 
   
    
-<script>
+    <script>
 
         $(document).ready(function(){
          $('#input-daterange').datepicker({
@@ -99,50 +124,45 @@ Lineas contratadas
            processing: true,
            serverSide: true,
            responsive: true,
+          //  select: true,
            dataSrc: "tableData",
            bDestroy: true,
            autoWidth: true,
-          //  dom: '<"dt-buttons"Bf><"clear">lirtp',
-  
+        
            ajax: {
-            url:'{{ route("ventas-linea.index") }}',
+            url:'{{ route("empleados.index") }}',
             data:{from_date:from_date, to_date:to_date}
            },
            columns: [
             {
-             data:'clienteNombre',
-             name:'clienteNombre'
+             data:'nombreEmpleado',
+             name:'nombreEmpleado'
             },
             {
              data:'id',
              name:'id'
             },
             {
-             data:'telefonoContacto',
-             name:'telefonoContacto'
+             data:'telefonoEmpleado',
+             name:'telefonoEmpleado'
             },
            
             {
-             data:'clienteCorreo',
-             name:'clienteCorreo'
+             data:'numIdentidadEmpleado',
+             name:'numIdentidadEmpleado'
             },
             {
-             data:'numLinea',
-             name:'numLinea'
+             data:'areaTrabajo',
+             name:'areaTrabajo'
             },
-
-            {
-             data:'estado',
-             name:'estado'
-            },
-                      
             
             {
              data:'action',
              name:'action'
             },
             
-                
+            
+        
            ],
           
         
@@ -172,9 +192,9 @@ Lineas contratadas
         
         });
             
-</script>
+                                    </script>
 
           
         
-  @endsection
+@endsection
 @endsection

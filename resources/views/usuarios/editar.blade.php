@@ -1,16 +1,18 @@
 @extends('layouts.app')
-
+@section('title')
+  Editar usuarios
+@endsection
 @section('content')
     <section class="">
         <div class="section-header">
-            {{-- <h3 class="page__heading">Editar usuarios:</h3> --}}
         </div>
         <div class="section-body">
+          <h5 style="background-color:white; padding:0.4rem; border-radius:1rem;" id="paseSalidaMensaje">Editar usuarios:</h5>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center">Editar usuarios</h3>
+                            
                                  {{-- control de errores: --}}
                                  @if ($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -26,51 +28,63 @@
                             {{-- Laravel colective --}}
 
                             {!! Form::model($user,['method' => 'PUT', 'route' =>['usuarios.update', $user->id]]) !!}
-                            <div class="row">
+
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm">
+                                 {{-- 1 --}}
+                                
+                                 <div class="row">
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label for="name">Nombre</label>
+                                         {!! Form::text('name', null, array('class' => 'form-control')) !!}
+                                      </div>
+                                    </div>
+  
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label for="email">E-mail</label>
+                                         {!! Form::text('email', null, array('class' => 'form-control')) !!}
+                                      </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                         <label for="">Roles</label>
+                                         {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control')) !!}
+                                      </div>
+                                    </div>
+                                 {{-- 1 --}}
+                                </div>
+
+                                </div>
+                                <div class="col-sm">
+                                 {{-- 1 --}}
+                                
+                                 <div class="col-xs-12 col-sm-12 col-md-12">
+                                  <div class="form-group">
+                                     <label for="password">Password</label>
+                                     {!! Form::password('password', array('class' => 'form-control')) !!}
+                                  </div>
+                                </div>
+
+                           
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="name">Nombre</label>
-                                       {!! Form::text('name', null, array('class' => 'form-control')) !!}
-                                    </div>
+                                  <div class="form-group">
+                                     <label for="confirm-password">Confirmar password</label>
+                                     {!! Form::password('confirm-password', array('class' => 'form-control')) !!}
                                   </div>
-
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="email">E-mail</label>
-                                       {!! Form::text('email', null, array('class' => 'form-control')) !!}
-                                    </div>
-                                  </div>
- 
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="password">Password</label>
-                                       {!! Form::password('password', array('class' => 'form-control')) !!}
-                                    </div>
-                                  </div>
-
-                             
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="confirm-password">Confirmar password</label>
-                                       {!! Form::password('confirm-password', array('class' => 'form-control')) !!}
-                                    </div>
-                                  </div>
-
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="">Roles</label>
-                                       {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control')) !!}
-                                    </div>
-                                  </div>
-                                          <div class="col-xs-12 col-sm-12 col-md-12">
-                                             <button type="submit" class="btn btn-primary">Guardar</button>
-                                          </div>
-
+                                </div>
+  
+                                 {{-- 1 --}}
+                              </div>
+                              </div><br>
+                            <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
+                                            <a href="{{ route('usuarios.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+  
                             </div>
                             {!! Form::close() !!}
-
-
-                                 
                             {{-- fin --}}
                         </div>
                     </div>

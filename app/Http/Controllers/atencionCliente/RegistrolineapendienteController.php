@@ -7,7 +7,7 @@ use App\Models\Registrolinea;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class RegistrolineaController extends Controller
+class RegistrolineapendienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,30 +18,30 @@ class RegistrolineaController extends Controller
     {
         //
         if(request()->ajax())
-        {
-       if(!empty($request->from_date))
-        {
-         $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
-           ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+         {
+        if(!empty($request->from_date))
+         {
+          $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+            ->whereBetween('fechaSolicitudPermiso', array($request->from_date, $request->to_date));
+          }
+         else
+         {
+            $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
+            ->where('estado','like','pendiente');     
          }
-        else
-        {
-           $data = Registrolinea::select('registrolineas.*')->orderBy('id','DESC')
-           ->where('estado','like','contratado'); 
-        }
-          return datatables()->of($data)  
-          ->addColumn('action', function ($data) {
-         
-           return view('/atencion-al-cliente/ventas-linea.action', compact('data'));
-           
+           return datatables()->of($data)  
+           ->addColumn('action', function ($data) {
+          
+            return view('/atencion-al-cliente/lineas-pendientes.action', compact('data'));
+            
 
-       })
-          
-           ->rawColumns(['action'])
-          ->make(true);
-       }
-          
-        return view('/atencion-al-cliente/ventas-linea.index');
+        })
+           
+            ->rawColumns(['action'])
+           ->make(true);
+        }
+           
+        return view('/atencion-al-cliente/lineas-pendientes.index');
     }
 
     /**
@@ -63,6 +63,7 @@ class RegistrolineaController extends Controller
      */
     public function store(Request $request)
     {
+        //
         $validated = $request->validate([
            
             'id' => 'required',
@@ -80,6 +81,7 @@ class RegistrolineaController extends Controller
         ]);
 
 
+
     
 
             $ventas = new Registrolinea;
@@ -94,11 +96,9 @@ class RegistrolineaController extends Controller
             $ventas->numeroCuotas = $request->numeroCuotas;
             $ventas->nombreBeneficiario = $request->nombreBeneficiario;
             $ventas->beneficiarioParentesco = $request->beneficiarioParentesco;
-            $ventas->estado = 'pendiente';
             $ventas->save();
             return redirect()->route('menu-ventas');
     }
-    
 
     /**
      * Display the specified resource.
@@ -114,10 +114,12 @@ class RegistrolineaController extends Controller
     }
 
     /**
-     * Show the form to create a new blog post.
+     * Show the form for editing the specified resource.
      *
-     * @return \Illuminate\View\View
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
+
     public function wifi123(Request $request)
     {
         //
@@ -127,17 +129,11 @@ class RegistrolineaController extends Controller
         return view('/atencion-al-cliente/ventas-wifi/crear', compact('registrowifi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
         $registro=Registrolinea::findOrFail($id);
-        return view('/atencion-al-cliente/ventas-linea.editar', compact('registro'));
+        return view('/atencion-al-cliente/lineas-pendientes.editar', compact('registro'));
     }
 
     /**
@@ -166,7 +162,7 @@ class RegistrolineaController extends Controller
     {
         //
         Registrolinea::find($id)->delete();
-        return redirect()->route('ventas-linea.index');
+        return redirect()->route('lineas-pendientes.index');
     }
 
     public function imprimir($id)
@@ -182,9 +178,5 @@ class RegistrolineaController extends Controller
         return $pdf->stream('nombre.pdf');
         
     }
-
-
-
-
 
 }
