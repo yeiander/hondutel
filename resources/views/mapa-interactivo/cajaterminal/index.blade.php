@@ -38,7 +38,6 @@
                          <th style="color: #fff;">Descripcion</th>
                          <th style="color: #fff;">Direccion</th>
                          <th style="color: #fff;">Armario</th>   
-                         <th style="color: #fff;">Gps caja terminal</th>
                          <th style="color: #fff;">Acciones</th>
                         
                         </tr>
@@ -101,10 +100,6 @@ $(document).ready(function(){
     {
      data:'armarios.numeroArmario',
      name:'armarios.numeroArmario'
-    },
-    {
-     data:'gps_caja_terminal',
-     name:'gps_caja_terminal'
     },
    
     {

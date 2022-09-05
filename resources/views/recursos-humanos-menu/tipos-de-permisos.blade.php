@@ -83,7 +83,7 @@
                          <div class="row">
                            <div class="col-sm">
                                     {{-- columna 1 --}}
-                                    
+                          @can('recursos-humanos-ver')      
                              <ul class="list-unstyled">
                                <li class="media my-4">
                                  <a class="btn btn-outline-light" href="" data-toggle="modal" data-target="#paseSalida"><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>
@@ -94,7 +94,8 @@
                                   </div>
                                </li>
                              </ul>
-
+                           @endcan
+                           
                                <ul class="list-unstyled">
                                 <li class="media my-4">
                                     <a class="btn btn-outline-light" data-toggle="modal" data-target="#permisoPersonal" href=""><i style="color: rgb(112, 126, 141); font-size:2.4rem;" class="fa fa-plus-square" aria-hidden="true"></i></a>

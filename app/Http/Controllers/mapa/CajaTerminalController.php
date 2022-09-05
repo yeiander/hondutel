@@ -111,6 +111,9 @@ class CajaTerminalController extends Controller
     public function edit($id)
     {
         //
+        $armarios = Armario::all();
+        $caja = CajaTerminal::findOrFail($id);
+        return view('mapa-interactivo/cajaterminal/editar', compact('caja','armarios' ));
     }
 
     /**
@@ -123,6 +126,10 @@ class CajaTerminalController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $caja = request()->except(['_token', '_method']);
+        CajaTerminal::where('id','=', $id)->update($caja);
+        Session::flash('notiEditado', 'La caja terminal ha sido editado');
+        return redirect()->route('cajaterminal.index');
     }
 
     /**

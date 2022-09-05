@@ -19,7 +19,7 @@ class PermisoVentasController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:recursos-humanos-ver|recursos-humanos-editar|recursos-humanos-borrar',['only'=>['index']]);
+        $this->middleware('permission:recursos-humanos-ver|recursos-humanos-editar|recursos-humanos-borrar',['only'=>['index','create3']]);
         $this->middleware('permission:recursos-humanos-crear',['only'=>['create','store']]);
         $this->middleware('permission:recursos-humanos-editar',['only'=>['edit','update']]);
         $this->middleware('permission:recursos-humanos-borrar',['only'=>['destroy']]);

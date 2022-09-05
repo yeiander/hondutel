@@ -20,13 +20,6 @@
      @endcan 
      {{-- FINAL recursso humanos notificacion --}}
 
-     {{-- INICIO atencion al cliente notificacion --}}
-
-       <a style="font-size: 14px; margin-top: 0.5rem" href="{{ route('averia-pendiente.index') }}" style="margin-top: 0.5rem" type="button" class="btn btn-danger">
-        Registro Averia<span a style="font-size: 14px" class="badge badge-light">{{$contadoraveria}}</span>
-       </a>
-     {{-- FINAL atencion al cliente  notificacion  --}}
-     
  {{-------------------------- NOTIFICACIONES FINAL----------------------------------------}}
 
         <div class="section-body">
@@ -60,7 +53,7 @@
 
     // INICIO recargar automaticamente el inico
      $(document).ready(function(){
-       setTimeout(refrescar, 10000);
+       setTimeout(refrescar, 20000);
       });
   function refrescar(){
       location.reload();
