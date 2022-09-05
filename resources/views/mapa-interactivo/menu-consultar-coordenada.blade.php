@@ -38,6 +38,17 @@
                                       </div>
                                     </li>
                                   </ul>
+
+                                  <ul class="list-unstyled ">
+                                    <li class="media my-4">
+                                        <a href="{{ route('clientegps.index') }}"><i style="color:rgb(121, 126, 141)" class="fa fa-archive fa-3x mr-3" aria-hidden="true"></i>
+                                      <div class="media-body">
+                                          <a  href="{{ route('clientegps.index') }}">
+                                             <h5>Ver clientes</h5></a>
+                                             <p> Ver clientes almacenados</p>
+                                      </div>
+                                    </li>
+                                  </ul>
                                 
                                     {{-- fin --}}
                                   </div>

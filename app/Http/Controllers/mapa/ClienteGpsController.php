@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\MapaCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Armario;
+use App\Models\CajaTerminal;
 
 class ClienteGpsController extends Controller
 {
@@ -34,7 +36,7 @@ class ClienteGpsController extends Controller
           ->addColumn('action', function ($data) {
          
 
-           return view('/mapa-interactivo/armario.action', compact('data'));
+           return view('/mapa-interactivo/clientegps.action', compact('data'));
            
 
        })
@@ -106,7 +108,9 @@ class ClienteGpsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $cliente = MapaCliente::findOrFail($id);
+        return view('mapa-interactivo/clientegps/editar', compact('cliente'));
     }
 
     /**
@@ -119,6 +123,10 @@ class ClienteGpsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $cliente = request()->except(['_token', '_method']);
+        MapaCliente::where('id','=', $id)->update($cliente);
+        Session::flash('notiEditado', 'El cliente ha sido editado');
+        return redirect()->route('clientegps.index');
     }
 
     /**
@@ -130,5 +138,8 @@ class ClienteGpsController extends Controller
     public function destroy($id)
     {
         //
+        MapaCliente::find($id)->delete();
+        Session::flash('notiBorrado', 'El cliente a sido borrado');
+        return redirect()->route('clientegps.index');
     }
 }

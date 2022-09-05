@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="section-header"  style="max-height: 3rem;">
-            <h5 class="page__heading">Crear Nuevo Armario</h5>
+            <h5 class="page__heading">Editar armario</h5>
         </div>
         <div class="section-body">
           @if ($errors->any())
@@ -21,8 +21,10 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
-                            <form id="form" action=" {{url('/mapa-interactivo/armario/')}} " method="post">
+                            <form id="form" action=" {{url('mapa-interactivo/armario/'.$armario->id)}} " method="post">
                                 @csrf
+                                {{ method_field('PATCH')}}   
+                             
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-sm">
@@ -33,7 +35,7 @@
                                         <div class="form-group">
                                           <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroArmario" required>Numero de Armario:</label>
                                             <select required class="form-control" id="numeroArmario" name="numeroArmario">
-                                                <option disabled selected value="">seleccione un numero</option>
+                                                <option value="{{ $armario->numeroArmario }}">{{ $armario->numeroArmario }}</option>
                                               <option value="1103">1103</option>
                                               <option value="1102">1102</option>
                                               <option value="1101">1101</option>
@@ -58,7 +60,7 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="gps_armario">GPS armario:</label>
-                                           <input required placeholder="Ingresar gps de armario" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
+                                           <input  value="{{ $armario->gps_armario }}" required placeholder="Ingresar gps de armario" style="font-size:14px;" class="form-control" type="text" name="gps_armario" id="gps_armario">
                                          </div>
                                       </div>
 
@@ -72,7 +74,7 @@
                                     <div class="form-group">
                                       <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="barrio" required>Lugares:</label>
                                         <select required class="form-control" id="barrio" name="barrio">
-                                            <option disabled selected value="">seleccione un lugar</option>
+                                            <option value="{{ $armario->barrio }}">{{ $armario->barrio }}</option>
                                           <option value="Barrio de Jesus">Barrio de Jesus</option>
                                           <option value="Barrio el Centro">Barrio el Centro</option>
                                           <option value="Barrio Buenos Aires">Barrio Buenos Aires</option>
@@ -92,7 +94,7 @@
                                                 <ul class="list-unstyled">
                                                     <div class="media-body">
                                                       <button style="margin-right: 1rem"  class="btn btn-primary" id="botonGuardar"  type="submit"  style="font-size: 13px" class="btn btn-primary"><i style="font-size: 15px" class="fa fa-check" aria-hidden="true"></i> Guardar</button>
-                                                      <a href="{{ route('menu-crear-coordenadas') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
+                                                      <a href="{{ route('armario.index') }}" class="btn btn-danger" id="botonCancelar"  type="button"  style="font-size: 12px"><i style="font-size: 15px" class="fa fa-times" aria-hidden="true"></i> Cancelar</a>
                                                     </div>
                                                   </ul>
                                                 </div>
