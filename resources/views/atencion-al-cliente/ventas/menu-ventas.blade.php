@@ -54,7 +54,7 @@
                                               <img class="mr-3" src="{{ asset('img/consulta.png') }}" height="50px">
                                             <div class="media-body">
                                                 <a href="{{ route('ventas-linea.index') }}">
-                                                   <h5>Consulta registro linea</h5>
+                                                   <h5>Lineas contratadas</h5>
                                                 </a>
                                               <p> Consulta linea</p>
                                             </div>

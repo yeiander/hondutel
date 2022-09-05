@@ -11,6 +11,25 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- inicio --}}
+                            @if ($errors->any())
+                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                              <strong>Complete los campos</strong>
+                                @foreach($errors->all() as $error)
+                                  <span class="badge badge-danger">{{$error}}</span>
+                                @endforeach
+                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                                 </button>
+                            </div>
+                          @endif
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-inline">
+                               <div class="form-group">
+                                <label id="clienteNombre"><h6>Nombre del cliente:</h6></label>
+                                <label id="clienteNombre"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteNombre}} </h6></label>
+                               </div>
+                                </div>
+                            </div> <hr>
 
                             <div class="container">
                               <div class="row">
@@ -26,14 +45,7 @@
                                   
                                   
                             
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                              <div class="form-inline">
-                               <div class="form-group">
-                                <label id="clienteNombre"><h6>Nombre del cliente:</h6></label>
-                                <label id="clienteNombre"><h6 style="color: blue; margin-left:0.2rem;">  {{$registrowifi->clienteNombre}} </h6></label>
-                               </div>
-                                </div>
-                            </div>
+                      
 
                             <div class="col-xs-12 col--12 col-md-12">
                               <div class="form-inline">
@@ -147,14 +159,14 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="rtn">R.T.N.:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="rtn" id="rtn">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="rtn" id="rtn">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="wifiTelefonoAsociado">Telefono Asociado:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="wifiTelefonoAsociado" id="wifiTelefonoAsociado">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="wifiTelefonoAsociado" id="wifiTelefonoAsociado">
                                        </div>
                                     </div>
 
@@ -162,14 +174,14 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="clienteTelefonoOficina">Telefono de Oficina:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="clienteTelefonoOficina" id="clienteTelefonoOficina">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="clienteTelefonoOficina" id="clienteTelefonoOficina">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="propietarioLinea">Linea del propietario:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="propietarioLinea" id="propietarioLinea">
+                                         <input readonly value="{{ $registrowifi->numLinea }}"  required style="font-size:14px;" class="form-control" type="text" name="propietarioLinea" id="propietarioLinea">
                                        </div>
                                     </div>
 
@@ -187,12 +199,12 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="categorias">Categorias:</label>
-                                       <select class="form-control" id="categorias" name="categorias">
-                                         <option disabled selected>Seleccionar categorias</option>
-                                           <option value="Soltero">Residencial</option>
-                                           <option value="Casado">Comercial</option>
-                                           <option value="Divorciado">Gobierno</option>
-                                           <option value="Divorciado">Otros</option>
+                                       <select required class="form-control" id="categorias" name="categorias">
+                                         <option value="" disabled selected>Seleccionar categorias</option>
+                                           <option value="Residencial">Residencial</option>
+                                           <option value="Comercial">Comercial</option>
+                                           <option value="Gobierno">Gobierno</option>
+                                           <option value="Otros">Otros</option>
                                          </select>
                                       </div>
                                     </div>
@@ -201,23 +213,42 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaSolicitud">Fecha de Solicitud:</label>
-                                         <input style="font-size:14px;" class="form-control" type="date" name="fechaSolicitud" id="fechaSolicitud">
+                                         <input required style="font-size:14px;" class="form-control" type="date" name="fechaSolicitud" id="fechaSolicitud">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombrePropietario">Nombre del propietario:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="nombrePropietario" id="nombrePropietario">
+                                         <input readonly required style="font-size:14px;" value="{{ $registrowifi->clienteNombre }}" class="form-control" type="text" name="nombrePropietario" id="nombrePropietario">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="equipoInstalacion">Equipo de instalacion:</label>
-                                         <input style="font-size:14px;" class="form-control" type="text" name="equipoInstalacion" id="equipoInstalacion">
+                                         <input required style="font-size:14px;" class="form-control" type="text" name="equipoInstalacion" id="equipoInstalacion">
                                        </div>
                                     </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                        <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megas">Megas:</label>
+                                        <select class="form-control" id="megas" name="megas">
+                                         <option disabled selected >seleccione una opcion</option>
+                                         <option value="2 MB">2 MB</option>
+                                            <option value="3 MB">3 MB</option>   
+                                            <option value="4 MB">4 MB</option>
+                                            <option value="5 MB">5 MB</option> 
+                                            <option value="6 MB">6 MB</option>
+                                            <option value="8 MB">8 MB</option> 
+                                            <option value="10 MB">10 MB</option>
+                                            <option value="12 MB">12 MB</option> 
+                                            <option value="15 MB">15 MB</option>
+                                            <option value="20 MB">20 MB</option>                     
+                                          </select>
+                                       </div>
+                                     </div>
 
     
 

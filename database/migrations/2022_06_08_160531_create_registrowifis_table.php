@@ -26,6 +26,7 @@ class CreateRegistrowifisTable extends Migration
             $table->string('equipoInstalacion')->nullable();
             $table->string('categorias')->nullable();
             $table->date('fechaSolicitud')->nullable();
+            $table->string('megas')->nullable();
             $table->timestamps();
         });
     }

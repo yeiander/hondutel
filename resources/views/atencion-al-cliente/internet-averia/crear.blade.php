@@ -34,21 +34,21 @@
                                      <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="nombreCliente">Nombre del cliente:</label>
-                                         <input style="font-size:14px;" value="{{$Registro->nombrePropietario}}" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
+                                         <input required style="font-size:14px;" value="{{$registro->nombrePropietario}}" class="form-control" type="text" name="nombreCliente" id="nombreCliente">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
                                          <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="contacto">Contacto:</label>
-                                         <input style="font-size:14px;" value="" class="form-control" type="text" name="contacto" id="contacto">
+                                         <input required style="font-size:14px;" value="{{$registro->wifiTelefonoAsociado}}" class="form-control" type="text" name="contacto" id="contacto">
                                        </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group"> 
                                       <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="fechaDeSolicitud">Fecha de solicitud.</label>
-                                      <input style="font-size:14px;" value="{{$registrowifi}}" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
+                                      <input required style="font-size:14px;" class="form-control" type="date" name="fechaDeSolicitud" id="fechaDeSolicitud">
                                     </div>
                                     </div>
 
@@ -60,22 +60,22 @@
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="numeroDeLinea">Numero de linea:</label>
-                                           <input style="font-size:14px;" value="" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
+                                           <input required style="font-size:14px;" value="{{$registro->propietarioLinea}}" class="form-control" type="text" name="numeroDeLinea" id="numeroDeLinea">
                                          </div>
                                       </div>
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <label style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Direccion">Direccion:</label>
-                                           <input style="font-size:14px;" class="form-control" type="text" name="Direccion" id="Direccion">
+                                           <input required style="font-size:14px;" value="{{$registro->direccion}}" class="form-control" type="text" name="Direccion" id="Direccion">
                                          </div>
                                       </div>
 
                                       <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                           <label  style="font-size:16px; font-weight:bold; color:rgb(92, 92, 92)"  for="Megas">Megas:</label>
-                                          <select class="form-control" id="Megas" name="Megas">
-                                           <option disabled selected > Seleccione cantidad de megas</option>
+                                          <select  class="form-control" id="megas" name="megas">
+                                           <option value="{{$registro->megas}}">{{$registro->megas}}</option>
                                            <option value="2 MB">2 MB</option>
                                               <option value="3 MB">3 MB</option>   
                                               <option value="4 MB">4 MB</option>

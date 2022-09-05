@@ -149,7 +149,7 @@ class RegistrolineapendienteController extends Controller
         $registro = request()->except(['_token', '_method']);
         Registrolinea::where('id','=',$id)->update($registro);
 
-        return redirect()->route('ventas-linea.index');
+        return redirect()->route('lineas-pendientes.index');
     }
 
     /**

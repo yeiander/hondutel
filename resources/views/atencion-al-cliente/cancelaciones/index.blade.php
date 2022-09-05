@@ -26,12 +26,13 @@
                               <thead style="background-color:#6777ef;">
                                   <tr>
                                       
+                                <th style="color: #fff;">id</th>
                                 <th style="color: #fff;">Nombre del Cliente</th>
                                 <th style="color: #fff;">Contacto</th>
                                 <th style="color: #fff;">Nota</th>
                                 <th style="color: #fff;">Fecha de cancelacion</th>
-                                <th style="color: #fff;">id</th>
-                                <th style="color: #fff;">acciones</th>
+                                
+                            <th style="color: #fff;">acciones</th>
                                                           
                                 
                                   </tr>
@@ -40,12 +41,11 @@
                                 @foreach($registros as $registro)
                                 <tr>
                                  
-                                 
+                                    <td>{{$registro->id}}</td>
                                   <td>{{$registro->nombreCliente}}</td>
                                   <td>{{$registro->contacto}}</td>
                                   <td>{{$registro->nota}}</td>
                                   <td>{{$registro->fechaCancelacion}}</td>
-                                   <td>{{$registro->id}}</td>
                                    <td>
                                     <a type="submit" class="btn btn-primary" href="{{ url('/atencion-al-cliente/cancelaciones/'.$registro->id.'/edit') }}" >editar </a>
                                     <a type="submit" target="_blank" class="btn btn-success" href="{{ url('/atencion-al-cliente/cancelaciones/'.$registro->id.'/imprimir') }}">Imprimir</a>

@@ -65,7 +65,7 @@ class RegistrolineaController extends Controller
     {
         $validated = $request->validate([
            
-            'id' => 'required',
+            'id' => 'required|unique:registrolineas,id,',
             'clienteNombre' => 'required',
             'clienteCorreo' => 'required',
             'clienteProfesion' => 'required',

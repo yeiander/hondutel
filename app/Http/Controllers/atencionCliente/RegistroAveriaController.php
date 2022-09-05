@@ -52,13 +52,13 @@ class RegistroAveriaController extends Controller
     {
         //
         $validated = $request->validate([
-           
+           //este controlador es para averia internet
             'nombreCliente' => 'required',
             'contacto' => 'required',
             'fechaDeSolicitud' => 'required',
             'numeroDeLinea' => 'required',
             'Direccion' => 'required',  
-            'Megas' => 'required',  
+            'megas' => 'required',  
                
         ]);
 

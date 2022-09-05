@@ -42,12 +42,16 @@ class InternetaveriaController extends Controller
         //
         $linea = $request->input('hola');
         //
-         $registrowifi = Registrowifi::all()->where('propietarioLinea','like', $linea);
-         $hola123 = DB::table('registrowifis')->select('id')->where('propietarioLinea','like', $linea)
-         ->get(); 
-         $registro=Registrowifi::findOrFail($hola123);
+         //$data = Registrolinea::select('registrolineas.*')->where('numLinea','like', $linea);
+         $idCliente = DB::table('registrowifis')
+         ->select('id')
+         ->where('propietarioLinea', $linea)
+         ->first()
+         ->id;
 
-        return view('/atencion-al-cliente/internet-averia.crear', compact('registrowifi','hola123','registro'));
+         $registro=Registrowifi::findOrFail($idCliente);
+
+        return view('/atencion-al-cliente/internet-averia.crear', compact('registro'));
     }
 
     /**
@@ -59,6 +63,17 @@ class InternetaveriaController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+           
+            'nombrePropietario' => 'required',
+            'wifiTelefonoAsociado' => 'required',
+            'fechaDeSolicitud' => 'required',
+            'propietarioLinea' => 'required',
+            'direccion' => 'required',  
+            'megas' => 'required',  
+            
+               
+        ]);
     }
 
     /**

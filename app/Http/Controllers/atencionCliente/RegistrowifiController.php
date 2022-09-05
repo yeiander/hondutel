@@ -67,6 +67,21 @@ class RegistrowifiController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+           
+            'fk_id_linea' => 'required',
+            'rtn' => 'required',
+            'wifiTelefonoAsociado' => 'required',
+            'clienteTelefonoOficina' => 'required',
+            'propietarioLinea' => 'required',  
+            'categorias' => 'required',  
+            'fechaSolicitud' => 'required', 
+            'nombrePropietario' => 'required', 
+            'equipoInstalacion' => 'required', 
+             
+               
+        ]);
+
         $registrowifi = request()->except('_token');
         Registrowifi::insert($registrowifi);
         return redirect()->route('ventas-wifi.index');

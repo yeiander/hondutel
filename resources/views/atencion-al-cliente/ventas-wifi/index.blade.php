@@ -42,8 +42,13 @@ Wifi
                                         
                                       <th style="color: #fff;">Identidad</th>
                                       <th style="color: #fff;">Nombre cliente</th>
-                                      <th style="color: #fff;">Correo</th>
                                       <th style="color: #fff;">Contacto</th>
+                                      <th style="color: #fff;">Categorias</th>
+                                      <th style="color: #fff;">Equipo de instalacion</th>
+                                      <th style="color: #fff;">fechaSolicitud</th>
+                                      <th style="color: #fff;">Telefono Asociado</th>
+                                      <th style="color: #fff;">Linea del propietario</th>
+                                      <th style="color: #fff;">Megas</th>
                                       <th style="color: #fff;">Acciones</th>
                                      
                                     </tr>
@@ -116,16 +121,42 @@ Wifi
              data:'registrolineas.clienteNombre',
              name:'registrolineas.clienteNombre'
             },
-            {
-             data:'registrolineas.clienteCorreo',
-             name:'registrolineas.clienteCorreo'
-            },
            
             {
              data:'registrolineas.telefonoContacto',
              name:'registrolineas.telefonoContacto'
             },
-            
+
+            {
+             data:'categorias',
+             name:'categorias'
+            },
+
+            {
+             data:'equipoInstalacion',
+             name:'equipoInstalacion'
+            },
+
+            {
+             data:'fechaSolicitud',
+             name:'fechaSolicitud'
+            },
+
+            {
+             data:'wifiTelefonoAsociado',
+             name:'wifiTelefonoAsociado'
+            },
+
+            {
+             data:'propietarioLinea',
+             name:'propietarioLinea'
+            },
+
+             {
+             data:'megas',
+             name:'megas'
+            },
+
             {
              data:'action',
              name:'action'
