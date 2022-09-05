@@ -11,14 +11,13 @@ use Illuminate\Support\Facades\Session;
 
 class RolController extends Controller
 {
-     function __construct()
-     {
-        //  $this->middleware('permission:ver-rol|crear-rol|editar-rol|borrar-rol',['only'=>['index']]);
-        //  $this->middleware('permission:crear-rol',['only'=>['create','store']]);
-        //  $this->middleware('permission:editar-rol',['only'=>['edit','update']]);
-        //  $this->middleware('permission:borrar-rol',['only'=>['destroy']]);
-
-     }
+    function __construct()
+    {    
+        $this->middleware('permission:admin-ver|admin-crear|admin-editar|admin-borrar',['only'=>['index']]);
+        $this->middleware('permission:admin-crear',['only'=>['create','store']]);
+        $this->middleware('permission:admin-editar',['only'=>['edit','update']]);
+        $this->middleware('permission:admin-borrar',['only'=>['destroy']]);
+    }
 
     /**
      * Display a listing of the resource.
