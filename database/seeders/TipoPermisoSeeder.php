@@ -34,5 +34,15 @@ class TipoPermisoSeeder extends Seeder
         $TipoPermiso3->id = '4';
         $TipoPermiso3->tipoPermiso = 'permiso de ventas';
         $TipoPermiso3->save();
+
+        $TipoPermiso3 = new RhTipoPermiso();
+        $TipoPermiso3->id = '5';
+        $TipoPermiso3->tipoPermiso = 'permiso de incapacidad';
+        $TipoPermiso3->save();
+
+        $TipoPermiso3 = new RhTipoPermiso();
+        $TipoPermiso3->id = '6';
+        $TipoPermiso3->tipoPermiso = 'pago de subsidio';
+        $TipoPermiso3->save();
     }
 }

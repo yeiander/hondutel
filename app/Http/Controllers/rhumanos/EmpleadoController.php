@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\rhumanos;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
@@ -142,9 +141,6 @@ class EmpleadoController extends Controller
     {
         //
         $validated = $request->validate([
-            
-           
-            'id' => 'required|unique:empleados,id,',
             
         ]);
 

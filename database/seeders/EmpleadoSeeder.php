@@ -25,7 +25,7 @@ $empleado->save();
 
 $empleado1 = new Empleado();
 $empleado1->id = '5555';
-$empleado1->nombreEmpleado = 'Alma Isabel Solis';
+$empleado1->nombreEmpleado = 'Mairon Fabricio Godoy';
 $empleado1->telefonoEmpleado = '+7254545';
 $empleado1->numIdentidadEmpleado = '08034333202897';
 $empleado1->areaTrabajo = 'ventas';
